@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Buddha's Wisdom Chat
+
+AI-powered chat platform for exploring Buddhist wisdom through conversations with historical Buddhist characters.
+
+## Features
+
+- **Character Chat** — Talk with Buddha, Dalai Lama, Thich Nhat Hanh, Nagarjuna and other Buddhist figures
+- **8 Languages** — RU, EN, HI, ES, FR, DE, ZH, JA
+- **Voice I/O** — Speech-to-text and text-to-speech
+- **Community** — Share posts, YouTube videos, images and links
+- **Retreats** — Find Vipassana centers worldwide
+- **Quiz** — Test your Buddhist knowledge
+- **AI Translations** — Translate chat messages on the fly
+
+## Tech Stack
+
+- Next.js 16 + React 19
+- Tailwind CSS v4
+- Supabase (Auth + PostgreSQL)
+- Google AI (Gemini)
+- Vercel (deployment)
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+git clone https://github.com/Serze8/buddha-wisdom-chat.git
+cd buddha-wisdom-chat
+npm install
+cp .env.example .env.local
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Environment Variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+GOOGLE_AI_API_KEY=your_google_ai_key
+```
 
-## Learn More
+## Deploy
 
-To learn more about Next.js, take a look at the following resources:
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Serze8/buddha-wisdom-chat)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Support
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- [Boosty](https://boosty.to/serze8) — Donate
+- [GitHub Issues](https://github.com/Serze8/buddha-wisdom-chat/issues)
 
-## Deploy on Vercel
+## License
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+MIT
