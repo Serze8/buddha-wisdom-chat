@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react'
 import { useLanguage } from '@/contexts/LanguageContext'
 import { createClient } from '@/lib/supabase/client'
 import { MapPin, Calendar, ExternalLink, Star, Loader2, Plus, X } from 'lucide-react'
-import Image from 'next/image'
 import PromoBanner from '@/components/ui/PromoBanner'
 
 interface Retreat {
@@ -124,13 +123,11 @@ export default function RetreatsPage() {
           {retreats.map((r) => (
             <div key={r.id} className="bg-white dark:bg-gray-900 rounded-2xl shadow border border-gray-200 dark:border-gray-700 overflow-hidden hover:shadow-lg transition-all">
               <div className="relative aspect-[1440/752]">
-                <Image
+                <img
                   src={retreatImageMap[r.id] || defaultRetreatImage}
                   alt={r.name}
-                  fill
-                  sizes="(max-width: 640px) 100vw, 50vw"
-                  className="object-cover"
-                  priority={r.id === '1'}
+                  className="w-full h-full object-cover"
+                  loading={r.id === '1' ? 'eager' : 'lazy'}
                 />
               </div>
               <div className="p-5">
