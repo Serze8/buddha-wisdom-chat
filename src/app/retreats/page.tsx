@@ -27,16 +27,18 @@ interface Story {
   retreat_id: string
 }
 
-const retreatImages = [
-  '/images/retreats/retreat-1.jpg',
-  '/images/retreats/retreat-3.jpg',
-  '/images/retreats/retreat-4.jpg',
-  '/images/retreats/retreat-5.jpg',
-  '/images/retreats/retreat-6.jpg',
-  '/images/retreats/retreat-7.jpg',
-  '/images/retreats/retreat-1.jpg',
-  '/images/retreats/retreat-3.jpg',
-]
+const retreatImageMap: Record<string, string> = {
+  '1': '/images/retreats/retreat-1.jpg',
+  '2': '/images/retreats/plum-village.jpg',
+  '3': '/images/retreats/retreat-3.jpg',
+  '4': '/images/retreats/spirit-rock.png',
+  '5': '/images/retreats/suan-mokkh.jpg',
+  '6': '/images/retreats/retreat-5.jpg',
+  '7': '/images/retreats/retreat-6.jpg',
+  '8': '/images/retreats/root-institute.jpg',
+}
+
+const defaultRetreatImage = '/images/retreats/retreat-4.jpg'
 
 const defaultRetreats: Retreat[] = [
   { id: '1', name: 'Dhamma Giri', location: 'Igatpuri, Maharashtra, India', description: 'One of the world\'s largest Vipassana meditation centers.', start_date: null, end_date: null, url: 'https://www.dhamma.org' },
@@ -44,7 +46,7 @@ const defaultRetreats: Retreat[] = [
   { id: '3', name: 'Insight Meditation Society', location: 'Barre, Massachusetts, USA', description: 'Founded in 1975. Vipassana and Metta retreats.', start_date: null, end_date: null, url: 'https://dharma.org' },
   { id: '4', name: 'Spirit Rock', location: 'Woodacre, California, USA', description: 'West Coast vipassana center.', start_date: null, end_date: null, url: 'https://spiritrock.org' },
   { id: '5', name: 'Suan Mokkh', location: 'Surat Thani, Thailand', description: 'Traditional Thai forest monastery.', start_date: null, end_date: null, url: 'https://suanmokkh.org' },
-  { id: '6', name: 'Tushita', location: 'Dharamsala, Himachal Pradesh, India', description: 'FPMT center near Dalai Lama\'s residence.', start_date: null, end_date: null, url: 'https://tushita.de' },
+  { id: '6', name: 'Tushita', location: 'Dharamsala, Himachal Pradesh, India', description: 'FPMT center near Dalai Lama\'s residence.', start_date: null, end_date: null, url: 'https://tushita.info' },
   { id: '7', name: 'Kopan Monastery', location: 'Kathmandu, Nepal', description: 'Tibetan Buddhist monastery. Annual November course.', start_date: null, end_date: null, url: 'https://kopanmonastery.com' },
   { id: '8', name: 'Root Institute', location: 'Bodh Gaya, Bihar, India', description: 'FPMT center near the Mahabodhi Temple.', start_date: null, end_date: null, url: 'https://rootinstitute.com' },
 ]
@@ -119,10 +121,10 @@ export default function RetreatsPage() {
       {/* Centers */}
       {tab === 'centers' && (
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          {retreats.map((r, i) => (
+          {retreats.map((r) => (
             <div key={r.id} className="bg-white dark:bg-gray-900 rounded-2xl shadow border border-gray-200 dark:border-gray-700 overflow-hidden hover:shadow-lg transition-all">
               <div className="relative h-40">
-                <Image src={retreatImages[i % retreatImages.length]} alt={r.name} fill className="object-cover" />
+                <Image src={retreatImageMap[r.id] || defaultRetreatImage} alt={r.name} fill className="object-cover" />
               </div>
               <div className="p-5">
                 <h3 className="font-bold text-gray-900 dark:text-gray-100 mb-2">{r.name}</h3>
