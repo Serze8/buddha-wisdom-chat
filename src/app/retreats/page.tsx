@@ -28,17 +28,17 @@ interface Story {
 }
 
 const retreatImageMap: Record<string, string> = {
-  '1': '/images/retreats/retreat-1.jpg',
+  '1': '/images/retreats/dhamma-giri.jpg',
   '2': '/images/retreats/plum-village.jpg',
-  '3': '/images/retreats/retreat-3.jpg',
-  '4': '/images/retreats/spirit-rock.png',
+  '3': '/images/retreats/ims.jpg',
+  '4': '/images/retreats/spirit-rock.jpg',
   '5': '/images/retreats/suan-mokkh.jpg',
-  '6': '/images/retreats/retreat-5.jpg',
-  '7': '/images/retreats/retreat-6.jpg',
+  '6': '/images/retreats/tushita.jpg',
+  '7': '/images/retreats/kopan.jpg',
   '8': '/images/retreats/root-institute.jpg',
 }
 
-const defaultRetreatImage = '/images/retreats/retreat-4.jpg'
+const defaultRetreatImage = '/images/retreats/dhamma-giri.jpg'
 
 const defaultRetreats: Retreat[] = [
   { id: '1', name: 'Dhamma Giri', location: 'Igatpuri, Maharashtra, India', description: 'One of the world\'s largest Vipassana meditation centers.', start_date: null, end_date: null, url: 'https://www.dhamma.org' },
