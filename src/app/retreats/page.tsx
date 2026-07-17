@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import { useLanguage } from '@/contexts/LanguageContext'
 import { createClient } from '@/lib/supabase/client'
 import { MapPin, Calendar, ExternalLink, Star, Loader2, Plus, X } from 'lucide-react'
+import Image from 'next/image'
 import PromoBanner from '@/components/ui/PromoBanner'
 
 interface Retreat {
@@ -25,6 +26,17 @@ interface Story {
   profiles?: { display_name: string | null } | null
   retreat_id: string
 }
+
+const retreatImages = [
+  '/images/retreats/retreat-1.jpg',
+  '/images/retreats/retreat-3.jpg',
+  '/images/retreats/retreat-4.jpg',
+  '/images/retreats/retreat-5.jpg',
+  '/images/retreats/retreat-6.jpg',
+  '/images/retreats/retreat-7.jpg',
+  '/images/retreats/retreat-1.jpg',
+  '/images/retreats/retreat-3.jpg',
+]
 
 const defaultRetreats: Retreat[] = [
   { id: '1', name: 'Dhamma Giri', location: 'Igatpuri, Maharashtra, India', description: 'One of the world\'s largest Vipassana meditation centers.', start_date: null, end_date: null, url: 'https://www.dhamma.org' },
@@ -107,9 +119,13 @@ export default function RetreatsPage() {
       {/* Centers */}
       {tab === 'centers' && (
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          {retreats.map((r) => (
-            <div key={r.id} className="bg-white dark:bg-gray-900 rounded-2xl shadow border border-gray-200 dark:border-gray-700 p-5 hover:shadow-lg transition-all">
-              <h3 className="font-bold text-gray-900 dark:text-gray-100 mb-2">{r.name}</h3>
+          {retreats.map((r, i) => (
+            <div key={r.id} className="bg-white dark:bg-gray-900 rounded-2xl shadow border border-gray-200 dark:border-gray-700 overflow-hidden hover:shadow-lg transition-all">
+              <div className="relative h-40">
+                <Image src={retreatImages[i % retreatImages.length]} alt={r.name} fill className="object-cover" />
+              </div>
+              <div className="p-5">
+                <h3 className="font-bold text-gray-900 dark:text-gray-100 mb-2">{r.name}</h3>
               <div className="flex items-center gap-1 text-sm text-gray-500 dark:text-gray-400 mb-2">
                 <MapPin className="w-3.5 h-3.5" /> {r.location}
               </div>
@@ -119,6 +135,7 @@ export default function RetreatsPage() {
                   <ExternalLink className="w-3 h-3" /> Website
                 </a>
               )}
+              </div>
             </div>
           ))}
         </div>

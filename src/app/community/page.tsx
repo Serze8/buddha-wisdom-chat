@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from 'react'
 import { useLanguage } from '@/contexts/LanguageContext'
 import { createClient } from '@/lib/supabase/client'
 import { Send, Loader2, Heart, MessageCircle } from 'lucide-react'
+import Image from 'next/image'
 import Link from 'next/link'
 import PromoBanner from '@/components/ui/PromoBanner'
 
@@ -162,7 +163,12 @@ export default function CommunityPage() {
             </div>
             <h3 className="font-bold text-gray-900 dark:text-gray-100 mb-2">{post.title}</h3>
             {post.content && <p className="text-gray-600 dark:text-gray-300 text-sm mb-3">{post.content}</p>}
-            {post.media_url && (
+            {post.media_url && post.media_type === 'image' && (
+              <div className="relative h-48 rounded-xl overflow-hidden mb-3">
+                <Image src={post.media_url} alt={post.title} fill className="object-cover" />
+              </div>
+            )}
+            {post.media_url && post.media_type !== 'image' && (
               <a href={post.media_url} target="_blank" rel="noopener noreferrer" className="text-amber-600 dark:text-amber-400 hover:underline text-sm">
                 🔗 {post.media_url}
               </a>

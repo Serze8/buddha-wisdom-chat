@@ -6,6 +6,7 @@ import { useLanguage } from '@/contexts/LanguageContext'
 import LanguageSwitcher from './LanguageSwitcher'
 import { cn } from '@/lib/utils'
 import { Menu, X, LogOut, User } from 'lucide-react'
+import Image from 'next/image'
 import { useState } from 'react'
 import { createClient } from '@/lib/supabase/client'
 import { useEffect } from 'react'
@@ -53,7 +54,7 @@ export default function Header() {
     <header className="sticky top-0 z-50 bg-amber-950/95 backdrop-blur-md border-b border-amber-800/30">
       <div className="max-w-7xl mx-auto px-4 flex items-center justify-between h-16">
         <Link href="/" className="flex items-center gap-2 font-bold text-lg text-amber-100">
-          <span className="text-2xl">🪷</span>
+          <Image src="/images/logo.png" alt="Buddha's Wisdom" width={36} height={36} className="rounded-full" />
           <span className="hidden sm:inline">Buddha&apos;s Wisdom</span>
         </Link>
 

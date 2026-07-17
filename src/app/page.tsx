@@ -2,14 +2,15 @@
 
 import { useLanguage } from '@/contexts/LanguageContext'
 import Link from 'next/link'
-import { MessageCircle, Users, Tv, BookOpen, Image, HelpCircle } from 'lucide-react'
+import Image from 'next/image'
+import { MessageCircle, Users, Tv, BookOpen, Image as ImageIcon, HelpCircle } from 'lucide-react'
 
 const features = [
   { key: 'chat', icon: MessageCircle, href: '/chat', color: 'bg-amber-100 text-amber-700' },
   { key: 'characters', icon: Users, href: '/characters', color: 'bg-orange-100 text-orange-700' },
   { key: 'episodes', icon: Tv, href: '/episodes', color: 'bg-red-100 text-red-700' },
   { key: 'teachings', icon: BookOpen, href: '/teachings', color: 'bg-yellow-100 text-yellow-700' },
-  { key: 'gallery', icon: Image, href: '/gallery', color: 'bg-amber-100 text-amber-600' },
+  { key: 'gallery', icon: ImageIcon, href: '/gallery', color: 'bg-amber-100 text-amber-600' },
   { key: 'quiz', icon: HelpCircle, href: '/quiz', color: 'bg-orange-100 text-orange-600' },
 ]
 
@@ -48,10 +49,17 @@ export default function HomePage() {
   return (
     <div>
       {/* Hero */}
-      <section className="relative bg-gradient-to-b from-amber-900 via-amber-800 to-amber-950 text-white overflow-hidden">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wMyI+PHBhdGggZD0iTTMwIDMwYzAtMTYuNTY5IDEzLjQzMS0zMCAzMCAzMHMzMCAxMy40MzEgMzAgMzAtMTMuNDMxIDMwLTMwIDMwUzMwIDQ2LjU2OSAzMCAzMHoiLz48L2c+PC9nPjwvc3ZnPg==')] opacity-50" />
+      <section className="relative bg-gradient-to-b from-amber-900 via-amber-800 to-amber-950 text-white overflow-hidden min-h-[420px]">
+        <Image
+          src="/images/hero.jpg"
+          alt="Buddhist temple"
+          fill
+          className="object-cover opacity-30"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-amber-900/60 via-amber-800/40 to-amber-950/80" />
         <div className="max-w-7xl mx-auto px-4 py-24 md:py-32 text-center relative z-10">
-          <span className="text-6xl md:text-8xl block mb-6">🪷</span>
+          <Image src="/images/logo.png" alt="Logo" width={80} height={80} className="rounded-full mx-auto mb-6 shadow-lg" />
           <h1 className="font-[var(--font-cormorant)] text-4xl md:text-6xl font-bold mb-4">
             {t.home.heroTitle}
           </h1>
