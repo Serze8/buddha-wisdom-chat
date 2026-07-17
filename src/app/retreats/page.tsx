@@ -123,8 +123,15 @@ export default function RetreatsPage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {retreats.map((r) => (
             <div key={r.id} className="bg-white dark:bg-gray-900 rounded-2xl shadow border border-gray-200 dark:border-gray-700 overflow-hidden hover:shadow-lg transition-all">
-              <div className="relative h-40">
-                <Image src={retreatImageMap[r.id] || defaultRetreatImage} alt={r.name} fill className="object-cover" />
+              <div className="relative aspect-[1440/752]">
+                <Image
+                  src={retreatImageMap[r.id] || defaultRetreatImage}
+                  alt={r.name}
+                  fill
+                  sizes="(max-width: 640px) 100vw, 50vw"
+                  className="object-cover"
+                  priority={r.id === '1'}
+                />
               </div>
               <div className="p-5">
                 <h3 className="font-bold text-gray-900 dark:text-gray-100 mb-2">{r.name}</h3>
