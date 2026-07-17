@@ -64,9 +64,6 @@ export default function RetreatsPage() {
   const supabase = createClient()
 
   useEffect(() => {
-    supabase.from('retreats').select('*').then(({ data }) => {
-      if (data && data.length > 0) setRetreats(data)
-    })
     supabase.from('retreat_stories').select('*, profiles(display_name)').order('created_at', { ascending: false }).then(({ data }) => {
       if (data) setStories(data as any[])
     })
