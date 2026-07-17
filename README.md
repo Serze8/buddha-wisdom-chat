@@ -1,5 +1,7 @@
 # Buddha's Wisdom Chat
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 AI-powered chat platform for exploring Buddhist wisdom through conversations with historical Buddhist characters.
 
 ## Features
@@ -27,6 +29,7 @@ git clone https://github.com/Serze8/buddha-wisdom-chat.git
 cd buddha-wisdom-chat
 npm install
 cp .env.example .env.local
+# fill in your keys in .env.local
 npm run dev
 ```
 
@@ -34,21 +37,25 @@ Open http://localhost:3000
 
 ## Environment Variables
 
-```
-NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
-NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
-GOOGLE_AI_API_KEY=your_google_ai_key
-```
+| Variable | Description |
+|---|---|
+| `NEXT_PUBLIC_SUPABASE_URL` | Supabase project URL |
+| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Supabase anonymous key |
+| `GOOGLE_AI_API_KEY` | Google AI (Gemini) API key |
 
-## Deploy
+## Contributing
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Serze8/buddha-wisdom-chat)
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
 
 ## Support
 
 - [Boosty](https://boosty.to/serze8) — Donate
-- [GitHub Issues](https://github.com/Serze8/buddha-wisdom-chat/issues)
-
-## License
-
-MIT
+- [GitHub Issues](https://github.com/Serze8/buddha-wisdom-chat/issues) — Report bugs or request features
