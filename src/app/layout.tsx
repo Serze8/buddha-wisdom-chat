@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Cormorant_Garamond, Inter } from 'next/font/google'
+import { cookies } from 'next/headers'
 import './globals.css'
 import LanguageProviderBlock from './LanguageProviderBlock'
 
@@ -27,11 +28,14 @@ export const metadata: Metadata = {
   },
 }
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const cookieStore = await cookies()
+  const lang = cookieStore.get('preferred_language')?.value || 'en'
+
   return (
-    <html lang="en" className={`${cormorant.variable} ${inter.variable} h-full antialiased`} suppressHydrationWarning>
+    <html lang={lang} className={`${cormorant.variable} ${inter.variable} h-full antialiased`} suppressHydrationWarning>
       <body className="min-h-full flex flex-col bg-amber-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100 font-[var(--font-inter)]">
-        <LanguageProviderBlock>{children}</LanguageProviderBlock>
+        <LanguageProviderBlock initialLocale={lang}>{children}</LanguageProviderBlock>
       </body>
     </html>
   )

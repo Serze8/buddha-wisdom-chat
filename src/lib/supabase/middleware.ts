@@ -61,5 +61,8 @@ export async function updateSession(request: NextRequest) {
     return NextResponse.redirect(url)
   }
 
+  const langCookie = request.cookies.get('preferred_language')?.value || 'en'
+  supabaseResponse.headers.set('x-preferred-language', langCookie)
+
   return supabaseResponse
 }

@@ -59,7 +59,9 @@ export default function HomePage() {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-amber-900/60 via-amber-800/40 to-amber-950/80" />
         <div className="max-w-7xl mx-auto px-4 py-24 md:py-32 text-center relative z-10">
-          <Image src="/images/logo.png" alt="Logo" width={80} height={80} className="rounded-full mx-auto mb-6 shadow-lg" />
+          <div className="relative w-20 h-20 rounded-full overflow-hidden mx-auto mb-6 shadow-lg">
+            <Image src="/images/logo.png" alt="Logo" fill className="object-cover" />
+          </div>
           <h1 className="font-[var(--font-cormorant)] text-4xl md:text-6xl font-bold mb-4">
             {t.home.heroTitle}
           </h1>

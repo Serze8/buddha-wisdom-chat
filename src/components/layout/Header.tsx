@@ -54,7 +54,9 @@ export default function Header() {
     <header className="sticky top-0 z-50 bg-amber-950/95 backdrop-blur-md border-b border-amber-800/30">
       <div className="max-w-7xl mx-auto px-4 flex items-center justify-between h-16">
         <Link href="/" className="flex items-center gap-2 font-bold text-lg text-amber-100">
-          <Image src="/images/logo.png" alt="Buddha's Wisdom" width={36} height={36} className="rounded-full" />
+          <div className="relative w-9 h-9 rounded-full overflow-hidden shrink-0">
+            <Image src="/images/logo.png" alt="Buddha's Wisdom" fill className="object-cover" />
+          </div>
           <span className="hidden sm:inline">Buddha&apos;s Wisdom</span>
         </Link>
 
