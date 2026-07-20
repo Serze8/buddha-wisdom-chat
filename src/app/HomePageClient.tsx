@@ -3,7 +3,7 @@
 import { useLanguage } from '@/contexts/LanguageContext'
 import Link from 'next/link'
 import Image from 'next/image'
-import { MessageCircle, Users, Tv, BookOpen, Image as ImageIcon, HelpCircle } from 'lucide-react'
+import { MessageCircle, Users, Tv, BookOpen, Image as ImageIcon, HelpCircle, BookOpenCheck, Film } from 'lucide-react'
 
 const features = [
   { key: 'chat', icon: MessageCircle, href: '/chat', color: 'bg-amber-100 text-amber-700' },
@@ -120,11 +120,79 @@ export default function HomePageClient() {
         </div>
       </section>
 
-      {/* Features Grid */}
+      {/* Three Main Blocks */}
+      <section className="max-w-6xl mx-auto px-4 py-16">
+        <div className="grid md:grid-cols-3 gap-6 stagger-children">
+          {/* Block 1: Chat */}
+          <Link
+            href="/chat"
+            className="group bg-white dark:bg-gray-900 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 overflow-hidden hover:shadow-xl hover:border-amber-300 dark:hover:border-amber-700 transition-all duration-300"
+          >
+            <div className="h-2 bg-gradient-to-r from-amber-400 to-amber-600" />
+            <div className="p-8">
+              <div className="w-14 h-14 rounded-2xl bg-amber-100 dark:bg-amber-900/30 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+                <MessageCircle className="w-7 h-7 text-amber-600 dark:text-amber-400" />
+              </div>
+              <h3 className="font-[var(--font-cormorant)] text-2xl font-bold text-gray-900 dark:text-gray-100 mb-3">
+                {t.home.blockChatTitle}
+              </h3>
+              <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-5">
+                {t.home.blockChatDesc}
+              </p>
+              <span className="inline-flex items-center gap-1 text-amber-700 dark:text-amber-400 font-medium text-sm group-hover:gap-2 transition-all">
+                {t.home.startChat} →
+              </span>
+            </div>
+          </Link>
+
+          {/* Block 2: Teachings */}
+          <Link
+            href="/teachings"
+            className="group bg-white dark:bg-gray-900 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 overflow-hidden hover:shadow-xl hover:border-amber-300 dark:hover:border-amber-700 transition-all duration-300"
+          >
+            <div className="h-2 bg-gradient-to-r from-orange-400 to-amber-500" />
+            <div className="p-8">
+              <div className="w-14 h-14 rounded-2xl bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+                <BookOpenCheck className="w-7 h-7 text-orange-600 dark:text-orange-400" />
+              </div>
+              <h3 className="font-[var(--font-cormorant)] text-2xl font-bold text-gray-900 dark:text-gray-100 mb-3">
+                {t.home.blockLearnTitle}
+              </h3>
+              <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-5">
+                {t.home.blockLearnDesc}
+              </p>
+              <span className="inline-flex items-center gap-1 text-amber-700 dark:text-amber-400 font-medium text-sm group-hover:gap-2 transition-all">
+                {t.home.readMore} →
+              </span>
+            </div>
+          </Link>
+
+          {/* Block 3: Film */}
+          <Link
+            href="/episodes"
+            className="group bg-white dark:bg-gray-900 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 overflow-hidden hover:shadow-xl hover:border-amber-300 dark:hover:border-amber-700 transition-all duration-300"
+          >
+            <div className="h-2 bg-gradient-to-r from-red-400 to-orange-500" />
+            <div className="p-8">
+              <div className="w-14 h-14 rounded-2xl bg-red-100 dark:bg-red-900/30 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+                <Film className="w-7 h-7 text-red-600 dark:text-red-400" />
+              </div>
+              <h3 className="font-[var(--font-cormorant)] text-2xl font-bold text-gray-900 dark:text-gray-100 mb-3">
+                {t.home.blockFilmTitle}
+              </h3>
+              <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-5">
+                {t.home.blockFilmDesc}
+              </p>
+              <span className="inline-flex items-center gap-1 text-amber-700 dark:text-amber-400 font-medium text-sm group-hover:gap-2 transition-all">
+                {t.home.readMore} →
+              </span>
+            </div>
+          </Link>
+        </div>
+      </section>
+
+      {/* Quick Links */}
       <section className="max-w-6xl mx-auto px-4 pb-16">
-        <h2 className="font-[var(--font-cormorant)] text-3xl font-bold text-center text-amber-900 dark:text-amber-100 mb-10">
-          {t.home.featuresTitle}
-        </h2>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4 stagger-children">
           {features.map(({ key, icon: Icon, href, color }) => (
             <Link

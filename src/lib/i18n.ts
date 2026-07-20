@@ -18,6 +18,9 @@ type TranslationKeys = {
     contact: string
     admin: string
     donate: string
+    blockChat: string
+    blockLearn: string
+    blockFilm: string
   }
   home: {
     heroTitle: string
@@ -27,6 +30,12 @@ type TranslationKeys = {
     readMore: string
     quoteStrip: string
     featuresTitle: string
+    blockChatTitle: string
+    blockChatDesc: string
+    blockLearnTitle: string
+    blockLearnDesc: string
+    blockFilmTitle: string
+    blockFilmDesc: string
   }
   auth: {
     login: string
@@ -96,6 +105,7 @@ const translations: Record<Locale, TranslationKeys> = {
       teachings: 'Teachings', theses: 'Theses', gallery: 'Gallery', quiz: 'Quiz',
       community: 'Community', videos: 'Videos', retreats: 'Retreats', profile: 'Profile',
       about: 'About', contact: 'Contact', admin: 'Admin', donate: 'Donate',
+      blockChat: 'Chat', blockLearn: 'From Under the Bodhi Tree', blockFilm: 'Film',
     },
     home: {
       heroTitle: "Buddha's Wisdom Chat",
@@ -103,6 +113,12 @@ const translations: Record<Locale, TranslationKeys> = {
       startChat: 'Start Chat', thesisOfDay: 'Thesis of the Day', readMore: 'Read More',
       quoteStrip: '"The mind is everything. What you think you become." — Buddha',
       featuresTitle: 'Explore',
+      blockChatTitle: 'Chat & Communication',
+      blockChatDesc: 'Talk with Buddha, Ananda, Yashodhara and other characters. Ask questions, get answers, share your thoughts with the community.',
+      blockLearnTitle: 'From Under the Bodhi Tree',
+      blockLearnDesc: 'Core teachings of the Buddha, theses of modern teachers, preliminary practices. Understand the essence of the Dharma.',
+      blockFilmTitle: 'Film & Discussion',
+      blockFilmDesc: 'Scenes from the Buddha series, your videos with explanations, discussion of key moments on the path to enlightenment.',
     },
     auth: {
       login: 'Login', register: 'Register', email: 'Email', password: 'Password',
@@ -141,6 +157,7 @@ const translations: Record<Locale, TranslationKeys> = {
       teachings: 'Учения', theses: 'Тезисы', gallery: 'Галерея', quiz: 'Викторина',
       community: 'Сообщество', videos: 'Видео', retreats: 'Ретриты', profile: 'Профиль',
       about: 'О проекте', contact: 'Контакты', admin: 'Админ', donate: 'Поддержать',
+      blockChat: 'Чат', blockLearn: 'Из-под дерева Бодхи', blockFilm: 'Фильм',
     },
     home: {
       heroTitle: 'Мудрость Будды',
@@ -148,6 +165,12 @@ const translations: Record<Locale, TranslationKeys> = {
       startChat: 'Начать чат', thesisOfDay: 'Тезис дня', readMore: 'Подробнее',
       quoteStrip: '«Ум — это всё. То, что ты думаешь, тем ты и становишься». — Будда',
       featuresTitle: 'Исследовать',
+      blockChatTitle: 'Чат и общение',
+      blockChatDesc: 'Общайтесь с Буддой, Анандой, Ясодхарой и другими персонажами. Задавайте вопросы, получайте ответы, делитесь мыслями с сообществом.',
+      blockLearnTitle: 'Из-под дерева Бодхи',
+      blockLearnDesc: 'Основные учения Будды, тезисы современных учителей, предварительные практики. Поймите суть Дхармы.',
+      blockFilmTitle: 'Фильм и обсуждение',
+      blockFilmDesc: 'Сцены из сериала «Будда», ваши роли с пояснениями, обсуждение ключевых моментов на пути к просветлению.',
     },
     auth: {
       login: 'Вход', register: 'Регистрация', email: 'Электронная почта', password: 'Пароль',
@@ -186,6 +209,7 @@ const translations: Record<Locale, TranslationKeys> = {
       teachings: 'शिक्षाएँ', theses: 'थीसिस', gallery: 'गैलरी', quiz: 'प्रश्नोत्तरी',
       community: 'समुदाय', videos: 'वीडियो', retreats: 'रिट्रीट', profile: 'प्रोफ़ाइल',
       about: 'परियोजना के बारे में', contact: 'संपर्क', admin: 'एडमिन', donate: 'समर्थन',
+      blockChat: 'चैट', blockLearn: 'बोधि वृक्ष के नीचे', blockFilm: 'फ़िल्म',
     },
     home: {
       heroTitle: 'बुद्ध की ज्ञान चैट',
@@ -193,6 +217,12 @@ const translations: Record<Locale, TranslationKeys> = {
       startChat: 'चैट शुरू करें', thesisOfDay: 'आज का थीसिस', readMore: 'और पढ़ें',
       quoteStrip: '"मन ही सब कुछ है। जो तुम सोचते हो, वही बन जाते हो।" — बुद्ध',
       featuresTitle: 'अन्वेषण करें',
+      blockChatTitle: 'चैट और संचार',
+      blockChatDesc: 'बुद्ध, आनंद, यशोधरा और अन्य पात्रों से बात करें। प्रश्न पूछें, उत्तर प्राप्त करें।',
+      blockLearnTitle: 'बोधि वृक्ष के नीचे',
+      blockLearnDesc: 'बुद्ध की मूल शिक्षाएँ, आधुनिक शिक्षकों के थीसिस, प्रारंभिक अभ्यास।',
+      blockFilmTitle: 'फ़िल्म और चर्चा',
+      blockFilmDesc: 'बुद्ध श्रृंखला से दृश्य, आपके वीडियो और स्पष्टीकरण, प्रमुख क्षणों पर चर्चा।',
     },
     auth: {
       login: 'लॉगिन', register: 'रजिस्टर', email: 'ईमेल', password: 'पासवर्ड',
@@ -231,6 +261,7 @@ const translations: Record<Locale, TranslationKeys> = {
       teachings: 'Enseñanzas', theses: 'Tesis', gallery: 'Galería', quiz: 'Quiz',
       community: 'Comunidad', videos: 'Videos', retreats: 'Retiros', profile: 'Perfil',
       about: 'Acerca de', contact: 'Contacto', admin: 'Administrador', donate: 'Donar',
+      blockChat: 'Chat', blockLearn: 'Bajo el Árbol Bodhi', blockFilm: 'Película',
     },
     home: {
       heroTitle: 'Chat de la Sabiduría del Buda',
@@ -238,6 +269,12 @@ const translations: Record<Locale, TranslationKeys> = {
       startChat: 'Iniciar Chat', thesisOfDay: 'Tesis del Día', readMore: 'Leer Más',
       quoteStrip: '"La mente lo es todo. Lo que piensas, eso te conviertes." — Buda',
       featuresTitle: 'Explorar',
+      blockChatTitle: 'Chat y Comunicación',
+      blockChatDesc: 'Habla con Buda, Ananda, Yashodhara y otros personajes. Haz preguntas y comparte tus pensamientos.',
+      blockLearnTitle: 'Bajo el Árbol Bodhi',
+      blockLearnDesc: 'Enseñanzas centrales del Buda, tesis de maestros modernos, prácticas preliminares.',
+      blockFilmTitle: 'Película y Discusión',
+      blockFilmDesc: 'Escenas de la serie Buda, tus videos con explicaciones, discusión de momentos clave.',
     },
     auth: {
       login: 'Iniciar sesión', register: 'Registrarse', email: 'Correo electrónico', password: 'Contraseña',
@@ -276,6 +313,7 @@ const translations: Record<Locale, TranslationKeys> = {
       teachings: 'Enseignements', theses: 'Thèses', gallery: 'Galerie', quiz: 'Quiz',
       community: 'Communauté', videos: 'Vidéos', retreats: 'Retraites', profile: 'Profil',
       about: 'À propos', contact: 'Contact', admin: 'Administrateur', donate: 'Donner',
+      blockChat: 'Chat', blockLearn: 'Sous l\'Arbre Bodhi', blockFilm: 'Film',
     },
     home: {
       heroTitle: 'Chat de la Sagesse du Bouddha',
@@ -283,6 +321,12 @@ const translations: Record<Locale, TranslationKeys> = {
       startChat: 'Commencer le Chat', thesisOfDay: 'Thèse du Jour', readMore: 'Lire la Suite',
       quoteStrip: '"L\'est tout. Ce que tu penses, tu le deviens." — Bouddha',
       featuresTitle: 'Explorer',
+      blockChatTitle: 'Chat et Communication',
+      blockChatDesc: 'Parlez avec Bouddha, Ananda, Yashodhara et d\'autres personnages. Posez des questions et partagez vos pensées.',
+      blockLearnTitle: 'Sous l\'Arbre Bodhi',
+      blockLearnDesc: 'Enseignements fondamentaux du Bouddha, thèses de maîtres modernes, pratiques préliminaires.',
+      blockFilmTitle: 'Film et Discussion',
+      blockFilmDesc: 'Scènes de la série Bouddha, vos vidéos avec explications, discussion des moments clés.',
     },
     auth: {
       login: 'Connexion', register: 'Inscription', email: 'E-mail', password: 'Mot de passe',
@@ -321,6 +365,7 @@ const translations: Record<Locale, TranslationKeys> = {
       teachings: 'Lehren', theses: 'Thesen', gallery: 'Galerie', quiz: 'Quiz',
       community: 'Gemeinschaft', videos: 'Videos', retreats: 'Rückzüge', profile: 'Profil',
       about: 'Über uns', contact: 'Kontakt', admin: 'Administrator', donate: 'Spenden',
+      blockChat: 'Chat', blockLearn: 'Unter dem Bodhi-Baum', blockFilm: 'Film',
     },
     home: {
       heroTitle: 'Buddhas Weisheits-Chat',
@@ -328,6 +373,12 @@ const translations: Record<Locale, TranslationKeys> = {
       startChat: 'Chat starten', thesisOfDay: 'These des Tages', readMore: 'Weiterlesen',
       quoteStrip: '"Der Geist ist alles. Was du denkst, das wirst du." — Buddha',
       featuresTitle: 'Erkunden',
+      blockChatTitle: 'Chat & Kommunikation',
+      blockChatDesc: 'Sprich mit Buddha, Ananda, Yashodhara und anderen Charakteren. Stelle Fragen und teile deine Gedanken.',
+      blockLearnTitle: 'Unter dem Bodhi-Baum',
+      blockLearnDesc: 'Zentrale Lehren Buddhas, Thesen moderner Lehrer, Vorübungen.',
+      blockFilmTitle: 'Film & Diskussion',
+      blockFilmDesc: 'Szenen aus der Buddha-Serie, deine Videos mit Erklärungen, Diskussion über Schlüsselmomente.',
     },
     auth: {
       login: 'Anmelden', register: 'Registrieren', email: 'E-Mail', password: 'Passwort',
@@ -366,6 +417,7 @@ const translations: Record<Locale, TranslationKeys> = {
       teachings: '教义', theses: '论文', gallery: '画廊', quiz: '问答',
       community: '社区', videos: '视频', retreats: '修行', profile: '个人资料',
       about: '关于', contact: '联系我们', admin: '管理员', donate: '支持',
+      blockChat: '聊天', blockLearn: '菩提树下', blockFilm: '电影',
     },
     home: {
       heroTitle: '佛陀智慧聊天',
@@ -373,6 +425,12 @@ const translations: Record<Locale, TranslationKeys> = {
       startChat: '开始聊天', thesisOfDay: '今日论文', readMore: '阅读更多',
       quoteStrip: '"心是一切。你所想的，你就会成为。" — 佛陀',
       featuresTitle: '探索',
+      blockChatTitle: '聊天与交流',
+      blockChatDesc: '与佛陀、阿难、耶输陀罗和其他角色交谈。提问、获取答案、分享想法。',
+      blockLearnTitle: '菩提树下',
+      blockLearnDesc: '佛陀的核心教导、现代老师的论点、前行修法。理解法的本质。',
+      blockFilmTitle: '电影与讨论',
+      blockFilmDesc: '佛陀系列的场景、您的视频和解释、关键时刻的讨论。',
     },
     auth: {
       login: '登录', register: '注册', email: '电子邮件', password: '密码',
@@ -411,6 +469,7 @@ const translations: Record<Locale, TranslationKeys> = {
       teachings: '教え', theses: '論文', gallery: 'ギャラリー', quiz: 'クイズ',
       community: 'コミュニティ', videos: '動画', retreats: 'リトリート', profile: 'プロフィール',
       about: '概要', contact: 'お問い合わせ', admin: '管理者', donate: '寄付',
+      blockChat: 'チャット', blockLearn: '菩提樹の下で', blockFilm: '映画',
     },
     home: {
       heroTitle: 'ブッダの知恵チャット',
@@ -418,6 +477,12 @@ const translations: Record<Locale, TranslationKeys> = {
       startChat: 'チャット開始', thesisOfDay: '今日の論文', readMore: '続きを読む',
       quoteStrip: '"心がすべて。考えることが、あなたの存在になる。" — ブッダ',
       featuresTitle: '探る',
+      blockChatTitle: 'チャットと交流',
+      blockChatDesc: 'ブッダ、アナンダ、ヤーショダラー他のキャラクターと話す。質問し、答えを受け取り、想法を分かち合う。',
+      blockLearnTitle: '菩提樹の下で',
+      blockLearnDesc: 'ブッダの核心的な教え、現代の老師の論点、前行修行。ダharmaの本質を理解する。',
+      blockFilmTitle: '映画と議論',
+      blockFilmDesc: 'ブッダシリーズのシーン、あなたの動画と解説、重要な瞬間の議論。',
     },
     auth: {
       login: 'ログイン', register: '登録', email: 'メール', password: 'パスワード',
