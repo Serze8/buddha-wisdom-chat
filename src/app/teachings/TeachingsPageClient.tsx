@@ -1,5 +1,6 @@
 'use client'
 
+import { useState } from 'react'
 import { useLanguage } from '@/contexts/LanguageContext'
 import PromoBanner from '@/components/ui/PromoBanner'
 
@@ -167,40 +168,79 @@ export default function TeachingsPageClient() {
           </ul>
         </div>
 
-        {/* Transcript (Russian) */}
-        <div className="bg-amber-50 dark:bg-amber-950/30 rounded-2xl border border-amber-200 dark:border-amber-800/30 p-6">
-          <h3 className="font-[var(--font-cormorant)] text-xl font-semibold text-amber-900 dark:text-amber-100 mb-4">
-            {locale === 'ru' ? 'Транскрипт видео' : 'Video Transcript'}
-            <span className="ml-2 text-sm font-normal text-amber-600 dark:text-amber-400">(RU)</span>
-          </h3>
-          <div className="space-y-3 text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
-            <p><strong className="text-amber-700 dark:text-amber-300">0:00</strong> Прежде чем начать — короткое уточнение.</p>
-            <p><strong className="text-amber-700 dark:text-amber-300">0:04</strong> Во-первых, этот канал посвящён философскому подходу к вопросу.</p>
-            <p><strong className="text-amber-700 dark:text-amber-300">0:08</strong> Во-вторых, мы рассматриваем буддийскую традицию как способ понимания реальности, а не как обсуждение различных религиозных взглядов.</p>
-            <p><strong className="text-amber-700 dark:text-amber-300">0:12</strong> Нас интересует суть идей, их смысл, и главное — путь освобождения.</p>
-            <p><strong className="text-amber-700 dark:text-amber-300">0:16</strong> Теперь — по теме.</p>
-            <p><strong className="text-amber-700 dark:text-amber-300">0:20</strong> Колесо Дхармы, или Дхармачакра — один из самых древних символов буддизма.</p>
-            <p><strong className="text-amber-700 dark:text-amber-300">0:24</strong> На санскрите «Дхармачакра» означает «колесо учения».</p>
-            <p><strong className="text-amber-700 dark:text-amber-300">0:28</strong> Этот символ связывают с первым наставлением Будды после пробуждения. Оно было дано в Сарнатхе.</p>
-            <p><strong className="text-amber-700 dark:text-amber-300">0:32</strong> Там были изложены Четыре благородные истины и Благородный восьмеричный путь.</p>
-            <p><strong className="text-amber-700 dark:text-amber-300">0:36</strong> Это событие называют «первым поворотом Колеса Дхармы».</p>
-            <p><strong className="text-amber-700 dark:text-amber-300">0:40</strong> Проще говоря, «поворот» означает, что учение было впервые ясно изложено.</p>
-            <p><strong className="text-amber-700 dark:text-amber-300">0:44</strong> То, что было пережито лично, стало объяснено первым слушателям.</p>
-            <p><strong className="text-amber-700 dark:text-amber-300">0:48</strong> Колесо — не магический знак и не оберег. Это символ пути освобождения. Схема, указывающая на выход из страдания.</p>
-            <p><strong className="text-amber-700 dark:text-amber-300">0:56</strong> У колеса три части.</p>
-            <p><strong className="text-amber-700 dark:text-amber-300">1:00</strong> Центр — ступица. Она символизирует устойчивость ума. Без внутренней устойчивости путь невозможен.</p>
-            <p><strong className="text-amber-700 dark:text-amber-300">1:08</strong> Восемь спиц — это Благородный восьмеричный путь: правильное понимание, правильное намерение, правильная речь, правильное действие, правильный образ жизни, правильное усилие, правильная осознанность, правильное сосредоточение.</p>
-            <p><strong className="text-amber-700 dark:text-amber-300">1:20</strong> Это не заповеди. Это система развития.</p>
-            <p><strong className="text-amber-700 dark:text-amber-300">1:24</strong> Обод соединяет всё вместе. Он символизирует целостность и дисциплину практики.</p>
-            <p><strong className="text-amber-700 dark:text-amber-300">1:28</strong> Важно различать. Колесо Дхармы — не «колесо жизни». И в нём нет образа страдания.</p>
-            <p><strong className="text-amber-700 dark:text-amber-300">1:36</strong> В буддийской традиции есть другой символ, изображающий сансару — круговорот существования.</p>
-            <p><strong className="text-amber-700 dark:text-amber-300">1:40</strong> Дхармачакра указывает не на замкнутый круг, а на выход из него.</p>
-            <p><strong className="text-amber-700 dark:text-amber-300">1:44</strong> Когда человек понимает причину страдания и видит путь его прекращения — Колесо начинает вращаться внутри него самого.</p>
-            <p><strong className="text-amber-700 dark:text-amber-300">1:48</strong> Колесо Дхармы — это не символ веры. Это модель понимания и путь освобождения.</p>
-            <p><strong className="text-amber-700 dark:text-amber-300">1:56</strong> Поэтому этот образ остаётся центральным в буддийской традиции до сих пор.</p>
-          </div>
-        </div>
+        {/* Transcript */}
+        <TranscriptSection />
       </section>
+    </div>
+  )
+}
+
+const transcriptData = [
+  { time: '0:00', ru: 'Прежде чем начать — короткое уточнение.', en: 'Before we begin — a short clarification.', pt: 'Antes de começar — um breve esclarecimento.' },
+  { time: '0:04', ru: 'Во-первых, этот канал посвящён философскому подходу к вопросу.', en: 'First. This channel is devoted to a philosophical approach to the question.', pt: 'Primeiro. Este canal é dedicado a uma abordagem filosófica da questão.' },
+  { time: '0:08', ru: 'Во-вторых, мы рассматриваем буддийскую традицию как способ понимания реальности, а не как обсуждение различных религиозных взглядов.', en: 'Second. We consider the Buddhist tradition as a path for understanding reality, and only then discuss different religious views.', pt: 'Segundo. Consideramos a tradição budista como um caminho de compreensão da realidade.' },
+  { time: '0:12', ru: 'Нас интересует суть идей, их смысл, и главное — путь освобождения.', en: 'Our interest is the essence of ideas, their meaning, and most importantly — the path to liberation.', pt: 'Nos interessam a essência das ideias, o seu significado e, acima de tudo, o caminho da libertação.' },
+  { time: '0:16', ru: 'Теперь — по теме.', en: 'Now — to the main topic.', pt: 'Agora — o tema principal.' },
+  { time: '0:20', ru: 'Колесо Дхармы, или Дхармачакра — один из самых древних символов буддизма.', en: 'The Wheel of Dharma, or Dharmachakra, is one of the most ancient symbols of Buddhism.', pt: 'A Roda do Dharma, ou Dharmachakra, é um dos símbolos mais antigos do budismo.' },
+  { time: '0:24', ru: 'На санскрите «Дхармачакра» означает «колесо учения».', en: "In Sanskrit, 'Dharmachakra' means 'the wheel of teaching'.", pt: "Em sânscrito, Dharmachakra significa 'roda do ensinamento'." },
+  { time: '0:28', ru: 'Этот символ связывают с первым наставлением Будды после пробуждения. Оно было дано в Сарнатхе.', en: 'This symbol is connected with the first teaching of the Buddha after awakening. It took place in Sarnath.', pt: 'Este símbolo está ligado ao primeiro ensinamento do Buda após o despertar, em Sarnath.' },
+  { time: '0:32', ru: 'Там были изложены Четыре благородные истины и Благородный восьмеричный путь.', en: 'There the Buddha explained the Four Noble Truths and the Noble Eightfold Path.', pt: 'Lá foram expostas as Quatro Nobres Verdades e o Nobre Caminho Óctuplo.' },
+  { time: '0:36', ru: 'Это событие называют «первым поворотом Колеса Дхармы».', en: "This event is called 'the first turning of the Wheel of Dharma'.", pt: "Esse evento é chamado de 'primeira rotação da Roda do Dharma'." },
+  { time: '0:40', ru: 'Проще говоря, «поворот» означает, что учение было впервые ясно изложено.', en: "In simple terms, the 'turning' means that the teaching was clearly expressed for the first time.", pt: 'Em termos simples, significa que o ensinamento foi expresso claramente pela primeira vez.' },
+  { time: '0:44', ru: 'То, что было пережито лично, стало объяснено первым слушателям.', en: 'What was personally realized was explained to the first disciples.', pt: 'O que foi realizado pessoalmente foi explicado aos primeiros discípulos.' },
+  { time: '0:48', ru: 'Колесо — не магический знак и не оберег. Это символ пути освобождения. Схема, указывающая на выход из страдания.', en: 'The wheel is not a magical sign or an amulet. It is a symbol of the path to liberation — a scheme pointing to the end of suffering.', pt: 'A roda não é um símbolo mágico nem um amuleto. É um símbolo do caminho da libertação.' },
+  { time: '0:56', ru: 'У колеса три части.', en: 'The wheel has three parts.', pt: 'A roda tem três partes.' },
+  { time: '1:00', ru: 'Центр — ступица. Она символизирует устойчивость ума. Без внутренней устойчивости путь невозможен.', en: 'The center — the hub — symbolizes stability of the mind and inner support. Without inner stability the path is impossible.', pt: 'O centro simboliza estabilidade da mente. Sem estabilidade interior o caminho é impossível.' },
+  { time: '1:08', ru: 'Восемь спиц — это Благородный восьмеричный путь: правильное понимание, правильное намерение, правильная речь, правильное действие, правильный образ жизни, правильное усилие, правильная осознанность, правильное сосредоточение.', en: 'The eight spokes represent the Noble Eightfold Path: right understanding, right intention, right speech, right action, right livelihood, right effort, right mindfulness, right concentration.', pt: 'As oito hastes representam o Nobre Caminho Óctuplo. Compreensão correta. Intenção correta. Fala correta. Ação correta. Modo de vida correto. Esforço correto. Atenção plena correta. Concentração correta.' },
+  { time: '1:20', ru: 'Это не заповеди. Это система развития.', en: 'These are not commandments. They are a system of development.', pt: 'Não são mandamentos, mas um sistema de desenvolvimento.' },
+  { time: '1:24', ru: 'Обод соединяет всё вместе. Он символизирует целостность и дисциплину практики.', en: 'The rim unites everything. It symbolizes integrity and discipline of practice.', pt: 'O aro une tudo e simboliza integridade da prática.' },
+  { time: '1:28', ru: 'Важно различать. Колесо Дхармы — не «колесо жизни». И в нём нет образа страдания.', en: "The Wheel of Dharma is not the 'wheel of life' and does not represent suffering.", pt: 'A Roda do Dharma não é a roda da vida.' },
+  { time: '1:36', ru: 'В буддийской традиции есть другой символ, изображающий сансару — круговорот существования.', en: 'In Buddhist tradition there is another symbol showing samsara — the cycle of existence.', pt: 'No budismo existe outro símbolo que representa o samsara.' },
+  { time: '1:40', ru: 'Дхармачакра указывает не на замкнутый круг, а на выход из него.', en: 'The Dharmachakra points not to a closed circle but to a way out of it.', pt: 'A Dharmachakra aponta para a saída do ciclo.' },
+  { time: '1:44', ru: 'Когда человек понимает причину страдания и видит путь его прекращения — Колесо начинает вращаться внутри него самого.', en: 'When a person understands the cause of suffering and sees the path to its end — the wheel begins to turn within them.', pt: 'Quando alguém compreende a causa do sofrimento e vê o caminho para o seu fim — a roda começa a girar dentro dele.' },
+  { time: '1:48', ru: 'Колесо Дхармы — это не символ веры. Это модель понимания и путь освобождения.', en: 'The Wheel of Dharma is not only a symbol of faith. It is a model of understanding and a path of liberation.', pt: 'A Roda do Dharma não é apenas símbolo de fé. É um modelo de compreensão e caminho de libertação.' },
+  { time: '1:56', ru: 'Поэтому этот образ остаётся центральным в буддийской традиции до сих пор.', en: 'That is why this symbol remains central in Buddhist tradition even today.', pt: 'Por isso continua sendo um símbolo central no budismo.' },
+]
+
+const transcriptLangs = [
+  { code: 'ru', label: '🇷🇺 Русский' },
+  { code: 'en', label: '🇬🇧 English' },
+  { code: 'pt', label: '🇵🇹 Português' },
+] as const
+
+function TranscriptSection() {
+  const [tab, setTab] = useState<'ru' | 'en' | 'pt'>('ru')
+
+  return (
+    <div className="bg-amber-50 dark:bg-amber-950/30 rounded-2xl border border-amber-200 dark:border-amber-800/30 p-6">
+      <h3 className="font-[var(--font-cormorant)] text-xl font-semibold text-amber-900 dark:text-amber-100 mb-4">
+        Video Transcript
+      </h3>
+
+      <div className="flex gap-2 mb-5 flex-wrap">
+        {transcriptLangs.map((l) => (
+          <button
+            key={l.code}
+            onClick={() => setTab(l.code)}
+            className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ${
+              tab === l.code
+                ? 'bg-amber-600 text-white shadow-sm'
+                : 'bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-amber-100 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-700'
+            }`}
+          >
+            {l.label}
+          </button>
+        ))}
+      </div>
+
+      <div className="space-y-3 text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+        {transcriptData.map((row, i) => (
+          <p key={i}>
+            <strong className="text-amber-700 dark:text-amber-300">{row.time}</strong>{' '}
+            {row[tab]}
+          </p>
+        ))}
+      </div>
     </div>
   )
 }
