@@ -111,6 +111,102 @@ export default function TeachingsPageClient() {
       <div className="mt-10">
         <PromoBanner page="teachings" />
       </div>
+
+      {/* Video Section */}
+      <section className="mt-16">
+        <h2 className="font-[var(--font-cormorant)] text-3xl font-bold text-amber-900 dark:text-amber-100 text-center mb-8">
+          {locale === 'ru' ? 'Видео' : 'Videos'}
+        </h2>
+
+        <div className="grid md:grid-cols-2 gap-8 mb-10">
+          {/* Short (vertical) */}
+          <div>
+            <h3 className="font-[var(--font-cormorant)] text-xl font-semibold text-gray-900 dark:text-gray-100 mb-3 text-center">
+              {locale === 'ru' ? 'Шортс' : 'Short'}
+            </h3>
+            <div className="relative mx-auto" style={{ maxWidth: 320 }}>
+              <div className="relative w-full" style={{ paddingBottom: '177.78%' }}>
+                <iframe
+                  src="https://www.youtube.com/embed/P04rX4-1TNo"
+                  title="Dharmachakra — Short"
+                  className="absolute inset-0 w-full h-full rounded-2xl shadow-lg"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Full-screen (16:9) */}
+          <div>
+            <h3 className="font-[var(--font-cormorant)] text-xl font-semibold text-gray-900 dark:text-gray-100 mb-3 text-center">
+              {locale === 'ru' ? 'Полноэкранный' : 'Full Video'}
+            </h3>
+            <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+              <iframe
+                src="https://www.youtube.com/embed/P04rX4-1TNo"
+                title="Dharmachakra — Full Video"
+                className="absolute inset-0 w-full h-full rounded-2xl shadow-lg"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* Summary */}
+        <div className="bg-white dark:bg-gray-900 rounded-2xl shadow border border-gray-200 dark:border-gray-700 p-6 mb-8">
+          <h3 className="font-[var(--font-cormorant)] text-xl font-semibold text-gray-900 dark:text-gray-100 mb-3">
+            {locale === 'ru' ? 'Краткое содержание' : 'Summary'}
+          </h3>
+          <ul className="space-y-2 text-gray-600 dark:text-gray-300 text-sm">
+            <li className="flex items-start gap-2"><span className="text-amber-500 mt-1">•</span> {locale === 'ru' ? 'Колесо Дхармы (Дхармачакра) — один из древнейших символов буддизма.' : 'The Dharma Wheel (Dharmachakra) is one of the oldest symbols of Buddhism.'}</li>
+            <li className="flex items-start gap-2"><span className="text-amber-500 mt-1">•</span> {locale === 'ru' ? 'Связан с первым наставлением Будды в Сарнатхе — Четыре благородные истины и Восьмеричный путь.' : 'Connected to the Buddha\'s first teaching in Sarnath — the Four Noble Truths and the Eightfold Path.'}</li>
+            <li className="flex items-start gap-2"><span className="text-amber-500 mt-1">•</span> {locale === 'ru' ? 'Центр (ступица) — устойчивость ума. Восемь спиц — Восьмеричный путь. Обод — целостность практики.' : 'Hub — mental stability. Eight spokes — the Eightfold Path. Rim — integrity of practice.'}</li>
+            <li className="flex items-start gap-2"><span className="text-amber-500 mt-1">•</span> {locale === 'ru' ? 'Дхармачакра — не «колесо жизни». Это указание на выход из замкнутого круга страдания.' : 'Dharmachakra is not the "Wheel of Life." It points to the way out of the cycle of suffering.'}</li>
+          </ul>
+        </div>
+
+        {/* Transcript (Russian) */}
+        <div className="bg-amber-50 dark:bg-amber-950/30 rounded-2xl border border-amber-200 dark:border-amber-800/30 p-6">
+          <h3 className="font-[var(--font-cormorant)] text-xl font-semibold text-amber-900 dark:text-amber-100 mb-4">
+            {locale === 'ru' ? 'Транскрипт видео' : 'Video Transcript'}
+            <span className="ml-2 text-sm font-normal text-amber-600 dark:text-amber-400">(RU)</span>
+          </h3>
+          <div className="space-y-3 text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+            <p><strong className="text-amber-700 dark:text-amber-300">0:00</strong> Прежде чем начать — краткое уточнение.</p>
+            <p><strong className="text-amber-700 dark:text-amber-300">0:04</strong> Во‑первых. Этот канал посвящён философскому подходу к вопросу.</p>
+            <p><strong className="text-amber-700 dark:text-amber-300">0:08</strong> Во‑вторых. Мы рассматриваем буддийскую традицию как путь осмысления реальности, а потом уже обсуждаем различные религиозные взгляды.</p>
+            <p><strong className="text-amber-700 dark:text-amber-300">0:12</strong> Нас интересует суть идей, их смысл, и самое главное — путь освобождения.</p>
+            <p><strong className="text-amber-700 dark:text-amber-300">0:16</strong> Теперь — по главной теме.</p>
+            <p><strong className="text-amber-700 dark:text-amber-300">0:20</strong> Колесо Дхармы, или Дхармачакра — один из самых древних символов буддизма.</p>
+            <p><strong className="text-amber-700 dark:text-amber-300">0:24</strong> На санскрите «Дхармачакра» означает «колесо учения».</p>
+            <p><strong className="text-amber-700 dark:text-amber-300">0:28</strong> Этот символ связывают с первым наставлением Будды после пробуждения. Это было в Сарнатхе.</p>
+            <p><strong className="text-amber-700 dark:text-amber-300">0:32</strong> Буддой были изложены Четыре благородные истины и Благородный восьмеричный путь.</p>
+            <p><strong className="text-amber-700 dark:text-amber-300">0:36</strong> Это событие называют «первым поворотом Колеса Дхармы».</p>
+            <p><strong className="text-amber-700 dark:text-amber-300">0:40</strong> Проще говоря, «поворот» означает, что учение было впервые ясно изложено.</p>
+            <p><strong className="text-amber-700 dark:text-amber-300">0:44</strong> То, что было пережито лично, было объяснено первым ученикам.</p>
+            <p><strong className="text-amber-700 dark:text-amber-300">0:48</strong> Колесо — не является магическим знаком или оберегом.</p>
+            <p><strong className="text-amber-700 dark:text-amber-300">0:52</strong> Это символ пути освобождения. Схема, указывающая на выход из страдания.</p>
+            <p><strong className="text-amber-700 dark:text-amber-300">0:56</strong> У колеса три части.</p>
+            <p><strong className="text-amber-700 dark:text-amber-300">1:00</strong> Центр — ступица. Она символизирует устойчивость ума и главную опору.</p>
+            <p><strong className="text-amber-700 dark:text-amber-300">1:04</strong> Без внутренней устойчивости путь невозможен.</p>
+            <p><strong className="text-amber-700 dark:text-amber-300">1:08</strong> Восемь спиц — это Благородный восьмеричный путь.</p>
+            <p><strong className="text-amber-700 dark:text-amber-300">1:12</strong> Правильное понимание. Правильное намерение. Правильная речь. Правильное действие.</p>
+            <p><strong className="text-amber-700 dark:text-amber-300">1:16</strong> Правильный образ жизни. Правильное усилие. Правильная осознанность. Правильное сосредоточение.</p>
+            <p><strong className="text-amber-700 dark:text-amber-300">1:20</strong> Это не заповеди. Это система развития.</p>
+            <p><strong className="text-amber-700 dark:text-amber-300">1:24</strong> Обод объединяет всё вместе. Он символизирует целостность и дисциплину практики.</p>
+            <p><strong className="text-amber-700 dark:text-amber-300">1:28</strong> Важно отличать от других символов с колесом.</p>
+            <p><strong className="text-amber-700 dark:text-amber-300">1:32</strong> Колесо Дхармы — не является «колесом жизни» и в нём нет образа страдания.</p>
+            <p><strong className="text-amber-700 dark:text-amber-300">1:36</strong> В буддийской традиции есть другой символ, изображающий сансару — круговорот существования.</p>
+            <p><strong className="text-amber-700 dark:text-amber-300">1:40</strong> Дхармачакра указывает не на замкнутый круг, а на выход из него.</p>
+            <p><strong className="text-amber-700 dark:text-amber-300">1:44</strong> Когда человек понимает причину страдания и видит путь его прекращения — колесо начинает вращаться внутри него самого.</p>
+            <p><strong className="text-amber-700 dark:text-amber-300">1:48</strong> Колесо Дхармы — это не только символ веры.</p>
+            <p><strong className="text-amber-700 dark:text-amber-300">1:52</strong> Это модель понимания и путь освобождения.</p>
+            <p><strong className="text-amber-700 dark:text-amber-300">1:56</strong> Поэтому этот образ остаётся центральным в буддийской традиции до сих пор.</p>
+          </div>
+        </div>
+      </section>
     </div>
   )
 }
