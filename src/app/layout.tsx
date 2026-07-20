@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     description: 'Explore Buddhist teachings through AI-powered conversations',
     type: 'website',
     locale: 'en_US',
-    alternateLocale: ['ru_RU', 'hi_IN', 'es_ES', 'fr_FR', 'de_DE', 'zh_CN', 'ja_JP'],
+    alternateLocale: ['ru_RU', 'hi_IN', 'es_ES', 'fr_FR', 'de_DE', 'zh_CN', 'ja_JP', 'pt_PT', 'th_TH', 'vi_VN', 'ko_KR', 'id_ID', 'ms_MY', 'si_LK', 'my_MM', 'ne_NP', 'bo_CN'],
     siteName: "Buddha's Wisdom Chat",
     images: [
       {

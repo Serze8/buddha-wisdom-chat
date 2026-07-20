@@ -10,6 +10,9 @@ import { Loader2 } from 'lucide-react'
 const localeLabels: Record<Locale, string> = {
   en: '🇬🇧 English', ru: '🇷🇺 Русский', hi: '🇮🇳 हिन्दी', es: '🇪🇸 Español',
   fr: '🇫🇷 Français', de: '🇩🇪 Deutsch', zh: '🇨🇳 中文', ja: '🇯🇵 日本語',
+  pt: '🇵🇹 Português', th: '🇹🇭 ไทย', vi: '🇻🇳 Tiếng Việt', ko: '🇰🇷 한국어',
+  id: '🇮🇩 Indonesia', ms: '🇲🇾 Melayu', si: '🇱🇰 සිංහල', my: '🇲🇲 မြန်မာ',
+  ne: '🇳🇵 नेपाली', bo: '🏔️ བོད་སྐད།',
 }
 
 export default function ProfilePage() {

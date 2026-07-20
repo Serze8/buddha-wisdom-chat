@@ -94,7 +94,7 @@ export function generatePageMetadata(path: string): Metadata {
       siteName: "Buddha's Wisdom Chat",
       type: 'website',
       locale: 'en_US',
-      alternateLocale: ['ru_RU', 'hi_IN', 'es_ES', 'fr_FR', 'de_DE', 'zh_CN', 'ja_JP'],
+      alternateLocale: ['ru_RU', 'hi_IN', 'es_ES', 'fr_FR', 'de_DE', 'zh_CN', 'ja_JP', 'pt_PT', 'th_TH', 'vi_VN', 'ko_KR', 'id_ID', 'ms_MY', 'si_LK', 'my_MM', 'ne_NP', 'bo_CN'],
       images: [
         {
           url: `${baseUrl}/og?title=${encodeURIComponent(page.title)}&subtitle=${encodeURIComponent('Buddha\'s Wisdom Chat')}`,

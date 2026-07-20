@@ -48,7 +48,7 @@ export interface Retreat {
   created_at: string
 }
 
-export type Locale = 'ru' | 'en' | 'hi' | 'es' | 'fr' | 'de' | 'zh' | 'ja'
+export type Locale = 'ru' | 'en' | 'hi' | 'es' | 'fr' | 'de' | 'zh' | 'ja' | 'pt' | 'th' | 'vi' | 'ko' | 'id' | 'ms' | 'si' | 'my' | 'ne' | 'bo'
 
 export interface Character {
   id: string

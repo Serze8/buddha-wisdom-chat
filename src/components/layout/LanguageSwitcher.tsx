@@ -7,11 +7,17 @@ import { Locale } from '@/types'
 const localeFlags: Record<Locale, string> = {
   en: '🇬🇧', ru: '🇷🇺', hi: '🇮🇳', es: '🇪🇸',
   fr: '🇫🇷', de: '🇩🇪', zh: '🇨🇳', ja: '🇯🇵',
+  pt: '🇵🇹', th: '🇹🇭', vi: '🇻🇳', ko: '🇰🇷',
+  id: '🇮🇩', ms: '🇲🇾', si: '🇱🇰', my: '🇲🇲',
+  ne: '🇳🇵', bo: '🏔️',
 }
 
 const localeNames: Record<Locale, string> = {
   en: 'English', ru: 'Русский', hi: 'हिन्दी', es: 'Español',
   fr: 'Français', de: 'Deutsch', zh: '中文', ja: '日本語',
+  pt: 'Português', th: 'ไทย', vi: 'Tiếng Việt', ko: '한국어',
+  id: 'Bahasa Indonesia', ms: 'Bahasa Melayu', si: 'සිංහල', my: 'မြန်မာ',
+  ne: 'नेपाली', bo: 'བོད་སྐད།',
 }
 
 export default function LanguageSwitcher() {
