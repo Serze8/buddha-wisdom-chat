@@ -145,7 +145,7 @@ export default function TeachingsPageClient() {
             </h3>
             <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
               <iframe
-                src="https://www.youtube.com/embed/P04rX4-1TNo"
+                src="https://www.youtube.com/embed/P6Binwp6t0k"
                 title="Dharmachakra — Full Video"
                 className="absolute inset-0 w-full h-full rounded-2xl shadow-lg"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
