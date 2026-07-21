@@ -119,30 +119,9 @@ export default function TeachingsPageClient() {
           {locale === 'ru' ? 'Видео' : 'Videos'}
         </h2>
 
-        <div className="grid md:grid-cols-2 gap-8 mb-10">
-          {/* Short (vertical) */}
-          <div>
-            <h3 className="font-[var(--font-cormorant)] text-xl font-semibold text-gray-900 dark:text-gray-100 mb-3 text-center">
-              {locale === 'ru' ? 'Шортс' : 'Short'}
-            </h3>
-            <div className="relative mx-auto" style={{ maxWidth: 320 }}>
-              <div className="relative w-full" style={{ paddingBottom: '177.78%' }}>
-                <iframe
-                  src="https://www.youtube.com/embed/P04rX4-1TNo"
-                  title="Dharmachakra — Short"
-                  className="absolute inset-0 w-full h-full rounded-2xl shadow-lg"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                />
-              </div>
-            </div>
-          </div>
-
-          {/* Full-screen (16:9) */}
-          <div>
-            <h3 className="font-[var(--font-cormorant)] text-xl font-semibold text-gray-900 dark:text-gray-100 mb-3 text-center">
-              {locale === 'ru' ? 'Полноэкранный' : 'Full Video'}
-            </h3>
+        <div className="mb-10">
+          {/* Full Video (16:9) — main player */}
+          <div className="max-w-3xl mx-auto">
             <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
               <iframe
                 src="https://www.youtube.com/embed/P6Binwp6t0k"
@@ -152,6 +131,30 @@ export default function TeachingsPageClient() {
                 allowFullScreen
               />
             </div>
+          </div>
+
+          {/* Short thumbnail link */}
+          <div className="flex justify-center mt-4">
+            <a
+              href="https://www.youtube.com/shorts/P04rX4-1TNo"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center gap-3 bg-white dark:bg-gray-900 rounded-xl shadow border border-gray-200 dark:border-gray-700 p-3 hover:shadow-lg hover:border-amber-300 dark:hover:border-amber-700 transition-all"
+            >
+              <img
+                src="https://img.youtube.com/vi/P04rX4-1TNo/mqdefault.jpg"
+                alt="Dharmachakra Short"
+                className="w-16 h-24 object-cover rounded-lg"
+              />
+              <div>
+                <p className="font-medium text-gray-900 dark:text-gray-100 text-sm group-hover:text-amber-700 dark:group-hover:text-amber-400 transition-colors">
+                  {locale === 'ru' ? 'Шортс: Колесо Дхармы' : 'Short: Dharmachakra'}
+                </p>
+                <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">
+                  {locale === 'ru' ? 'Открыть в YouTube' : 'Open on YouTube'} ↗
+                </p>
+              </div>
+            </a>
           </div>
         </div>
 
