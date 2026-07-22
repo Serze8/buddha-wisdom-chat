@@ -27,20 +27,48 @@ const mettaData = [
   { lang: 'bo', voice: 'bo-CN-TashiNeural', text: 'བདེ་བ་འཐོབ་པར་གྱུར་ཅིག ཞི་བ་འཐོབ་པར་གྱུར་ཅིག སེམས་ཅན་ཐམས་ཅད་བདེ་བ་འཐོབ་པར་གྱུར་ཅིག' },
 ];
 
+function validateMP3(filePath) {
+  if (!fs.existsSync(filePath)) return false;
+  const buf = fs.readFileSync(filePath);
+  if (buf.length < 1024) return false; // too small to be real audio
+  // Check MP3 frame sync (FF FB, FF F3, FF F2) or ID3 tag
+  const isMP3Frame = buf[0] === 0xff && (buf[1] & 0xe0) === 0xe0;
+  const isID3 = buf[0] === 0x49 && buf[1] === 0x44 && buf[2] === 0x33;
+  return isMP3Frame || isID3;
+}
+
+function validateAll() {
+  console.log('=== Validation ===');
+  let valid = 0, missing = 0, invalid = 0;
+  for (const item of mettaData) {
+    const filePath = path.join(outDir, `${item.lang}.mp3`);
+    if (!fs.existsSync(filePath)) {
+      console.log(`  ${item.lang}: MISSING`);
+      missing++;
+    } else if (!validateMP3(filePath)) {
+      console.log(`  ${item.lang}: INVALID (corrupt)`);
+      invalid++;
+    } else {
+      const size = fs.statSync(filePath).size;
+      console.log(`  ${item.lang}: OK (${(size / 1024).toFixed(0)} KB)`);
+      valid++;
+    }
+  }
+  console.log(`\nResult: ${valid} valid, ${missing} missing, ${invalid} invalid\n`);
+  return { valid, missing, invalid };
+}
+
 async function generateOne(item) {
   const tmpDir = path.join(outDir, `_tmp_${item.lang}`);
   fs.mkdirSync(tmpDir, { recursive: true });
-  
   const tts = new MsEdgeTTS();
   await tts.setMetadata(item.voice, OUTPUT_FORMAT.AUDIO_24KHZ_96KBITRATE_MONO_MP3);
   await tts.toFile(tmpDir, item.text, { rate: '-25%', pitch: '-5Hz' });
   await tts.close();
-  
-  const srcFile = path.join(tmpDir, 'audio.mp3');
-  const destFile = path.join(outDir, `${item.lang}.mp3`);
-  
-  if (fs.existsSync(srcFile)) {
-    fs.renameSync(srcFile, destFile);
+  const src = path.join(tmpDir, 'audio.mp3');
+  const dest = path.join(outDir, `${item.lang}.mp3`);
+  if (fs.existsSync(src)) {
+    fs.renameSync(src, dest);
     fs.rmSync(tmpDir, { recursive: true });
     return true;
   }
@@ -48,14 +76,25 @@ async function generateOne(item) {
 }
 
 async function generate() {
-  // Only generate files that don't exist yet
+  fs.mkdirSync(outDir, { recursive: true });
+
+  // Step 1: Validate existing files
+  const status = validateAll();
+
+  // Step 2: Determine what needs generation
   const todo = mettaData.filter(item => {
-    const f = path.join(outDir, `${item.lang}.mp3`);
-    return !fs.existsSync(f);
+    const fp = path.join(outDir, `${item.lang}.mp3`);
+    return !validateMP3(fp);
   });
-  
-  console.log(`Need to generate ${todo.length} files (${18 - todo.length} already exist)...`);
-  
+
+  if (todo.length === 0) {
+    console.log('All files valid. Nothing to generate.');
+    return;
+  }
+
+  console.log(`Generating ${todo.length} files...`);
+  let generated = 0;
+
   for (const item of todo) {
     let success = false;
     for (let attempt = 1; attempt <= 3; attempt++) {
@@ -63,8 +102,16 @@ async function generate() {
       try {
         success = await generateOne(item);
         if (success) {
-          const stats = fs.statSync(path.join(outDir, `${item.lang}.mp3`));
-          console.log(`    ✓ ${(stats.size / 1024).toFixed(1)} KB`);
+          const fp = path.join(outDir, `${item.lang}.mp3`);
+          if (validateMP3(fp)) {
+            const size = fs.statSync(fp).size;
+            console.log(`    ✓ ${(size / 1024).toFixed(0)} KB — validated`);
+            generated++;
+          } else {
+            console.log(`    ✗ Generated file failed validation, retrying...`);
+            fs.unlinkSync(fp);
+            success = false;
+          }
           break;
         }
       } catch (e) {
@@ -73,17 +120,14 @@ async function generate() {
       }
     }
     if (!success) console.log(`    ✗ FAILED after 3 attempts`);
-    // Small delay between requests
     await new Promise(r => setTimeout(r, 500));
   }
-  
-  // List all files
-  const files = fs.readdirSync(outDir).filter(f => f.endsWith('.mp3'));
-  console.log(`\nTotal: ${files.length} audio files in public/audio/metta/`);
-  files.forEach(f => {
-    const stats = fs.statSync(path.join(outDir, f));
-    console.log(`  ${f} — ${(stats.size / 1024).toFixed(1)} KB`);
-  });
+
+  // Step 3: Final validation
+  console.log('\n=== Final validation ===');
+  const final = validateAll();
+  console.log(`Generated: ${generated} new files`);
+  console.log(`Total valid: ${final.valid}/18`);
 }
 
 generate().catch(console.error);
