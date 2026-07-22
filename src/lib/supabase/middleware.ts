@@ -6,6 +6,7 @@ const PUBLIC_PAGES = [
   '/about',
   '/contact',
   '/teachings',
+  '/teachings/practice',
   '/theses',
   '/characters',
   '/episodes',
