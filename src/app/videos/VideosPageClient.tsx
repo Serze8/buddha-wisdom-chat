@@ -66,7 +66,7 @@ export default function VideosPageClient() {
     <div className="max-w-4xl mx-auto px-4 py-12">
       <div className="flex items-center justify-between mb-10">
         <h1 className="font-[var(--font-cormorant)] text-4xl font-bold text-amber-900 dark:text-amber-100">
-          {locale === 'ru' ? 'Видео' : 'Videos'}
+          {locale === 'ru' ? 'Видео с канала KoloDharmy Zhogun' : 'Videos from KoloDharmy Zhogun'}
         </h1>
         <button
           onClick={() => setShowForm(!showForm)}
