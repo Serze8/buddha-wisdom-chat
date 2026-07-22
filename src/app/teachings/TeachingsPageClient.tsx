@@ -346,7 +346,7 @@ export default function TeachingsPageClient() {
         <div className="mb-10">
           <div className="relative w-full rounded-2xl overflow-hidden shadow-2xl border border-amber-700/30" style={{ paddingBottom: '56.25%' }}>
             <iframe
-              src="https://www.youtube.com/embed/P04rX4-1TNo"
+              src="https://www.youtube.com/embed/P6Binwp6t0k"
               title="Dharmachakra — The Wheel of Dharma"
               className="absolute inset-0 w-full h-full"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
