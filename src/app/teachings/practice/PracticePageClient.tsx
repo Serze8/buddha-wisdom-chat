@@ -37,51 +37,19 @@ function MettaPlayer() {
   const { t, locale } = useLanguage()
   const [playing, setPlaying] = useState(false)
   const [copied, setCopied] = useState(false)
-  const [useFallback, setUseFallback] = useState(false)
+  const [mp3Available, setMp3Available] = useState<boolean | null>(null)
   const audioRef = useState<{ current: HTMLAudioElement | null }>({ current: null })[0]
 
   const formula = mettaFormulas[locale] || mettaFormulas.en
   const mp3Url = `/audio/metta/${locale}.mp3`
 
-  const play = useCallback(() => {
-    if (useFallback || !mp3Url) {
-      speakFallback()
-      return
-    }
-
-    if (audioRef.current) {
-      audioRef.current.pause()
-      audioRef.current = null
-    }
-
-    const audio = new Audio(mp3Url)
-    audioRef.current = audio
-
-    audio.addEventListener('play', () => setPlaying(true))
-    audio.addEventListener('ended', () => setPlaying(false))
-    audio.addEventListener('error', () => {
-      setPlaying(false)
-      setUseFallback(true)
-      speakFallback()
-    })
-
-    audio.play().catch(() => {
-      setUseFallback(true)
-      speakFallback()
-    })
-  }, [mp3Url, useFallback, formula, locale])
-
-  const stop = useCallback(() => {
-    if (audioRef.current) {
-      audioRef.current.pause()
-      audioRef.current.currentTime = 0
-      audioRef.current = null
-    }
-    if ('speechSynthesis' in window) {
-      window.speechSynthesis.cancel()
-    }
-    setPlaying(false)
-  }, [])
+  // Check if MP3 file exists on mount
+  const checkedLang = useState(locale)[0]
+  useState(() => {
+    fetch(mp3Url, { method: 'HEAD' })
+      .then((res) => setMp3Available(res.ok))
+      .catch(() => setMp3Available(false))
+  })
 
   const speakFallback = useCallback(() => {
     if (!('speechSynthesis' in window)) {
@@ -102,12 +70,58 @@ function MettaPlayer() {
     window.speechSynthesis.speak(utterance)
   }, [formula, locale])
 
+  const play = useCallback(() => {
+    if (mp3Available === false) {
+      speakFallback()
+      return
+    }
+
+    if (audioRef.current) {
+      audioRef.current.pause()
+      audioRef.current = null
+    }
+
+    const audio = new Audio(mp3Url)
+    audioRef.current = audio
+
+    audio.addEventListener('play', () => setPlaying(true))
+    audio.addEventListener('ended', () => setPlaying(false))
+    audio.addEventListener('error', () => {
+      setPlaying(false)
+      setMp3Available(false)
+      speakFallback()
+    })
+
+    audio.play().catch(() => {
+      setMp3Available(false)
+      speakFallback()
+    })
+  }, [mp3Url, mp3Available, speakFallback])
+
+  const stop = useCallback(() => {
+    if (audioRef.current) {
+      audioRef.current.pause()
+      audioRef.current.currentTime = 0
+      audioRef.current = null
+    }
+    if ('speechSynthesis' in window) {
+      window.speechSynthesis.cancel()
+    }
+    setPlaying(false)
+  }, [])
+
   const copyText = useCallback(() => {
     navigator.clipboard.writeText(formula).then(() => {
       setCopied(true)
       setTimeout(() => setCopied(false), 2000)
     })
   }, [formula])
+
+  const sourceLabel = mp3Available === true
+    ? (locale === 'ru' ? 'Студийная озвучка' : 'Studio voice')
+    : mp3Available === false
+      ? (locale === 'ru' ? 'Синтез речи (файл недоступен)' : 'Speech synthesis (file unavailable)')
+      : ''
 
   return (
     <div className="mt-6 p-5 rounded-2xl border border-amber-700/20 backdrop-blur-sm" style={{ background: 'rgba(45, 27, 14, 0.6)' }}>
@@ -124,16 +138,20 @@ function MettaPlayer() {
               : 'bg-amber-600 hover:bg-amber-500 text-white'
           }`}
         >
-          {playing ? '⏹ ' + (locale === 'ru' ? 'Остановить' : 'Stop') : t.practice.listenMetta}
+          {playing ? '⏹ Stop' : t.practice.listenMetta}
         </button>
 
         <button
           onClick={copyText}
           className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-medium text-sm bg-gray-700/60 hover:bg-gray-600/60 text-gray-300 transition-colors"
         >
-          {copied ? '✓ ' + (locale === 'ru' ? 'Скопировано' : 'Copied!') : t.practice.copyMetta}
+          {copied ? '✓ Copied!' : t.practice.copyMetta}
         </button>
       </div>
+
+      {sourceLabel && (
+        <p className="text-xs text-gray-500 mt-2">{sourceLabel}</p>
+      )}
     </div>
   )
 }
