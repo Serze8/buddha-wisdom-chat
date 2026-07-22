@@ -230,6 +230,7 @@ function VideoDescription() {
 function TranscriptSection() {
   const [tab, setTab] = useState<'ru' | 'en' | 'pt'>('ru')
   const [animKey, setAnimKey] = useState(0)
+  const [open, setOpen] = useState(false)
 
   const handleTabChange = (code: 'ru' | 'en' | 'pt') => {
     setTab(code)
@@ -237,35 +238,50 @@ function TranscriptSection() {
   }
 
   return (
-    <div className="rounded-2xl border border-amber-700/30 p-6" style={{ background: 'linear-gradient(180deg, #1E293B 0%, #0F172A 100%)' }}>
-      <h3 className="font-[var(--font-cormorant)] text-xl font-semibold text-amber-400 mb-4">
-        Video Transcript
-      </h3>
+    <div className="rounded-2xl border border-amber-700/30 overflow-hidden" style={{ background: 'linear-gradient(180deg, #1E293B 0%, #0F172A 100%)' }}>
+      <button
+        onClick={() => setOpen(!open)}
+        className="w-full flex items-center justify-between p-6 text-left hover:bg-white/5 transition-colors"
+      >
+        <h3 className="font-[var(--font-cormorant)] text-xl font-semibold text-amber-400">
+          Video Transcript
+        </h3>
+        <svg
+          className={`w-5 h-5 text-amber-400 transition-transform duration-300 shrink-0 ${open ? 'rotate-180' : ''}`}
+          fill="none" stroke="currentColor" viewBox="0 0 24 24"
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+        </svg>
+      </button>
 
-      <div className="flex gap-2 mb-5 flex-wrap">
-        {transcriptLangs.map((l) => (
-          <button
-            key={l.code}
-            onClick={() => handleTabChange(l.code)}
-            className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 hover:scale-105 ${
-              tab === l.code
-                ? 'bg-amber-500 text-white shadow-lg shadow-amber-500/25'
-                : 'bg-gray-700/60 text-gray-300 hover:bg-gray-600/60'
-            }`}
-          >
-            {l.label}
-          </button>
-        ))}
-      </div>
+      {open && (
+        <div className="px-6 pb-6 animate-fade-in">
+          <div className="flex gap-2 mb-5 flex-wrap">
+            {transcriptLangs.map((l) => (
+              <button
+                key={l.code}
+                onClick={() => handleTabChange(l.code)}
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 hover:scale-105 ${
+                  tab === l.code
+                    ? 'bg-amber-500 text-white shadow-lg shadow-amber-500/25'
+                    : 'bg-gray-700/60 text-gray-300 hover:bg-gray-600/60'
+                }`}
+              >
+                {l.label}
+              </button>
+            ))}
+          </div>
 
-      <div key={animKey} className="max-h-60 overflow-y-auto rounded-xl p-4 space-y-3 text-sm text-gray-300 leading-relaxed animate-fade-in" style={{ background: 'rgba(31, 41, 55, 0.5)' }}>
-        {transcriptData.map((row, i) => (
-          <p key={i}>
-            <strong className="text-amber-400 font-mono">{row.time}</strong>{' '}
-            <span className="font-mono">{row[tab]}</span>
-          </p>
-        ))}
-      </div>
+          <div key={animKey} className="max-h-60 overflow-y-auto rounded-xl p-4 space-y-3 text-sm text-gray-300 leading-relaxed animate-fade-in" style={{ background: 'rgba(31, 41, 55, 0.5)' }}>
+            {transcriptData.map((row, i) => (
+              <p key={i}>
+                <strong className="text-amber-400 font-mono">{row.time}</strong>{' '}
+                <span className="font-mono">{row[tab]}</span>
+              </p>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   )
 }
