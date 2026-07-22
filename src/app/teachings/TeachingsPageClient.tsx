@@ -328,14 +328,14 @@ export default function TeachingsPageClient() {
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-12">
-      <h1 className="font-[var(--font-cormorant)] text-4xl font-bold text-amber-900 dark:text-amber-100 text-center mb-10">
-        {t.nav.teachings}
+      <h1 className="font-[var(--font-cormorant)] text-4xl md:text-5xl font-bold text-center mb-14" style={{ color: '#F59E0B' }}>
+        {t.teachings.pageTitle}
       </h1>
 
-      {/* === DHARMACHAKRA SECTION (TOP) === */}
-      <section className="rounded-3xl p-8 md:p-12 mb-12" style={{ background: 'linear-gradient(180deg, #2D1B0E 0%, #1A0F07 100%)' }}>
-        <h2 className="font-[var(--font-cormorant)] text-4xl font-bold text-center mb-3" style={{ color: '#F59E0B' }}>
-          {locale === 'ru' ? 'Колесо Дхармы (Дхармачакра)' : 'Dharmachakra — The Wheel of Dharma'}
+      {/* === SECTION 1: DHARMACHAKRA === */}
+      <section className="rounded-3xl p-8 md:p-12 mb-4" style={{ background: 'linear-gradient(180deg, #2D1B0E 0%, #1A0F07 100%)' }}>
+        <h2 className="font-[var(--font-cormorant)] text-3xl font-bold text-center mb-3" style={{ color: '#F59E0B' }}>
+          {t.teachings.sectionDharmachakra}
         </h2>
         <p className="text-center text-sm mb-10 max-w-xl mx-auto" style={{ color: '#D1D5DB' }}>
           {locale === 'ru'
@@ -359,41 +359,65 @@ export default function TeachingsPageClient() {
         <TranscriptSection />
       </section>
 
-      {/* === TEACHINGS LIST (COLLAPSIBLE) === */}
-      <div className="space-y-4 mb-12">
-        {teachings.map((teaching) => (
-          <TeachingCard key={teaching.id} teaching={teaching} />
-        ))}
+      {/* Gold divider */}
+      <div className="flex items-center justify-center my-8">
+        <div className="h-px flex-1" style={{ background: 'linear-gradient(90deg, transparent, #F59E0B, transparent)' }} />
+        <span className="px-4 text-2xl">☸</span>
+        <div className="h-px flex-1" style={{ background: 'linear-gradient(90deg, transparent, #F59E0B, transparent)' }} />
       </div>
 
-      {/* === LINK TO PRACTICE === */}
-      <div className="mb-12 text-center">
-        <Link
-          href="/teachings/practice"
-          className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-amber-700 hover:bg-amber-600 text-white font-medium transition-colors"
-        >
-          🧘 {locale === 'ru' ? 'Предварительная практика' : 'Preliminary Practice'} →
-        </Link>
+      {/* === SECTION 2: BUDDHA'S TEACHINGS === */}
+      <section className="mb-4">
+        <h2 className="font-[var(--font-cormorant)] text-3xl font-bold text-center mb-8" style={{ color: '#F59E0B' }}>
+          {t.teachings.sectionTeachings}
+        </h2>
+        <div className="space-y-4">
+          {teachings.map((teaching) => (
+            <TeachingCard key={teaching.id} teaching={teaching} />
+          ))}
+        </div>
+      </section>
+
+      {/* Gold divider */}
+      <div className="flex items-center justify-center my-8">
+        <div className="h-px flex-1" style={{ background: 'linear-gradient(90deg, transparent, #F59E0B, transparent)' }} />
+        <span className="px-4 text-2xl">☸</span>
+        <div className="h-px flex-1" style={{ background: 'linear-gradient(90deg, transparent, #F59E0B, transparent)' }} />
       </div>
 
-      {/* === DEEPEN YOUR KNOWLEDGE (BOTTOM) === */}
-      <div className="bg-gradient-to-r from-amber-50 to-orange-50 dark:from-amber-950/30 dark:to-orange-950/20 border border-amber-200 dark:border-amber-800/30 rounded-2xl p-8 text-center">
-        <span className="text-3xl block mb-2">📖</span>
-        <h3 className="font-[var(--font-cormorant)] text-2xl font-bold text-amber-900 dark:text-amber-100 mb-2">
-          {locale === 'ru' ? 'Углубите свои знания' : 'Deepen Your Knowledge'}
-        </h3>
-        <p className="text-gray-600 dark:text-gray-300 text-sm mb-6 max-w-md mx-auto">
-          {locale === 'ru'
-            ? 'Зарегистрируйтесь, чтобы сохранять любимые учения и отслеживать свой путь.'
-            : 'Sign up to save your favorite teachings and track your journey.'}
-        </p>
-        <Link
-          href="/teachings/practice"
-          className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-amber-700 hover:bg-amber-600 text-white font-medium text-sm transition-colors"
-        >
-          {locale === 'ru' ? 'Начать учиться' : 'Start Learning'} →
-        </Link>
-      </div>
+      {/* === SECTION 3: PRACTICES === */}
+      <section className="rounded-3xl p-8 md:p-12" style={{ background: 'linear-gradient(180deg, #3D220F 0%, #2A1A0C 100%)' }}>
+        <h2 className="font-[var(--font-cormorant)] text-3xl font-bold text-center mb-8" style={{ color: '#F59E0B' }}>
+          {t.teachings.sectionPractices}
+        </h2>
+
+        <div className="text-center mb-8">
+          <Link
+            href="/teachings/practice"
+            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-amber-600 hover:bg-amber-500 text-white font-medium text-lg transition-all duration-300 hover:scale-105 shadow-lg shadow-amber-600/20"
+          >
+            🧘 {locale === 'ru' ? 'Предварительная практика' : 'Preliminary Practice'} →
+          </Link>
+        </div>
+
+        <div className="bg-white/5 dark:bg-white/5 border border-amber-700/20 rounded-2xl p-8 text-center backdrop-blur-sm">
+          <span className="text-3xl block mb-3">📖</span>
+          <h3 className="font-[var(--font-cormorant)] text-2xl font-bold text-amber-100 mb-3">
+            {locale === 'ru' ? 'Углубите свои знания' : 'Deepen Your Knowledge'}
+          </h3>
+          <p className="text-gray-300 text-sm mb-6 max-w-md mx-auto">
+            {locale === 'ru'
+              ? 'Сохраняйте любимые учения и отслеживайте свой путь.'
+              : 'Save your favorite teachings and track your journey.'}
+          </p>
+          <Link
+            href="/teachings/practice"
+            className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-amber-700 hover:bg-amber-600 text-white font-medium text-sm transition-colors"
+          >
+            {locale === 'ru' ? 'Начать учиться' : 'Start Learning'} →
+          </Link>
+        </div>
+      </section>
     </div>
   )
 }

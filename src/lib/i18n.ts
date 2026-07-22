@@ -106,6 +106,12 @@ type TranslationKeys = {
     compassionTitle: string
     compassionDesc: string
   }
+  teachings: {
+    pageTitle: string
+    sectionDharmachakra: string
+    sectionTeachings: string
+    sectionPractices: string
+  }
 }
 
 const translations: Record<Locale, TranslationKeys> = {
@@ -170,6 +176,7 @@ const translations: Record<Locale, TranslationKeys> = {
       compassionTitle: 'Developing Compassion',
       compassionDesc: 'Practice mettā (loving-kindness): sit quietly and repeat phrases of well-wishing — "May I be happy. May I be peaceful. May all beings be happy." Start with yourself, then extend to loved ones, neutral people, difficult people, and finally all beings.',
     },
+    teachings: { pageTitle: 'Teachings, Dharmachakra & Practices', sectionDharmachakra: 'Dharmachakra', sectionTeachings: "Buddha's Teachings", sectionPractices: 'Practices' },
   },
   ru: {
     nav: {
@@ -232,6 +239,7 @@ const translations: Record<Locale, TranslationKeys> = {
       compassionTitle: 'Развитие сострадания',
       compassionDesc: 'Практикуйте метту (любящую доброту): тихо сядьте и повторяйте слова пожеланий — «Пусть я буду счастлив. Пусть я буду в покое. Пусть все существа будут счастливы». Начните с себя, затем расширьте на близких, нейтральных, сложных людей и всех существ.',
     },
+    teachings: { pageTitle: 'Учения Дхармачакра и Практики', sectionDharmachakra: 'Дхармачакра', sectionTeachings: 'Учения Будды', sectionPractices: 'Практики' },
   },
   hi: {
     nav: {
@@ -294,6 +302,7 @@ const translations: Record<Locale, TranslationKeys> = {
       compassionTitle: 'करुणा का विकास',
       compassionDesc: 'मेट्टा (प्रेम-करुणा) का अभ्यास करें: शांत बैठें और कल्याण के वाक्य दोहराएं — "मैं सुखी होऊँ। मैं शांत होऊँ। सभी प्राणी सुखी हों।" अपने आप से शुरू करें, फिर प्रियजनों, तटस्थ लोगों, कठिन लोगों और सभी प्राणियों तक विस्तारित करें।',
     },
+    teachings: { pageTitle: 'धर्मचक्र शिक्षाएँ और अभ्यास', sectionDharmachakra: 'धर्मचक्र', sectionTeachings: 'बुद्ध की शिक्षाएँ', sectionPractices: 'अभ्यास' },
   },
   es: {
     nav: {
@@ -356,6 +365,7 @@ const translations: Record<Locale, TranslationKeys> = {
       compassionTitle: 'Desarrollar la compasión',
       compassionDesc: 'Practica la mettā (amor bondadoso): siéntate en silencio y repite frases de bienestar — "Que yo sea feliz. Que yo esté en paz. Que todos los seres sean felices." Comienza contigo mismo, luego extiende a seres queridos, personas neutras, personas difíciles y finalmente a todos los seres.',
     },
+    teachings: { pageTitle: 'Enseñanzas, Dharmachakra y Prácticas', sectionDharmachakra: 'Dharmachakra', sectionTeachings: 'Enseñanzas del Buda', sectionPractices: 'Prácticas' },
   },
   fr: {
     nav: {
@@ -418,6 +428,7 @@ const translations: Record<Locale, TranslationKeys> = {
       compassionTitle: 'Développer la compassion',
       compassionDesc: 'Pratiquez la mettā (amour bienveillant) : asseyez-vous silencieusement et répétez des phrases de souhait de bien-être — "Que je sois heureux. Que je sois en paix. Que tous les êtres soient heureux." Commencez par vous-même, puis étendez aux êtres chers, aux personnes neutres, aux personnes difficiles et enfin à tous les êtres.',
     },
+    teachings: { pageTitle: 'Enseignements, Dharmachakra et Pratiques', sectionDharmachakra: 'Dharmachakra', sectionTeachings: 'Enseignements du Bouddha', sectionPractices: 'Pratiques' },
   },
   de: {
     nav: {
@@ -480,6 +491,7 @@ const translations: Record<Locale, TranslationKeys> = {
       compassionTitle: 'Mitgefühl entwickeln',
       compassionDesc: 'Üben Sie Mettā (liebende Güte): Sitzen Sie ruhig und wiederholen Sie Wünsche des Wohlergehens — „Möge ich glücklich sein. Möge ich in Frieden sein. Möge aller Wesen glücklich sein." Beginnen Sie mit sich selbst und erweitern Sie es auf Geliebte, neutrale Menschen, schwierige Menschen und schließlich alle Wesen.',
     },
+    teachings: { pageTitle: 'Lehren, Dharmachakra und Praktiken', sectionDharmachakra: 'Dharmachakra', sectionTeachings: 'Buddhas Lehren', sectionPractices: 'Praktiken' },
   },
   zh: {
     nav: {
@@ -542,6 +554,7 @@ const translations: Record<Locale, TranslationKeys> = {
       compassionTitle: '培养慈悲',
       compassionDesc: '修习慈心（mettā）：安静坐下，重复祝福的话语——"愿我快乐。愿我平安。愿一切众生快乐。"从自己开始，然后扩展到亲人、中立的人、困难的人，最后到一切众生。',
     },
+    teachings: { pageTitle: '法轮教义与修行', sectionDharmachakra: '法轮', sectionTeachings: '佛陀教义', sectionPractices: '修行' },
   },
   ja: {
     nav: {
@@ -604,6 +617,7 @@ const translations: Record<Locale, TranslationKeys> = {
       compassionTitle: '慈悲を育てる',
       compassionDesc: 'メッター（慈愛）を実践します：静かに座り、幸福の願いを繰り返します——「私が幸せでありますように。私が平和でありますように。すべての生きとし生けるものが幸せでありますように。」自分から始めて、愛する人、中立の人、難しい人、そしてすべての生きとし生けるものに広げます。',
     },
+    teachings: { pageTitle: 'ダルマチャクラの教えと修行', sectionDharmachakra: 'ダルマチャクラ', sectionTeachings: 'ブッダの教え', sectionPractices: '修行' },
   },
   pt: {
     nav: {
@@ -666,6 +680,7 @@ const translations: Record<Locale, TranslationKeys> = {
       compassionTitle: 'Desenvolver a compaixão',
       compassionDesc: 'Pratique a mettā (amor bondoso): sente-se silenciosamente e repita frases de bem-estar — "Que eu seja feliz. Que eu esteja em paz. Que todos os seres sejam felizes." Comece com você mesmo, depois estenda a entes queridos, pessoas neutras, pessoas difíceis e finalmente a todos os seres.',
     },
+    teachings: { pageTitle: 'Ensinos, Dharmachakra e Práticas', sectionDharmachakra: 'Dharmachakra', sectionTeachings: 'Ensinos do Buda', sectionPractices: 'Práticas' },
   },
   th: {
     nav: {
@@ -728,6 +743,7 @@ const translations: Record<Locale, TranslationKeys> = {
       compassionTitle: 'พัฒนาความเมตตา',
       compassionDesc: 'ฝึกเมตตา (mettā): นั่งเงียบๆ และทบทวนคำอวยพร — "ขอให้ข้าพเจ้ามีความสุข ขอให้ข้าพเจ้าสงบ ขอให้สัตว์ทั้งปวงมีความสุข" เริ่มจากตัวเอง แล้วขยายไปยังคนรัก คนทั่วไป คนที่ลำบาก และในที่สุดก็สัตว์ทั้งปวง',
     },
+    teachings: { pageTitle: 'ธรรมะ ธัมมจักร และการปฏิบัติ', sectionDharmachakra: 'ธัมมจักร', sectionTeachings: 'คำสอนของพระพุทธเจ้า', sectionPractices: 'การปฏิบัติ' },
   },
   vi: {
     nav: {
@@ -790,6 +806,7 @@ const translations: Record<Locale, TranslationKeys> = {
       compassionTitle: 'Phát triển lòng từ bi',
       compassionDesc: 'Thực hành mettā (tâm từ): ngồi yên tĩnh và lặp lại những lời chúc phúc — "Nguyện tôi được hạnh phúc. Nguyện tôi được bình an. Nguyện tất cả chúng sinh được hạnh phúc." Bắt đầu từ bản thân, sau đó mở rộng đến người thân, người trung tính, người khó khăn và cuối cùng là tất cả chúng sinh.',
     },
+    teachings: { pageTitle: 'Giáo lý, Pháp Luân và Thực hành', sectionDharmachakra: 'Pháp Luân', sectionTeachings: 'Giáo lý của Đức Phật', sectionPractices: 'Thực hành' },
   },
   ko: {
     nav: {
@@ -852,6 +869,7 @@ const translations: Record<Locale, TranslationKeys> = {
       compassionTitle: '자비 기르기',
       compassionDesc: '메타(사랑의 친절)를 실천합니다: 조용히 앉아 행복의 기원을 반복합니다 — "제가 행복하길 바랍니다. 제가 평화롭길 바랍니다. 모든 중생이 행복하길 바랍니다." 자신부터 시작하여, 사랑하는 사람, 중립적인 사람, 어려운 사람, 그리고 모든 중생에게 확장합니다.',
     },
+    teachings: { pageTitle: '가르침, 다르마차크라와 수행', sectionDharmachakra: '다르마차크라', sectionTeachings: '붓다의 가르침', sectionPractices: '수행' },
   },
   id: {
     nav: {
@@ -915,6 +933,7 @@ const translations: Record<Locale, TranslationKeys> = {
       compassionTitle: 'Mengembangkan belas kasih',
       compassionDesc: 'Praktikkan mettā (cinta kasih): duduklah dalam keheningan dan ulangi ungkapan kesejahteraan — "Semoga saya bahagia. Semoga saya damai. Semoga semua makhluk bahagia." Mulailah dari diri sendiri, lalu luaskan kepada orang terkasih, orang netral, orang sulit, dan akhirnya semua makhluk.',
     },
+    teachings: { pageTitle: 'Ajaran, Dharmachakra & Praktik', sectionDharmachakra: 'Dharmachakra', sectionTeachings: 'Ajaran Buddha', sectionPractices: 'Praktik' },
   },
   ms: {
     nav: {
@@ -978,6 +997,7 @@ const translations: Record<Locale, TranslationKeys> = {
       compassionTitle: 'Membangunkan belas kasihan',
       compassionDesc: 'Amalkan mettā (kasih sayang): duduk dalam keheningan dan ulang ungkapan kesejahteraan — "Semoga saya gembira. Semoga saya aman. Semoga semua makhluk gembira." Mulakan dengan diri sendiri, kemudian luaskan kepada orang tersayang, orang neutral, orang sukar, dan akhirnya semua makhluk.',
     },
+    teachings: { pageTitle: 'Ajaran, Dharmachakra & Amalan', sectionDharmachakra: 'Dharmachakra', sectionTeachings: 'Ajaran Buddha', sectionPractices: 'Amalan' },
   },
   si: {
     nav: {
@@ -1040,6 +1060,7 @@ const translations: Record<Locale, TranslationKeys> = {
       compassionTitle: 'කරුණාව වර්ධනය කිරීම',
       compassionDesc: 'මෙත්තා (ප්‍රේම-කරුණාව) පුහුණු කරන්න: නිහඬව හිඳ, සුව පැතුම් යළි යළි කියන්න — "මම සතුටින් සිටින්නම්. මම සාමකාමී වන්නම්. සියලු සත්ත්වයෝ සතුටින් සිටින්නෝය." ඔබේ තමාගෙන් ආරම්භ කරන්න, ඉන්පසු ආදරණීයයන්ට, මධ්‍යස්ථ පුද්ගලයින්ට, අපහසු පුද්ගලයින්ට සහ අවසානයේ සියලු සත්ත්වයන්ට පුළුල් කරන්න.',
     },
+    teachings: { pageTitle: 'ධර්මචක්‍ර උපදේශ සහ ප්‍රායෝගික', sectionDharmachakra: 'ධර්මචක්‍රය', sectionTeachings: 'බුදුන්ගේ උපදේශ', sectionPractices: 'ප්‍රායෝගික' },
   },
   my: {
     nav: {
@@ -1102,6 +1123,7 @@ const translations: Record<Locale, TranslationKeys> = {
       compassionTitle: 'သနားကရုဏာ ဖွံ့ဖြိုးခြင်း',
       compassionDesc: 'မေတ္တာ (ချစ်ခြင်းမေတ္တာ) ကို လေ့ကျင့်ပါ — ငြိမ်သက်စွာ ထိုင်ပြီး ကောင်းကျိုးဆန္ဒများကို ထပ်ခါတလဲလဲ ပြောပါ — "ကျွန်ုပ် ပျော်ရွှင်ပါစေ။ ကျွန်ုပ် ငြိမ်ချမ်းပါစေ။ သတ္တဝါအားလုံး ပျော်ရွှင်ကြပါစေ။" ကိုယ်တိုင်မှ စတင်ပြီး ချစ်ခင်ရသူ၊ ကြားနေပုဂ္ဂိုလ်၊ ခက်ခဲသည့် ပုဂ္ဂိုလ်နှင့် နောက်ဆုံးတွင် သတ္တဝါအားလုံးထံ ချဲ့ကျယ်ပါ။',
     },
+    teachings: { pageTitle: 'သင်ကြားမှုများ ဓမ္မစကြာနှင့် အားထုတ်မှုများ', sectionDharmachakra: 'ဓမ္မစကြာ', sectionTeachings: 'ဘုရားရှင်၏ သင်ကြားမှုများ', sectionPractices: 'အားထုတ်မှုများ' },
   },
   ne: {
     nav: {
@@ -1164,6 +1186,7 @@ const translations: Record<Locale, TranslationKeys> = {
       compassionTitle: 'करुणा विकास गर्ने',
       compassionDesc: 'मेट्ता (प्रेम-करुणा) अभ्यास गर्नुहोस्: शान्त बस्नुहोस् र कल्याणका वाक्यहरू दोहोर्याउनुहोस् — "म सुखी होऊँ। म शान्त होऊँ। सबै प्राणी सुखी होऊन्।" आफ्नो आफूबाट सुरु गर्नुहोस्, त्यसपछि प्रियजन, तटस्थ मानिस, कठिन मानिस र अन्तमा सबै प्राणीमा विस्तार गर्नुहोस्।',
     },
+    teachings: { pageTitle: 'धर्मचक्र शिक्षाहरू र अभ्यासहरू', sectionDharmachakra: 'धर्मचक्र', sectionTeachings: 'बुद्धका शिक्षाहरू', sectionPractices: 'अभ्यासहरू' },
   },
   bo: {
     nav: {
@@ -1226,6 +1249,7 @@ const translations: Record<Locale, TranslationKeys> = {
       compassionTitle: 'སྙིང་རྗེ་འཕེལ་བ།',
       compassionDesc: 'མི་མཐུན་པའི་བྱམས་བརྩེ་ལ་སྦྱོང་། ཞི་བཞིན་བཞུགས་ལ་བདེ་བའི་སྨོན་འདུན་ཡང་ཡང་བརྗོད། "ང་བདེ་བར་གྱུར་ཅིག ང་ཞི་བདེར་གྱུར་ཅིག སེམས་ཅན་ཐམས་ཅད་བདེ་བར་གྱུར་ཅིག" རང་ལས་འགོ་བརྩམས་ནས་གཉེན་ཉེ། ལྷོད་ཀྱི་མི། དཀའ་མོའི་མི། མཐར་ཐམས་ཅད་སེམས་ཅན་དུ་རྒྱས་པར་གྱུར་ཅིག',
     },
+    teachings: { pageTitle: 'སྟོན་པ། ཆོས་ཀྱི་འཁོར་ལོ། སྒོམ།', sectionDharmachakra: 'ཆོས་ཀྱི་འཁོར་ལོ།', sectionTeachings: 'སངས་རྒྱས་ཀྱི་སྟོན་པ།', sectionPractices: 'སྒོམ།' },
   },
 }
 
