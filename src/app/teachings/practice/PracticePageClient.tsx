@@ -35,12 +35,55 @@ const speechLangs: Record<string, string> = {
 
 function MettaPlayer() {
   const { t, locale } = useLanguage()
-  const [speaking, setSpeaking] = useState(false)
+  const [playing, setPlaying] = useState(false)
   const [copied, setCopied] = useState(false)
+  const [useFallback, setUseFallback] = useState(false)
+  const audioRef = useState<{ current: HTMLAudioElement | null }>({ current: null })[0]
 
   const formula = mettaFormulas[locale] || mettaFormulas.en
+  const mp3Url = `/audio/metta/${locale}.mp3`
 
-  const speak = useCallback(() => {
+  const play = useCallback(() => {
+    if (useFallback || !mp3Url) {
+      speakFallback()
+      return
+    }
+
+    if (audioRef.current) {
+      audioRef.current.pause()
+      audioRef.current = null
+    }
+
+    const audio = new Audio(mp3Url)
+    audioRef.current = audio
+
+    audio.addEventListener('play', () => setPlaying(true))
+    audio.addEventListener('ended', () => setPlaying(false))
+    audio.addEventListener('error', () => {
+      setPlaying(false)
+      setUseFallback(true)
+      speakFallback()
+    })
+
+    audio.play().catch(() => {
+      setUseFallback(true)
+      speakFallback()
+    })
+  }, [mp3Url, useFallback, formula, locale])
+
+  const stop = useCallback(() => {
+    if (audioRef.current) {
+      audioRef.current.pause()
+      audioRef.current.currentTime = 0
+      audioRef.current = null
+    }
+    if ('speechSynthesis' in window) {
+      window.speechSynthesis.cancel()
+    }
+    setPlaying(false)
+  }, [])
+
+  const speakFallback = useCallback(() => {
     if (!('speechSynthesis' in window)) {
       copyText()
       return
@@ -48,21 +91,16 @@ function MettaPlayer() {
     window.speechSynthesis.cancel()
     const utterance = new SpeechSynthesisUtterance(formula)
     utterance.lang = speechLangs[locale] || 'en-US'
-    utterance.rate = 0.85
-    utterance.pitch = 1.0
-    utterance.onstart = () => setSpeaking(true)
-    utterance.onend = () => setSpeaking(false)
+    utterance.rate = 0.8
+    utterance.pitch = 0.9
+    utterance.onstart = () => setPlaying(true)
+    utterance.onend = () => setPlaying(false)
     utterance.onerror = () => {
-      setSpeaking(false)
+      setPlaying(false)
       copyText()
     }
     window.speechSynthesis.speak(utterance)
   }, [formula, locale])
-
-  const stop = useCallback(() => {
-    window.speechSynthesis.cancel()
-    setSpeaking(false)
-  }, [])
 
   const copyText = useCallback(() => {
     navigator.clipboard.writeText(formula).then(() => {
@@ -77,16 +115,16 @@ function MettaPlayer() {
 
       <p className="text-gray-300 text-sm italic mb-4 leading-relaxed">«{formula}»</p>
 
-      <div className="flex gap-3 flex-wrap">
+      <div className="flex gap-3 flex-wrap items-center">
         <button
-          onClick={speaking ? stop : speak}
+          onClick={playing ? stop : play}
           className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-medium text-sm transition-all duration-300 ${
-            speaking
+            playing
               ? 'bg-red-600/80 hover:bg-red-500/80 text-white'
               : 'bg-amber-600 hover:bg-amber-500 text-white'
           }`}
         >
-          {speaking ? '⏹ ' + (locale === 'ru' ? 'Остановить' : 'Stop') : t.practice.listenMetta}
+          {playing ? '⏹ ' + (locale === 'ru' ? 'Остановить' : 'Stop') : t.practice.listenMetta}
         </button>
 
         <button
