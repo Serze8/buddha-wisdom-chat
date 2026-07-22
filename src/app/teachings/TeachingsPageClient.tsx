@@ -296,6 +296,8 @@ function VideoDescription() {
     </div>
   )
 }
+
+function TranscriptSection() {
   const [tab, setTab] = useState<'ru' | 'en' | 'pt'>('ru')
 
   return (
