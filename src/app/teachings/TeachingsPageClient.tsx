@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { useLanguage } from '@/contexts/LanguageContext'
+import Link from 'next/link'
 import PromoBanner from '@/components/ui/PromoBanner'
 
 const teachings = [
@@ -298,6 +299,15 @@ export default function TeachingsPageClient() {
             </ul>
           </div>
         ))}
+      </div>
+
+      <div className="mt-10 mb-6 text-center">
+        <Link
+          href="/teachings/practice"
+          className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-amber-700 hover:bg-amber-600 text-white font-medium transition-colors"
+        >
+          🧘 {locale === 'ru' ? 'Предварительная практика' : 'Preliminary Practice'} →
+        </Link>
       </div>
 
       <div className="mt-10">
