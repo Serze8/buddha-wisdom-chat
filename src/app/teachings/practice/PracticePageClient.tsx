@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useCallback } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { useLanguage } from '@/contexts/LanguageContext'
 import Link from 'next/link'
 import BreathingPractice from '@/components/BreathingPractice'
@@ -44,12 +44,11 @@ function MettaPlayer() {
   const mp3Url = `/audio/metta/${locale}.mp3`
 
   // Check if MP3 file exists on mount
-  const checkedLang = useState(locale)[0]
-  useState(() => {
+  useEffect(() => {
     fetch(mp3Url, { method: 'HEAD' })
       .then((res) => setMp3Available(res.ok))
       .catch(() => setMp3Available(false))
-  })
+  }, [mp3Url])
 
   const speakFallback = useCallback(() => {
     if (!('speechSynthesis' in window)) {
