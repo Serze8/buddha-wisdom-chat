@@ -112,7 +112,7 @@ const translations: Record<Locale, TranslationKeys> = {
   en: {
     nav: {
       home: 'Home', chat: 'Chat', characters: 'Characters', episodes: 'Episodes',
-      teachings: 'Teachings', theses: 'Theses', gallery: 'Gallery', quiz: 'Quiz',
+      teachings: 'Teachings, Dharmachakra & Practice', theses: 'Theses', gallery: 'Gallery', quiz: 'Quiz',
       community: 'Community', videos: 'Videos', retreats: 'Retreats', profile: 'Profile',
       about: 'About', contact: 'Contact', admin: 'Admin', donate: 'Donate',
       blockChat: 'Chat', blockLearn: 'From Under the Bodhi Tree', blockFilm: 'Film',
@@ -174,7 +174,7 @@ const translations: Record<Locale, TranslationKeys> = {
   ru: {
     nav: {
       home: 'Главная', chat: 'Чат', characters: 'Герои', episodes: 'Эпизоды',
-      teachings: 'Учения', theses: 'Тезисы', gallery: 'Галерея', quiz: 'Викторина',
+      teachings: 'Учения дхармачакра и практики', theses: 'Тезисы', gallery: 'Галерея', quiz: 'Викторина',
       community: 'Сообщество', videos: 'Видео', retreats: 'Ретриты', profile: 'Профиль',
       about: 'О проекте', contact: 'Контакты', admin: 'Админ', donate: 'Поддержать',
       blockChat: 'Чат', blockLearn: 'Из-под дерева Бодхи', blockFilm: 'Фильм',
@@ -236,7 +236,7 @@ const translations: Record<Locale, TranslationKeys> = {
   hi: {
     nav: {
       home: 'होम', chat: 'चैट', characters: 'पात्र', episodes: 'एपिसोड',
-      teachings: 'शिक्षाएँ', theses: 'थीसिस', gallery: 'गैलरी', quiz: 'प्रश्नोत्तरी',
+      teachings: 'शिक्षाएँ, धर्मचक्र और अभ्यास', theses: 'थीसिस', gallery: 'गैलरी', quiz: 'प्रश्नोत्तरी',
       community: 'समुदाय', videos: 'वीडियो', retreats: 'रिट्रीट', profile: 'प्रोफ़ाइल',
       about: 'परियोजना के बारे में', contact: 'संपर्क', admin: 'एडमिन', donate: 'समर्थन',
       blockChat: 'चैट', blockLearn: 'बोधि वृक्ष के नीचे', blockFilm: 'फ़िल्म',
@@ -298,7 +298,7 @@ const translations: Record<Locale, TranslationKeys> = {
   es: {
     nav: {
       home: 'Inicio', chat: 'Chat', characters: 'Personajes', episodes: 'Episodios',
-      teachings: 'Enseñanzas', theses: 'Tesis', gallery: 'Galería', quiz: 'Quiz',
+      teachings: 'Enseñanzas, Dharmachakra y Práctica', theses: 'Tesis', gallery: 'Galería', quiz: 'Quiz',
       community: 'Comunidad', videos: 'Videos', retreats: 'Retiros', profile: 'Perfil',
       about: 'Acerca de', contact: 'Contacto', admin: 'Administrador', donate: 'Donar',
       blockChat: 'Chat', blockLearn: 'Bajo el Árbol Bodhi', blockFilm: 'Película',
@@ -360,7 +360,7 @@ const translations: Record<Locale, TranslationKeys> = {
   fr: {
     nav: {
       home: 'Accueil', chat: 'Chat', characters: 'Personnages', episodes: 'Épisodes',
-      teachings: 'Enseignements', theses: 'Thèses', gallery: 'Galerie', quiz: 'Quiz',
+      teachings: 'Enseignements, Dharmachakra et Pratique', theses: 'Thèses', gallery: 'Galerie', quiz: 'Quiz',
       community: 'Communauté', videos: 'Vidéos', retreats: 'Retraites', profile: 'Profil',
       about: 'À propos', contact: 'Contact', admin: 'Administrateur', donate: 'Donner',
       blockChat: 'Chat', blockLearn: 'Sous l\'Arbre Bodhi', blockFilm: 'Film',
@@ -422,7 +422,7 @@ const translations: Record<Locale, TranslationKeys> = {
   de: {
     nav: {
       home: 'Startseite', chat: 'Chat', characters: 'Charaktere', episodes: 'Episoden',
-      teachings: 'Lehren', theses: 'Thesen', gallery: 'Galerie', quiz: 'Quiz',
+      teachings: 'Lehren, Dharmachakra und Praxis', theses: 'Thesen', gallery: 'Galerie', quiz: 'Quiz',
       community: 'Gemeinschaft', videos: 'Videos', retreats: 'Rückzüge', profile: 'Profil',
       about: 'Über uns', contact: 'Kontakt', admin: 'Administrator', donate: 'Spenden',
       blockChat: 'Chat', blockLearn: 'Unter dem Bodhi-Baum', blockFilm: 'Film',
@@ -484,7 +484,7 @@ const translations: Record<Locale, TranslationKeys> = {
   zh: {
     nav: {
       home: '首页', chat: '聊天', characters: '角色', episodes: '剧集',
-      teachings: '教义', theses: '论文', gallery: '画廊', quiz: '问答',
+      teachings: '教义、法轮与修行', theses: '论文', gallery: '画廊', quiz: '问答',
       community: '社区', videos: '视频', retreats: '修行', profile: '个人资料',
       about: '关于', contact: '联系我们', admin: '管理员', donate: '支持',
       blockChat: '聊天', blockLearn: '菩提树下', blockFilm: '电影',
@@ -546,7 +546,7 @@ const translations: Record<Locale, TranslationKeys> = {
   ja: {
     nav: {
       home: 'ホーム', chat: 'チャット', characters: 'キャラクター', episodes: 'エピソード',
-      teachings: '教え', theses: '論文', gallery: 'ギャラリー', quiz: 'クイズ',
+      teachings: 'ダルマチャクラと修行', theses: '論文', gallery: 'ギャラリー', quiz: 'クイズ',
       community: 'コミュニティ', videos: '動画', retreats: 'リトリート', profile: 'プロフィール',
       about: '概要', contact: 'お問い合わせ', admin: '管理者', donate: '寄付',
       blockChat: 'チャット', blockLearn: '菩提樹の下で', blockFilm: '映画',
@@ -608,7 +608,7 @@ const translations: Record<Locale, TranslationKeys> = {
   pt: {
     nav: {
       home: 'Início', chat: 'Chat', characters: 'Personagens', episodes: 'Episódios',
-      teachings: 'Ensinos', theses: 'Teses', gallery: 'Galeria', quiz: 'Quiz',
+      teachings: 'Ensinos, Dharmachakra e Prática', theses: 'Teses', gallery: 'Galeria', quiz: 'Quiz',
       community: 'Comunidade', videos: 'Vídeos', retreats: 'Retiros', profile: 'Perfil',
       about: 'Sobre', contact: 'Contato', admin: 'Admin', donate: 'Apoiar',
       blockChat: 'Chat', blockLearn: 'Sob a Árvore Bodhi', blockFilm: 'Filme',
@@ -670,7 +670,7 @@ const translations: Record<Locale, TranslationKeys> = {
   th: {
     nav: {
       home: 'หน้าแรก', chat: 'แชท', characters: 'ตัวละคร', episodes: 'ตอน',
-      teachings: 'คำสอน', theses: 'theses', gallery: 'แกลเลอรี', quiz: 'แบบทดสอบ',
+      teachings: 'ธรรมะ ธัมมจักร และการปฏิบัติ', theses: 'theses', gallery: 'แกลเลอรี', quiz: 'แบบทดสอบ',
       community: 'ชุมชน', videos: 'วิดีโอ', retreats: 'สถานปฏิบัติธรรม', profile: 'โปรไฟล์',
       about: 'เกี่ยวกับ', contact: 'ติดต่อ', admin: 'แอดมิน', donate: 'สนับสนุน',
       blockChat: 'แชท', blockLearn: 'ใต้ต้นโพธิ์', blockFilm: 'ภาพยนตร์',
@@ -732,7 +732,7 @@ const translations: Record<Locale, TranslationKeys> = {
   vi: {
     nav: {
       home: 'Trang chủ', chat: 'Trò chuyện', characters: 'Nhân vật', episodes: 'Tập phim',
-      teachings: 'Giáo lý', theses: 'Luận đề', gallery: 'Thư viện ảnh', quiz: 'Trắc nghiệm',
+      teachings: 'Giáo lý, Pháp Luân và Thực hành', theses: 'Luận đề', gallery: 'Thư viện ảnh', quiz: 'Trắc nghiệm',
       community: 'Cộng đồng', videos: 'Video', retreats: 'Khóa tu', profile: 'Hồ sơ',
       about: 'Giới thiệu', contact: 'Liên hệ', admin: 'Quản trị', donate: 'Hỗ trợ',
       blockChat: 'Trò chuyện', blockLearn: 'Dưới cây Bồ Đề', blockFilm: 'Phim',
@@ -794,7 +794,7 @@ const translations: Record<Locale, TranslationKeys> = {
   ko: {
     nav: {
       home: '홈', chat: '채팅', characters: '인물', episodes: '에피소드',
-      teachings: '가르침', theses: '논문', gallery: '갤러리', quiz: '퀴즈',
+      teachings: '가르침, 다르마차크라와 수행', theses: '논문', gallery: '갤러리', quiz: '퀴즈',
       community: '커뮤니티', videos: '영상', retreats: '수련회', profile: '프로필',
       about: '소개', contact: '문의', admin: '관리자', donate: '후원',
       blockChat: '채팅', blockLearn: '보리수 아래서', blockFilm: '영화',
@@ -856,7 +856,7 @@ const translations: Record<Locale, TranslationKeys> = {
   id: {
     nav: {
       home: 'Beranda', chat: 'Obrolan', characters: 'Karakter', episodes: 'Episode',
-      teachings: 'Ajaran', theses: 'Tesis', gallery: 'Galeri', quiz: 'Kuis',
+      teachings: 'Ajaran, Dharmachakra & Praktik', theses: 'Tesis',
       community: 'Komunitas', videos: 'Video', retreats: 'Retret', profile: 'Profil',
       about: 'Tentang', contact: 'Kontak', admin: 'Admin', donate: 'Dukung',
       blockChat: 'Obrolan', blockLearn: 'Di Bawah Pohon Bodhi', blockFilm: 'Film',
@@ -918,7 +918,7 @@ const translations: Record<Locale, TranslationKeys> = {
   ms: {
     nav: {
       home: 'Laman Utama', chat: 'Sembang', characters: 'Watak', episodes: 'Episod',
-      teachings: 'Ajaran', theses: 'Tesis', gallery: 'Galeri', quiz: 'Kuiz',
+      teachings: 'Ajaran, Dharmachakra & Amalan', theses: 'Tesis',
       community: 'Komuniti', videos: 'Video', retreats: 'Retreat', profile: 'Profil',
       about: 'Tentang', contact: 'Hubungi', admin: 'Admin', donate: 'Sokong',
       blockChat: 'Sembang', blockLearn: 'Di Bawah Pokok Bodhi', blockFilm: 'Filem',
@@ -980,7 +980,7 @@ const translations: Record<Locale, TranslationKeys> = {
   si: {
     nav: {
       home: 'මුල් පිටුව', chat: 'කතාබහ', characters: 'චරිත', episodes: 'කොටස්',
-      teachings: 'ඉගැන්වීම්', theses: 'න්‍යායන්', gallery: 'ගැලරිය', quiz: 'ප්‍රශ්නාවලිය',
+      teachings: 'උපදේශ, ධර්මචක්‍ර සහ ප්‍රායෝගික', theses: 'න්‍යායන්', gallery: 'ගැලරිය', quiz: 'ප්‍රශ්නාවලිය',
       community: 'ප්‍රජාව', videos: 'වීඩියෝ', retreats: 'ධ්‍යාන මධ්‍යස්ථාන', profile: 'පැතිකඩ',
       about: 'පිළිබඳව', contact: 'සම්බන්ධ වන්න', admin: 'පරිපාලක', donate: 'සහාය වන්න',
       blockChat: 'කතාබහ', blockLearn: 'බෝධි වෘක්ෂය යටතේ', blockFilm: 'චිත්‍රපටය',
@@ -1042,7 +1042,7 @@ const translations: Record<Locale, TranslationKeys> = {
   my: {
     nav: {
       home: 'ပင်မစာမျက်နှာ', chat: 'စကားပြော', characters: 'ဇာတ်ကောင်', episodes: 'ဇာတ်လမ်း',
-      teachings: 'သွန်သင်ချက်များ', theses: 'စာတမ်းများ', gallery: 'ပုံတန်း', quiz: 'မေးခွန်း',
+      teachings: 'သင်ကြားမှုများ ဓမ္မစကြာနှင့် အားထုတ်မှု', theses: 'စာတမ်းများ', gallery: 'ပုံတန်း', quiz: 'မေးခွန်း',
       community: 'လူမှုအသိုက်', videos: 'ဗီဒီယို', retreats: 'တရားအားထုတ်ရာ', profile: 'ကိုယ်ရေး',
       about: 'အကြောင်းအရာ', contact: 'ဆက်သွယ်ရန်', admin: 'စီမံခန့်ခွဲသူ', donate: 'ထောက်ပံ့',
       blockChat: 'စကားပြော', blockLearn: 'ဘုရားသစ်ပင်အောက်တွင်', blockFilm: 'ရုပ်ရှင်',
@@ -1104,7 +1104,7 @@ const translations: Record<Locale, TranslationKeys> = {
   ne: {
     nav: {
       home: 'गृहपृष्ठ', chat: 'च्याट', characters: 'पात्र', episodes: 'एपिसोड',
-      teachings: 'उपदेश', theses: 'थीसिस', gallery: 'ग्यालरी', quiz: 'प्रश्नोत्तरी',
+      teachings: 'शिक्षाहरू, धर्मचक्र र अभ्यास', theses: 'थीसिस', gallery: 'ग्यालरी', quiz: 'प्रश्नोत्तरी',
       community: 'समुदाय', videos: 'भिडियो', retreats: 'ध्यान केन्द्र', profile: 'प्रोफाइल',
       about: 'बारेमा', contact: 'सम्पर्क', admin: 'प्रशासक', donate: 'सहयोग',
       blockChat: 'च्याट', blockLearn: 'बोधिवृक्ष तल', blockFilm: 'चलचित्र',
@@ -1166,7 +1166,7 @@ const translations: Record<Locale, TranslationKeys> = {
   bo: {
     nav: {
       home: 'གཙོ་ངོས།', chat: 'སྐད་ཆ།', characters: 'སྒྲུང་མི།', episodes: 'ལེ་ཚན།',
-      teachings: 'སྟོན་པ།', theses: 'དཔྱད་རྩོམ།', gallery: 'པར་ཁུལ།', quiz: 'དྲི་བ།',
+      teachings: 'སྟོན་པ། ཆོས་ཀྱི་འཁོར་ལོ། སྒོམ།', theses: 'དཔྱད་རྩོམ།', gallery: 'པར་ཁུལ།', quiz: 'དྲི་བ།',
       community: 'ཚོགས་པ།', videos: 'བརྙན་འཕྲིན།', retreats: 'སྒོམ་གནས།', profile: 'ངོ་སྤྲོད།',
       about: 'སྐོར།', contact: 'འབྲེལ་བ།', admin: 'དོ་དམ།', donate: 'རོགས་རམ།',
       blockChat: 'སྐད་ཆ།', blockLearn: 'བྱང་ཆུབ་ཤིང་འོག', blockFilm: 'གློག་བརྙན།',

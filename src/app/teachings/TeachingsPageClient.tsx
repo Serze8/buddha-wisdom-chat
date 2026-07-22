@@ -3,7 +3,6 @@
 import { useState } from 'react'
 import { useLanguage } from '@/contexts/LanguageContext'
 import Link from 'next/link'
-import PromoBanner from '@/components/ui/PromoBanner'
 
 const teachings = [
   {
@@ -211,15 +210,15 @@ function VideoDescription() {
   const desc = videoDescriptions[locale] || videoDescriptions.en
 
   return (
-    <div className="bg-white dark:bg-gray-900 rounded-2xl shadow border border-gray-200 dark:border-gray-700 p-6 mb-8">
-      <h3 className="font-[var(--font-cormorant)] text-xl font-semibold text-gray-900 dark:text-gray-100 mb-2">
+    <div className="rounded-2xl p-6 mb-8 border border-amber-700/20" style={{ background: 'rgba(30, 41, 59, 0.6)' }}>
+      <h3 className="font-[var(--font-cormorant)] text-xl font-semibold text-amber-100 mb-2">
         {desc.title}
       </h3>
-      <p className="text-gray-600 dark:text-gray-300 text-sm mb-4 leading-relaxed">{desc.desc}</p>
-      <ul className="space-y-2 text-gray-600 dark:text-gray-300 text-sm">
+      <p className="text-gray-300 text-sm mb-4 leading-relaxed">{desc.desc}</p>
+      <ul className="space-y-2 text-gray-300 text-sm">
         {desc.points.map((point, i) => (
           <li key={i} className="flex items-start gap-2">
-            <span className="text-amber-500 mt-1">•</span>
+            <span className="text-amber-400 mt-1">•</span>
             {point}
           </li>
         ))}
@@ -271,6 +270,43 @@ function TranscriptSection() {
   )
 }
 
+function TeachingCard({ teaching }: { teaching: typeof teachings[0] }) {
+  const [open, setOpen] = useState(false)
+  const { locale } = useLanguage()
+
+  return (
+    <div className="bg-white dark:bg-gray-900 rounded-2xl shadow border border-gray-200 dark:border-gray-700 overflow-hidden">
+      <button
+        onClick={() => setOpen(!open)}
+        className="w-full flex items-center gap-3 p-6 text-left hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors"
+      >
+        <span className="text-3xl shrink-0">{teaching.emoji}</span>
+        <h2 className="font-[var(--font-cormorant)] text-xl font-bold text-gray-900 dark:text-gray-100 flex-1">
+          {(teaching.title as any)[locale] || teaching.title.en}
+        </h2>
+        <svg
+          className={`w-5 h-5 text-gray-400 transition-transform duration-300 shrink-0 ${open ? 'rotate-180' : ''}`}
+          fill="none" stroke="currentColor" viewBox="0 0 24 24"
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+        </svg>
+      </button>
+      {open && (
+        <div className="px-6 pb-6 animate-fade-in">
+          <ul className="space-y-2">
+            {((teaching.points as any)[locale] || teaching.points.en).map((point: string, i: number) => (
+              <li key={i} className="flex items-start gap-2 text-gray-600 dark:text-gray-300 text-sm">
+                <span className="text-amber-500 mt-1">•</span>
+                {point}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </div>
+  )
+}
+
 export default function TeachingsPageClient() {
   const { t, locale } = useLanguage()
 
@@ -280,42 +316,8 @@ export default function TeachingsPageClient() {
         {t.nav.teachings}
       </h1>
 
-      <div className="space-y-6">
-        {teachings.map((teaching) => (
-          <div key={teaching.id} className="bg-white dark:bg-gray-900 rounded-2xl shadow border border-gray-200 dark:border-gray-700 p-6">
-            <div className="flex items-center gap-3 mb-4">
-              <span className="text-3xl">{teaching.emoji}</span>
-              <h2 className="font-[var(--font-cormorant)] text-2xl font-bold text-gray-900 dark:text-gray-100">
-                {(teaching.title as any)[locale] || teaching.title.en}
-              </h2>
-            </div>
-            <ul className="space-y-2">
-              {((teaching.points as any)[locale] || teaching.points.en).map((point: string, i: number) => (
-                <li key={i} className="flex items-start gap-2 text-gray-600 dark:text-gray-300">
-                  <span className="text-amber-500 mt-1">•</span>
-                  {point}
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
-      </div>
-
-      <div className="mt-10 mb-6 text-center">
-        <Link
-          href="/teachings/practice"
-          className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-amber-700 hover:bg-amber-600 text-white font-medium transition-colors"
-        >
-          🧘 {locale === 'ru' ? 'Предварительная практика' : 'Preliminary Practice'} →
-        </Link>
-      </div>
-
-      <div className="mt-10">
-        <PromoBanner page="teachings" />
-      </div>
-
-      {/* Video Section */}
-      <section className="mt-16 rounded-3xl p-8 md:p-12" style={{ background: 'linear-gradient(180deg, #2D1B0E 0%, #1A0F07 100%)' }}>
+      {/* === DHARMACHAKRA SECTION (TOP) === */}
+      <section className="rounded-3xl p-8 md:p-12 mb-12" style={{ background: 'linear-gradient(180deg, #2D1B0E 0%, #1A0F07 100%)' }}>
         <h2 className="font-[var(--font-cormorant)] text-4xl font-bold text-center mb-3" style={{ color: '#F59E0B' }}>
           {locale === 'ru' ? 'Колесо Дхармы (Дхармачакра)' : 'Dharmachakra — The Wheel of Dharma'}
         </h2>
@@ -337,12 +339,45 @@ export default function TeachingsPageClient() {
           </div>
         </div>
 
-        {/* Video Description — 18 languages */}
         <VideoDescription />
-
-        {/* Transcript */}
         <TranscriptSection />
       </section>
+
+      {/* === TEACHINGS LIST (COLLAPSIBLE) === */}
+      <div className="space-y-4 mb-12">
+        {teachings.map((teaching) => (
+          <TeachingCard key={teaching.id} teaching={teaching} />
+        ))}
+      </div>
+
+      {/* === LINK TO PRACTICE === */}
+      <div className="mb-12 text-center">
+        <Link
+          href="/teachings/practice"
+          className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-amber-700 hover:bg-amber-600 text-white font-medium transition-colors"
+        >
+          🧘 {locale === 'ru' ? 'Предварительная практика' : 'Preliminary Practice'} →
+        </Link>
+      </div>
+
+      {/* === DEEPEN YOUR KNOWLEDGE (BOTTOM) === */}
+      <div className="bg-gradient-to-r from-amber-50 to-orange-50 dark:from-amber-950/30 dark:to-orange-950/20 border border-amber-200 dark:border-amber-800/30 rounded-2xl p-8 text-center">
+        <span className="text-3xl block mb-2">📖</span>
+        <h3 className="font-[var(--font-cormorant)] text-2xl font-bold text-amber-900 dark:text-amber-100 mb-2">
+          {locale === 'ru' ? 'Углубите свои знания' : 'Deepen Your Knowledge'}
+        </h3>
+        <p className="text-gray-600 dark:text-gray-300 text-sm mb-6 max-w-md mx-auto">
+          {locale === 'ru'
+            ? 'Зарегистрируйтесь, чтобы сохранять любимые учения и отслеживать свой путь.'
+            : 'Sign up to save your favorite teachings and track your journey.'}
+        </p>
+        <Link
+          href="/teachings/practice"
+          className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-amber-700 hover:bg-amber-600 text-white font-medium text-sm transition-colors"
+        >
+          {locale === 'ru' ? 'Начать учиться' : 'Start Learning'} →
+        </Link>
+      </div>
     </div>
   )
 }
