@@ -63,7 +63,7 @@ async function generateOne(item) {
   fs.mkdirSync(tmpDir, { recursive: true });
   const tts = new MsEdgeTTS();
   await tts.setMetadata(item.voice, OUTPUT_FORMAT.AUDIO_24KHZ_96KBITRATE_MONO_MP3);
-  await tts.toFile(tmpDir, item.text, { rate: '-25%', pitch: '-5Hz' });
+  await tts.toFile(tmpDir, item.text, { rate: '-25%', pitch: '-50Hz' });
   await tts.close();
   const src = path.join(tmpDir, 'audio.mp3');
   const dest = path.join(outDir, `${item.lang}.mp3`);
