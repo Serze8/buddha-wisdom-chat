@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, useRef } from 'react'
 import { useLanguage } from '@/contexts/LanguageContext'
 import Link from 'next/link'
 import BreathingPractice from '@/components/BreathingPractice'
@@ -38,7 +38,7 @@ function MettaPlayer() {
   const [playing, setPlaying] = useState(false)
   const [copied, setCopied] = useState(false)
   const [mp3Available, setMp3Available] = useState<boolean | null>(null)
-  const audioRef = useState<{ current: HTMLAudioElement | null }>({ current: null })[0]
+  const audioRef = useRef<HTMLAudioElement | null>(null)
 
   const formula = mettaFormulas[locale] || mettaFormulas.en
   const mp3Url = `/audio/metta/${locale}.mp3`
