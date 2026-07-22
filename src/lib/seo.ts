@@ -73,6 +73,11 @@ const pages: Record<string, { title: string; description: string; keywords: stri
     description: 'Get in touch with the Buddha\'s Wisdom Chat team. Questions, suggestions, and collaboration.',
     keywords: ['contact', 'feedback', 'support'],
   },
+  'teachings/practice': {
+    title: 'Preliminary Practice — Buddha\'s Wisdom Chat',
+    description: 'Practical steps to begin working with the mind: meditation, working with anger, and developing compassion through mettā practice.',
+    keywords: ['buddhist practice', 'meditation guide', 'loving-kindness', 'metta', 'preliminary practice', 'mindfulness'],
+  },
 }
 
 export function generatePageMetadata(path: string): Metadata {

@@ -96,6 +96,16 @@ type TranslationKeys = {
     showOriginal: string
     showTranslation: string
   }
+  practice: {
+    title: string
+    intro: string
+    meditationTitle: string
+    meditationDesc: string
+    angerTitle: string
+    angerDesc: string
+    compassionTitle: string
+    compassionDesc: string
+  }
 }
 
 const translations: Record<Locale, TranslationKeys> = {
@@ -150,6 +160,16 @@ const translations: Record<Locale, TranslationKeys> = {
       loading: 'Loading...', error: 'Error', save: 'Save', cancel: 'Cancel',
       delete: 'Delete', back: 'Back', showOriginal: 'Show original', showTranslation: 'Show translation',
     },
+    practice: {
+      title: 'Preliminary Practice',
+      intro: 'Practical steps to begin working with the mind and cultivating compassion',
+      meditationTitle: 'How to Start Meditating',
+      meditationDesc: 'A simple technique: focus on your breath for 5–10 minutes a day. Sit comfortably, close your eyes, and follow each inhale and exhale. When the mind wanders, gently bring attention back to the breath.',
+      angerTitle: 'Working with Anger',
+      angerDesc: 'Practice mindfulness: when anger arises, pause before reacting. Observe the sensation in the body, breathe into it, and allow the emotion to pass without acting on it. Acceptance is the first step to transformation.',
+      compassionTitle: 'Developing Compassion',
+      compassionDesc: 'Practice mettā (loving-kindness): sit quietly and repeat phrases of well-wishing — "May I be happy. May I be peaceful. May all beings be happy." Start with yourself, then extend to loved ones, neutral people, difficult people, and finally all beings.',
+    },
   },
   ru: {
     nav: {
@@ -201,6 +221,16 @@ const translations: Record<Locale, TranslationKeys> = {
     common: {
       loading: 'Загрузка...', error: 'Ошибка', save: 'Сохранить', cancel: 'Отмена',
       delete: 'Удалить', back: 'Назад', showOriginal: 'Показать оригинал', showTranslation: 'Показать перевод',
+    },
+    practice: {
+      title: 'Предварительная практика',
+      intro: 'Практические шаги для начала работы с умом и развития сострадания',
+      meditationTitle: 'Как начать медитировать',
+      meditationDesc: 'Простая техника: сосредоточьтесь на дыхании на 5–10 минут в день. Сядьте удобно, закройте глаза и следите за каждым вдохом и выдохом. Когда ум отвлекается, мягко верните внимание к дыханию.',
+      angerTitle: 'Как работать с гневом',
+      angerDesc: 'Практикуйте осознанность: когда возникает гнев, сделайте паузу перед реакцией. Наблюдайте ощущение в теле, дышите в него и позвольте эмоции пройти без действия. Принятие — первый шаг к трансформации.',
+      compassionTitle: 'Развитие сострадания',
+      compassionDesc: 'Практикуйте метту (любящую доброту): тихо сядьте и повторяйте слова пожеланий — «Пусть я буду счастлив. Пусть я буду в покое. Пусть все существа будут счастливы». Начните с себя, затем расширьте на близких, нейтральных, сложных людей и всех существ.',
     },
   },
   hi: {
@@ -254,6 +284,16 @@ const translations: Record<Locale, TranslationKeys> = {
       loading: 'लोड हो रहा है...', error: 'त्रुटि', save: 'सहेजें', cancel: 'रद्द करें',
       delete: 'हटाएं', back: 'वापस', showOriginal: 'मूल दिखाएं', showTranslation: 'अनुवाद दिखाएं',
     },
+    practice: {
+      title: 'प्रारंभिक अभ्यास',
+      intro: 'मन से काम शुरू करने और करुणा विकसित करने के व्यावहारिक कदम',
+      meditationTitle: 'ध्यान कैसे शुरू करें',
+      meditationDesc: 'एक सरल तकनीक: दिन में 5–10 मिनट के लिए अपनी सांस पर ध्यान केंद्रित करें। आराम से बैठें, आँखें बंद करें, और हर सांस का पालन करें। जब मन भटके, तो धीरे से ध्यान वापस सांस पर लाएं।',
+      angerTitle: 'क्रोध से कैसे निपटें',
+      angerDesc: 'सचेतनता का अभ्यास करें: जब क्रोध उठे, प्रतिक्रिया करने से पहले रुकें। शरीर में संवेदना का निरीक्षण करें, उसमें सांस लें, और बिना कार्रवाई किए भावना को बीतने दें। स्वीकृति परिवर्तन का पहला कदम है।',
+      compassionTitle: 'करुणा का विकास',
+      compassionDesc: 'मेट्टा (प्रेम-करुणा) का अभ्यास करें: शांत बैठें और कल्याण के वाक्य दोहराएं — "मैं सुखी होऊँ। मैं शांत होऊँ। सभी प्राणी सुखी हों।" अपने आप से शुरू करें, फिर प्रियजनों, तटस्थ लोगों, कठिन लोगों और सभी प्राणियों तक विस्तारित करें।',
+    },
   },
   es: {
     nav: {
@@ -305,6 +345,16 @@ const translations: Record<Locale, TranslationKeys> = {
     common: {
       loading: 'Cargando...', error: 'Error', save: 'Guardar', cancel: 'Cancelar',
       delete: 'Eliminar', back: 'Volver', showOriginal: 'Mostrar original', showTranslation: 'Mostrar traducción',
+    },
+    practice: {
+      title: 'Práctica Preliminar',
+      intro: 'Pasos prácticos para comenzar a trabajar con la mente y cultivar la compasión',
+      meditationTitle: 'Cómo empezar a meditar',
+      meditationDesc: 'Una técnica simple: concéntrate en tu respiración durante 5–10 minutos al día. Siéntate cómodamente, cierra los ojos y sigue cada inhalación y exhalación. Cuando la mente divague, regresa suavemente la atención a la respiración.',
+      angerTitle: 'Trabajar con la ira',
+      angerDesc: 'Practica la atención plena: cuando surja la ira, haz una pausa antes de reaccionar. Observa la sensación en el cuerpo, respira hacia ella y permite que la emoción pase sin actuar. La aceptación es el primer paso hacia la transformación.',
+      compassionTitle: 'Desarrollar la compasión',
+      compassionDesc: 'Practica la mettā (amor bondadoso): siéntate en silencio y repite frases de bienestar — "Que yo sea feliz. Que yo esté en paz. Que todos los seres sean felices." Comienza contigo mismo, luego extiende a seres queridos, personas neutras, personas difíciles y finalmente a todos los seres.',
     },
   },
   fr: {
@@ -358,6 +408,16 @@ const translations: Record<Locale, TranslationKeys> = {
       loading: 'Chargement...', error: 'Erreur', save: 'Sauvegarder', cancel: 'Annuler',
       delete: 'Supprimer', back: 'Retour', showOriginal: 'Afficher l\'original', showTranslation: 'Afficher la traduction',
     },
+    practice: {
+      title: 'Pratique Préliminaire',
+      intro: 'Étapes pratiques pour commencer à travailler avec l\'esprit et cultiver la compassion',
+      meditationTitle: 'Comment commencer à méditer',
+      meditationDesc: 'Une technique simple : concentrez-vous sur votre respiration pendant 5–10 minutes par jour. Asseyez-vous confortablement, fermez les yeux et suivez chaque inhalation et exhalation. Lorsque l\'esprit s\'égare, ramenez doucement l\'attention au souffle.',
+      angerTitle: 'Travailler avec la colère',
+      angerDesc: 'Pratiquez la pleine conscience : lorsque la colère surgit, faites une pause avant de réagir. Observez la sensation dans le corps, respirez dans elle et laissez l\'émotion passer sans agir. L\'acceptation est le premier pas vers la transformation.',
+      compassionTitle: 'Développer la compassion',
+      compassionDesc: 'Pratiquez la mettā (amour bienveillant) : asseyez-vous silencieusement et répétez des phrases de souhait de bien-être — "Que je sois heureux. Que je sois en paix. Que tous les êtres soient heureux." Commencez par vous-même, puis étendez aux êtres chers, aux personnes neutres, aux personnes difficiles et enfin à tous les êtres.',
+    },
   },
   de: {
     nav: {
@@ -409,6 +469,16 @@ const translations: Record<Locale, TranslationKeys> = {
     common: {
       loading: 'Laden...', error: 'Fehler', save: 'Speichern', cancel: 'Abbrechen',
       delete: 'Löschen', back: 'Zurück', showOriginal: 'Original anzeigen', showTranslation: 'Übersetzung anzeigen',
+    },
+    practice: {
+      title: 'Vorübungen',
+      intro: 'Praktische Schritte, um mit dem Geist zu arbeiten und Mitgefühl zu kultivieren',
+      meditationTitle: 'Wie man mit der Meditation beginnt',
+      meditationDesc: 'Eine einfache Technik: Konzentrieren Sie sich 5–10 Minuten täglich auf Ihren Atem. Sitzen Sie bequem, schließen Sie die Augen und folgen Sie jedem Ein- und Ausatmen. Wenn der Geist abschweift, bringen Sie die Aufmerksamkeit sanft zum Atem zurück.',
+      angerTitle: 'Mit Ärger umgehen',
+      angerDesc: 'Üben Sie Achtsamkeit: Wenn Ärger aufkommt, machen Sie eine Pause, bevor Sie reagieren. Beobachten Sie die Empfindung im Körper, atmen Sie hinein und lassen Sie die Emotion vorbeigehen, ohne zu handeln. Akzeptanz ist der erste Schritt zur Verwandlung.',
+      compassionTitle: 'Mitgefühl entwickeln',
+      compassionDesc: 'Üben Sie Mettā (liebende Güte): Sitzen Sie ruhig und wiederholen Sie Wünsche des Wohlergehens — „Möge ich glücklich sein. Möge ich in Frieden sein. Möge aller Wesen glücklich sein." Beginnen Sie mit sich selbst und erweitern Sie es auf Geliebte, neutrale Menschen, schwierige Menschen und schließlich alle Wesen.',
     },
   },
   zh: {
@@ -462,6 +532,16 @@ const translations: Record<Locale, TranslationKeys> = {
       loading: '加载中...', error: '错误', save: '保存', cancel: '取消',
       delete: '删除', back: '返回', showOriginal: '显示原文', showTranslation: '显示翻译',
     },
+    practice: {
+      title: '前行修法',
+      intro: '开始修心和培养慈悲的实用步骤',
+      meditationTitle: '如何开始冥想',
+      meditationDesc: '简单技巧：每天专注于呼吸5–10分钟。舒适坐下，闭上眼睛，跟随每一次吸气和呼气。当心念散乱时，温柔地将注意力带回呼吸。',
+      angerTitle: '处理愤怒',
+      angerDesc: '练习正念：当愤怒生起时，在反应之前暂停。观察身体中的感受，向它呼吸，让情绪自然流过而不行动。接受是转化的第一步。',
+      compassionTitle: '培养慈悲',
+      compassionDesc: '修习慈心（mettā）：安静坐下，重复祝福的话语——"愿我快乐。愿我平安。愿一切众生快乐。"从自己开始，然后扩展到亲人、中立的人、困难的人，最后到一切众生。',
+    },
   },
   ja: {
     nav: {
@@ -513,6 +593,16 @@ const translations: Record<Locale, TranslationKeys> = {
     common: {
       loading: '読み込み中...', error: 'エラー', save: '保存', cancel: 'キャンセル',
       delete: '削除', back: '戻る', showOriginal: '原文を表示', showTranslation: '翻訳を表示',
+    },
+    practice: {
+      title: '前行修行',
+      intro: '心を働きかけ、慈悲を育むための実践的ステップ',
+      meditationTitle: '瞑想の始め方',
+      meditationDesc: '簡単な技法：毎日5〜10分間、呼吸に集中します。楽な姿勢で座り、目を閉じて、それぞれの吸入と呼出に従います。心が散らばったときは、優しく呼吸に注意を戻します。',
+      angerTitle: '怒りと向き合う',
+      angerDesc: 'マインドフルネスを実践します：怒りが起きたら、反応する前に一時停止。体の感覚を観察し、そこに呼吸し、行動せずに感情が通り過ぎるのを許します。受容は変容への第一歩です。',
+      compassionTitle: '慈悲を育てる',
+      compassionDesc: 'メッター（慈愛）を実践します：静かに座り、幸福の願いを繰り返します——「私が幸せでありますように。私が平和でありますように。すべての生きとし生けるものが幸せでありますように。」自分から始めて、愛する人、中立の人、難しい人、そしてすべての生きとし生けるものに広げます。',
     },
   },
   pt: {
@@ -566,6 +656,16 @@ const translations: Record<Locale, TranslationKeys> = {
       loading: 'Carregando...', error: 'Erro', save: 'Salvar', cancel: 'Cancelar',
       delete: 'Excluir', back: 'Voltar', showOriginal: 'Mostrar original', showTranslation: 'Mostrar tradução',
     },
+    practice: {
+      title: 'Prática Preliminar',
+      intro: 'Passos práticos para começar a trabalhar com a mente e cultivar a compaixão',
+      meditationTitle: 'Como começar a meditar',
+      meditationDesc: 'Uma técnica simples: concentre-se na sua respiração por 5–10 minutos por dia. Sente-se confortavelmente, feche os olhos e siga cada inspiração e expiração. Quando a mente divagar, traga suavemente a atenção de volta à respiração.',
+      angerTitle: 'Trabalhar com a raiva',
+      angerDesc: 'Pratique a atenção plena: quando a raiva surgir, faça uma pausa antes de reagir. Observe a sensação no corpo, respire para dentro dela e permita que a emoção passe sem agir. A aceitação é o primeiro passo para a transformação.',
+      compassionTitle: 'Desenvolver a compaixão',
+      compassionDesc: 'Pratique a mettā (amor bondoso): sente-se silenciosamente e repita frases de bem-estar — "Que eu seja feliz. Que eu esteja em paz. Que todos os seres sejam felizes." Comece com você mesmo, depois estenda a entes queridos, pessoas neutras, pessoas difíceis e finalmente a todos os seres.',
+    },
   },
   th: {
     nav: {
@@ -617,6 +717,16 @@ const translations: Record<Locale, TranslationKeys> = {
     common: {
       loading: 'กำลังโหลด...', error: 'ข้อผิดพลาด', save: 'บันทึก', cancel: 'ยกเลิก',
       delete: 'ลบ', back: 'กลับ', showOriginal: 'แสดงต้นฉบับ', showTranslation: 'แสดงคำแปล',
+    },
+    practice: {
+      title: 'การปฏิบัติเบื้องต้น',
+      intro: 'ขั้นตอนการปฏิบัติจริงเพื่อเริ่มทำงานกับจิตใจและพัฒนาความเมตตา',
+      meditationTitle: 'วิธีเริ่มนั่งสมาธิ',
+      meditationDesc: 'เทคนิคง่ายๆ: จดจ่อกับลมหายใจวันละ 5–10 นาที นั่งสบายๆ หลับตา และติดตามลมหายใจเข้าและออก เมื่อจิตล่องลอย ให้พาความตระหนักกลับมาที่ลมหายใจอย่างนุ่มนวล',
+      angerTitle: 'ทำงานกับความโกรธ',
+      angerDesc: 'ฝึกสติ: เมื่อความโกรธเกิดขึ้น หยุดก่อนตอบสนอง สังเกตความรู้สึกในร่างกาย หายใจเข้าไปในนั้น และปล่อยให้อารมณ์ผ่านไปโดยไม่ลงมือทำ การยอมรับเป็นขั้นแรกสู่การเปลี่ยนแปลง',
+      compassionTitle: 'พัฒนาความเมตตา',
+      compassionDesc: 'ฝึกเมตตา (mettā): นั่งเงียบๆ และทบทวนคำอวยพร — "ขอให้ข้าพเจ้ามีความสุข ขอให้ข้าพเจ้าสงบ ขอให้สัตว์ทั้งปวงมีความสุข" เริ่มจากตัวเอง แล้วขยายไปยังคนรัก คนทั่วไป คนที่ลำบาก และในที่สุดก็สัตว์ทั้งปวง',
     },
   },
   vi: {
@@ -670,6 +780,16 @@ const translations: Record<Locale, TranslationKeys> = {
       loading: 'Đang tải...', error: 'Lỗi', save: 'Lưu', cancel: 'Hủy',
       delete: 'Xóa', back: 'Quay lại', showOriginal: 'Hiển thị bản gốc', showTranslation: 'Hiển thị bản dịch',
     },
+    practice: {
+      title: 'Thực Hành Sơ Khởi',
+      intro: 'Các bước thực hành để bắt đầu làm việc với tâm trí và phát triển lòng từ bi',
+      meditationTitle: 'Cách bắt đầu thiền',
+      meditationDesc: 'Một kỹ thuật đơn giản: tập trung vào hơi thở 5–10 phút mỗi ngày. Ngồi thoải mái, nhắm mắt và theo dõi từng hơi thở vào và ra. Khi tâm lang thang, nhẹ nhàng đưa sự chú ý trở lại hơi thở.',
+      angerTitle: 'Làm việc với cơn giận',
+      angerDesc: 'Thực hành chánh niệm: khi cơn giận nổi lên, dừng lại trước khi phản ứng. Quan sát cảm giác trong cơ thể, thở vào đó và để cảm xúc trôi qua mà không hành động. Chấp nhận là bước đầu tiên đến sự chuyển hóa.',
+      compassionTitle: 'Phát triển lòng từ bi',
+      compassionDesc: 'Thực hành mettā (tâm từ): ngồi yên tĩnh và lặp lại những lời chúc phúc — "Nguyện tôi được hạnh phúc. Nguyện tôi được bình an. Nguyện tất cả chúng sinh được hạnh phúc." Bắt đầu từ bản thân, sau đó mở rộng đến người thân, người trung tính, người khó khăn và cuối cùng là tất cả chúng sinh.',
+    },
   },
   ko: {
     nav: {
@@ -721,6 +841,16 @@ const translations: Record<Locale, TranslationKeys> = {
     common: {
       loading: '로딩 중...', error: '오류', save: '저장', cancel: '취소',
       delete: '삭제', back: '뒤로', showOriginal: '원문 보기', showTranslation: '번역 보기',
+    },
+    practice: {
+      title: '예비 수련',
+      intro: '마음과 자비를 기르기 위한 실천적 단계',
+      meditationTitle: '명상 시작하기',
+      meditationDesc: '간단한 기법: 매일 5~10분 동안 호흡에 집중합니다. 편안하게 앉아 눈을 감고 각각의 들숨과 날숨을 따릅니다. 마음이 흩어지면 부드럽게 호흡에 주의를 돌립니다.',
+      angerTitle: '분노와 함께하기',
+      angerDesc: '마음챙김을 실천합니다: 분노가 일어날 때 반응하기 전에 멈추세요. 몸의 감각을 관찰하고, 그곳으로 호흡하고, 행동하지 않고 감정이 지나가도록 허용합니다. 수용은 변화의 첫 번째 단계입니다.',
+      compassionTitle: '자비 기르기',
+      compassionDesc: '메타(사랑의 친절)를 실천합니다: 조용히 앉아 행복의 기원을 반복합니다 — "제가 행복하길 바랍니다. 제가 평화롭길 바랍니다. 모든 중생이 행복하길 바랍니다." 자신부터 시작하여, 사랑하는 사람, 중립적인 사람, 어려운 사람, 그리고 모든 중생에게 확장합니다.',
     },
   },
   id: {
@@ -774,6 +904,16 @@ const translations: Record<Locale, TranslationKeys> = {
       loading: 'Memuat...', error: 'Kesalahan', save: 'Simpan', cancel: 'Batal',
       delete: 'Hapus', back: 'Kembali', showOriginal: 'Tampilkan asli', showTranslation: 'Tampilkan terjemahan',
     },
+    practice: {
+      title: 'Praktik Pendahuluan',
+      intro: 'Langkah praktis untuk mulai bekerja dengan pikiran dan mengembangkan belas kasih',
+      meditationTitle: 'Cara mulai bermeditasi',
+      meditationDesc: 'Teknik sederhana: fokus pada napas Anda selama 5–10 menit sehari. Duduklah dengan nyaman, tutup mata, dan ikuti setiap tarikan dan hembusan napas. Ketika pikiran melayang, kembalikan perhatian dengan lembut ke napas.',
+      angerTitle: 'Bekerja dengan amarah',
+      angerDesc: 'Praktikkan kesadaran penuh: ketika amarah muncul, berhenti sebelum bereaksi. Amati sensasi di tubuh, bernapas ke dalamnya, dan biarkan emosi berlalu tanpa bertindak. Penerimaan adalah langkah pertama menuju transformasi.',
+      compassionTitle: 'Mengembangkan belas kasih',
+      compassionDesc: 'Praktikkan mettā (cinta kasih): duduklah dalam keheningan dan ulangi ungkapan kesejahteraan — "Semoga saya bahagia. Semoga saya damai. Semoga semua makhluk bahagia." Mulailah dari diri sendiri, lalu luaskan kepada orang terkasih, orang netral, orang sulit, dan akhirnya semua makhluk.',
+    },
   },
   ms: {
     nav: {
@@ -825,6 +965,16 @@ const translations: Record<Locale, TranslationKeys> = {
     common: {
       loading: 'Memuatkan...', error: 'Ralat', save: 'Simpan', cancel: 'Batal',
       delete: 'Padam', back: 'Kembali', showOriginal: 'Tunjuk asal', showTranslation: 'Tunjuk terjemahan',
+    },
+    practice: {
+      title: 'Amalan Awalan',
+      intro: 'Langkah praktikal untuk mula bekerja dengan minda dan mengembangkan belas kasihan',
+      meditationTitle: 'Cara mula bermeditasi',
+      meditationDesc: 'Teknik mudah: fokus pada pernafasan anda selama 5–10 minit sehari. Duduklah dengan selesa, tutup mata, dan ikuti setiap tarikan dan hembusan nafas. Apabila minda melayang, bawa perhatian kembali ke nafas dengan lembut.',
+      angerTitle: 'Bekerja dengan kemarahan',
+      angerDesc: 'Amalkan kesedaran penuh: apabila kemarahan muncul, berhenti sebelum bertindak balas. Perhatikan sensasi dalam badan, nafas ke dalamnya, dan biarkan emosi berlalu tanpa bertindak. Penerimaan adalah langkah pertama menuju transformasi.',
+      compassionTitle: 'Membangunkan belas kasihan',
+      compassionDesc: 'Amalkan mettā (kasih sayang): duduk dalam keheningan dan ulang ungkapan kesejahteraan — "Semoga saya gembira. Semoga saya aman. Semoga semua makhluk gembira." Mulakan dengan diri sendiri, kemudian luaskan kepada orang tersayang, orang neutral, orang sukar, dan akhirnya semua makhluk.',
     },
   },
   si: {
@@ -878,6 +1028,16 @@ const translations: Record<Locale, TranslationKeys> = {
       loading: 'පූරණය වෙමින්...', error: 'දෝෂයකි', save: 'සුරකින්න', cancel: 'අවලංගු කරන්න',
       delete: 'මකන්න', back: 'ආපසු', showOriginal: 'මුල් පෙන්වන්න', showTranslation: 'පරිවර්තනය පෙන්වන්න',
     },
+    practice: {
+      title: 'මූලික ප්‍රායෝගිකත්වය',
+      intro: 'සිත සමඟ කටයුතු කිරීමට සහ කරුණාව වර්ධනය කිරීමට ප්‍රායෝගික පියවර',
+      meditationTitle: 'ධ්‍යානය කෙසේ ආරම්භ කරන්න',
+      meditationDesc: 'සරල ක්‍රමයක්: දිනකට මිනිත්තු 5–10ක් ඔබේ හුස්ම මත අවධානය යොමු කරන්න. සුවපහසුවට හිඳ, ඇස් වසා, සෑම හුස්මක් සහ හුස්මක් අනුගමනය කරන්න. සිත විසිරී යන විට, මෘදුවට අවධානය හුස්ම වෙත ආපසු ගෙන එන්න.',
+      angerTitle: 'කෝපය සමඟ වැඩ කිරීම',
+      angerDesc: 'සිහිකල්පනාව පුහුණු කරන්න: කෝපය මතු වූ විට, ප්‍රතිචාර දැක්වීමට පෙර නවත්වන්න. ශරීරයේ හැඟීම නිරීක්ෂණය කර, එය තුළට හුස්ම ගන්න, ක්‍රියා නොකර ආවේගය ගමන් කිරීමට ඉඩ දෙන්න. පිළිගැනීම පරිවර්තනයට පළමු පියවරයි.',
+      compassionTitle: 'කරුණාව වර්ධනය කිරීම',
+      compassionDesc: 'මෙත්තා (ප්‍රේම-කරුණාව) පුහුණු කරන්න: නිහඬව හිඳ, සුව පැතුම් යළි යළි කියන්න — "මම සතුටින් සිටින්නම්. මම සාමකාමී වන්නම්. සියලු සත්ත්වයෝ සතුටින් සිටින්නෝය." ඔබේ තමාගෙන් ආරම්භ කරන්න, ඉන්පසු ආදරණීයයන්ට, මධ්‍යස්ථ පුද්ගලයින්ට, අපහසු පුද්ගලයින්ට සහ අවසානයේ සියලු සත්ත්වයන්ට පුළුල් කරන්න.',
+    },
   },
   my: {
     nav: {
@@ -929,6 +1089,16 @@ const translations: Record<Locale, TranslationKeys> = {
     common: {
       loading: 'ဖွင့်နေသည်...', error: 'အမှား', save: 'သိမ်းဆည်းရန်', cancel: 'ပယ်ဖျက်ရန်',
       delete: 'ဖျက်ရန်', back: 'နောက်သို့', showOriginal: 'မူရင်းပြရန်', showTranslation: 'ဘာသာပြန်ပြရန်',
+    },
+    practice: {
+      title: 'အစပြုလေ့ကျင့်ခြင်း',
+      intro: 'စိတ်နှင့် လက်တွဲလုပ်ဆောင်ရန်နှင့် သနားကရုဏာ ဖွံ့ဖြိုးစေရန် အသုံးဝင်သော အဆင့်များ',
+      meditationTitle: 'ဘယ်လို တရားထိုင်မလဲ',
+      meditationDesc: 'ရိုးရှင်းသော နည်းလမ်း — တစ်နေ့လျှင် မိနစ် ၅-၁၀ မိနစ် အသက်ရှူနှုန်းကို အာရုံစိုက်ပါ။ သက်သောင့်သက်သာ ထိုင်ပြီး မျက်စိမှိတ်ကာ အသက်ရှူဝင်ရှိုက်တိုင်းကို လိုက်နာပါ။ စိတ်ပျံ့လွင့်သွားသောအခါ အသက်ရှူနှုန်းထံသို့ နူးညံ့စွာ ပြန်လည်ဦးတည်ပါ။',
+      angerTitle: 'ဒေါသနှင့် ဆက်ဆံခြင်း',
+      angerDesc: 'သတိရှိမှုကို လေ့ကျင့်ပါ — ဒေါသထွက်လာသောအခါ တုံ့ပြန်မှုမပြုမီ ရပ်တန့်ပါ။ ကိုယ်ခန္ဓာရှိ ခံစားချက်ကို စောင့်ကြည့်ပြီး အသက်ရှူဝင်ပါ၊ အပြုအမူမပြုဘဲ စိတ်ခံစားမှု ဖြတ်သန်းခွင့်ပြုပါ။ လက်ခံခြင်းသည် ပြောင်းလဲမှု၏ ပထမဆုံး အဆင့်ဖြစ်သည်။',
+      compassionTitle: 'သနားကရုဏာ ဖွံ့ဖြိုးခြင်း',
+      compassionDesc: 'မေတ္တာ (ချစ်ခြင်းမေတ္တာ) ကို လေ့ကျင့်ပါ — ငြိမ်သက်စွာ ထိုင်ပြီး ကောင်းကျိုးဆန္ဒများကို ထပ်ခါတလဲလဲ ပြောပါ — "ကျွန်ုပ် ပျော်ရွှင်ပါစေ။ ကျွန်ုပ် ငြိမ်ချမ်းပါစေ။ သတ္တဝါအားလုံး ပျော်ရွှင်ကြပါစေ။" ကိုယ်တိုင်မှ စတင်ပြီး ချစ်ခင်ရသူ၊ ကြားနေပုဂ္ဂိုလ်၊ ခက်ခဲသည့် ပုဂ္ဂိုလ်နှင့် နောက်ဆုံးတွင် သတ္တဝါအားလုံးထံ ချဲ့ကျယ်ပါ။',
     },
   },
   ne: {
@@ -982,6 +1152,16 @@ const translations: Record<Locale, TranslationKeys> = {
       loading: 'लोड हुँदै...', error: 'त्रुटि', save: 'सेभ', cancel: 'रद्द',
       delete: 'मेटाउनुहोस्', back: 'फिर्ता', showOriginal: 'मूल देखाउनुहोस्', showTranslation: 'अनुवाद देखाउनुहोस्',
     },
+    practice: {
+      title: 'प्रारम्भिक अभ्यास',
+      intro: 'मनसँग काम गर्न र करुणा विकास गर्न व्यावहारिक कदमहरू',
+      meditationTitle: 'ध्यान कसरी सुरु गर्ने',
+      meditationDesc: 'सरल प्रविधि: दैनिक ५–१० मिनेट आफ्नो श्वासमा ध्यान केन्द्रित गर्नुहोस्। आरामदायी बस्नुहोस्, आँखा बन्द गर्नुहोस्, र प्रत्येक श्वास आउने र जानेमा अनुसरण गर्नुहोस्। मन भटक्दा, श्वासमा सहजै ध्यान फिर्ता ल्याउनुहोस्।',
+      angerTitle: 'रिससँग कसरी काम गर्ने',
+      angerDesc: 'सचेतना अभ्यास गर्नुहोस्: रिस उठ्दा प्रतिक्रिया गर्नुअघि रोक्नुहोस्। शरीरमा भएको अनुभूति अवलोकन गर्नुहोस्, त्यसमा श्वास लिनुहोस्, र कार्य नगरी भावना बगिन दिनुहोस्। स्वीकार गर्नु परिवर्तनको पहिलो कदम हो।',
+      compassionTitle: 'करुणा विकास गर्ने',
+      compassionDesc: 'मेट्ता (प्रेम-करुणा) अभ्यास गर्नुहोस्: शान्त बस्नुहोस् र कल्याणका वाक्यहरू दोहोर्याउनुहोस् — "म सुखी होऊँ। म शान्त होऊँ। सबै प्राणी सुखी होऊन्।" आफ्नो आफूबाट सुरु गर्नुहोस्, त्यसपछि प्रियजन, तटस्थ मानिस, कठिन मानिस र अन्तमा सबै प्राणीमा विस्तार गर्नुहोस्।',
+    },
   },
   bo: {
     nav: {
@@ -1033,6 +1213,16 @@ const translations: Record<Locale, TranslationKeys> = {
     common: {
       loading: 'སྣོན་བཞིན་པ།', error: 'ནོར་འཁྲུལ།', save: 'ཉར།', cancel: 'འདོར།',
       delete: 'སུབ།', back: 'ཕྱིར་ལོག', showOriginal: 'མ་ཡིག་སྟོན།', showTranslation: 'ལོ་ཙྱ་སྟོན།',
+    },
+    practice: {
+      title: 'སྔོན་འགྲོའི་སྒོམ།',
+      intro: 'སེམས་དང་ལྷན་དུ་ལས་ཀ་བྱེད་པ་དང་སྙིང་རྗེ་འཕེལ་བའི་ལག་ལེན་གྱི་ขั�མ་རིམ།',
+      meditationTitle: 'སྒོམ་ཇི་ལྟར་འགོ་བརྩམ།',
+      meditationDesc: 'སྟབས་བདེ་བའི་ཐབས་ལམ། ཉིན་ལྟར་སྐར་མ་ལྔ་ནས་བཅུའི་བར་དུ་དབུགས་ཀྱི་རྒྱུ་ལམ་ལ་དམིགས་བསྡད། སྟབས་བདེ་བཞིན་བཞུགས་ལ། མིག་སྒྲིམ་ཞིང་དབུགས་འགྲོ་འོག་ཚང་མར་རྗེས་སུ་འབྲངས། སེམས་གཡེང་དུས་སུ་སྙིང་རྗེ་བཞིན་དབུགས་ཀྱི་རྒྱུ་ལམ་དུ་དམིགས་པ་ཕྱིར་ལོག',
+      angerTitle: 'ཁོང་ཁྲོ་དང་ལས་ཀ་བྱེད་པ།',
+      angerDesc: 'དྲན་ཤེས་ལ་སྦྱོང་། ཁོང་ཁ�ལ་ཐོན་དུས་ལན་མ་སྤྲད་གོང་དུ་མཚམས་འཇོག ལུས་པོའི་ཚོར་བར་ལྟ་ཞིབ། དེ་ནང་དབུགས་རྒྱུག བྱ་བ་མ་བྱས་པར་ཚོར་བ་འགྲོ་བར་འཇུག དང་ལེན་ནི་བསྒྱུར་བཅོས་ཀྱི་སྲིད་པ་དང་པོ།',
+      compassionTitle: 'སྙིང་རྗེ་འཕེལ་བ།',
+      compassionDesc: 'མི་མཐུན་པའི་བྱམས་བརྩེ་ལ་སྦྱོང་། ཞི་བཞིན་བཞུགས་ལ་བདེ་བའི་སྨོན་འདུན་ཡང་ཡང་བརྗོད། "ང་བདེ་བར་གྱུར་ཅིག ང་ཞི་བདེར་གྱུར་ཅིག སེམས་ཅན་ཐམས་ཅད་བདེ་བར་གྱུར་ཅིག" རང་ལས་འགོ་བརྩམས་ནས་གཉེན་ཉེ། ལྷོད་ཀྱི་མི། དཀའ་མོའི་མི། མཐར་ཐམས་ཅད་སེམས་ཅན་དུ་རྒྱས་པར་གྱུར་ཅིག',
     },
   },
 }

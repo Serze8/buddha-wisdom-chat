@@ -79,6 +79,7 @@ const teachings = [
   },
 ]
 
+<<<<<<< HEAD
 export default function TeachingsPageClient() {
   const { t, locale } = useLanguage()
 
@@ -145,6 +146,8 @@ export default function TeachingsPageClient() {
   )
 }
 
+=======
+>>>>>>> 97405ff (feat: improve video section design and add practice page)
 const transcriptData = [
   { time: '0:00', ru: 'Прежде чем начать — короткое уточнение.', en: 'Before we begin — a short clarification.', pt: 'Antes de começar — um breve esclarecimento.' },
   { time: '0:04', ru: 'Во-первых, этот канал посвящён философскому подходу к вопросу.', en: 'First. This channel is devoted to a philosophical approach to the question.', pt: 'Primeiro. Este canal é dedicado a uma abordagem filosófica da questão.' },
@@ -191,7 +194,7 @@ const videoDescriptions: Record<string, { title: string; desc: string; points: s
   },
   es: {
     title: 'Dharmachakra — La Rueda del Dharma',
-    desc: 'Uno de los símbolos más antiguos del budismo, relacionado con el primer enseñanza del Buda tras su despertar en Sarnath. La Dharmachakra simboliza el camino hacia la liberación del sufrimiento a través de las Cuatro Nobles Verdades y el Noble Óctuple Camino.',
+    desc: 'Uno de los símbolos más antiguos del budismo, relacionado con la primer enseñanza del Buda tras su despertar en Sarnath. La Dharmachakra simboliza el camino hacia la liberación del sufrimiento a través de las Cuatro Nobles Verdades y el Noble Óctuple Camino.',
     points: ['Uno de los símbolos más antiguos del budismo', 'Vinculado a la primera enseñanza del Buda en Sarnath', 'Centro — estabilidad de la mente', 'Ocho radios — el Óctuple Camino', 'Borde — integridad de la práctica', 'Señala la salida del sufrimiento, no el ciclo de existencia'],
   },
   pt: {
@@ -221,8 +224,8 @@ const videoDescriptions: Record<string, { title: string; desc: string; points: s
   },
   ja: {
     title: 'ダルマチャクラ — 法の輪',
-    desc: '仏教で最も古い象徴の一つ。サールナートでの悟り後の最初の説法に関連しています。ダルマチャクラは、四つの聖なる真理と noble 八正道を通じて苦しみから解放される道を象徴します。',
-    points: ['仏教で最も古い象徴の一つ', 'サールナートでの最初の説法に関連', '中心 — 心の安定', '八本の輻 — noble 八正道', '輪 — 修行の完全性', '苦しみからの脱出を指し、生死の輪廻ではない'],
+    desc: '仏教で最も古い象徴の一つ。サールナートでの悟り後の最初の説法に関連しています。ダルマチャクラは、四つの聖なる真理と八正道を通じて苦しみから解放される道を象徴します。',
+    points: ['仏教で最も古い象徴の一つ', 'サールナートでの最初の説法に関連', '中心 — 心の安定', '八本の輻 — 八正道', '輪 — 修行の完全性', '苦しみからの脱出を指し、生死の輪廻ではない'],
   },
   ko: {
     title: '다르마차크라 — 법륜',
@@ -266,7 +269,7 @@ const videoDescriptions: Record<string, { title: string; desc: string; points: s
   },
   bo: {
     title: 'ཆོས་ཀྱི་འཁོར་ལོ།',
-    desc: 'སངས་རྒྱས་ཆོས་ཀྱི་མཛེས་རྒྱན་གྱི་གནའ་རྙིང་ཤོས་ཀ�ི་གྲུབ་མཚན་ཡིན། ས་རྣཊླའི་བཅོམ་ལྡན་འདས་ཀྱི་རྫོགས་ཆེན་བྱུང་བའི་རྗེས་ཀ�ི་སྟོན་པ་དང་འབྲེལ་བ་ཡོད།',
+    desc: 'སངས་རྒྱས་ཆོས་ཀྱི་མཛེས་རྒྱན་གྱི་གནའ་རྙིང་ཤོས་ཀྱི་གྲུབ་མཚན་ཡིན། ས་རྣཊླའི་བཅོམ་ལྡན་འདས་ཀྱི་རྫོགས་ཆེན་བྱུང་བའི་རྗེས་ཀྱི་སྟོན་པ་དང་འབྲེལ་བ་ཡོད།',
     points: ['སངས་རྒྱས་ཆོས་ཀྱི་གནའ་རྙིང་ཤོས་ཀྱི་གྲུབ་མཚན།', 'ས་རྣཊླའི་སྟོན་པ་དང་འབྲེལ་བ།', 'དཀྱིལ་འཁོར — ཡིད་ཀྱི་གནས་སྐབས།', 'མདའ་བརྒྱད — མཐའ་རྒྱས་ཀྱི་ལམ།', 'སྦུག — སྒོམ་གནད་ཀྱི་ཚངས་ཉམས།', 'སྡུག་བསྔལ་ནས་ཐར་པའི་ལམ་སྟོན།'],
   },
 }
@@ -274,7 +277,6 @@ const videoDescriptions: Record<string, { title: string; desc: string; points: s
 function VideoDescription() {
   const { locale } = useLanguage()
   const desc = videoDescriptions[locale] || videoDescriptions.en
-  const langs = Object.keys(videoDescriptions)
 
   return (
     <div className="bg-white dark:bg-gray-900 rounded-2xl shadow border border-gray-200 dark:border-gray-700 p-6 mb-8">
@@ -290,19 +292,22 @@ function VideoDescription() {
           </li>
         ))}
       </ul>
-      <p className="mt-4 text-xs text-gray-400 dark:text-gray-500">
-        {langs.length} languages available — switch language ↗
-      </p>
     </div>
   )
 }
 
 function TranscriptSection() {
   const [tab, setTab] = useState<'ru' | 'en' | 'pt'>('ru')
+  const [animKey, setAnimKey] = useState(0)
+
+  const handleTabChange = (code: 'ru' | 'en' | 'pt') => {
+    setTab(code)
+    setAnimKey((k) => k + 1)
+  }
 
   return (
-    <div className="bg-amber-50 dark:bg-amber-950/30 rounded-2xl border border-amber-200 dark:border-amber-800/30 p-6">
-      <h3 className="font-[var(--font-cormorant)] text-xl font-semibold text-amber-900 dark:text-amber-100 mb-4">
+    <div className="rounded-2xl border border-amber-700/30 p-6" style={{ background: 'linear-gradient(180deg, #1E293B 0%, #0F172A 100%)' }}>
+      <h3 className="font-[var(--font-cormorant)] text-xl font-semibold text-amber-400 mb-4">
         Video Transcript
       </h3>
 
@@ -310,11 +315,11 @@ function TranscriptSection() {
         {transcriptLangs.map((l) => (
           <button
             key={l.code}
-            onClick={() => setTab(l.code)}
-            className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ${
+            onClick={() => handleTabChange(l.code)}
+            className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 hover:scale-105 ${
               tab === l.code
-                ? 'bg-amber-600 text-white shadow-sm'
-                : 'bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-amber-100 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-700'
+                ? 'bg-amber-500 text-white shadow-lg shadow-amber-500/25'
+                : 'bg-gray-700/60 text-gray-300 hover:bg-gray-600/60'
             }`}
           >
             {l.label}
@@ -322,14 +327,105 @@ function TranscriptSection() {
         ))}
       </div>
 
-      <div className="space-y-3 text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+      <div key={animKey} className="max-h-60 overflow-y-auto rounded-xl p-4 space-y-3 text-sm text-gray-300 leading-relaxed animate-fade-in" style={{ background: 'rgba(31, 41, 55, 0.5)' }}>
         {transcriptData.map((row, i) => (
           <p key={i}>
-            <strong className="text-amber-700 dark:text-amber-300">{row.time}</strong>{' '}
-            {row[tab]}
+            <strong className="text-amber-400 font-mono">{row.time}</strong>{' '}
+            <span className="font-mono">{row[tab]}</span>
           </p>
         ))}
       </div>
+    </div>
+  )
+}
+
+export default function TeachingsPageClient() {
+  const { t, locale } = useLanguage()
+
+  return (
+    <div className="max-w-4xl mx-auto px-4 py-12">
+      <h1 className="font-[var(--font-cormorant)] text-4xl font-bold text-amber-900 dark:text-amber-100 text-center mb-10">
+        {t.nav.teachings}
+      </h1>
+
+      <div className="space-y-6">
+        {teachings.map((teaching) => (
+          <div key={teaching.id} className="bg-white dark:bg-gray-900 rounded-2xl shadow border border-gray-200 dark:border-gray-700 p-6">
+            <div className="flex items-center gap-3 mb-4">
+              <span className="text-3xl">{teaching.emoji}</span>
+              <h2 className="font-[var(--font-cormorant)] text-2xl font-bold text-gray-900 dark:text-gray-100">
+                {(teaching.title as any)[locale] || teaching.title.en}
+              </h2>
+            </div>
+            <ul className="space-y-2">
+              {((teaching.points as any)[locale] || teaching.points.en).map((point: string, i: number) => (
+                <li key={i} className="flex items-start gap-2 text-gray-600 dark:text-gray-300">
+                  <span className="text-amber-500 mt-1">•</span>
+                  {point}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+
+      <div className="mt-10">
+        <PromoBanner page="teachings" />
+      </div>
+
+      {/* Video Section */}
+      <section className="mt-16 rounded-3xl p-8 md:p-12" style={{ background: 'linear-gradient(180deg, #2D1B0E 0%, #1A0F07 100%)' }}>
+        <h2 className="font-[var(--font-cormorant)] text-4xl font-bold text-center mb-3" style={{ color: '#F59E0B' }}>
+          {locale === 'ru' ? 'Колесо Дхармы (Дхармачакра)' : 'Dharmachakra — The Wheel of Dharma'}
+        </h2>
+        <p className="text-center text-sm mb-10 max-w-xl mx-auto" style={{ color: '#D1D5DB' }}>
+          {locale === 'ru'
+            ? 'Один из древнейших символов буддизма — путь освобождения из страдания'
+            : 'One of the most ancient symbols of Buddhism — the path to liberation from suffering'}
+        </p>
+
+        <div className="grid md:grid-cols-2 gap-8 mb-10">
+          {/* Short (vertical) */}
+          <div>
+            <h3 className="font-[var(--font-cormorant)] text-xl font-semibold text-amber-100 mb-3 text-center">
+              {locale === 'ru' ? 'Шортс' : 'Short'}
+            </h3>
+            <div className="relative mx-auto rounded-2xl overflow-hidden shadow-2xl border border-amber-700/30" style={{ maxWidth: 320 }}>
+              <div className="relative w-full" style={{ paddingBottom: '177.78%' }}>
+                <iframe
+                  src="https://www.youtube.com/embed/P04rX4-1TNo"
+                  title="Dharmachakra — Short"
+                  className="absolute inset-0 w-full h-full"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Full-screen (16:9) */}
+          <div>
+            <h3 className="font-[var(--font-cormorant)] text-xl font-semibold text-amber-100 mb-3 text-center">
+              {locale === 'ru' ? 'Полноэкранный' : 'Full Video'}
+            </h3>
+            <div className="relative w-full rounded-2xl overflow-hidden shadow-2xl border border-amber-700/30" style={{ paddingBottom: '56.25%' }}>
+              <iframe
+                src="https://www.youtube.com/embed/P04rX4-1TNo"
+                title="Dharmachakra — Full Video"
+                className="absolute inset-0 w-full h-full"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* Video Description — 18 languages */}
+        <VideoDescription />
+
+        {/* Transcript */}
+        <TranscriptSection />
+      </section>
     </div>
   )
 }
