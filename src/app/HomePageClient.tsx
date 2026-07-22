@@ -4,6 +4,7 @@ import { useLanguage } from '@/contexts/LanguageContext'
 import Link from 'next/link'
 import Image from 'next/image'
 import { MessageCircle, Users, Tv, BookOpen, Image as ImageIcon, HelpCircle, BookOpenCheck, Film } from 'lucide-react'
+import TeacherQuotes from '@/components/ui/TeacherQuotes'
 
 const features = [
   { key: 'chat', icon: MessageCircle, href: '/chat', color: 'bg-amber-100 text-amber-700' },
@@ -210,6 +211,9 @@ export default function HomePageClient() {
           ))}
         </div>
       </section>
+
+      {/* Teacher Quotes */}
+      <TeacherQuotes />
     </div>
   )
 }
