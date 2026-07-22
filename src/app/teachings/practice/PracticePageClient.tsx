@@ -1,28 +1,115 @@
 'use client'
 
+import { useState, useCallback } from 'react'
 import { useLanguage } from '@/contexts/LanguageContext'
 import Link from 'next/link'
+import BreathingPractice from '@/components/BreathingPractice'
 
-const practices = [
-  {
-    id: 'meditation',
-    emoji: '🧘',
-    titleKey: 'meditationTitle' as const,
-    descKey: 'meditationDesc' as const,
-  },
-  {
-    id: 'anger',
-    emoji: '🔥',
-    titleKey: 'angerTitle' as const,
-    descKey: 'angerDesc' as const,
-  },
-  {
-    id: 'compassion',
-    emoji: '💛',
-    titleKey: 'compassionTitle' as const,
-    descKey: 'compassionDesc' as const,
-  },
-]
+const mettaFormulas: Record<string, string> = {
+  ru: 'Пусть я буду счастлив. Пусть я буду в покое. Пусть все существа будут счастливы.',
+  en: 'May I be happy. May I be peaceful. May all beings be happy.',
+  hi: 'मैं सुखी होऊँ। मैं शांत होऊँ। सभी प्राणी सुखी हों।',
+  es: 'Que yo sea feliz. Que yo esté en paz. Que todos los seres sean felices.',
+  fr: 'Que je soit heureux. Que je sois en paix. Que tous les êtres soient heureux.',
+  de: 'Möge ich glücklich sein. Möge ich in Frieden sein. Mögen alle Wesen glücklich sein.',
+  zh: '愿我快乐。愿我平静。愿一切众生快乐。',
+  ja: '私が幸せでありますように。私が平和でありますように。すべての生きとし生けるものが幸せでありますように。',
+  pt: 'Que eu seja feliz. Que eu esteja em paz. Que todos os seres sejam felizes.',
+  th: 'ขอให้ข้าพเจ้ามีความสุข ขอให้ข้าพเจ้ามีความสงบ ขอให้สัตว์ทั้งปวงมีความสุข',
+  vi: 'Nguyện cho con được hạnh phúc. Nguyện cho con được an bình. Nguyện cho tất cả chúng sinh được hạnh phúc.',
+  ko: '제가 행복하길 바랍니다. 제가 평화롭길 바랍니다. 모든 중생이 행복하길 바랍니다.',
+  id: 'Semoga saya bahagia. Semoga saya damai. Semoga semua makhluk bahagia.',
+  ms: 'Semoga saya gembira. Semoga saya aman. Semoga semua makhluk gembira.',
+  si: 'මම සතුටින් සිටිමි. මම සාමකාමීව සිටිමි. සියලු සත්ත්වයෝ සතුටින් සිටිත්වා.',
+  my: 'ငါ ပျော်ရွှင်ပါစေ။ ငါ ငြိမ်ချမ်းပါစေ။ သတ္တဝါအားလုံး ပျော်ရွှင်ကြပါစေ။',
+  ne: 'म सुखी होऊँ। म शान्त होऊँ। सबै प्राणी सुखी होऊन्।',
+  bo: 'བདེ་བ་འཐོབ་པར་གྱུར་ཅིག ཞི་བ་འཐོབ་པར་གྱུར་ཅིག སེམས་ཅན་ཐམས་ཅད་བདེ་བ་འཐོབ་པར་གྱུར་ཅིག',
+}
+
+const speechLangs: Record<string, string> = {
+  ru: 'ru-RU', en: 'en-US', hi: 'hi-IN', es: 'es-ES', fr: 'fr-FR',
+  de: 'de-DE', zh: 'zh-CN', ja: 'ja-JP', pt: 'pt-BR', th: 'th-TH',
+  vi: 'vi-VN', ko: 'ko-KR', id: 'id-ID', ms: 'ms-MY', si: 'si-LK',
+  my: 'my-MM', ne: 'ne-NP', bo: 'bo-CN',
+}
+
+function MettaPlayer() {
+  const { t, locale } = useLanguage()
+  const [speaking, setSpeaking] = useState(false)
+  const [copied, setCopied] = useState(false)
+
+  const formula = mettaFormulas[locale] || mettaFormulas.en
+
+  const speak = useCallback(() => {
+    if (!('speechSynthesis' in window)) {
+      copyText()
+      return
+    }
+    window.speechSynthesis.cancel()
+    const utterance = new SpeechSynthesisUtterance(formula)
+    utterance.lang = speechLangs[locale] || 'en-US'
+    utterance.rate = 0.85
+    utterance.pitch = 1.0
+    utterance.onstart = () => setSpeaking(true)
+    utterance.onend = () => setSpeaking(false)
+    utterance.onerror = () => {
+      setSpeaking(false)
+      copyText()
+    }
+    window.speechSynthesis.speak(utterance)
+  }, [formula, locale])
+
+  const stop = useCallback(() => {
+    window.speechSynthesis.cancel()
+    setSpeaking(false)
+  }, [])
+
+  const copyText = useCallback(() => {
+    navigator.clipboard.writeText(formula).then(() => {
+      setCopied(true)
+      setTimeout(() => setCopied(false), 2000)
+    })
+  }, [formula])
+
+  return (
+    <div className="mt-6 p-5 rounded-2xl border border-amber-700/20 backdrop-blur-sm" style={{ background: 'rgba(45, 27, 14, 0.6)' }}>
+      <p className="text-sm font-medium text-amber-400 mb-3 font-[var(--font-inter)]">{t.practice.mettaTitle}</p>
+
+      <p className="text-gray-300 text-sm italic mb-4 leading-relaxed">«{formula}»</p>
+
+      <div className="flex gap-3 flex-wrap">
+        <button
+          onClick={speaking ? stop : speak}
+          className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-medium text-sm transition-all duration-300 ${
+            speaking
+              ? 'bg-red-600/80 hover:bg-red-500/80 text-white'
+              : 'bg-amber-600 hover:bg-amber-500 text-white'
+          }`}
+        >
+          {speaking ? '⏹ ' + (locale === 'ru' ? 'Остановить' : 'Stop') : t.practice.listenMetta}
+        </button>
+
+        <button
+          onClick={copyText}
+          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-medium text-sm bg-gray-700/60 hover:bg-gray-600/60 text-gray-300 transition-colors"
+        >
+          {copied ? '✓ ' + (locale === 'ru' ? 'Скопировано' : 'Copied!') : t.practice.copyMetta}
+        </button>
+      </div>
+    </div>
+  )
+}
+
+function AngerReminder() {
+  const { t } = useLanguage()
+
+  return (
+    <div className="mt-6 p-5 rounded-2xl border border-amber-700/20 backdrop-blur-sm" style={{ background: 'rgba(45, 27, 14, 0.6)' }}>
+      <p className="text-sm font-medium text-amber-400 mb-3 font-[var(--font-inter)]">🔥 {t.practice.reminderTitle}</p>
+      <p className="text-gray-300 text-sm italic leading-relaxed">«{t.practice.reminderText}»</p>
+    </div>
+  )
+}
 
 export default function PracticePageClient() {
   const { t } = useLanguage()
@@ -44,21 +131,66 @@ export default function PracticePageClient() {
         {t.practice.intro}
       </p>
 
-      <div className="grid md:grid-cols-3 gap-6 stagger-children">
-        {practices.map((practice) => (
-          <div
-            key={practice.id}
-            className="bg-white dark:bg-gray-900 rounded-2xl shadow border border-gray-200 dark:border-gray-700 p-6 flex flex-col items-start hover:shadow-lg transition-shadow"
-          >
-            <span className="text-4xl mb-4">{practice.emoji}</span>
-            <h2 className="font-[var(--font-cormorant)] text-xl font-bold text-gray-900 dark:text-gray-100 mb-3">
-              {t.practice[practice.titleKey]}
-            </h2>
-            <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
-              {t.practice[practice.descKey]}
-            </p>
+      <div className="space-y-8">
+        {/* === MEDITATION + BREATHING === */}
+        <div className="bg-white dark:bg-gray-900 rounded-2xl shadow border border-gray-200 dark:border-gray-700 p-6 md:p-8">
+          <div className="flex items-start gap-4 mb-4">
+            <span className="text-4xl shrink-0">🧘</span>
+            <div>
+              <h2 className="font-[var(--font-cormorant)] text-xl font-bold text-gray-900 dark:text-gray-100 mb-2">
+                {t.practice.meditationTitle}
+              </h2>
+              <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+                {t.practice.meditationDesc}
+              </p>
+            </div>
           </div>
-        ))}
+
+          <div className="mt-6 pt-6 border-t border-gray-200 dark:border-gray-700">
+            <p className="text-sm font-medium text-amber-500 dark:text-amber-400 mb-2 font-[var(--font-inter)]">
+              ✨ {t.practice.resonantBreathing}
+            </p>
+            <BreathingPractice />
+          </div>
+        </div>
+
+        {/* === ANGER + REMINDER === */}
+        <div className="bg-white dark:bg-gray-900 rounded-2xl shadow border border-gray-200 dark:border-gray-700 p-6 md:p-8">
+          <div className="flex items-start gap-4 mb-4">
+            <span className="text-4xl shrink-0">🔥</span>
+            <div>
+              <h2 className="font-[var(--font-cormorant)] text-xl font-bold text-gray-900 dark:text-gray-100 mb-2">
+                {t.practice.angerTitle}
+              </h2>
+              <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+                {t.practice.angerDesc}
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-6 pt-6 border-t border-gray-200 dark:border-gray-700">
+            <AngerReminder />
+          </div>
+        </div>
+
+        {/* === COMPASSION + METTA AUDIO === */}
+        <div className="bg-white dark:bg-gray-900 rounded-2xl shadow border border-gray-200 dark:border-gray-700 p-6 md:p-8">
+          <div className="flex items-start gap-4 mb-4">
+            <span className="text-4xl shrink-0">💛</span>
+            <div>
+              <h2 className="font-[var(--font-cormorant)] text-xl font-bold text-gray-900 dark:text-gray-100 mb-2">
+                {t.practice.compassionTitle}
+              </h2>
+              <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+                {t.practice.compassionDesc}
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-6 pt-6 border-t border-gray-200 dark:border-gray-700">
+            <MettaPlayer />
+          </div>
+        </div>
       </div>
     </div>
   )
