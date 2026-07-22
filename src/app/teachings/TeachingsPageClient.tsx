@@ -315,39 +315,15 @@ export default function TeachingsPageClient() {
             : 'One of the most ancient symbols of Buddhism — the path to liberation from suffering'}
         </p>
 
-        <div className="grid md:grid-cols-2 gap-8 mb-10">
-          {/* Short (vertical) */}
-          <div>
-            <h3 className="font-[var(--font-cormorant)] text-xl font-semibold text-amber-100 mb-3 text-center">
-              {locale === 'ru' ? 'Шортс' : 'Short'}
-            </h3>
-            <div className="relative mx-auto rounded-2xl overflow-hidden shadow-2xl border border-amber-700/30" style={{ maxWidth: 320 }}>
-              <div className="relative w-full" style={{ paddingBottom: '177.78%' }}>
-                <iframe
-                  src="https://www.youtube.com/embed/P04rX4-1TNo"
-                  title="Dharmachakra — Short"
-                  className="absolute inset-0 w-full h-full"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                />
-              </div>
-            </div>
-          </div>
-
-          {/* Full-screen (16:9) */}
-          <div>
-            <h3 className="font-[var(--font-cormorant)] text-xl font-semibold text-amber-100 mb-3 text-center">
-              {locale === 'ru' ? 'Полноэкранный' : 'Full Video'}
-            </h3>
-            <div className="relative w-full rounded-2xl overflow-hidden shadow-2xl border border-amber-700/30" style={{ paddingBottom: '56.25%' }}>
-              <iframe
-                src="https://www.youtube.com/embed/P04rX4-1TNo"
-                title="Dharmachakra — Full Video"
-                className="absolute inset-0 w-full h-full"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
-            </div>
+        <div className="mb-10">
+          <div className="relative w-full rounded-2xl overflow-hidden shadow-2xl border border-amber-700/30" style={{ paddingBottom: '56.25%' }}>
+            <iframe
+              src="https://www.youtube.com/embed/P04rX4-1TNo"
+              title="Dharmachakra — The Wheel of Dharma"
+              className="absolute inset-0 w-full h-full"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
           </div>
         </div>
 
