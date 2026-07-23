@@ -41,7 +41,7 @@ function MettaPlayer() {
   const audioRef = useRef<HTMLAudioElement | null>(null)
 
   const formula = mettaFormulas[locale] || mettaFormulas.en
-  const mp3Url = `/audio/metta/${locale}.mp3`
+  const mp3Url = `/audio/metta/${locale}.mp3?v=3`
 
   useEffect(() => {
     fetch(mp3Url, { method: 'HEAD' })
