@@ -12,13 +12,24 @@ interface Episode {
   thumbnail: string
 }
 
+const periods = [
+  { key: 'all', ru: 'Все', en: 'All', from: 1, to: 55 },
+  { key: 'birth', ru: 'Рождение и отречение', en: 'Birth & Renunciation', from: 1, to: 18 },
+  { key: 'path', ru: 'Путь к просветлению', en: 'Path to Enlightenment', from: 19, to: 36 },
+  { key: 'teaching', ru: 'Учение и уход', en: 'Teaching & Departure', from: 37, to: 55 },
+]
+
 export default function EpisodesPageClient() {
   const { t, locale } = useLanguage()
   const [search, setSearch] = useState('')
+  const [activePeriod, setActivePeriod] = useState('all')
 
+  const currentPeriod = periods.find(p => p.key === activePeriod)!
   const filteredEpisodes = episodesData.filter((ep: Episode) =>
-    ep.title.toLowerCase().includes(search.toLowerCase()) ||
-    ep.description.toLowerCase().includes(search.toLowerCase())
+    ep.id >= currentPeriod.from &&
+    ep.id <= currentPeriod.to &&
+    (ep.title.toLowerCase().includes(search.toLowerCase()) ||
+     ep.description.toLowerCase().includes(search.toLowerCase()))
   )
 
   return (
@@ -27,13 +38,30 @@ export default function EpisodesPageClient() {
         {t.nav.episodes} <span className="text-lg font-normal text-amber-500/50">(55)</span>
       </h1>
 
-      <p className="text-amber-200/40 text-center max-w-3xl mx-auto mb-12 leading-relaxed" style={{ fontFamily: 'var(--font-cormorant)' }}>
+      <p className="text-amber-200/40 text-center max-w-3xl mx-auto mb-10 leading-relaxed" style={{ fontFamily: 'var(--font-cormorant)' }}>
         {locale === 'ru'
           ? 'Все серии сериала «Будда» (2013) с описанием и ссылками на RuTube'
           : 'All episodes of the Buddha series (2013) with descriptions and RuTube links'}
       </p>
 
-      <div className="max-w-md mx-auto mb-12">
+      <div className="flex flex-wrap justify-center gap-2 mb-8">
+        {periods.map(p => (
+          <button
+            key={p.key}
+            onClick={() => setActivePeriod(p.key)}
+            className="px-4 py-2 rounded-full text-sm font-medium transition-all"
+            style={{
+              background: activePeriod === p.key ? 'rgba(245, 158, 11, 0.2)' : 'rgba(20, 14, 8, 0.6)',
+              border: `1px solid ${activePeriod === p.key ? 'rgba(245, 158, 11, 0.4)' : 'rgba(245, 158, 11, 0.1)'}`,
+              color: activePeriod === p.key ? '#fbbf24' : 'rgba(232, 220, 200, 0.5)',
+            }}
+          >
+            {locale === 'ru' ? p.ru : p.en}
+          </button>
+        ))}
+      </div>
+
+      <div className="max-w-md mx-auto mb-10">
         <input
           type="text"
           placeholder={locale === 'ru' ? 'Поиск по сериям...' : 'Search episodes...'}
@@ -71,6 +99,17 @@ export default function EpisodesPageClient() {
                   🪷
                 </div>
               )}
+
+              {ep.videoId && (
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ background: 'rgba(15, 14, 10, 0.4)' }}>
+                  <div className="w-14 h-14 rounded-full flex items-center justify-center" style={{ background: 'rgba(245, 158, 11, 0.9)', boxShadow: '0 0 30px rgba(245, 158, 11, 0.4)' }}>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="#0F0E0A">
+                      <polygon points="6,3 20,12 6,21" />
+                    </svg>
+                  </div>
+                </div>
+              )}
+
               <div className="absolute top-2 left-2 px-2.5 py-1 rounded-full text-xs font-medium" style={{ background: 'rgba(15, 14, 10, 0.8)', color: '#fbbf24', border: '1px solid rgba(245, 158, 11, 0.2)' }}>
                 {ep.id}
               </div>
