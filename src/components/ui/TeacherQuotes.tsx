@@ -1,7 +1,6 @@
 'use client'
 
 import { useLanguage } from '@/contexts/LanguageContext'
-import { Quote } from 'lucide-react'
 
 interface Teacher {
   id: string
@@ -39,30 +38,37 @@ export default function TeacherQuotes() {
   const { locale } = useLanguage()
 
   return (
-    <section className="max-w-6xl mx-auto px-4 py-16">
-      <h2 className="font-[var(--font-cormorant)] text-3xl font-bold text-amber-900 dark:text-amber-100 text-center mb-10">
-        {locale === 'ru' ? 'Слова мудрости' : 'Words of Wisdom'}
-      </h2>
+    <section className="max-w-6xl mx-auto px-4 py-20">
+      <div className="text-center mb-12">
+        <div className="golden-divider mb-8" />
+        <h2 className="font-[var(--font-cormorant)] text-3xl md:text-4xl font-bold text-golden-gradient">
+          {locale === 'ru' ? 'Слова мудрости' : 'Words of Wisdom'}
+        </h2>
+      </div>
 
       <div className="grid md:grid-cols-3 gap-6 stagger-children">
         {teachers.map((teacher) => (
           <div
             key={teacher.id}
-            className="group bg-white dark:bg-gray-900 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 p-6 hover:shadow-xl hover:border-amber-300 dark:hover:border-amber-700 transition-all duration-300"
+            className="group golden-card rounded-2xl p-7"
           >
-            <Quote className="w-8 h-8 text-amber-300 dark:text-amber-600 mb-4" />
-            <p className="text-gray-700 dark:text-gray-300 italic font-[var(--font-cormorant)] text-base leading-relaxed mb-6">
+            <div className="w-10 h-10 rounded-full flex items-center justify-center mb-5" style={{ background: 'rgba(245, 158, 11, 0.08)', border: '1px solid rgba(245, 158, 11, 0.15)' }}>
+              <span className="text-xl">{teacher.emoji}</span>
+            </div>
+
+            <p className="font-[var(--font-cormorant)] text-lg leading-relaxed mb-6 italic" style={{ color: 'rgba(253, 230, 138, 0.6)' }}>
               &ldquo;{teacher.quote[locale] || teacher.quote.en}&rdquo;
             </p>
-            <div className="flex items-center gap-3 border-t border-gray-100 dark:border-gray-800 pt-4">
-              <div className="w-12 h-12 rounded-full bg-amber-100 dark:bg-amber-900/30 flex items-center justify-center text-2xl shrink-0">
+
+            <div className="flex items-center gap-3 pt-5" style={{ borderTop: '1px solid rgba(245, 158, 11, 0.1)' }}>
+              <div className="w-11 h-11 rounded-full flex items-center justify-center text-xl shrink-0" style={{ background: 'rgba(245, 158, 11, 0.1)', border: '1px solid rgba(245, 158, 11, 0.15)' }}>
                 {teacher.emoji}
               </div>
               <div>
-                <p className="font-medium text-gray-900 dark:text-gray-100 text-sm">
+                <p className="font-medium text-amber-100/80 text-sm">
                   {teacher.name[locale] || teacher.name.en}
                 </p>
-                <p className="text-xs text-amber-600 dark:text-amber-400">
+                <p className="text-xs text-amber-500/50">
                   {teacher.tradition[locale] || teacher.tradition.en}
                 </p>
               </div>

@@ -43,7 +43,6 @@ function MettaPlayer() {
   const formula = mettaFormulas[locale] || mettaFormulas.en
   const mp3Url = `/audio/metta/${locale}.mp3`
 
-  // Check if MP3 file exists on mount
   useEffect(() => {
     fetch(mp3Url, { method: 'HEAD' })
       .then((res) => setMp3Available(res.ok))
@@ -123,33 +122,41 @@ function MettaPlayer() {
       : ''
 
   return (
-    <div className="mt-6 p-5 rounded-2xl border border-amber-700/20 backdrop-blur-sm" style={{ background: 'rgba(45, 27, 14, 0.6)' }}>
-      <p className="text-sm font-medium text-amber-400 mb-3 font-[var(--font-inter)]">{t.practice.mettaTitle}</p>
+    <div className="mt-6 p-6 rounded-2xl" style={{ background: 'rgba(20, 14, 8, 0.6)', border: '1px solid rgba(245, 158, 11, 0.1)' }}>
+      <p className="text-sm font-medium text-amber-400/70 mb-3">{t.practice.mettaTitle}</p>
 
-      <p className="text-gray-300 text-sm italic mb-4 leading-relaxed">«{formula}»</p>
+      <p className="text-amber-100/40 text-sm italic mb-5 leading-relaxed" style={{ fontFamily: 'var(--font-cormorant)' }}>«{formula}»</p>
 
       <div className="flex gap-3 flex-wrap items-center">
         <button
           onClick={playing ? stop : play}
-          className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-medium text-sm transition-all duration-300 ${
-            playing
-              ? 'bg-red-600/80 hover:bg-red-500/80 text-white'
-              : 'bg-amber-600 hover:bg-amber-500 text-white'
-          }`}
+          className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-medium text-sm transition-all duration-300 hover:scale-105"
+          style={playing ? {
+            background: 'linear-gradient(135deg, #92400e, #78350f)',
+            color: '#fde68a',
+            boxShadow: '0 4px 20px rgba(146, 64, 14, 0.3)',
+            border: '1px solid rgba(245, 158, 11, 0.3)',
+          } : {
+            background: 'linear-gradient(135deg, #b45309, #92400e)',
+            color: '#fde68a',
+            boxShadow: '0 4px 20px rgba(245, 158, 11, 0.2)',
+            border: '1px solid rgba(245, 158, 11, 0.3)',
+          }}
         >
-          {playing ? '⏹ Stop' : t.practice.listenMetta}
+          {playing ? '⏹ Stop' : '🎧'} {playing ? '' : t.practice.listenMetta}
         </button>
 
         <button
           onClick={copyText}
-          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-medium text-sm bg-gray-700/60 hover:bg-gray-600/60 text-gray-300 transition-colors"
+          className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-medium text-sm transition-colors"
+          style={{ background: 'rgba(245, 158, 11, 0.05)', color: 'rgba(253, 230, 138, 0.5)', border: '1px solid rgba(245, 158, 11, 0.1)' }}
         >
           {copied ? '✓ Copied!' : t.practice.copyMetta}
         </button>
       </div>
 
       {sourceLabel && (
-        <p className="text-xs text-gray-500 mt-2">{sourceLabel}</p>
+        <p className="text-xs text-amber-500/30 mt-3">{sourceLabel}</p>
       )}
     </div>
   )
@@ -159,9 +166,9 @@ function AngerReminder() {
   const { t } = useLanguage()
 
   return (
-    <div className="mt-6 p-5 rounded-2xl border border-amber-700/20 backdrop-blur-sm" style={{ background: 'rgba(45, 27, 14, 0.6)' }}>
-      <p className="text-sm font-medium text-amber-400 mb-3 font-[var(--font-inter)]">🔥 {t.practice.reminderTitle}</p>
-      <p className="text-gray-300 text-sm italic leading-relaxed">«{t.practice.reminderText}»</p>
+    <div className="mt-6 p-6 rounded-2xl" style={{ background: 'rgba(20, 14, 8, 0.6)', border: '1px solid rgba(245, 158, 11, 0.1)' }}>
+      <p className="text-sm font-medium text-amber-400/70 mb-3">🔥 {t.practice.reminderTitle}</p>
+      <p className="text-amber-100/40 text-sm italic leading-relaxed" style={{ fontFamily: 'var(--font-cormorant)' }}>«{t.practice.reminderText}»</p>
     </div>
   )
 }
@@ -173,77 +180,89 @@ export default function PracticePageClient() {
     <div className="max-w-4xl mx-auto px-4 py-12">
       <Link
         href="/teachings"
-        className="inline-flex items-center gap-2 text-amber-600 hover:text-amber-700 transition-colors mb-8"
+        className="inline-flex items-center gap-2 text-amber-500/50 hover:text-amber-400 transition-colors mb-8 text-sm"
       >
         ← {t.common.back}
       </Link>
 
-      <h1 className="font-[var(--font-cormorant)] text-4xl font-bold text-amber-900 dark:text-amber-100 text-center mb-4">
+      <h1 className="font-[var(--font-cormorant)] text-4xl font-bold text-golden-gradient text-center mb-4">
         {t.practice.title}
       </h1>
 
-      <p className="text-center text-gray-600 dark:text-gray-400 text-lg mb-12 max-w-2xl mx-auto">
+      <p className="text-center text-amber-200/40 text-lg mb-12 max-w-2xl mx-auto leading-relaxed" style={{ fontFamily: 'var(--font-cormorant)' }}>
         {t.practice.intro}
       </p>
 
       <div className="space-y-8">
         {/* === MEDITATION + BREATHING === */}
-        <div className="bg-white dark:bg-gray-900 rounded-2xl shadow border border-gray-200 dark:border-gray-700 p-6 md:p-8">
-          <div className="flex items-start gap-4 mb-4">
-            <span className="text-4xl shrink-0">🧘</span>
-            <div>
-              <h2 className="font-[var(--font-cormorant)] text-xl font-bold text-gray-900 dark:text-gray-100 mb-2">
-                {t.practice.meditationTitle}
-              </h2>
-              <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
-                {t.practice.meditationDesc}
-              </p>
+        <div className="golden-card rounded-2xl p-6 md:p-8 relative noise-overlay">
+          <div className="relative z-10">
+            <div className="flex items-start gap-4 mb-4">
+              <div className="w-14 h-14 rounded-2xl flex items-center justify-center text-3xl shrink-0" style={{ background: 'rgba(245, 158, 11, 0.08)', border: '1px solid rgba(245, 158, 11, 0.15)' }}>
+                🧘
+              </div>
+              <div>
+                <h2 className="font-[var(--font-cormorant)] text-xl font-bold text-amber-100/80 mb-2">
+                  {t.practice.meditationTitle}
+                </h2>
+                <p className="text-amber-100/40 text-sm leading-relaxed">
+                  {t.practice.meditationDesc}
+                </p>
+              </div>
             </div>
-          </div>
 
-          <div className="mt-6 pt-6 border-t border-gray-200 dark:border-gray-700">
-            <p className="text-sm font-medium text-amber-500 dark:text-amber-400 mb-2 font-[var(--font-inter)]">
-              ✨ {t.practice.resonantBreathing}
-            </p>
-            <BreathingPractice />
+            <div className="mt-6 pt-6" style={{ borderTop: '1px solid rgba(245, 158, 11, 0.08)' }}>
+              <p className="text-sm font-medium text-amber-400/60 mb-4">
+                ✨ {t.practice.resonantBreathing}
+              </p>
+              <BreathingPractice />
+            </div>
           </div>
         </div>
 
         {/* === ANGER + REMINDER === */}
-        <div className="bg-white dark:bg-gray-900 rounded-2xl shadow border border-gray-200 dark:border-gray-700 p-6 md:p-8">
-          <div className="flex items-start gap-4 mb-4">
-            <span className="text-4xl shrink-0">🔥</span>
-            <div>
-              <h2 className="font-[var(--font-cormorant)] text-xl font-bold text-gray-900 dark:text-gray-100 mb-2">
-                {t.practice.angerTitle}
-              </h2>
-              <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
-                {t.practice.angerDesc}
-              </p>
+        <div className="golden-card rounded-2xl p-6 md:p-8 relative noise-overlay">
+          <div className="relative z-10">
+            <div className="flex items-start gap-4 mb-4">
+              <div className="w-14 h-14 rounded-2xl flex items-center justify-center text-3xl shrink-0" style={{ background: 'rgba(245, 158, 11, 0.08)', border: '1px solid rgba(245, 158, 11, 0.15)' }}>
+                🔥
+              </div>
+              <div>
+                <h2 className="font-[var(--font-cormorant)] text-xl font-bold text-amber-100/80 mb-2">
+                  {t.practice.angerTitle}
+                </h2>
+                <p className="text-amber-100/40 text-sm leading-relaxed">
+                  {t.practice.angerDesc}
+                </p>
+              </div>
             </div>
-          </div>
 
-          <div className="mt-6 pt-6 border-t border-gray-200 dark:border-gray-700">
-            <AngerReminder />
+            <div className="mt-6 pt-6" style={{ borderTop: '1px solid rgba(245, 158, 11, 0.08)' }}>
+              <AngerReminder />
+            </div>
           </div>
         </div>
 
         {/* === COMPASSION + METTA AUDIO === */}
-        <div className="bg-white dark:bg-gray-900 rounded-2xl shadow border border-gray-200 dark:border-gray-700 p-6 md:p-8">
-          <div className="flex items-start gap-4 mb-4">
-            <span className="text-4xl shrink-0">💛</span>
-            <div>
-              <h2 className="font-[var(--font-cormorant)] text-xl font-bold text-gray-900 dark:text-gray-100 mb-2">
-                {t.practice.compassionTitle}
-              </h2>
-              <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
-                {t.practice.compassionDesc}
-              </p>
+        <div className="golden-card rounded-2xl p-6 md:p-8 relative noise-overlay">
+          <div className="relative z-10">
+            <div className="flex items-start gap-4 mb-4">
+              <div className="w-14 h-14 rounded-2xl flex items-center justify-center text-3xl shrink-0" style={{ background: 'rgba(245, 158, 11, 0.08)', border: '1px solid rgba(245, 158, 11, 0.15)' }}>
+                💛
+              </div>
+              <div>
+                <h2 className="font-[var(--font-cormorant)] text-xl font-bold text-amber-100/80 mb-2">
+                  {t.practice.compassionTitle}
+                </h2>
+                <p className="text-amber-100/40 text-sm leading-relaxed">
+                  {t.practice.compassionDesc}
+                </p>
+              </div>
             </div>
-          </div>
 
-          <div className="mt-6 pt-6 border-t border-gray-200 dark:border-gray-700">
-            <MettaPlayer />
+            <div className="mt-6 pt-6" style={{ borderTop: '1px solid rgba(245, 158, 11, 0.08)' }}>
+              <MettaPlayer />
+            </div>
           </div>
         </div>
       </div>

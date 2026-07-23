@@ -21,7 +21,7 @@ const phaseLabels: Record<string, Record<string, string>> = {
   si: { inhale: 'ශ්වාස', exhale: 'පිට', stop: 'නතර', ready: 'අභ්‍යාසයට සූදානම්', pause: 'විශ්‍රාම', reset: 'කාලය සකසන්න.' },
   my: { inhale: 'ရှူ', exhale: 'မှုတ်', stop: 'ရပ်', ready: 'လေ့ကျင့်ဖို့အဆင်သင့်', pause: 'ရပ်နား', reset: 'ကြာချိန်ညှိပါ။' },
   ne: { inhale: 'श्वास', exhale: 'छोड्नुहोस्', stop: 'रोक्नुहोस्', ready: 'अभ्यासको लागि तयार', pause: 'रोकिएको', reset: 'अवधि समायोजन गर्नुहोस्।' },
-  bo: { inhale: 'དབུགས་འབྱིན།', exhale: 'དབུགས་ཕྱིར་འབུད།', stop: 'གནང་།', ready: 'སྦྱོང་བར་གྲ་སྒྲིག', pause: 'གནང་།', reset: 'དུས་ཚོད་སྒྲིག' },
+  bo: { inhale: 'དབུགས་འབྱིན།', exhale: 'དབུགས་ཕྱིར་འབུད།', stop: 'གནང་།', ready: 'སྦྱြང་བར་གྲ་སྒྲဲག', pause: 'གནང་།', reset: 'དུས་ཚོད་སྒྲིག' },
 }
 
 export default function BreathingPractice() {
@@ -191,36 +191,36 @@ export default function BreathingPractice() {
   const phaseLabel = labels[phase] || labels.inhale
 
   return (
-    <div className="flex flex-col items-center gap-4">
+    <div className="flex flex-col items-center gap-5">
       <div
         className="relative w-52 h-52 md:w-56 md:h-56 rounded-full flex flex-col items-center justify-center cursor-pointer select-none"
         style={{
           transform: `scale(${scale})`,
-          background: 'radial-gradient(circle at 35% 30%, #2a3a5e, #0d1424)',
+          background: 'radial-gradient(circle at 35% 30%, rgba(245, 158, 11, 0.12), rgba(20, 14, 8, 0.95))',
           boxShadow: glowClass === 'inhale'
-            ? '0 0 40px #5f8aff, 0 0 80px #3a5fc0, inset 0 0 20px #7ba0ff'
+            ? '0 0 50px rgba(245, 158, 11, 0.3), 0 0 100px rgba(245, 158, 11, 0.15), inset 0 0 30px rgba(245, 158, 11, 0.08)'
             : glowClass === 'exhale'
-              ? '0 0 40px #b8a0ff, 0 0 80px #7a5ac0, inset 0 0 20px #b58aff'
-              : '0 8px 30px rgba(0, 0, 0, 0.7), inset 0 2px 6px rgba(255, 255, 255, 0.08)',
-          transition: 'box-shadow 0.5s ease',
+              ? '0 0 50px rgba(245, 158, 11, 0.2), 0 0 100px rgba(245, 158, 11, 0.1), inset 0 0 30px rgba(245, 158, 11, 0.05)'
+              : '0 8px 40px rgba(0, 0, 0, 0.5), inset 0 2px 8px rgba(245, 158, 11, 0.05)',
+          border: '2px solid rgba(245, 158, 11, 0.15)',
+          transition: 'box-shadow 0.6s ease',
           willChange: 'transform',
         }}
         onClick={isRunning ? stopPractice : startPractice}
       >
-        <span className="text-4xl md:text-5xl font-light tracking-wider text-blue-200" style={{ fontFamily: "'Times New Roman', serif", textShadow: '0 0 20px rgba(200, 180, 255, 0.3)' }}>
+        <span className="text-4xl md:text-5xl font-light tracking-wider" style={{ fontFamily: "'Times New Roman', serif", color: 'rgba(253, 230, 138, 0.7)', textShadow: '0 0 30px rgba(245, 158, 11, 0.2)' }}>
           ॐ
         </span>
-        <span className="text-xs tracking-wider opacity-50 font-light mt-0.5 text-blue-200">
+        <span className="text-xs tracking-wider opacity-40 font-light mt-0.5" style={{ color: 'rgba(253, 230, 138, 0.5)' }}>
           Aum · ॐ · ఓం
         </span>
 
         <span
-          className="absolute bottom-4 px-4 py-1 rounded-full text-xs uppercase tracking-[4px] font-light border"
+          className="absolute bottom-4 px-4 py-1 rounded-full text-xs uppercase tracking-[4px] font-light"
           style={{
-            background: 'rgba(0,0,0,0.3)',
-            backdropFilter: 'blur(2px)',
-            borderColor: 'rgba(255,255,255,0.06)',
-            color: '#eef2fb',
+            background: 'rgba(245, 158, 11, 0.05)',
+            border: '1px solid rgba(245, 158, 11, 0.1)',
+            color: 'rgba(253, 230, 138, 0.6)',
           }}
         >
           {isRunning ? phaseLabel : (statusText === labels.pause ? labels.stop : 'ॐ')}
@@ -229,9 +229,9 @@ export default function BreathingPractice() {
 
       <div className="w-full max-w-xs flex flex-col gap-3">
         <div className="flex flex-col gap-1.5">
-          <div className="flex justify-between text-sm font-light opacity-80">
-            <span>{locale === 'ru' ? '🌬️ Вдох (сек)' : '🌬️ Inhale (sec)'}</span>
-            <span className="tabular-nums bg-gray-800/60 px-2 rounded-full text-blue-200">{inhaleDuration.toFixed(1)}</span>
+          <div className="flex justify-between text-sm font-light opacity-70">
+            <span className="text-amber-200/50">{locale === 'ru' ? '🌬️ Вдох (сек)' : '🌬️ Inhale (sec)'}</span>
+            <span className="tabular-nums px-2 rounded-full text-amber-300/60" style={{ background: 'rgba(245, 158, 11, 0.05)' }}>{inhaleDuration.toFixed(1)}</span>
           </div>
           <input
             type="range"
@@ -245,14 +245,14 @@ export default function BreathingPractice() {
               if (!isRunning) setStatusText(`${locale === 'ru' ? 'Вдох' : 'Inhale'} ${v.toFixed(1)}s · ${locale === 'ru' ? 'Выдох' : 'Exhale'} ${exhaleDuration.toFixed(1)}s`)
             }}
             className="w-full h-1.5 rounded-full appearance-none cursor-pointer"
-            style={{ background: 'linear-gradient(90deg, #3e5275, #7f96c9)' }}
+            style={{ background: 'linear-gradient(90deg, rgba(180, 83, 9, 0.3), rgba(245, 158, 11, 0.5))' }}
           />
         </div>
 
         <div className="flex flex-col gap-1.5">
-          <div className="flex justify-between text-sm font-light opacity-80">
-            <span>{locale === 'ru' ? '🌀 Выдох (сек)' : '🌀 Exhale (sec)'}</span>
-            <span className="tabular-nums bg-gray-800/60 px-2 rounded-full text-purple-200">{exhaleDuration.toFixed(1)}</span>
+          <div className="flex justify-between text-sm font-light opacity-70">
+            <span className="text-amber-200/50">{locale === 'ru' ? '🌀 Выдох (сек)' : '🌀 Exhale (sec)'}</span>
+            <span className="tabular-nums px-2 rounded-full text-amber-400/50" style={{ background: 'rgba(245, 158, 11, 0.05)' }}>{exhaleDuration.toFixed(1)}</span>
           </div>
           <input
             type="range"
@@ -266,7 +266,7 @@ export default function BreathingPractice() {
               if (!isRunning) setStatusText(`${locale === 'ru' ? 'Вдох' : 'Inhale'} ${inhaleDuration.toFixed(1)}s · ${locale === 'ru' ? 'Выдох' : 'Exhale'} ${v.toFixed(1)}s`)
             }}
             className="w-full h-1.5 rounded-full appearance-none cursor-pointer"
-            style={{ background: 'linear-gradient(90deg, #3e5275, #7f96c9)' }}
+            style={{ background: 'linear-gradient(90deg, rgba(180, 83, 9, 0.3), rgba(245, 158, 11, 0.5))' }}
           />
         </div>
       </div>
@@ -274,28 +274,39 @@ export default function BreathingPractice() {
       <div className="flex gap-3 w-full max-w-xs justify-center">
         <button
           onClick={isRunning ? stopPractice : startPractice}
-          className={`flex-1 py-2.5 rounded-full font-medium text-sm tracking-wide transition-all duration-150 active:scale-95 ${
-            isRunning
-              ? 'bg-gray-700/80 hover:bg-gray-600/80 text-blue-100 border border-white/5'
-              : 'bg-blue-700 hover:bg-blue-600 text-white shadow-lg shadow-blue-900/40 border border-blue-400/30'
-          }`}
+          className="flex-1 py-2.5 rounded-full font-medium text-sm tracking-wide transition-all duration-150 active:scale-95"
+          style={isRunning ? {
+            background: 'rgba(245, 158, 11, 0.05)',
+            color: 'rgba(253, 230, 138, 0.5)',
+            border: '1px solid rgba(245, 158, 11, 0.1)',
+          } : {
+            background: 'linear-gradient(135deg, #b45309, #92400e)',
+            color: '#fde68a',
+            boxShadow: '0 4px 20px rgba(245, 158, 11, 0.2)',
+            border: '1px solid rgba(245, 158, 11, 0.3)',
+          }}
         >
           {isRunning ? '⏹ ' + (locale === 'ru' ? 'Стоп' : 'Stop') : '▶ ' + (locale === 'ru' ? 'Начать' : 'Start')}
         </button>
 
         <button
           onClick={resetPractice}
-          className="flex-1 py-2.5 rounded-full font-medium text-sm tracking-wide bg-gray-700/60 hover:bg-gray-600/60 text-blue-100 border border-white/5 transition-all duration-150 active:scale-95"
+          className="flex-1 py-2.5 rounded-full font-medium text-sm tracking-wide transition-all duration-150 active:scale-95"
+          style={{
+            background: 'rgba(245, 158, 11, 0.05)',
+            color: 'rgba(253, 230, 138, 0.4)',
+            border: '1px solid rgba(245, 158, 11, 0.08)',
+          }}
         >
           ⟲ {locale === 'ru' ? 'Сброс' : 'Reset'}
         </button>
       </div>
 
-      <p className="text-center text-xs tracking-wider opacity-60 text-blue-200 min-h-[20px]">
+      <p className="text-center text-xs tracking-wider opacity-40 min-h-[20px]" style={{ color: 'rgba(253, 230, 138, 0.4)' }}>
         {statusText}
       </p>
 
-      <p className="text-center text-[10px] opacity-30 text-blue-300">
+      <p className="text-center text-[10px] opacity-20" style={{ color: 'rgba(253, 230, 138, 0.3)' }}>
         ♡ {locale === 'ru' ? 'на выдохе звучит Аум' : 'Aum sounds on exhale'}
       </p>
     </div>

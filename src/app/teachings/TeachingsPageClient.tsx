@@ -210,15 +210,15 @@ function VideoDescription() {
   const desc = videoDescriptions[locale] || videoDescriptions.en
 
   return (
-    <div className="rounded-2xl p-6 mb-8 border border-amber-700/20" style={{ background: 'rgba(30, 41, 59, 0.6)' }}>
-      <h3 className="font-[var(--font-cormorant)] text-xl font-semibold text-amber-100 mb-2">
+    <div className="rounded-2xl p-6 mb-8" style={{ background: 'rgba(20, 14, 8, 0.8)', border: '1px solid rgba(245, 158, 11, 0.15)' }}>
+      <h3 className="font-[var(--font-cormorant)] text-xl font-semibold text-amber-200/80 mb-3">
         {desc.title}
       </h3>
-      <p className="text-gray-300 text-sm mb-4 leading-relaxed">{desc.desc}</p>
-      <ul className="space-y-2 text-gray-300 text-sm">
+      <p className="text-amber-100/40 text-sm mb-4 leading-relaxed">{desc.desc}</p>
+      <ul className="space-y-2 text-amber-100/40 text-sm">
         {desc.points.map((point, i) => (
           <li key={i} className="flex items-start gap-2">
-            <span className="text-amber-400 mt-1">•</span>
+            <span className="text-amber-500/60 mt-1">•</span>
             {point}
           </li>
         ))}
@@ -238,16 +238,17 @@ function TranscriptSection() {
   }
 
   return (
-    <div className="rounded-2xl border border-amber-700/30 overflow-hidden" style={{ background: 'linear-gradient(180deg, #1E293B 0%, #0F172A 100%)' }}>
+    <div className="rounded-2xl overflow-hidden" style={{ background: 'rgba(15, 14, 10, 0.8)', border: '1px solid rgba(245, 158, 11, 0.1)' }}>
       <button
         onClick={() => setOpen(!open)}
-        className="w-full flex items-center justify-between p-6 text-left hover:bg-white/5 transition-colors"
+        className="w-full flex items-center justify-between p-6 text-left transition-colors"
+        style={{ background: 'rgba(245, 158, 11, 0.03)' }}
       >
-        <h3 className="font-[var(--font-cormorant)] text-xl font-semibold text-amber-400">
+        <h3 className="font-[var(--font-cormorant)] text-xl font-semibold text-amber-400/80">
           Video Transcript
         </h3>
         <svg
-          className={`w-5 h-5 text-amber-400 transition-transform duration-300 shrink-0 ${open ? 'rotate-180' : ''}`}
+          className={`w-5 h-5 text-amber-500/50 transition-transform duration-300 shrink-0 ${open ? 'rotate-180' : ''}`}
           fill="none" stroke="currentColor" viewBox="0 0 24 24"
         >
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
@@ -263,19 +264,26 @@ function TranscriptSection() {
                 onClick={() => handleTabChange(l.code)}
                 className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 hover:scale-105 ${
                   tab === l.code
-                    ? 'bg-amber-500 text-white shadow-lg shadow-amber-500/25'
-                    : 'bg-gray-700/60 text-gray-300 hover:bg-gray-600/60'
+                    ? 'text-white'
+                    : 'text-amber-200/40 hover:text-amber-200/60'
                 }`}
+                style={tab === l.code ? {
+                  background: 'linear-gradient(135deg, #b45309, #92400e)',
+                  boxShadow: '0 2px 12px rgba(245, 158, 11, 0.2)',
+                } : {
+                  background: 'rgba(245, 158, 11, 0.05)',
+                  border: '1px solid rgba(245, 158, 11, 0.1)',
+                }}
               >
                 {l.label}
               </button>
             ))}
           </div>
 
-          <div key={animKey} className="max-h-60 overflow-y-auto rounded-xl p-4 space-y-3 text-sm text-gray-300 leading-relaxed animate-fade-in" style={{ background: 'rgba(31, 41, 55, 0.5)' }}>
+          <div key={animKey} className="max-h-60 overflow-y-auto rounded-xl p-4 space-y-3 text-sm text-amber-100/50 leading-relaxed animate-fade-in" style={{ background: 'rgba(15, 14, 10, 0.6)', border: '1px solid rgba(245, 158, 11, 0.05)' }}>
             {transcriptData.map((row, i) => (
               <p key={i}>
-                <strong className="text-amber-400 font-mono">{row.time}</strong>{' '}
+                <strong className="text-amber-500/60 font-mono">{row.time}</strong>{' '}
                 <span className="font-mono">{row[tab]}</span>
               </p>
             ))}
@@ -291,28 +299,29 @@ function TeachingCard({ teaching }: { teaching: typeof teachings[0] }) {
   const { locale } = useLanguage()
 
   return (
-    <div className="bg-white dark:bg-gray-900 rounded-2xl shadow border border-gray-200 dark:border-gray-700 overflow-hidden">
+    <div className="golden-card rounded-2xl overflow-hidden">
       <button
         onClick={() => setOpen(!open)}
-        className="w-full flex items-center gap-3 p-6 text-left hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors"
+        className="w-full flex items-center gap-4 p-6 text-left transition-colors"
+        style={{ background: open ? 'rgba(245, 158, 11, 0.03)' : 'transparent' }}
       >
         <span className="text-3xl shrink-0">{teaching.emoji}</span>
-        <h2 className="font-[var(--font-cormorant)] text-xl font-bold text-gray-900 dark:text-gray-100 flex-1">
+        <h2 className="font-[var(--font-cormorant)] text-xl font-bold text-amber-100/80 flex-1">
           {(teaching.title as any)[locale] || teaching.title.en}
         </h2>
         <svg
-          className={`w-5 h-5 text-gray-400 transition-transform duration-300 shrink-0 ${open ? 'rotate-180' : ''}`}
+          className={`w-5 h-5 text-amber-500/40 transition-transform duration-300 shrink-0 ${open ? 'rotate-180' : ''}`}
           fill="none" stroke="currentColor" viewBox="0 0 24 24"
         >
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
         </svg>
       </button>
       {open && (
-        <div className="px-6 pb-6 animate-fade-in">
-          <ul className="space-y-2">
+        <div className="px-6 pb-6 animate-fade-in" style={{ borderLeft: '3px solid rgba(245, 158, 11, 0.3)' }}>
+          <ul className="space-y-3">
             {((teaching.points as any)[locale] || teaching.points.en).map((point: string, i: number) => (
-              <li key={i} className="flex items-start gap-2 text-gray-600 dark:text-gray-300 text-sm">
-                <span className="text-amber-500 mt-1">•</span>
+              <li key={i} className="flex items-start gap-3 text-amber-100/50 text-sm leading-relaxed">
+                <span className="text-amber-500/50 mt-1">•</span>
                 {point}
               </li>
             ))}
@@ -328,23 +337,23 @@ export default function TeachingsPageClient() {
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-12">
-      <h1 className="font-[var(--font-cormorant)] text-4xl md:text-5xl font-bold text-center mb-14" style={{ color: '#F59E0B' }}>
+      <h1 className="font-[var(--font-cormorant)] text-4xl md:text-5xl font-bold text-center mb-14 text-golden-gradient">
         {t.teachings.pageTitle}
       </h1>
 
       {/* === SECTION 1: DHARMACHAKRA === */}
-      <section className="rounded-3xl p-8 md:p-12 mb-4" style={{ background: 'linear-gradient(180deg, #2D1B0E 0%, #1A0F07 100%)' }}>
-        <h2 className="font-[var(--font-cormorant)] text-3xl font-bold text-center mb-3" style={{ color: '#F59E0B' }}>
+      <section className="rounded-3xl p-8 md:p-12 mb-4" style={{ background: 'linear-gradient(180deg, rgba(20,14,8,0.9) 0%, rgba(15,14,10,0.95) 100%)', border: '1px solid rgba(245, 158, 11, 0.08)' }}>
+        <h2 className="font-[var(--font-cormorant)] text-3xl font-bold text-center mb-3 text-golden-gradient">
           {t.teachings.sectionDharmachakra}
         </h2>
-        <p className="text-center text-sm mb-10 max-w-xl mx-auto" style={{ color: '#D1D5DB' }}>
+        <p className="text-center text-sm mb-10 max-w-xl mx-auto text-amber-200/40" style={{ fontFamily: 'var(--font-cormorant)' }}>
           {locale === 'ru'
             ? 'Один из древнейших символов буддизма — путь освобождения из страдания'
             : 'One of the most ancient symbols of Buddhism — the path to liberation from suffering'}
         </p>
 
         <div className="mb-10">
-          <div className="relative w-full rounded-2xl overflow-hidden shadow-2xl border border-amber-700/30" style={{ paddingBottom: '56.25%' }}>
+          <div className="relative w-full rounded-2xl overflow-hidden" style={{ boxShadow: '0 0 60px rgba(245, 158, 11, 0.08)', border: '2px solid rgba(245, 158, 11, 0.15)', paddingBottom: '56.25%' }}>
             <iframe
               src="https://www.youtube.com/embed/P6Binwp6t0k"
               title="Dharmachakra — The Wheel of Dharma"
@@ -359,16 +368,16 @@ export default function TeachingsPageClient() {
         <TranscriptSection />
       </section>
 
-      {/* Gold divider */}
+      {/* Golden divider */}
       <div className="flex items-center justify-center my-8">
-        <div className="h-px flex-1" style={{ background: 'linear-gradient(90deg, transparent, #F59E0B, transparent)' }} />
+        <div className="golden-divider flex-1" />
         <span className="px-4 text-2xl">☸</span>
-        <div className="h-px flex-1" style={{ background: 'linear-gradient(90deg, transparent, #F59E0B, transparent)' }} />
+        <div className="golden-divider flex-1" />
       </div>
 
       {/* === SECTION 2: BUDDHA'S TEACHINGS === */}
       <section className="mb-4">
-        <h2 className="font-[var(--font-cormorant)] text-3xl font-bold text-center mb-8" style={{ color: '#F59E0B' }}>
+        <h2 className="font-[var(--font-cormorant)] text-3xl font-bold text-center mb-8 text-golden-gradient">
           {t.teachings.sectionTeachings}
         </h2>
         <div className="space-y-4">
@@ -378,41 +387,48 @@ export default function TeachingsPageClient() {
         </div>
       </section>
 
-      {/* Gold divider */}
+      {/* Golden divider */}
       <div className="flex items-center justify-center my-8">
-        <div className="h-px flex-1" style={{ background: 'linear-gradient(90deg, transparent, #F59E0B, transparent)' }} />
+        <div className="golden-divider flex-1" />
         <span className="px-4 text-2xl">☸</span>
-        <div className="h-px flex-1" style={{ background: 'linear-gradient(90deg, transparent, #F59E0B, transparent)' }} />
+        <div className="golden-divider flex-1" />
       </div>
 
       {/* === SECTION 3: PRACTICES === */}
-      <section className="rounded-3xl p-8 md:p-12" style={{ background: 'linear-gradient(180deg, #3D220F 0%, #2A1A0C 100%)' }}>
-        <h2 className="font-[var(--font-cormorant)] text-3xl font-bold text-center mb-8" style={{ color: '#F59E0B' }}>
+      <section className="rounded-3xl p-8 md:p-12" style={{ background: 'linear-gradient(180deg, rgba(30,20,10,0.9) 0%, rgba(20,14,8,0.95) 100%)', border: '1px solid rgba(245, 158, 11, 0.08)' }}>
+        <h2 className="font-[var(--font-cormorant)] text-3xl font-bold text-center mb-8 text-golden-gradient">
           {t.teachings.sectionPractices}
         </h2>
 
         <div className="text-center mb-8">
           <Link
             href="/teachings/practice"
-            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-amber-600 hover:bg-amber-500 text-white font-medium text-lg transition-all duration-300 hover:scale-105 shadow-lg shadow-amber-600/20"
+            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full font-medium text-lg transition-all duration-300 hover:scale-105"
+            style={{
+              background: 'linear-gradient(135deg, #b45309, #92400e)',
+              color: '#fde68a',
+              boxShadow: '0 4px 30px rgba(245, 158, 11, 0.2)',
+              border: '1px solid rgba(245, 158, 11, 0.3)',
+            }}
           >
             🧘 {locale === 'ru' ? 'Предварительная практика' : 'Preliminary Practice'} →
           </Link>
         </div>
 
-        <div className="bg-white/5 dark:bg-white/5 border border-amber-700/20 rounded-2xl p-8 text-center backdrop-blur-sm">
+        <div className="rounded-2xl p-8 text-center" style={{ background: 'rgba(245, 158, 11, 0.03)', border: '1px solid rgba(245, 158, 11, 0.1)' }}>
           <span className="text-3xl block mb-3">📖</span>
-          <h3 className="font-[var(--font-cormorant)] text-2xl font-bold text-amber-100 mb-3">
+          <h3 className="font-[var(--font-cormorant)] text-2xl font-bold text-amber-200/80 mb-3">
             {locale === 'ru' ? 'Углубите свои знания' : 'Deepen Your Knowledge'}
           </h3>
-          <p className="text-gray-300 text-sm mb-6 max-w-md mx-auto">
+          <p className="text-amber-100/40 text-sm mb-6 max-w-md mx-auto">
             {locale === 'ru'
               ? 'Сохраняйте любимые учения и отслеживайте свой путь.'
               : 'Save your favorite teachings and track your journey.'}
           </p>
           <Link
             href="/teachings/practice"
-            className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-amber-700 hover:bg-amber-600 text-white font-medium text-sm transition-colors"
+            className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-medium transition-colors"
+            style={{ background: 'rgba(245, 158, 11, 0.1)', color: '#fbbf24', border: '1px solid rgba(245, 158, 11, 0.2)' }}
           >
             {locale === 'ru' ? 'Начать учиться' : 'Start Learning'} →
           </Link>

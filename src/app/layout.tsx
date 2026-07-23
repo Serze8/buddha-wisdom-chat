@@ -58,8 +58,8 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   const lang = cookieStore.get('preferred_language')?.value || 'en'
 
   return (
-    <html lang={lang} className={`${cormorant.variable} ${inter.variable} h-full antialiased`} suppressHydrationWarning>
-      <body className="min-h-full flex flex-col bg-amber-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100 font-[var(--font-inter)]">
+    <html lang={lang} className={`dark ${cormorant.variable} ${inter.variable} h-full antialiased`} suppressHydrationWarning>
+      <body className="min-h-full flex flex-col font-[var(--font-inter)]" style={{ background: '#0F0E0A', color: '#e8dcc8' }}>
         <LanguageProviderBlock initialLocale={lang}>{children}</LanguageProviderBlock>
         <Analytics />
         <SpeedInsights />

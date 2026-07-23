@@ -3,16 +3,16 @@
 import { useLanguage } from '@/contexts/LanguageContext'
 import Link from 'next/link'
 import Image from 'next/image'
-import { MessageCircle, Users, Tv, BookOpen, Image as ImageIcon, HelpCircle, BookOpenCheck, Film } from 'lucide-react'
+import { MessageCircle, BookOpenCheck, Film, Users, Tv, Image as ImageIcon, HelpCircle, BookOpen } from 'lucide-react'
 import TeacherQuotes from '@/components/ui/TeacherQuotes'
 
 const features = [
-  { key: 'chat', icon: MessageCircle, href: '/chat', color: 'bg-amber-100 text-amber-700' },
-  { key: 'characters', icon: Users, href: '/characters', color: 'bg-orange-100 text-orange-700' },
-  { key: 'episodes', icon: Tv, href: '/episodes', color: 'bg-red-100 text-red-700' },
-  { key: 'teachings', icon: BookOpen, href: '/teachings', color: 'bg-yellow-100 text-yellow-700' },
-  { key: 'gallery', icon: ImageIcon, href: '/gallery', color: 'bg-amber-100 text-amber-600' },
-  { key: 'quiz', icon: HelpCircle, href: '/quiz', color: 'bg-orange-100 text-orange-600' },
+  { key: 'chat', icon: MessageCircle, href: '/chat' },
+  { key: 'characters', icon: Users, href: '/characters' },
+  { key: 'episodes', icon: Tv, href: '/episodes' },
+  { key: 'teachings', icon: BookOpen, href: '/teachings' },
+  { key: 'gallery', icon: ImageIcon, href: '/gallery' },
+  { key: 'quiz', icon: HelpCircle, href: '/quiz' },
 ]
 
 const thesisToday = {
@@ -58,30 +58,43 @@ export default function HomePageClient() {
   const quote = dayQuotes[new Date().getDate() % dayQuotes.length]
 
   return (
-    <div>
+    <div className="min-h-screen">
       {/* Hero */}
-      <section className="relative bg-gradient-to-b from-amber-900 via-amber-800 to-amber-950 text-white overflow-hidden min-h-[420px]">
+      <section className="relative overflow-hidden" style={{ minHeight: '520px' }}>
         <Image
           src="/images/hero.jpg"
           alt="Buddhist temple"
           fill
-          className="object-cover opacity-30"
+          className="object-cover"
           priority
+          style={{ filter: 'brightness(0.3) saturate(0.7)' }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-amber-900/60 via-amber-800/40 to-amber-950/80" />
-        <div className="max-w-7xl mx-auto px-4 py-24 md:py-32 text-center relative z-10">
-          <div className="relative w-20 h-20 rounded-full overflow-hidden mx-auto mb-6 shadow-lg">
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, rgba(15,14,10,0.4) 0%, rgba(15,14,10,0.7) 50%, #0F0E0A 100%)' }} />
+
+        <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at 50% 30%, rgba(245, 158, 11, 0.08) 0%, transparent 60%)' }} />
+
+        <div className="max-w-7xl mx-auto px-4 py-28 md:py-36 text-center relative z-10">
+          <div className="relative w-24 h-24 rounded-full overflow-hidden mx-auto mb-8 border-2 border-amber-500/30" style={{ boxShadow: '0 0 40px rgba(245, 158, 11, 0.15)' }}>
             <Image src="/images/logo.png" alt="Logo" fill className="object-cover" />
           </div>
-          <h1 className="font-[var(--font-cormorant)] text-4xl md:text-6xl font-bold mb-4">
+
+          <h1 className="font-[var(--font-cormorant)] text-5xl md:text-7xl font-bold mb-6 text-golden-gradient" style={{ textShadow: '0 2px 40px rgba(245, 158, 11, 0.2)' }}>
             {t.home.heroTitle}
           </h1>
-          <p className="text-amber-200/80 text-lg md:text-xl max-w-2xl mx-auto mb-8">
+
+          <p className="text-amber-200/60 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed" style={{ fontFamily: 'var(--font-cormorant)' }}>
             {t.home.heroSubtitle}
           </p>
+
           <Link
             href="/chat"
-            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-amber-600 hover:bg-amber-500 text-white font-medium text-lg transition-colors shadow-lg"
+            className="inline-flex items-center gap-3 px-10 py-4 rounded-full font-medium text-lg transition-all duration-300 hover:scale-105"
+            style={{
+              background: 'linear-gradient(135deg, #b45309, #92400e)',
+              color: '#fde68a',
+              boxShadow: '0 4px 30px rgba(245, 158, 11, 0.25), inset 0 1px 0 rgba(253, 230, 138, 0.2)',
+              border: '1px solid rgba(245, 158, 11, 0.3)',
+            }}
           >
             <MessageCircle className="w-5 h-5" />
             {t.home.startChat}
@@ -90,34 +103,36 @@ export default function HomePageClient() {
       </section>
 
       {/* Quote Strip */}
-      <div className="bg-amber-100 dark:bg-amber-900/30 py-4 overflow-hidden">
+      <div className="relative overflow-hidden py-6" style={{ background: 'linear-gradient(90deg, rgba(120, 53, 15, 0.15), rgba(120, 53, 15, 0.05), rgba(120, 53, 15, 0.15))' }}>
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <p className="text-amber-800 dark:text-amber-200 italic font-[var(--font-cormorant)] text-lg">
+          <p className="font-[var(--font-cormorant)] text-xl md:text-2xl italic text-golden-gradient leading-relaxed">
             &ldquo;{quote.text}&rdquo;
           </p>
-          <p className="text-amber-600 dark:text-amber-400 text-sm mt-1">— {quote.author}</p>
+          <p className="text-amber-600/60 text-sm mt-2" style={{ fontFamily: 'var(--font-cormorant)' }}>— {quote.author}</p>
         </div>
       </div>
 
       {/* Thesis of the Day */}
-      <section className="max-w-4xl mx-auto px-4 py-12">
-        <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-lg border border-amber-200 dark:border-amber-800/30 p-8">
-          <div className="flex items-center gap-2 mb-3">
-            <span className="text-2xl">📖</span>
-            <h2 className="font-[var(--font-cormorant)] text-2xl font-bold text-amber-900 dark:text-amber-100">
-              {t.home.thesisOfDay}
-            </h2>
+      <section className="max-w-4xl mx-auto px-4 py-14">
+        <div className="golden-card rounded-2xl p-8 relative noise-overlay" style={{ boxShadow: '0 8px 40px rgba(0, 0, 0, 0.4)' }}>
+          <div className="relative z-10">
+            <div className="flex items-center gap-3 mb-4">
+              <span className="text-2xl">📖</span>
+              <h2 className="font-[var(--font-cormorant)] text-2xl font-bold text-golden-gradient">
+                {t.home.thesisOfDay}
+              </h2>
+            </div>
+            <h3 className="font-[var(--font-cormorant)] text-xl font-semibold text-amber-200/80 mb-3">
+              {thesis.title}
+            </h3>
+            <p className="text-amber-100/50 mb-5 leading-relaxed">{thesis.text}</p>
+            <Link
+              href={thesis.link}
+              className="inline-flex items-center gap-1 text-amber-400 font-medium hover:text-amber-300 transition-colors text-sm"
+            >
+              {t.home.readMore} →
+            </Link>
           </div>
-          <h3 className="font-[var(--font-cormorant)] text-xl font-semibold text-amber-800 dark:text-amber-200 mb-2">
-            {thesis.title}
-          </h3>
-          <p className="text-gray-600 dark:text-gray-300 mb-4">{thesis.text}</p>
-          <Link
-            href={thesis.link}
-            className="inline-flex items-center gap-1 text-amber-700 dark:text-amber-400 font-medium hover:underline text-sm"
-          >
-            {t.home.readMore} →
-          </Link>
         </div>
       </section>
 
@@ -127,20 +142,20 @@ export default function HomePageClient() {
           {/* Block 1: Chat */}
           <Link
             href="/chat"
-            className="group bg-white dark:bg-gray-900 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 overflow-hidden hover:shadow-xl hover:border-amber-300 dark:hover:border-amber-700 transition-all duration-300"
+            className="group golden-card rounded-2xl overflow-hidden"
           >
-            <div className="h-2 bg-gradient-to-r from-amber-400 to-amber-600" />
+            <div className="h-1" style={{ background: 'linear-gradient(90deg, #b45309, #f59e0b, #b45309)' }} />
             <div className="p-8">
-              <div className="w-14 h-14 rounded-2xl bg-amber-100 dark:bg-amber-900/30 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
-                <MessageCircle className="w-7 h-7 text-amber-600 dark:text-amber-400" />
+              <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300" style={{ background: 'rgba(245, 158, 11, 0.1)', border: '1px solid rgba(245, 158, 11, 0.2)' }}>
+                <MessageCircle className="w-8 h-8 text-amber-400" />
               </div>
-              <h3 className="font-[var(--font-cormorant)] text-2xl font-bold text-gray-900 dark:text-gray-100 mb-3">
+              <h3 className="font-[var(--font-cormorant)] text-2xl font-bold text-amber-100 mb-3">
                 {t.home.blockChatTitle}
               </h3>
-              <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-5">
+              <p className="text-amber-200/40 text-sm leading-relaxed mb-6">
                 {t.home.blockChatDesc}
               </p>
-              <span className="inline-flex items-center gap-1 text-amber-700 dark:text-amber-400 font-medium text-sm group-hover:gap-2 transition-all">
+              <span className="inline-flex items-center gap-1 text-amber-400/70 font-medium text-sm group-hover:text-amber-400 group-hover:gap-2 transition-all">
                 {t.home.startChat} →
               </span>
             </div>
@@ -149,20 +164,20 @@ export default function HomePageClient() {
           {/* Block 2: Teachings */}
           <Link
             href="/teachings"
-            className="group bg-white dark:bg-gray-900 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 overflow-hidden hover:shadow-xl hover:border-amber-300 dark:hover:border-amber-700 transition-all duration-300"
+            className="group golden-card rounded-2xl overflow-hidden"
           >
-            <div className="h-2 bg-gradient-to-r from-orange-400 to-amber-500" />
+            <div className="h-1" style={{ background: 'linear-gradient(90deg, #92400e, #d97706, #92400e)' }} />
             <div className="p-8">
-              <div className="w-14 h-14 rounded-2xl bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
-                <BookOpenCheck className="w-7 h-7 text-orange-600 dark:text-orange-400" />
+              <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300" style={{ background: 'rgba(245, 158, 11, 0.1)', border: '1px solid rgba(245, 158, 11, 0.2)' }}>
+                <BookOpenCheck className="w-8 h-8 text-amber-400" />
               </div>
-              <h3 className="font-[var(--font-cormorant)] text-2xl font-bold text-gray-900 dark:text-gray-100 mb-3">
+              <h3 className="font-[var(--font-cormorant)] text-2xl font-bold text-amber-100 mb-3">
                 {t.home.blockLearnTitle}
               </h3>
-              <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-5">
+              <p className="text-amber-200/40 text-sm leading-relaxed mb-6">
                 {t.home.blockLearnDesc}
               </p>
-              <span className="inline-flex items-center gap-1 text-amber-700 dark:text-amber-400 font-medium text-sm group-hover:gap-2 transition-all">
+              <span className="inline-flex items-center gap-1 text-amber-400/70 font-medium text-sm group-hover:text-amber-400 group-hover:gap-2 transition-all">
                 {t.home.readMore} →
               </span>
             </div>
@@ -171,20 +186,20 @@ export default function HomePageClient() {
           {/* Block 3: Film */}
           <Link
             href="/episodes"
-            className="group bg-white dark:bg-gray-900 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 overflow-hidden hover:shadow-xl hover:border-amber-300 dark:hover:border-amber-700 transition-all duration-300"
+            className="group golden-card rounded-2xl overflow-hidden"
           >
-            <div className="h-2 bg-gradient-to-r from-red-400 to-orange-500" />
+            <div className="h-1" style={{ background: 'linear-gradient(90deg, #78350f, #b45309, #78350f)' }} />
             <div className="p-8">
-              <div className="w-14 h-14 rounded-2xl bg-red-100 dark:bg-red-900/30 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
-                <Film className="w-7 h-7 text-red-600 dark:text-red-400" />
+              <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300" style={{ background: 'rgba(245, 158, 11, 0.1)', border: '1px solid rgba(245, 158, 11, 0.2)' }}>
+                <Film className="w-8 h-8 text-amber-400" />
               </div>
-              <h3 className="font-[var(--font-cormorant)] text-2xl font-bold text-gray-900 dark:text-gray-100 mb-3">
+              <h3 className="font-[var(--font-cormorant)] text-2xl font-bold text-amber-100 mb-3">
                 {t.home.blockFilmTitle}
               </h3>
-              <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-5">
+              <p className="text-amber-200/40 text-sm leading-relaxed mb-6">
                 {t.home.blockFilmDesc}
               </p>
-              <span className="inline-flex items-center gap-1 text-amber-700 dark:text-amber-400 font-medium text-sm group-hover:gap-2 transition-all">
+              <span className="inline-flex items-center gap-1 text-amber-400/70 font-medium text-sm group-hover:text-amber-400 group-hover:gap-2 transition-all">
                 {t.home.readMore} →
               </span>
             </div>
@@ -193,18 +208,18 @@ export default function HomePageClient() {
       </section>
 
       {/* Quick Links */}
-      <section className="max-w-6xl mx-auto px-4 pb-16">
+      <section className="max-w-6xl mx-auto px-4 pb-20">
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4 stagger-children">
-          {features.map(({ key, icon: Icon, href, color }) => (
+          {features.map(({ key, icon: Icon, href }) => (
             <Link
               key={key}
               href={href}
-              className="group flex flex-col items-center gap-3 p-6 rounded-2xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 hover:shadow-lg hover:border-amber-300 dark:hover:border-amber-700 transition-all"
+              className="group golden-card rounded-2xl flex flex-col items-center gap-3 p-6"
             >
-              <div className={`p-3 rounded-xl ${color} group-hover:scale-110 transition-transform`}>
-                <Icon className="w-6 h-6" />
+              <div className="p-3 rounded-xl transition-transform duration-300 group-hover:scale-110" style={{ background: 'rgba(245, 158, 11, 0.08)', border: '1px solid rgba(245, 158, 11, 0.15)' }}>
+                <Icon className="w-6 h-6 text-amber-400/70 group-hover:text-amber-400 transition-colors" />
               </div>
-              <span className="font-medium text-gray-700 dark:text-gray-200">
+              <span className="font-medium text-amber-200/60 group-hover:text-amber-200 transition-colors text-sm">
                 {(t.nav as any)[key] || key}
               </span>
             </Link>
