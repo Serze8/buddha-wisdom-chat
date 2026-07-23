@@ -73,7 +73,7 @@ export default function HomePageClient() {
 
         <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at 50% 30%, rgba(245, 158, 11, 0.08) 0%, transparent 60%)' }} />
 
-        <div className="max-w-7xl mx-auto px-4 py-28 md:py-36 text-center relative z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-28 md:py-36 text-center relative z-10">
           <div className="relative w-24 h-24 rounded-full overflow-hidden mx-auto mb-8 border-2 border-amber-500/30" style={{ boxShadow: '0 0 40px rgba(245, 158, 11, 0.15)' }}>
             <Image src="/images/logo.png" alt="Logo" fill className="object-cover" />
           </div>
@@ -88,7 +88,7 @@ export default function HomePageClient() {
 
           <Link
             href="/chat"
-            className="inline-flex items-center gap-3 px-10 py-4 rounded-full font-medium text-lg transition-all duration-300 hover:scale-105"
+            className="inline-flex items-center gap-3 px-10 py-4 rounded-full font-medium text-lg transition-all duration-300 hover:scale-105 btn-glow"
             style={{
               background: 'linear-gradient(135deg, #b45309, #92400e)',
               color: '#fde68a',
@@ -103,18 +103,19 @@ export default function HomePageClient() {
       </section>
 
       {/* Quote Strip */}
-      <div className="relative overflow-hidden py-6" style={{ background: 'linear-gradient(90deg, rgba(120, 53, 15, 0.15), rgba(120, 53, 15, 0.05), rgba(120, 53, 15, 0.15))' }}>
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <p className="font-[var(--font-cormorant)] text-xl md:text-2xl italic text-golden-gradient leading-relaxed">
-            &ldquo;{quote.text}&rdquo;
+      <div className="relative overflow-hidden py-8 md:py-10 scroll-reveal" style={{ background: 'linear-gradient(90deg, rgba(120, 53, 15, 0.15), rgba(120, 53, 15, 0.05), rgba(120, 53, 15, 0.15))' }}>
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center relative">
+          <span className="quote-mark" style={{ left: '10%' }}>&ldquo;</span>
+          <p className="font-[var(--font-cormorant)] text-xl md:text-2xl italic text-golden-gradient leading-relaxed relative z-10 pl-6">
+            {quote.text}
           </p>
-          <p className="text-amber-600/60 text-sm mt-2" style={{ fontFamily: 'var(--font-cormorant)' }}>— {quote.author}</p>
+          <p className="text-amber-600/60 text-sm mt-3" style={{ fontFamily: 'var(--font-cormorant)' }}>— {quote.author}</p>
         </div>
       </div>
 
       {/* Thesis of the Day */}
-      <section className="max-w-4xl mx-auto px-4 py-14">
-        <div className="golden-card rounded-2xl p-8 relative noise-overlay" style={{ boxShadow: '0 8px 40px rgba(0, 0, 0, 0.4)' }}>
+      <section className="max-w-4xl mx-auto px-4 sm:px-6 py-14 md:py-20">
+        <div className="golden-card rounded-2xl p-8 md:p-10 relative noise-overlay scroll-reveal" style={{ boxShadow: '0 8px 40px rgba(0, 0, 0, 0.4)' }}>
           <div className="relative z-10">
             <div className="flex items-center gap-3 mb-4">
               <span className="text-2xl">📖</span>
@@ -137,8 +138,8 @@ export default function HomePageClient() {
       </section>
 
       {/* Three Main Blocks */}
-      <section className="max-w-6xl mx-auto px-4 py-16">
-        <div className="grid md:grid-cols-3 gap-6 stagger-children">
+      <section className="max-w-6xl mx-auto px-4 sm:px-6 py-16 md:py-24">
+        <div className="grid md:grid-cols-3 gap-6 md:gap-8 stagger-children scroll-reveal">
           {/* Block 1: Chat */}
           <Link
             href="/chat"
@@ -208,8 +209,8 @@ export default function HomePageClient() {
       </section>
 
       {/* Quick Links */}
-      <section className="max-w-6xl mx-auto px-4 pb-20">
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 stagger-children">
+      <section className="max-w-6xl mx-auto px-4 sm:px-6 pb-20 md:pb-28">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 stagger-children scroll-reveal">
           {features.map(({ key, icon: Icon, href }) => (
             <Link
               key={key}

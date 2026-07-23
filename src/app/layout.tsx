@@ -5,6 +5,8 @@ import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import './globals.css'
 import LanguageProviderBlock from './LanguageProviderBlock'
+import ScrollReveal from '@/components/ScrollReveal'
+import Footer from '@/components/layout/Footer'
 
 const cormorant = Cormorant_Garamond({
   variable: '--font-cormorant',
@@ -61,6 +63,8 @@ export default async function RootLayout({ children }: { children: React.ReactNo
     <html lang={lang} className={`dark ${cormorant.variable} ${inter.variable} h-full antialiased`} suppressHydrationWarning>
       <body className="min-h-full flex flex-col font-[var(--font-inter)]" style={{ background: '#0F0E0A', color: '#e8dcc8' }}>
         <LanguageProviderBlock initialLocale={lang}>{children}</LanguageProviderBlock>
+        <Footer />
+        <ScrollReveal />
         <Analytics />
         <SpeedInsights />
       </body>

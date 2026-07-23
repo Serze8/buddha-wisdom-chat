@@ -38,8 +38,8 @@ export default function TeacherQuotes() {
   const { locale } = useLanguage()
 
   return (
-    <section className="max-w-6xl mx-auto px-4 py-20">
-      <div className="text-center mb-12">
+    <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
+      <div className="text-center mb-14">
         <div className="golden-divider mb-8" />
         <h2 className="font-[var(--font-cormorant)] text-3xl md:text-4xl font-bold text-golden-gradient">
           {locale === 'ru' ? 'Слова мудрости' : 'Words of Wisdom'}
@@ -50,18 +50,16 @@ export default function TeacherQuotes() {
         {teachers.map((teacher) => (
           <div
             key={teacher.id}
-            className="group golden-card rounded-2xl p-7"
+            className="group golden-card rounded-2xl p-7 relative overflow-hidden"
           >
-            <div className="w-10 h-10 rounded-full flex items-center justify-center mb-5" style={{ background: 'rgba(245, 158, 11, 0.08)', border: '1px solid rgba(245, 158, 11, 0.15)' }}>
-              <span className="text-xl">{teacher.emoji}</span>
-            </div>
+            <span className="quote-mark">&ldquo;</span>
 
-            <p className="font-[var(--font-cormorant)] text-lg leading-relaxed mb-6 italic" style={{ color: 'rgba(253, 230, 138, 0.6)' }}>
-              &ldquo;{teacher.quote[locale] || teacher.quote.en}&rdquo;
+            <p className="font-[var(--font-cormorant)] text-lg leading-relaxed mb-6 italic relative z-10 pl-6" style={{ color: 'rgba(253, 230, 138, 0.6)' }}>
+              {teacher.quote[locale] || teacher.quote.en}
             </p>
 
-            <div className="flex items-center gap-3 pt-5" style={{ borderTop: '1px solid rgba(245, 158, 11, 0.1)' }}>
-              <div className="w-11 h-11 rounded-full flex items-center justify-center text-xl shrink-0" style={{ background: 'rgba(245, 158, 11, 0.1)', border: '1px solid rgba(245, 158, 11, 0.15)' }}>
+            <div className="flex items-center gap-3 pt-5 relative z-10" style={{ borderTop: '1px solid rgba(245, 158, 11, 0.1)' }}>
+              <div className="w-11 h-11 rounded-full flex items-center justify-center text-xl shrink-0" style={{ background: 'linear-gradient(135deg, rgba(245, 158, 11, 0.15), rgba(184, 115, 51, 0.1))', border: '1px solid rgba(245, 158, 11, 0.2)' }}>
                 {teacher.emoji}
               </div>
               <div>
