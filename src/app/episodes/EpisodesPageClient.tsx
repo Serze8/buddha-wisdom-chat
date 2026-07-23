@@ -41,7 +41,7 @@ export default function EpisodesPageClient() {
       <p className="text-amber-200/40 text-center max-w-3xl mx-auto mb-10 leading-relaxed" style={{ fontFamily: 'var(--font-cormorant)' }}>
         {locale === 'ru'
           ? 'Все серии сериала «Будда» (2013) с описанием и ссылками на RuTube'
-          : 'All episodes of the Buddha series (2013) with descriptions and RuTube links'}
+          : 'All 55 episodes of the Buddha TV series (2013) — stream on RuTube'}
       </p>
 
       <div className="flex flex-wrap justify-center gap-2 mb-8">
