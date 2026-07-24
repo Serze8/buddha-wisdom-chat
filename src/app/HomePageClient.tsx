@@ -2,8 +2,8 @@
 
 import { useLanguage } from '@/contexts/LanguageContext'
 import Link from 'next/link'
-import Image from 'next/image'
 import { MessageCircle, BookOpenCheck, Film, Users, Tv, Image as ImageIcon, HelpCircle, BookOpen } from 'lucide-react'
+import HeroSilkAtlas from '@/components/HeroSilkAtlas'
 import TeacherQuotes from '@/components/ui/TeacherQuotes'
 
 const features = [
@@ -60,47 +60,7 @@ export default function HomePageClient() {
   return (
     <div className="min-h-screen">
       {/* Hero */}
-      <section className="relative overflow-hidden" style={{ minHeight: '520px' }}>
-        <Image
-          src="/images/hero.jpg"
-          alt="Buddhist temple"
-          fill
-          className="object-cover"
-          priority
-          style={{ filter: 'brightness(0.3) saturate(0.7)' }}
-        />
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, rgba(15,14,10,0.4) 0%, rgba(15,14,10,0.7) 50%, #0F0E0A 100%)' }} />
-
-        <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at 50% 30%, rgba(245, 158, 11, 0.08) 0%, transparent 60%)' }} />
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-28 md:py-36 text-center relative z-10">
-          <div className="relative w-24 h-24 rounded-full overflow-hidden mx-auto mb-8 border-2 border-amber-500/30" style={{ boxShadow: '0 0 40px rgba(245, 158, 11, 0.15)' }}>
-            <Image src="/images/logo.png" alt="Logo" fill className="object-cover" />
-          </div>
-
-          <h1 className="font-[var(--font-cormorant)] text-5xl md:text-7xl font-bold mb-6 text-golden-gradient" style={{ textShadow: '0 2px 40px rgba(245, 158, 11, 0.2)' }}>
-            {t.home.heroTitle}
-          </h1>
-
-          <p className="text-amber-200/60 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed" style={{ fontFamily: 'var(--font-cormorant)' }}>
-            {t.home.heroSubtitle}
-          </p>
-
-          <Link
-            href="/chat"
-            className="inline-flex items-center gap-3 px-10 py-4 rounded-full font-medium text-lg transition-all duration-300 hover:scale-105 btn-glow"
-            style={{
-              background: 'linear-gradient(135deg, #b45309, #92400e)',
-              color: '#fde68a',
-              boxShadow: '0 4px 30px rgba(245, 158, 11, 0.25), inset 0 1px 0 rgba(253, 230, 138, 0.2)',
-              border: '1px solid rgba(245, 158, 11, 0.3)',
-            }}
-          >
-            <MessageCircle className="w-5 h-5" />
-            {t.home.startChat}
-          </Link>
-        </div>
-      </section>
+      <HeroSilkAtlas />
 
       {/* Quote Strip */}
       <div className="relative overflow-hidden py-8 md:py-10 scroll-reveal" style={{ background: 'linear-gradient(90deg, rgba(120, 53, 15, 0.15), rgba(120, 53, 15, 0.05), rgba(120, 53, 15, 0.15))' }}>
