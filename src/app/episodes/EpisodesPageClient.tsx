@@ -20,6 +20,8 @@ const periods = [
   { key: 'teaching', ru: 'Учение', en: 'Teaching', from: 37, to: 55 },
 ]
 
+const PLAYLIST_URL = 'https://rutube.ru/plst/825387/'
+
 export default function EpisodesPageClient() {
   const { locale } = useLanguage()
   const [search, setSearch] = useState('')
@@ -35,14 +37,8 @@ export default function EpisodesPageClient() {
   )
 
   const getVideoUrl = (ep: Episode) => {
-    if (ep.videoId) return `https://rutube.ru/video/${ep.videoId}/?playlist=825387`
-    return 'https://rutube.ru/plst/825387/'
-  }
-
-  const getThumbnail = (ep: Episode) => {
-    if (ep.thumbnail) return ep.thumbnail
-    if (ep.videoId) return `https://rutube.ru/api/video/${ep.videoId}/thumbnail/?redirect=1`
-    return ''
+    if (ep.videoId) return `https://rutube.ru/video/${ep.videoId}/`
+    return PLAYLIST_URL
   }
 
   return (
@@ -91,70 +87,59 @@ export default function EpisodesPageClient() {
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 md:gap-6 stagger-children">
-        {filteredEpisodes.map((ep: Episode) => {
-          const thumb = getThumbnail(ep)
-          return (
-            <a
-              key={ep.id}
-              href={getVideoUrl(ep)}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group golden-card rounded-2xl overflow-hidden"
-            >
-              <div className="aspect-video relative overflow-hidden" style={{ background: '#0F0E0A' }}>
-                {thumb ? (
-                  <img
-                    src={thumb}
-                    alt={ep.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    loading="lazy"
-                  />
-                ) : (
-                  <div className="w-full h-full flex items-center justify-center text-5xl" style={{ color: 'rgba(245, 158, 11, 0.12)' }}>
-                    🪷
-                  </div>
-                )}
-
-                {ep.videoId && (
-                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ background: 'rgba(15, 14, 10, 0.4)' }}>
-                    <div className="w-14 h-14 rounded-full flex items-center justify-center" style={{ background: 'rgba(245, 158, 11, 0.9)', boxShadow: '0 0 30px rgba(245, 158, 11, 0.4)' }}>
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="#0F0E0A">
-                        <polygon points="6,3 20,12 6,21" />
-                      </svg>
-                    </div>
-                  </div>
-                )}
-
-                <div className="absolute top-2 left-2 px-2.5 py-1 rounded-full text-xs font-medium" style={{ background: 'rgba(15, 14, 10, 0.8)', color: '#fbbf24', border: '1px solid rgba(245, 158, 11, 0.2)' }}>
-                  {ep.id}
+        {filteredEpisodes.map((ep: Episode) => (
+          <a
+            key={ep.id}
+            href={getVideoUrl(ep)}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group golden-card rounded-2xl overflow-hidden"
+          >
+            <div className="aspect-video relative overflow-hidden" style={{ background: '#0F0E0A' }}>
+              {ep.thumbnail ? (
+                <img
+                  src={ep.thumbnail}
+                  alt={ep.title}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  loading="lazy"
+                />
+              ) : (
+                <div className="w-full h-full flex items-center justify-center text-5xl" style={{ color: 'rgba(245, 158, 11, 0.12)' }}>
+                  🪷
                 </div>
+              )}
 
-                {!ep.videoId && (
-                  <div className="absolute top-2 right-2 px-2 py-1 rounded-full text-[10px] font-medium" style={{ background: 'rgba(15, 14, 10, 0.8)', color: 'rgba(232, 220, 200, 0.5)', border: '1px solid rgba(232, 220, 200, 0.15)' }}>
-                    {locale === 'ru' ? 'Плейлист' : 'Playlist'}
-                  </div>
-                )}
+              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ background: 'rgba(15, 14, 10, 0.4)' }}>
+                <div className="w-14 h-14 rounded-full flex items-center justify-center" style={{ background: 'rgba(245, 158, 11, 0.9)', boxShadow: '0 0 30px rgba(245, 158, 11, 0.4)' }}>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="#0F0E0A">
+                    <polygon points="6,3 20,12 6,21" />
+                  </svg>
+                </div>
               </div>
 
-              <div className="p-4">
-                <h3 className="font-[var(--font-cormorant)] text-base font-bold text-amber-100/80 group-hover:text-amber-300 transition-colors line-clamp-1">
-                  {ep.title}
-                </h3>
-                <p className="text-amber-200/30 text-xs mt-1.5 line-clamp-2 leading-relaxed">
-                  {ep.description}
-                </p>
-                {ep.highlight && (
-                  <div className="mt-2 flex items-start gap-1.5">
-                    <span className="text-[10px] mt-0.5" style={{ color: 'rgba(245, 158, 11, 0.5)' }}>✦</span>
-                    <p className="text-[11px] leading-snug" style={{ color: 'rgba(245, 158, 11, 0.6)' }}>
-                      {ep.highlight}
-                    </p>
-                  </div>
-                )}
+              <div className="absolute top-2 left-2 px-2.5 py-1 rounded-full text-xs font-medium" style={{ background: 'rgba(15, 14, 10, 0.8)', color: '#fbbf24', border: '1px solid rgba(245, 158, 11, 0.2)' }}>
+                {ep.id}
               </div>
-            </a>
-          )
-        })}
+            </div>
+
+            <div className="p-4">
+              <h3 className="font-[var(--font-cormorant)] text-base font-bold text-amber-100/80 group-hover:text-amber-300 transition-colors line-clamp-1">
+                {ep.title}
+              </h3>
+              <p className="text-amber-200/30 text-xs mt-1.5 line-clamp-2 leading-relaxed">
+                {ep.description}
+              </p>
+              {ep.highlight && (
+                <div className="mt-2 flex items-start gap-1.5">
+                  <span className="text-[10px] mt-0.5" style={{ color: 'rgba(245, 158, 11, 0.5)' }}>✦</span>
+                  <p className="text-[11px] leading-snug" style={{ color: 'rgba(245, 158, 11, 0.6)' }}>
+                    {ep.highlight}
+                  </p>
+                </div>
+              )}
+            </div>
+          </a>
+        ))}
       </div>
 
       {filteredEpisodes.length === 0 && (
@@ -165,6 +150,29 @@ export default function EpisodesPageClient() {
           </p>
         </div>
       )}
+
+      <div className="mt-16 text-center">
+        <div className="inline-block p-8 rounded-2xl golden-card">
+          <p className="text-amber-200/40 mb-4">
+            {locale === 'ru' ? 'Смотреть все серии подряд в плейлисте RuTube' : 'Watch all episodes in the RuTube playlist'}
+          </p>
+          <a
+            href={PLAYLIST_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-glow inline-flex items-center gap-3 px-8 py-4 rounded-full text-[#0F0E0A] font-medium tracking-wide transition-all duration-500"
+            style={{ background: 'linear-gradient(135deg, #c9a84c, #b87333)' }}
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="#0F0E0A">
+              <polygon points="6,3 20,12 6,21" />
+            </svg>
+            {locale === 'ru' ? 'Открыть плейлист на RuTube' : 'Open RuTube Playlist'}
+          </a>
+          <p className="text-amber-200/20 text-xs mt-4">
+            {locale === 'ru' ? '55 серий • Индия, 2013 • Режиссёр: Дхармеш Шах' : '55 episodes • India, 2013 • Director: Dharmesh Shah'}
+          </p>
+        </div>
+      </div>
     </div>
   )
 }
