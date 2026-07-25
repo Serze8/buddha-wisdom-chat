@@ -78,6 +78,16 @@ const pages: Record<string, { title: string; description: string; keywords: stri
     description: 'Practical steps to begin working with the mind: meditation, working with anger, and developing compassion through mettā practice.',
     keywords: ['buddhist practice', 'meditation guide', 'loving-kindness', 'metta', 'preliminary practice', 'mindfulness'],
   },
+  'zen-martial': {
+    title: 'Zen & Martial Arts — Bodhidharma, Daruma, Shaolin',
+    description: 'The story of Bodhidharma (Daruma), the 24th Patriarch who brought Zen Buddhism to China. Films about Shaolin, Water Margin, and martial arts as spiritual practice.',
+    keywords: ['zen buddhism', 'bodhidharma', 'daruma', 'shaolin', 'martial arts', 'chan buddhism', 'water margin', 'kung fu'],
+  },
+  'chakravartin': {
+    title: 'Chakravartin — Emperor Ashoka & the Spread of Dharma',
+    description: 'The 442-episode Chinese historical drama about Emperor Ashoka who united India under the Dharma and spread Buddhist teachings across Asia.',
+    keywords: ['chakravartin', 'emperor ashoka', 'ashoka', 'buddhist history', 'dharma', 'maurya empire', 'chinese drama'],
+  },
 }
 
 export function generatePageMetadata(path: string): Metadata {

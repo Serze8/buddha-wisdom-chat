@@ -394,6 +394,39 @@ export default function TeachingsPageClient() {
         <div className="golden-divider flex-1" />
       </div>
 
+      {/* === SECTION 3: CHAKRAVARTIN === */}
+      <section className="rounded-3xl p-8 md:p-12 mb-4" style={{ background: 'linear-gradient(180deg, rgba(20,14,8,0.9) 0%, rgba(15,14,10,0.95) 100%)', border: '1px solid rgba(245, 158, 11, 0.08)' }}>
+        <h2 className="font-[var(--font-cormorant)] text-3xl font-bold text-center mb-6 text-golden-gradient">
+          {t.teachings.sectionChakravartin}
+        </h2>
+        <p className="text-center text-sm mb-8 max-w-xl mx-auto text-amber-200/40" style={{ fontFamily: 'var(--font-cormorant)' }}>
+          {locale === 'ru'
+            ? '442-серийный сериал об императоре Ашоке — как Дхарма стала основой государства'
+            : '442-episode series about Emperor Ashoka — how Dharma became the foundation of a state'}
+        </p>
+        <div className="text-center">
+          <Link
+            href="/chakravartin"
+            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full font-medium text-lg transition-all duration-300 hover:scale-105"
+            style={{
+              background: 'linear-gradient(135deg, #b45309, #92400e)',
+              color: '#fde68a',
+              boxShadow: '0 4px 30px rgba(245, 158, 11, 0.2)',
+              border: '1px solid rgba(245, 158, 11, 0.3)',
+            }}
+          >
+            👑 {locale === 'ru' ? 'Чакравартин — Вселенский монарх' : 'Chakravartin — The Universal Monarch'} →
+          </Link>
+        </div>
+      </section>
+
+      {/* Golden divider */}
+      <div className="flex items-center justify-center my-8">
+        <div className="golden-divider flex-1" />
+        <span className="px-4 text-2xl">☸</span>
+        <div className="golden-divider flex-1" />
+      </div>
+
       {/* === SECTION 3: PRACTICES === */}
       <section className="rounded-3xl p-8 md:p-12" style={{ background: 'linear-gradient(180deg, rgba(30,20,10,0.9) 0%, rgba(20,14,8,0.95) 100%)', border: '1px solid rgba(245, 158, 11, 0.08)' }}>
         <h2 className="font-[var(--font-cormorant)] text-3xl font-bold text-center mb-8 text-golden-gradient">

@@ -2,7 +2,7 @@
 
 import { useLanguage } from '@/contexts/LanguageContext'
 import Link from 'next/link'
-import { MessageCircle, BookOpenCheck, Film, Users, Tv, Image as ImageIcon, HelpCircle, BookOpen } from 'lucide-react'
+import { MessageCircle, BookOpenCheck, Film, Users, Tv, Image as ImageIcon, HelpCircle, BookOpen, Swords } from 'lucide-react'
 import HeroSilkAtlas from '@/components/HeroSilkAtlas'
 import TeacherQuotes from '@/components/ui/TeacherQuotes'
 
@@ -97,46 +97,24 @@ export default function HomePageClient() {
         </div>
       </section>
 
-      {/* Three Main Blocks */}
+      {/* Three Main Blocks — Three Paths */}
       <section className="max-w-6xl mx-auto px-4 sm:px-6 py-16 md:py-24">
         <div className="grid md:grid-cols-3 gap-6 md:gap-8 stagger-children scroll-reveal">
-          {/* Block 1: Chat */}
+          {/* Block 1: Путь Будды */}
           <Link
-            href="/chat"
+            href="/episodes"
             className="group golden-card rounded-2xl overflow-hidden"
           >
             <div className="h-1" style={{ background: 'linear-gradient(90deg, #b45309, #f59e0b, #b45309)' }} />
             <div className="p-8">
               <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300" style={{ background: 'rgba(245, 158, 11, 0.1)', border: '1px solid rgba(245, 158, 11, 0.2)' }}>
-                <MessageCircle className="w-8 h-8 text-amber-400" />
+                <span className="text-3xl">🪷</span>
               </div>
               <h3 className="font-[var(--font-cormorant)] text-2xl font-bold text-amber-100 mb-3">
-                {t.home.blockChatTitle}
+                {t.home.blockPathTitle}
               </h3>
               <p className="text-amber-200/40 text-sm leading-relaxed mb-6">
-                {t.home.blockChatDesc}
-              </p>
-              <span className="inline-flex items-center gap-1 text-amber-400/70 font-medium text-sm group-hover:text-amber-400 group-hover:gap-2 transition-all">
-                {t.home.startChat} →
-              </span>
-            </div>
-          </Link>
-
-          {/* Block 2: Teachings */}
-          <Link
-            href="/teachings"
-            className="group golden-card rounded-2xl overflow-hidden"
-          >
-            <div className="h-1" style={{ background: 'linear-gradient(90deg, #92400e, #d97706, #92400e)' }} />
-            <div className="p-8">
-              <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300" style={{ background: 'rgba(245, 158, 11, 0.1)', border: '1px solid rgba(245, 158, 11, 0.2)' }}>
-                <BookOpenCheck className="w-8 h-8 text-amber-400" />
-              </div>
-              <h3 className="font-[var(--font-cormorant)] text-2xl font-bold text-amber-100 mb-3">
-                {t.home.blockLearnTitle}
-              </h3>
-              <p className="text-amber-200/40 text-sm leading-relaxed mb-6">
-                {t.home.blockLearnDesc}
+                {t.home.blockPathDesc}
               </p>
               <span className="inline-flex items-center gap-1 text-amber-400/70 font-medium text-sm group-hover:text-amber-400 group-hover:gap-2 transition-all">
                 {t.home.readMore} →
@@ -144,21 +122,43 @@ export default function HomePageClient() {
             </div>
           </Link>
 
-          {/* Block 3: Film */}
+          {/* Block 2: Учение о Дхарме */}
           <Link
-            href="/episodes"
+            href="/teachings"
+            className="group golden-card rounded-2xl overflow-hidden"
+          >
+            <div className="h-1" style={{ background: 'linear-gradient(90deg, #92400e, #d97706, #92400e)' }} />
+            <div className="p-8">
+              <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300" style={{ background: 'rgba(245, 158, 11, 0.1)', border: '1px solid rgba(245, 158, 11, 0.2)' }}>
+                <span className="text-3xl">🌀</span>
+              </div>
+              <h3 className="font-[var(--font-cormorant)] text-2xl font-bold text-amber-100 mb-3">
+                {t.home.blockDharmaTitle}
+              </h3>
+              <p className="text-amber-200/40 text-sm leading-relaxed mb-6">
+                {t.home.blockDharmaDesc}
+              </p>
+              <span className="inline-flex items-center gap-1 text-amber-400/70 font-medium text-sm group-hover:text-amber-400 group-hover:gap-2 transition-all">
+                {t.home.readMore} →
+              </span>
+            </div>
+          </Link>
+
+          {/* Block 3: Возникновение Дзен */}
+          <Link
+            href="/zen-martial"
             className="group golden-card rounded-2xl overflow-hidden"
           >
             <div className="h-1" style={{ background: 'linear-gradient(90deg, #78350f, #b45309, #78350f)' }} />
             <div className="p-8">
               <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300" style={{ background: 'rgba(245, 158, 11, 0.1)', border: '1px solid rgba(245, 158, 11, 0.2)' }}>
-                <Film className="w-8 h-8 text-amber-400" />
+                <span className="text-3xl">🥋</span>
               </div>
               <h3 className="font-[var(--font-cormorant)] text-2xl font-bold text-amber-100 mb-3">
-                {t.home.blockFilmTitle}
+                {t.home.blockZenTitle}
               </h3>
               <p className="text-amber-200/40 text-sm leading-relaxed mb-6">
-                {t.home.blockFilmDesc}
+                {t.home.blockZenDesc}
               </p>
               <span className="inline-flex items-center gap-1 text-amber-400/70 font-medium text-sm group-hover:text-amber-400 group-hover:gap-2 transition-all">
                 {t.home.readMore} →

@@ -12,7 +12,7 @@ import { createClient } from '@/lib/supabase/client'
 import { useEffect } from 'react'
 
 const navItems = [
-  'home', 'chat', 'characters', 'episodes', 'teachings',
+  'home', 'chat', 'characters', 'episodes', 'teachings', 'zenMartial',
   'community', 'retreats', 'about', 'contact', 'donate', 'profile',
 ] as const
 
@@ -22,6 +22,7 @@ const navHrefs: Record<string, string> = {
   characters: '/characters',
   episodes: '/episodes',
   teachings: '/teachings',
+  zenMartial: '/zen-martial',
   community: '/community',
   retreats: '/retreats',
   about: '/about',
