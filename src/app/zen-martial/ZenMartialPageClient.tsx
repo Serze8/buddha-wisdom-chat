@@ -72,27 +72,13 @@ const shaolinFilms = [
     },
     link: null,
   },
-  {
-    id: 'kung-fu-panda',
-    emoji: '🐼',
-    year: 2008,
-    title: { ru: 'Кунг-фу панда', en: 'Kung Fu Panda' },
-    directors: { ru: 'Марк Осборн, Джон Стивенсон', en: 'Mark Osborne, John Stevenson' },
-    actors: { ru: 'Джек Блэк, Дастин Хоффман, Анджелина Джоли', en: 'Jack Black, Dustin Hoffman, Angelina Jolie' },
-    desc: {
-      ru: 'Анимационный шедевр с буддийскими темами. Панда-обжора находит путь к мастерству через принятие себя и внутренний покой.',
-      en: 'An animated masterpiece with Buddhist themes. An overweight panda finds the path to mastery through self-acceptance and inner peace.',
-    },
-    link: null,
-  },
 ]
 
 export default function ZenMartialPageClient() {
   const { t, locale } = useLanguage()
-  const [showAllEpisodes, setShowAllEpisodes] = useState(false)
   const [openFilm, setOpenFilm] = useState<string | null>(null)
-
-  const visibleEpisodes = showAllEpisodes ? riverEpisodes : riverEpisodes.slice(0, 12)
+  const [openMartialFilm, setOpenMartialFilm] = useState<string | null>(null)
+  const [showRiverEpisodes, setShowRiverEpisodes] = useState(false)
 
   return (
     <div className="relative min-h-screen">
@@ -285,59 +271,114 @@ export default function ZenMartialPageClient() {
           <div className="golden-divider flex-1" />
         </div>
 
-        {/* Link to Martial Arts Films */}
-        <div className="text-center mb-8">
-          <Link
-            href="/martial-arts-films"
-            className="inline-flex items-center gap-3 px-8 py-4 rounded-2xl font-medium text-lg transition-all duration-300 hover:scale-105 golden-card"
-            style={{
-              color: '#fbbf24',
-              border: '1px solid rgba(245, 158, 11, 0.2)',
-            }}
-          >
-            🎬 {locale === 'ru' ? 'Фильмы о боевых искусствах' : 'Martial Arts Films'} →
-          </Link>
-        </div>
-
-        {/* Block 5: Other Films — Water Margin (bottom) */}
-        <section className="rounded-3xl p-8 md:p-12 mb-4" style={{ background: 'linear-gradient(180deg, rgba(20,14,8,0.9) 0%, rgba(15,14,10,0.95) 100%)', border: '1px solid rgba(245, 158, 11, 0.08)' }}>
-          <h2 className="font-[var(--font-cormorant)] text-3xl font-bold text-center mb-3 text-golden-gradient">
-            {t.zen.sectionOtherFilms}
+        {/* Block 5: Мartial Arts Films */}
+        <section className="mb-4">
+          <h2 className="font-[var(--font-cormorant)] text-3xl font-bold text-center mb-6 text-golden-gradient">
+            {locale === 'ru' ? 'Фильмы о боевых искусствах' : 'Martial Arts Films'}
           </h2>
-          <h3 className="font-[var(--font-cormorant)] text-xl text-center text-amber-200/60 mb-6">
-            {t.zen.otherFilmsTitle}
-          </h3>
-          <p className="text-amber-100/50 text-center text-base leading-relaxed max-w-3xl mx-auto mb-8">
-            {t.zen.otherFilmsDesc}
-          </p>
 
-          {/* Episode list */}
-          <div className="space-y-2">
-            {visibleEpisodes.map((ep) => (
-              <div
-                key={ep.ep}
-                className="flex items-center gap-4 px-5 py-3 rounded-xl transition-colors"
-                style={{ background: 'rgba(245, 158, 11, 0.03)', border: '1px solid rgba(245, 158, 11, 0.08)' }}
-              >
-                <span className="text-amber-500/60 font-mono text-sm w-8 shrink-0">{ep.ep}</span>
-                <span className="text-amber-100/60 text-sm">
-                  {(ep.title as any)[locale] || ep.title.en}
-                </span>
-              </div>
-            ))}
-          </div>
-
-          {!showAllEpisodes && riverEpisodes.length > 12 && (
-            <div className="text-center mt-6">
+          <div className="space-y-3">
+            {/* Kung Fu Panda */}
+            <div className="golden-card rounded-2xl overflow-hidden">
               <button
-                onClick={() => setShowAllEpisodes(true)}
-                className="px-6 py-2.5 rounded-full text-sm font-medium transition-colors"
-                style={{ background: 'rgba(245, 158, 11, 0.1)', color: '#fbbf24', border: '1px solid rgba(245, 158, 11, 0.2)' }}
+                onClick={() => setOpenMartialFilm(openMartialFilm === 'kung-fu-panda' ? null : 'kung-fu-panda')}
+                className="w-full flex items-center gap-3 p-5 text-left hover:bg-white/5 transition-colors"
               >
-                {locale === 'ru' ? 'Показать все эпизоды' : 'Show all episodes'} ↓
+                <span className="text-2xl shrink-0">🐼</span>
+                <h3 className="font-[var(--font-cormorant)] text-lg font-bold text-amber-100/80">
+                  {locale === 'ru' ? 'Кунг-фу панда' : 'Kung Fu Panda'}
+                </h3>
+                <span className="text-amber-500/50 text-sm ml-auto mr-2 shrink-0">2008</span>
+                <svg
+                  className={`w-4 h-4 text-amber-400 transition-transform duration-300 shrink-0 ${openMartialFilm === 'kung-fu-panda' ? 'rotate-180' : ''}`}
+                  fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
               </button>
+
+              {openMartialFilm === 'kung-fu-panda' && (
+                <div className="px-5 pb-5 space-y-3 text-sm animate-fade-in" style={{ borderTop: '1px solid rgba(245, 158, 11, 0.1)' }}>
+                  <div className="flex flex-wrap gap-x-6 gap-y-1 pt-3 text-amber-200/40">
+                    <span><strong className="text-amber-300/60">{locale === 'ru' ? 'Режиссёр:' : 'Director:'}</strong> {locale === 'ru' ? 'Марк Осборн, Джон Стивенсон' : 'Mark Osborne, John Stevenson'}</span>
+                    <span><strong className="text-amber-300/60">{locale === 'ru' ? 'Актёры:' : 'Cast:'}</strong> {locale === 'ru' ? 'Джек Блэк, Дастин Хоффман, Анджелина Джоли' : 'Jack Black, Dustin Hoffman, Angelina Jolie'}</span>
+                  </div>
+                  <p className="text-amber-100/50 leading-relaxed">
+                    {locale === 'ru' ? 'Анимационный шедевр с буддийскими темами. Панда-обжора находит путь к мастерству через принятие себя и внутренний покой.' : 'An animated masterpiece with Buddhist themes. An overweight panda finds the path to mastery through self-acceptance and inner peace.'}
+                  </p>
+                  <span className="text-amber-500/30 text-xs">
+                    {locale === 'ru' ? '🔗 Ссылка на просмотр появится позже' : '🔗 Watch link coming soon'}
+                  </span>
+                </div>
+              )}
             </div>
-          )}
+
+            {/* Речные заводи (Water Margin) */}
+            <div className="golden-card rounded-2xl overflow-hidden">
+              <button
+                onClick={() => setOpenMartialFilm(openMartialFilm === 'river-margin' ? null : 'river-margin')}
+                className="w-full flex items-center gap-3 p-5 text-left hover:bg-white/5 transition-colors"
+              >
+                <span className="text-2xl shrink-0">🏯</span>
+                <h3 className="font-[var(--font-cormorant)] text-lg font-bold text-amber-100/80">
+                  {locale === 'ru' ? 'Речные заводи (1998)' : 'Water Margin (1998)'}
+                </h3>
+                <span className="text-amber-500/50 text-sm ml-auto mr-2 shrink-0">1998</span>
+                <svg
+                  className={`w-4 h-4 text-amber-400 transition-transform duration-300 shrink-0 ${openMartialFilm === 'river-margin' ? 'rotate-180' : ''}`}
+                  fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+
+              {openMartialFilm === 'river-margin' && (
+                <div className="px-5 pb-5 space-y-3 text-sm animate-fade-in" style={{ borderTop: '1px solid rgba(245, 158, 11, 0.1)' }}>
+                  <p className="text-amber-100/50 leading-relaxed pt-3">
+                    {locale === 'ru'
+                      ? '43-серийный китайский исторический сериал, основанный на одном из четырёх великих классических романов китайской литературы. История о 108 разбойниках, собравшихся на горе Лян. Сериал исследует темы чести, справедливости и буддийского учения о карме.'
+                      : 'A 43-episode Chinese historical drama based on one of the Four Great Classical Novels of Chinese literature. The story of 108 outlaws who gather at Mount Liang. The series explores themes of honor, justice, and Buddhist teachings on karma.'}
+                  </p>
+
+                  <button
+                    onClick={() => setShowRiverEpisodes(!showRiverEpisodes)}
+                    className="flex items-center gap-2 text-amber-400 hover:text-amber-300 transition-colors text-xs font-medium"
+                  >
+                    <svg
+                      className={`w-3 h-3 transition-transform duration-300 ${showRiverEpisodes ? 'rotate-90' : ''}`}
+                      fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                    {showRiverEpisodes
+                      ? (locale === 'ru' ? 'Скрыть описание серий' : 'Hide episode list')
+                      : (locale === 'ru' ? 'Показать описание всех серий' : 'Show all episodes')}
+                  </button>
+
+                  {showRiverEpisodes && (
+                    <div className="space-y-1.5 pt-2 animate-fade-in">
+                      {riverEpisodes.map((ep) => (
+                        <div
+                          key={ep.ep}
+                          className="flex items-center gap-4 px-4 py-2 rounded-xl"
+                          style={{ background: 'rgba(245, 158, 11, 0.03)', border: '1px solid rgba(245, 158, 11, 0.08)' }}
+                        >
+                          <span className="text-amber-500/60 font-mono text-sm w-8 shrink-0">{ep.ep}</span>
+                          <span className="text-amber-100/60 text-sm">
+                            {(ep.title as any)[locale] || ep.title.en}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+
+                  <span className="text-amber-500/30 text-xs">
+                    {locale === 'ru' ? '🔗 Ссылка на просмотр появится позже' : '🔗 Watch link coming soon'}
+                  </span>
+                </div>
+              )}
+            </div>
+          </div>
         </section>
 
         {/* Community Link */}
