@@ -34,46 +34,63 @@ const riverEpisodes = [
 
 const shaolinFilms = [
   {
-    id: 'shaolin-temple',
+    id: 'temple-of-shaolin-1976',
+    emoji: '🎬',
+    year: 1976,
+    title: { ru: 'Храм Шаолинь (1976)', en: 'The Temple of Shaolin (1976)' },
+    directors: { ru: 'Чжан Чэ, У Ма', en: 'Chang Cheh, Wu Ma' },
+    actors: { ru: 'Дэвид Цзян, Ти Лун, Александр Фу, Джонни Ван', en: 'David Chiang, Ti Lung, Alexander Fu Sheng, Johnny Wang' },
+    desc: {
+      ru: 'Настоятель Шаолиня понимает, что время не на их стороне, и они должны тренировать больше бойцов для борьбы с династией Цин. Монах Хуэй Сянь выступает против этого, поскольку он тайно работает на суд Цин. Вокруг монастыря собираются новобранцы, которых проверяют на волю. Тем временем сбежавшие солдаты Мин ищут убежище в Шаолине. Храм подвергается нападению тысяч солдат Цин, и только восьмерым удаётся сбежать.',
+      en: 'The abbot of Shaolin realizes they must train more fighters against the Qing dynasty. Monk Huixian secretly works for the court. New recruits gather at the monastery, while fleeing Ming soldiers seek refuge. The temple is attacked by thousands of Qing soldiers — only eight escape.',
+    },
+    link: 'https://kinogo.online/filmy/5677-hram-shaolin.html',
+  },
+  {
+    id: 'shaolin-temple-1982',
+    emoji: '🏯',
     year: 1982,
-    title: { ru: 'Храм Шаолинь', en: 'Shaolin Temple' },
+    title: { ru: 'Храм Шаолинь (1982)', en: 'Shaolin Temple (1982)' },
+    directors: { ru: 'Чжан Синьянь', en: 'Zhang Xinyan' },
+    actors: { ru: 'Джет Ли, Юй Хай, Дин Лань, Ху Цзяньцян', en: 'Jet Li, Yu Hai, Ding Lan, Hu Jianqiang' },
     desc: {
-      ru: 'Легендарный фильм с Дзет Ли, который возродил интерес к шаолиньскому кунг-фу. Молодой монах борется за справедливость, используя боевые искусства как путь к просветлению.',
-      en: 'The legendary Jet Li film that revived interest in Shaolin Kung Fu. A young monk fights for justice, using martial arts as a path to enlightenment.',
+      ru: 'Действие разворачивается в средневековом Китае. Юноша Цзюэюань теряет отца от рук жестокого военачальника Ван Жэньцзэ. Он находит убежище в монастыре Шаолинь, где изучает боевые искусства, чтобы отомстить. В фильме показан путь от гнева к просветлению через дисциплину и обеты.',
+      en: 'Set in medieval China, young Jueyuan loses his father to the cruel warlord Wang Renze. He finds refuge at the Shaolin Monastery, learning martial arts to seek revenge. The film traces his journey from anger to enlightenment through discipline and vows.',
     },
+    link: null,
   },
   {
-    id: 'shaolin-temple-2011',
+    id: 'shaolin-2011',
+    emoji: '🥋',
     year: 2011,
-    title: { ru: 'Храм Шаолинь (2011)', en: 'Shaolin (2011)' },
+    title: { ru: 'Шаолинь (2011)', en: 'Shaolin (2011)' },
+    directors: { ru: 'Бенни Чан', en: 'Benny Chan' },
+    actors: { ru: 'Джеки Чан, Энди Лау, Николас Це, Юй Шаоцюнь', en: 'Jackie Chan, Andy Lau, Nicholas Tse, Yu Shaoqun' },
     desc: {
-      ru: 'Современная интерпретация истории о воинах-монахах. Генерал, потерявший всё, находит путь к искуплению в стенах Шаолиньского монастыря.',
-      en: 'A modern take on the warrior monks. A general who lost everything finds redemption within the walls of the Shaolin Monastery.',
+      ru: 'В эпоху междоусобных войн молодой воин Сяо Че после гибели семьи находит приют в монастыре Шаолинь. Монахи помогают ему искупить былые грехи, а он вместе с ними встаёт на защиту простых людей от жестокого завоевателя. Экшен-драма о просветлении и сострадании.',
+      en: 'During an era of civil war, young warrior Xiao Che finds refuge at Shaolin after losing his family. The monks help him atone for past sins, and together they stand to protect ordinary people from a ruthless conqueror. An action-drama about enlightenment and compassion.',
     },
-  },
-  {
-    id: 'shaolin-3d',
-    year: 2014,
-    title: { ru: 'Шаолинь 3D', en: 'The Guillotines 3D' },
-    desc: {
-      ru: 'Историческая драма о тайном ордене воинов-монахов, защищающих императора. Боевые искусства переплетаются с духовными практиками.',
-      en: 'A historical drama about a secret order of warrior monks protecting the emperor. Martial arts intertwine with spiritual practice.',
-    },
+    link: null,
   },
   {
     id: 'kung-fu-panda',
+    emoji: '🐼',
     year: 2008,
     title: { ru: 'Кунг-фу панда', en: 'Kung Fu Panda' },
+    directors: { ru: 'Марк Осборн, Джон Стивенсон', en: 'Mark Osborne, John Stevenson' },
+    actors: { ru: 'Джек Блэк, Дастин Хоффман, Анджелина Джоли', en: 'Jack Black, Dustin Hoffman, Angelina Jolie' },
     desc: {
       ru: 'Анимационный шедевр с буддийскими темами. Панда-обжора находит путь к мастерству через принятие себя и внутренний покой.',
       en: 'An animated masterpiece with Buddhist themes. An overweight panda finds the path to mastery through self-acceptance and inner peace.',
     },
+    link: null,
   },
 ]
 
 export default function ZenMartialPageClient() {
   const { t, locale } = useLanguage()
   const [showAllEpisodes, setShowAllEpisodes] = useState(false)
+  const [openFilm, setOpenFilm] = useState<string | null>(null)
 
   const visibleEpisodes = showAllEpisodes ? riverEpisodes : riverEpisodes.slice(0, 12)
 
@@ -207,23 +224,57 @@ export default function ZenMartialPageClient() {
             {t.zen.shaolinDesc}
           </p>
 
-          <div className="space-y-4">
-            {shaolinFilms.map((film) => (
-              <div key={film.id} className="golden-card rounded-2xl overflow-hidden">
-                <div className="p-6">
-                  <div className="flex items-center gap-3 mb-2">
-                    <span className="text-2xl">🎬</span>
-                    <h3 className="font-[var(--font-cormorant)] text-xl font-bold text-amber-100/80">
+          <div className="space-y-3">
+            {shaolinFilms.map((film) => {
+              const isOpen = openFilm === film.id
+              return (
+                <div key={film.id} className="golden-card rounded-2xl overflow-hidden">
+                  <button
+                    onClick={() => setOpenFilm(isOpen ? null : film.id)}
+                    className="w-full flex items-center gap-3 p-5 text-left hover:bg-white/5 transition-colors"
+                  >
+                    <span className="text-2xl shrink-0">{film.emoji}</span>
+                    <h3 className="font-[var(--font-cormorant)] text-lg font-bold text-amber-100/80">
                       {(film.title as any)[locale] || film.title.en}
                     </h3>
-                    <span className="text-amber-500/50 text-sm ml-auto">{film.year}</span>
-                  </div>
-                  <p className="text-amber-100/40 text-sm leading-relaxed">
-                    {(film.desc as any)[locale] || film.desc.en}
-                  </p>
+                    <span className="text-amber-500/50 text-sm ml-auto mr-2 shrink-0">{film.year}</span>
+                    <svg
+                      className={`w-4 h-4 text-amber-400 transition-transform duration-300 shrink-0 ${isOpen ? 'rotate-180' : ''}`}
+                      fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+
+                  {isOpen && (
+                    <div className="px-5 pb-5 space-y-3 text-sm animate-fade-in" style={{ borderTop: '1px solid rgba(245, 158, 11, 0.1)' }}>
+                      <div className="flex flex-wrap gap-x-6 gap-y-1 pt-3 text-amber-200/40">
+                        <span><strong className="text-amber-300/60">{locale === 'ru' ? 'Режиссёр:' : 'Director:'}</strong> {(film.directors as any)[locale] || film.directors.en}</span>
+                        <span><strong className="text-amber-300/60">{locale === 'ru' ? 'Актёры:' : 'Cast:'}</strong> {(film.actors as any)[locale] || film.actors.en}</span>
+                      </div>
+                      <p className="text-amber-100/50 leading-relaxed">
+                        {(film.desc as any)[locale] || film.desc.en}
+                      </p>
+                      {film.link && (
+                        <a
+                          href={film.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 text-amber-400 hover:text-amber-300 transition-colors text-xs"
+                        >
+                          ▶ {locale === 'ru' ? 'Смотреть онлайн' : 'Watch online'}
+                        </a>
+                      )}
+                      {!film.link && (
+                        <span className="text-amber-500/30 text-xs">
+                          {locale === 'ru' ? '🔗 Ссылка на просмотр появится позже' : '🔗 Watch link coming soon'}
+                        </span>
+                      )}
+                    </div>
+                  )}
                 </div>
-              </div>
-            ))}
+              )
+            })}
           </div>
         </section>
 
