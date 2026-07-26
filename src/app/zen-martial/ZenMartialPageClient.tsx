@@ -78,17 +78,29 @@ export default function ZenMartialPageClient() {
   const visibleEpisodes = showAllEpisodes ? riverEpisodes : riverEpisodes.slice(0, 12)
 
   return (
-    <div className="max-w-4xl mx-auto px-4 py-12">
-      {/* Hero Section */}
-      <div className="text-center mb-16">
-        <span className="text-5xl block mb-4">🥋</span>
-        <h1 className="font-[var(--font-cormorant)] text-4xl md:text-5xl font-bold text-golden-gradient mb-6">
-          {t.zen.title}
-        </h1>
-        <p className="text-amber-200/50 text-lg max-w-2xl mx-auto leading-relaxed">
-          {t.zen.intro}
-        </p>
+    <div className="relative min-h-screen">
+      {/* zen-bg.gif background */}
+      <div className="fixed inset-0 z-0 pointer-events-none">
+        <img
+          src="/images/zen-bg.gif"
+          alt=""
+          className="w-full h-full object-cover"
+          style={{ opacity: 0.12, filter: 'blur(1px)' }}
+        />
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, rgba(15,14,10,0.7) 0%, rgba(15,14,10,0.95) 40%, rgba(15,14,10,0.98) 100%)' }} />
       </div>
+
+      <div className="relative z-10 max-w-4xl mx-auto px-4 py-12">
+        {/* Hero Section */}
+        <div className="text-center mb-16">
+          <span className="text-5xl block mb-4">🥋</span>
+          <h1 className="font-[var(--font-cormorant)] text-4xl md:text-5xl font-bold text-golden-gradient mb-6">
+            {t.zen.title}
+          </h1>
+          <p className="text-amber-200/50 text-lg max-w-2xl mx-auto leading-relaxed">
+            {t.zen.intro}
+          </p>
+        </div>
 
       {/* Bodhidharma Section */}
       <section className="rounded-3xl p-8 md:p-12 mb-4" style={{ background: 'linear-gradient(180deg, rgba(20,14,8,0.9) 0%, rgba(15,14,10,0.95) 100%)', border: '1px solid rgba(245, 158, 11, 0.08)' }}>
@@ -246,6 +258,7 @@ export default function ZenMartialPageClient() {
         >
           💬 {t.zen.discussCommunity} →
         </Link>
+      </div>
       </div>
     </div>
   )

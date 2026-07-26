@@ -1,0 +1,92 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+
+  "username": "Serze8",
+
+  "model": "google/gemini-2.5-flash",
+  "small_model": "google/gemini-2.5-flash",
+
+  "instructions": ["AGENTS.md"],
+
+  "share": "manual",
+  "autoupdate": "notify",
+  "snapshot": true,
+
+  "provider": {
+    "google": {
+      "options": {
+        "apiKey": "$env:GOOGLE_AI_STUDIO_TOKEN",
+        "baseURL": "https://generativelanguage.googleapis.com/v1beta/openai/"
+      },
+      "models": {
+        "gemini-2.5-flash": {
+          "id": "gemini-2.5-flash",
+          "name": "Gemini 2.5 Flash",
+          "attachment": true,
+          "reasoning": true,
+          "tool_call": true,
+          "limit": {
+            "context": 1000000,
+            "output": 65536
+          }
+        },
+        "gemini-2.5-pro": {
+          "id": "gemini-2.5-pro",
+          "name": "Gemini 2.5 Pro",
+          "attachment": true,
+          "reasoning": true,
+          "tool_call": true,
+          "limit": {
+            "context": 1000000,
+            "output": 65536
+          }
+        }
+      }
+    }
+  },
+
+  "agent": {
+    "build": {
+      "description": "Main agent for coding tasks in Buddha's Wisdom Chat project",
+      "steps": 200
+    },
+    "plan": {
+      "description": "Planning agent for architecture and design decisions"
+    },
+    "explore": {
+      "description": "Fast agent for exploring the BuddhaChat codebase"
+    }
+  },
+
+  "permission": {
+    "edit": "allow",
+    "bash": {
+      "git *": "allow",
+      "npm run *": "allow",
+      "npx *": "allow",
+      "mkdir *": "allow",
+      "ls *": "allow",
+      "cat *": "allow",
+      "rm *": "ask",
+      "*": "ask"
+    },
+    "external_directory": {
+      "G:\\OpenCodeProekts\\BuddhaChat\\*": "allow",
+      "C:\\Users\\2TB\\.config\\opencode\\*": "allow",
+      "*": "ask"
+    }
+  },
+
+  "formatter": false,
+  "lsp": false,
+
+  "compaction": {
+    "auto": true,
+    "tail_turns": 15
+  },
+
+  "tool_output": {
+    "max_lines": 200,
+    "max_bytes": 8192
+  }
+}
