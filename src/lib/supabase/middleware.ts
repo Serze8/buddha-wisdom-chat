@@ -8,6 +8,7 @@ const PUBLIC_PAGES = [
   '/teachings',
   '/teachings/practice',
   '/zen-martial',
+  '/martial-arts-films',
   '/chakravartin',
   '/theses',
   '/characters',

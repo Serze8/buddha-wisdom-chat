@@ -234,6 +234,20 @@ export default function ZenMartialPageClient() {
           <div className="golden-divider flex-1" />
         </div>
 
+        {/* Link to Martial Arts Films */}
+        <div className="text-center mb-8">
+          <Link
+            href="/martial-arts-films"
+            className="inline-flex items-center gap-3 px-8 py-4 rounded-2xl font-medium text-lg transition-all duration-300 hover:scale-105 golden-card"
+            style={{
+              color: '#fbbf24',
+              border: '1px solid rgba(245, 158, 11, 0.2)',
+            }}
+          >
+            🎬 {locale === 'ru' ? 'Фильмы о боевых искусствах' : 'Martial Arts Films'} →
+          </Link>
+        </div>
+
         {/* Block 5: Other Films — Water Margin (bottom) */}
         <section className="rounded-3xl p-8 md:p-12 mb-4" style={{ background: 'linear-gradient(180deg, rgba(20,14,8,0.9) 0%, rgba(15,14,10,0.95) 100%)', border: '1px solid rgba(245, 158, 11, 0.08)' }}>
           <h2 className="font-[var(--font-cormorant)] text-3xl font-bold text-center mb-3 text-golden-gradient">

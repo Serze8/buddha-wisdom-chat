@@ -83,6 +83,11 @@ const pages: Record<string, { title: string; description: string; keywords: stri
     description: 'The story of Bodhidharma (Daruma) who received the name Dharma from Prajñātāra in India. Dharmachakra symbol, Shaolin films, and martial arts as spiritual practice.',
     keywords: ['zen buddhism', 'chan buddhism', 'bodhidharma', 'daruma', 'dharmachakra', 'shaolin', 'martial arts', 'prajñatāra'],
   },
+  'martial-arts-films': {
+    title: 'Martial Arts Films — Buddhist Cinema & Philosophy',
+    description: 'A curated collection of martial arts films where fighting techniques intertwine with spiritual practices and Buddhist philosophy.',
+    keywords: ['martial arts films', 'kung fu movies', 'shaolin', 'buddhist cinema', 'wuxia', 'action films'],
+  },
   'chakravartin': {
     title: 'Chakravartin — Emperor Ashoka & the Spread of Dharma',
     description: 'The 442-episode Chinese historical drama about Emperor Ashoka who united India under the Dharma and spread Buddhist teachings across Asia.',

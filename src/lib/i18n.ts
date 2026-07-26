@@ -115,10 +115,6 @@ type TranslationKeys = {
     resonantBreathing: string
     reminderTitle: string
     reminderText: string
-    mettaTitle: string
-    mettaText: string
-    listenMetta: string
-    copyMetta: string
   }
   teachings: {
     pageTitle: string
@@ -224,10 +220,6 @@ const translations: Record<Locale, TranslationKeys> = {
       resonantBreathing: 'Try Resonant Breathing',
       reminderTitle: 'Anger Reminder',
       reminderText: 'Anger is like a wave: it comes and goes. Stop. Breathe. Observe. Do not act from anger — act from awareness.',
-      mettaTitle: 'Listen to the Metta Formula',
-      mettaText: 'May I be happy. May I be peaceful. May all beings be happy.',
-      listenMetta: '🎧 Play Metta',
-      copyMetta: 'Copy text',
     },
     teachings: { pageTitle: 'Dharma, Dharmachakra & Teachings', sectionDharmachakra: 'Dharmachakra', sectionTeachings: "Buddha's Teachings", sectionPractices: 'Practices', sectionChakravartin: 'Chakravartin — The Universal Monarch' },
     zen: {
@@ -325,10 +317,6 @@ const translations: Record<Locale, TranslationKeys> = {
       resonantBreathing: 'Попробуйте резонансное дыхание',
       reminderTitle: 'Напоминание в момент гнева',
       reminderText: 'Гнев — как волна: он приходит и уходит. Остановись. Дыши. Наблюдай. Не действуй из гнева — действуй из осознанности.',
-      mettaTitle: 'Прослушайте метта-формулу',
-      mettaText: 'Пусть я буду счастлив. Пусть я буду в покое. Пусть все существа будут счастливы.',
-      listenMetta: '🎧 Прослушать метту',
-      copyMetta: 'Скопировать',
     },
     teachings: { pageTitle: 'Дхарма, Дхармачакра и учения', sectionDharmachakra: 'Дхармачакра', sectionTeachings: 'Учения Будды', sectionPractices: 'Практики', sectionChakravartin: 'Чакравартин — Вселенский монарх' },
     zen: {
@@ -426,10 +414,6 @@ const translations: Record<Locale, TranslationKeys> = {
       resonantBreathing: 'अनुनाद श्वास आज़माएं',
       reminderTitle: 'गुस्से की याद दिलाने वाला',
       reminderText: 'गुस्सा एक लहर की तरह है: यह आता है और जाता है। रुको। साँस लो। देखो। गुस्से से काम मत करो — जागरूकता से काम करो।',
-      mettaTitle: 'मेट्टा सूत्र सुनें',
-      mettaText: 'मैं सुखी होऊँ। मैं शांत होऊँ। सभी प्राणी सुखी हों।',
-      listenMetta: '🎧 मेट्टा सुनें',
-      copyMetta: 'कॉपी करें',
     },
     teachings: { pageTitle: 'धर्मचक्र शिक्षाएँ और अभ्यास', sectionDharmachakra: 'धर्मचक्र', sectionTeachings: 'बुद्ध की शिक्षाएँ', sectionPractices: 'अभ्यास', sectionChakravartin: 'चक्रवर्तिन — सार्वभौमिक सम्राट' },
     zen: {
@@ -527,10 +511,6 @@ const translations: Record<Locale, TranslationKeys> = {
       resonantBreathing: 'Prueba la Respiración Resonante',
       reminderTitle: 'Recordatorio de Ira',
       reminderText: 'La ira es como una ola: va y viene. Detente. Respira. Observa. No actúes desde la ira — actúa desde la consciencia.',
-      mettaTitle: 'Escucha la Fórmula Metta',
-      mettaText: 'Que yo sea feliz. Que yo esté en paz. Que todos los seres sean felices.',
-      listenMetta: '🎧 Escuchar Metta',
-      copyMetta: 'Copiar',
     },
     teachings: { pageTitle: 'Enseñanzas, Dharmachakra y Prácticas', sectionDharmachakra: 'Dharmachakra', sectionTeachings: 'Enseñanzas del Buda', sectionPractices: 'Prácticas', sectionChakravartin: 'Chakravartin — El Monarca Universal' },
     zen: {
@@ -628,10 +608,6 @@ const translations: Record<Locale, TranslationKeys> = {
       resonantBreathing: 'Essayez la Respiration Résonante',
       reminderTitle: 'Rappel Colère',
       reminderText: "La colère est comme une vague : elle vient et s'en va. Arrête-toi. Respire. Observe. N'agis pas sous l'effet de la colère — agis avec conscience.",
-      mettaTitle: 'Écoutez la Formule Metta',
-      mettaText: 'Que je soit heureux. Que je sois en paix. Que tous les êtres soient heureux.',
-      listenMetta: '🎧 Écouter Metta',
-      copyMetta: 'Copier',
     },
     teachings: { pageTitle: 'Enseignements, Dharmachakra et Pratiques', sectionDharmachakra: 'Dharmachakra', sectionTeachings: 'Enseignements du Bouddha', sectionPractices: 'Pratiques', sectionChakravartin: 'Chakravartin — Le Monarque Universel' },
     zen: {
@@ -729,10 +705,6 @@ const translations: Record<Locale, TranslationKeys> = {
       resonantBreathing: 'Atme resonant',
       reminderTitle: 'Wut-Erinnerung',
       reminderText: 'Wut ist wie eine Welle: sie kommt und geht. Anhalten. Atmen. Beobachten. Handle nicht aus Wut — handle mit Bewusstsein.',
-      mettaTitle: 'Hören Sie die Metta-Formel',
-      mettaText: 'Möge ich glücklich sein. Möge ich in Frieden sein. Mögen alle Wesen glücklich sein.',
-      listenMetta: '🎧 Metta anhören',
-      copyMetta: 'Kopieren',
     },
     teachings: { pageTitle: 'Lehren, Dharmachakra und Praktiken', sectionDharmachakra: 'Dharmachakra', sectionTeachings: 'Buddhas Lehren', sectionPractices: 'Praktiken', sectionChakravartin: 'Chakravartin — Der Universelle Monarch' },
     zen: {
@@ -830,10 +802,6 @@ const translations: Record<Locale, TranslationKeys> = {
       resonantBreathing: '尝试共振呼吸',
       reminderTitle: '愤怒提醒',
       reminderText: '愤怒如浪潮：来时来，去时去。停下。呼吸。观察。不要从愤怒出发行动 — 从觉知出发。',
-      mettaTitle: '聆听慈心公式',
-      mettaText: '愿我快乐。愿我平静。愿一切众生快乐。',
-      listenMetta: '🎧 播放慈心',
-      copyMetta: '复制',
     },
     teachings: { pageTitle: '法轮教义与修行', sectionDharmachakra: '法轮', sectionTeachings: '佛陀教义', sectionPractices: '修行', sectionChakravartin: '转轮王 — 普世君主' },
     zen: {
@@ -931,10 +899,6 @@ const translations: Record<Locale, TranslationKeys> = {
       resonantBreathing: '共鳴呼吸を試す',
       reminderTitle: '怒りのリマインダー',
       reminderText: '怒りは波のようなもの：来て、去る。止まる。呼吸する。観察する。怒りから行動せず — 確信から行動する。',
-      mettaTitle: 'メタの公式を聴く',
-      mettaText: '私が幸せでありますように。私が平和でありますように。すべての生きとし生けるものが幸せでありますように。',
-      listenMetta: '🎧 メタを再生',
-      copyMetta: 'コピー',
     },
     teachings: { pageTitle: 'ダルマチャクラの教えと修行', sectionDharmachakra: 'ダルマチャクラ', sectionTeachings: 'ブッダの教え', sectionPractices: '修行', sectionChakravartin: 'チャクラヴァルティン — 普遍の君主' },
     zen: {
@@ -1032,10 +996,6 @@ const translations: Record<Locale, TranslationKeys> = {
       resonantBreathing: 'Experimente a Respiração Ressonante',
       reminderTitle: 'Lembrete de Raiva',
       reminderText: 'A raiva é como uma onda: vai e vem. Pare. Respire. Observe. Não aja pela raiva — aja pela consciência.',
-      mettaTitle: 'Ouça a Fórmula Metta',
-      mettaText: 'Que eu seja feliz. Que eu esteja em paz. Que todos os seres sejam felizes.',
-      listenMetta: '🎧 Ouvir Metta',
-      copyMetta: 'Copiar',
     },
     teachings: { pageTitle: 'Ensinos, Dharmachakra e Práticas', sectionDharmachakra: 'Dharmachakra', sectionTeachings: 'Ensinos do Buda', sectionPractices: 'Práticas', sectionChakravartin: 'Chakravartin — O Monarca Universal' },
     zen: {
@@ -1133,10 +1093,6 @@ const translations: Record<Locale, TranslationKeys> = {
       resonantBreathing: 'ลองฝึกหายใจสั่นพ้อง',
       reminderTitle: 'เตือนสติเมื่อโกรธ',
       reminderText: 'ความโกรธเหมือนคลื่น: มาแล้วก็ไป หยุด หายใจ สังเกต อย่าทำจากความโกรธ — ทำจากสติ',
-      mettaTitle: 'ฟังสูตรเมตตา',
-      mettaText: 'ขอให้ข้าพเจ้ามีความสุข ขอให้ข้าพเจ้ามีความสงบ ขอให้สัตว์ทั้งปวงมีความสุข',
-      listenMetta: '🎧 เล่นเมตตา',
-      copyMetta: 'คัดลอก',
     },
     teachings: { pageTitle: 'ธรรมะ ธัมมจักร และการปฏิบัติ', sectionDharmachakra: 'ธัมมจักร', sectionTeachings: 'คำสอนของพระพุทธเจ้า', sectionPractices: 'การปฏิบัติ', sectionChakravartin: 'จักรพรรดิ — กษัตริย์สากล' },
     zen: {
@@ -1234,10 +1190,6 @@ const translations: Record<Locale, TranslationKeys> = {
       resonantBreathing: 'Thực hành Hơi thở Cộng hưởng',
       reminderTitle: 'Nhắc nhở về Giận dữ',
       reminderText: 'Giận dữ như sóng: đến rồi đi. Dừng lại. Thở. Quan sát. Đừng hành động từ giận dữ — hãy hành động từ tỉnh thức.',
-      mettaTitle: 'Nghe Công thức Metta',
-      mettaText: 'Nguyện cho con được hạnh phúc. Nguyện cho con được an bình. Nguyện cho tất cả chúng sinh được hạnh phúc.',
-      listenMetta: '🎧 Phát Metta',
-      copyMetta: 'Sao chép',
     },
     teachings: { pageTitle: 'Giáo lý, Pháp Luân và Thực hành', sectionDharmachakra: 'Pháp Luân', sectionTeachings: 'Giáo lý của Đức Phật', sectionPractices: 'Thực hành', sectionChakravartin: 'Chuyển Luân Vương — Hoàng Đế Phổ Quát' },
     zen: {
@@ -1335,10 +1287,6 @@ const translations: Record<Locale, TranslationKeys> = {
       resonantBreathing: '공명 호흡 시도',
       reminderTitle: '분노 상기',
       reminderText: '분노는 파도와 같다: 오고 간다. 멈추라. 호흡하라. 관찰하라. 분노에서 행동하지 말라 — 각성에서 행동하라.',
-      mettaTitle: '메타 공식 듣기',
-      mettaText: '제가 행복하길 바랍니다. 제가 평화롭길 바랍니다. 모든 중생이 행복하길 바랍니다.',
-      listenMetta: '🎧 메타 재생',
-      copyMetta: '복사',
     },
     teachings: { pageTitle: '가르침, 다르마차크라와 수행', sectionDharmachakra: '다르마차크라', sectionTeachings: '붓다의 가르침', sectionPractices: '수행', sectionChakravartin: '차크라바르틴 — 우주적 군주' },
     zen: {
@@ -1437,10 +1385,6 @@ const translations: Record<Locale, TranslationKeys> = {
       resonantBreathing: 'Coba Pernafasan Resonan',
       reminderTitle: 'Pengingat Kemarahan',
       reminderText: 'Kemarahan seperti ombak: datang dan pergi. Berhenti. Bernapas. Amati. Jangan bertindak dari kemarahan — bertindaklah dari kesadaran.',
-      mettaTitle: 'Dengarkan Formula Metta',
-      mettaText: 'Semoga saya bahagia. Semoga saya damai. Semoga semua makhluk bahagia.',
-      listenMetta: '🎧 Putar Metta',
-      copyMetta: 'Salin',
     },
     teachings: { pageTitle: 'Ajaran, Dharmachakra & Praktik', sectionDharmachakra: 'Dharmachakra', sectionTeachings: 'Ajaran Buddha', sectionPractices: 'Praktik', sectionChakravartin: 'Chakravartin — Raja Universal' },
     zen: {
@@ -1539,10 +1483,6 @@ const translations: Record<Locale, TranslationKeys> = {
       resonantBreathing: 'Cuba Pernafasan Resonan',
       reminderTitle: 'Peringatan Kemarahan',
       reminderText: 'Kemarahan seperti ombak: datang dan pergi. Berhenti. Bernafas. Perhati. Jangan bertindak dari kemarahan — bertindaklah dari kesedaran.',
-      mettaTitle: 'Dengar Formula Metta',
-      mettaText: 'Semoga saya gembira. Semoga saya aman. Semoga semua makhluk gembira.',
-      listenMetta: '🎧 Main Metta',
-      copyMetta: 'Salin',
     },
     teachings: { pageTitle: 'Ajaran, Dharmachakra & Amalan', sectionDharmachakra: 'Dharmachakra', sectionTeachings: 'Ajaran Buddha', sectionPractices: 'Amalan', sectionChakravartin: 'Chakravartin — Raja Universal' },
     zen: {
@@ -1640,10 +1580,6 @@ const translations: Record<Locale, TranslationKeys> = {
       resonantBreathing: 'අනුනාද හුස්ම අත්හදා බලන්න',
       reminderTitle: 'කෝපය මතක් කිරීම',
       reminderText: 'කෝපය රැළි වැනිය: එය එනවා, යනවා. නතර වන්න. හුස්ම ගන්න. නිරීක්ෂණය කරන්න. කෝපයෙන් ක්‍රියා නොකරන්න — දැනුවත්භාවයෙන් ක්‍රියා කරන්න.',
-      mettaTitle: 'මෙත්තා සූත්‍රය අසන්න',
-      mettaText: 'මම සතුටින් සිටිමි. මම සාමකාමීව සිටිමි. සියලු සත්ත්වයෝ සතුටින් සිටිත්වා.',
-      listenMetta: '🎧 මෙත්තා අසන්න',
-      copyMetta: 'පිටපත් කරන්න',
     },
     teachings: { pageTitle: 'ධර්මචක්‍ර උපදේශ සහ ප්‍රායෝගික', sectionDharmachakra: 'ධර්මචක්‍රය', sectionTeachings: 'බුදුන්ගේ උපදේශ', sectionPractices: 'ප්‍රායෝගික', sectionChakravartin: 'චක්‍රවර්තින් — විශ්ව රජ' },
     zen: {
@@ -1741,10 +1677,6 @@ const translations: Record<Locale, TranslationKeys> = {
       resonantBreathing: 'တုန်ခါမှု အသက်ရှူမှု စမ်းကြည့်ပါ',
       reminderTitle: 'ဒေါသ သတိပေးချက်',
       reminderText: 'ဒေါသသည် လှိုင်းကဲ့သို့ဖြစ်သည် — လာပြီးသွားသည်။ ရပ်ပါ။ အသက်ရှူပါ။ ကြည့်ပါ။ ဒေါသဖြင့် မလုပ်ပါနဲ့ — သတိဖြင့် လုပ်ပါ။',
-      mettaTitle: 'မေတ္တာ နားထောင်ပါ',
-      mettaText: 'ငါ ပျော်ရွှင်ပါစေ။ ငါ ငြိမ်ချမ်းပါစေ။ သတ္တဝါအားလုံး ပျော်ရွှင်ကြပါစေ။',
-      listenMetta: '🎧 မေတ္တာ ဖွင့်ပါ',
-      copyMetta: 'ကူးယူပါ',
     },
     teachings: { pageTitle: 'သင်ကြားမှုများ ဓမ္မစကြာနှင့် အားထုတ်မှုများ', sectionDharmachakra: 'ဓမ္မစကြာ', sectionTeachings: 'ဘုရားရှင်၏ သင်ကြားမှုများ', sectionPractices: 'အားထုတ်မှုများ', sectionChakravartin: 'ချက်ခရဗတိန် — ကမ္ဘာလုံးဆိုင်ရာဘုရင်' },
     zen: {
@@ -1842,10 +1774,6 @@ const translations: Record<Locale, TranslationKeys> = {
       resonantBreathing: 'अनुनाद श्वास प्रयास गर्नुहोस्',
       reminderTitle: 'रिस याद गराउने',
       reminderText: 'रिस ढुंगाको लहर जस्तो हो: आउँछ र जान्छ। रोक्नुहोस्। श्वास फेर्नुहोस्। हेर्नुहोस्। रिसबाट काम नगर्नुहोस् — सचेतनाबाट काम गर्नुहोस्।',
-      mettaTitle: 'मेट्ता सूत्र सुन्नुहोस्',
-      mettaText: 'म सुखी होऊँ। म शान्त होऊँ। सबै प्राणी सुखी होऊन्।',
-      listenMetta: '🎧 मेट्ता बजाउनुहोस्',
-      copyMetta: 'प्रतिलिपि गर्नुहोस्',
     },
     teachings: { pageTitle: 'धर्मचक्र शिक्षाहरू र अभ्यासहरू', sectionDharmachakra: 'धर्मचक्र', sectionTeachings: 'बुद्धका शिक्षाहरू', sectionPractices: 'अभ्यासहरू', sectionChakravartin: 'चक्रवर्तिन — सार्वभौमिक सम्राट' },
     zen: {
@@ -1943,10 +1871,6 @@ const translations: Record<Locale, TranslationKeys> = {
       resonantBreathing: 'རྗེས་འཐེན་དབུགས་འབྱིན་ཚོད་ལྟ།',
       reminderTitle: 'ཁྲོ་བའི་དྲན་སྐུལ།',
       reminderText: 'ཁྲོ་བ་རླབས་ལྟ་བུ་ཡིན། འོང་བ་དང་འགྲོ། ལྷོད་ལ་ཕབ། དབུགས་འབྱིན། ལྟ། ཁྲོ་བ་ལས་མ་སྤྱད། ཤེས་རབ་ལས་སྤྱད།',
-      mettaTitle: 'མཐུན་སེམས་སྙིང་པོ་ཉན།',
-      mettaText: 'བདེ་བ་འཐོབ་པར་གྱུར་ཅིག ཞི་བ་འཐོབ་པར་གྱུར་ཅིག སེམས་ཅན་ཐམས་ཅད་བདེ་བ་འཐོབ་པར་གྱུར་ཅིག',
-      listenMetta: '🎧 མཐུན་སེམས་ཉན།',
-      copyMetta: 'བཀོད།',
     },
     teachings: { pageTitle: 'སྟོན་པ། ཆོས་ཀྱི་འཁོར་ལོ། སྒོམ།', sectionDharmachakra: 'ཆོས་ཀྱི་འཁོར་ལོ།', sectionTeachings: 'སངས་རྒྱས་ཀྱི་སྟོན་པ།', sectionPractices: 'སྒོམ།', sectionChakravartin: 'འཁོར་ལོ་བསྐོར་བའི་རྒྱལ་པོ།' },
     zen: {
