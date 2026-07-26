@@ -79,9 +79,9 @@ const pages: Record<string, { title: string; description: string; keywords: stri
     keywords: ['buddhist practice', 'meditation guide', 'loving-kindness', 'metta', 'preliminary practice', 'mindfulness'],
   },
   'zen-martial': {
-    title: 'Zen & Martial Arts — Bodhidharma, Daruma, Shaolin',
-    description: 'The story of Bodhidharma (Daruma), the 24th Patriarch who brought Zen Buddhism to China. Films about Shaolin, Water Margin, and martial arts as spiritual practice.',
-    keywords: ['zen buddhism', 'bodhidharma', 'daruma', 'shaolin', 'martial arts', 'chan buddhism', 'water margin', 'kung fu'],
+    title: 'Chan & Zen — Bodhidharma, Dharmachakra, Shaolin',
+    description: 'The story of Bodhidharma (Daruma) who received the name Dharma from Prajñātāra in India. Dharmachakra symbol, Shaolin films, and martial arts as spiritual practice.',
+    keywords: ['zen buddhism', 'chan buddhism', 'bodhidharma', 'daruma', 'dharmachakra', 'shaolin', 'martial arts', 'prajñatāra'],
   },
   'chakravartin': {
     title: 'Chakravartin — Emperor Ashoka & the Spread of Dharma',

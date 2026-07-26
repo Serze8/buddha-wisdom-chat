@@ -102,163 +102,194 @@ export default function ZenMartialPageClient() {
           </p>
         </div>
 
-      {/* Bodhidharma Section */}
-      <section className="rounded-3xl p-8 md:p-12 mb-4" style={{ background: 'linear-gradient(180deg, rgba(20,14,8,0.9) 0%, rgba(15,14,10,0.95) 100%)', border: '1px solid rgba(245, 158, 11, 0.08)' }}>
-        <h2 className="font-[var(--font-cormorant)] text-3xl font-bold text-center mb-6 text-golden-gradient">
-          {t.zen.sectionBodhidharma}
-        </h2>
-        <p className="text-amber-100/50 text-center text-lg leading-relaxed max-w-3xl mx-auto">
-          {t.zen.bodhidharmaDesc}
-        </p>
+        {/* Block 1: Bodhidharma Section */}
+        <section className="rounded-3xl p-8 md:p-12 mb-4" style={{ background: 'linear-gradient(180deg, rgba(20,14,8,0.9) 0%, rgba(15,14,10,0.95) 100%)', border: '1px solid rgba(245, 158, 11, 0.08)' }}>
+          <h2 className="font-[var(--font-cormorant)] text-3xl font-bold text-center mb-6 text-golden-gradient">
+            {t.zen.sectionBodhidharma}
+          </h2>
+          <p className="text-amber-100/50 text-center text-lg leading-relaxed max-w-3xl mx-auto">
+            {t.zen.bodhidharmaDesc}
+          </p>
 
-        <div className="mt-10 grid md:grid-cols-3 gap-6">
-          {[
-            { emoji: '🧘', title: locale === 'ru' ? 'Медитация лицом к стене' : 'Wall Meditation', desc: locale === 'ru' ? '9 лет неподвижной медитации в монастыре Шаолинь' : '9 years of still meditation at the Shaolin Monastery' },
-            { emoji: '👊', title: locale === 'ru' ? 'Шаолиньское кунг-фу' : 'Shaolin Kung Fu', desc: locale === 'ru' ? 'Физические упражнения, ставшие основой боевых искусств' : 'Physical exercises that became the foundation of martial arts' },
-            { emoji: '☯️', title: locale === 'ru' ? 'Чань (Дзен)' : 'Chan (Zen)', desc: locale === 'ru' ? 'Прямое указание на ум, минуя тексты и ритуалы' : 'Direct pointing to the mind, beyond texts and rituals' },
-          ].map((item, i) => (
-            <div key={i} className="golden-card rounded-2xl p-6 text-center">
-              <span className="text-3xl block mb-3">{item.emoji}</span>
-              <h3 className="font-[var(--font-cormorant)] text-lg font-bold text-amber-100/80 mb-2">{item.title}</h3>
-              <p className="text-amber-200/40 text-sm">{item.desc}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Golden divider */}
-      <div className="flex items-center justify-center my-8">
-        <div className="golden-divider flex-1" />
-        <span className="px-4 text-2xl">☯</span>
-        <div className="golden-divider flex-1" />
-      </div>
-
-      {/* Water Margin Section */}
-      <section className="rounded-3xl p-8 md:p-12 mb-4" style={{ background: 'linear-gradient(180deg, rgba(20,14,8,0.9) 0%, rgba(15,14,10,0.95) 100%)', border: '1px solid rgba(245, 158, 11, 0.08)' }}>
-        <h2 className="font-[var(--font-cormorant)] text-3xl font-bold text-center mb-3 text-golden-gradient">
-          {t.zen.sectionRiver}
-        </h2>
-        <h3 className="font-[var(--font-cormorant)] text-xl text-center text-amber-200/60 mb-6">
-          {t.zen.riverTitle}
-        </h3>
-        <p className="text-amber-100/50 text-center text-base leading-relaxed max-w-3xl mx-auto mb-8">
-          {t.zen.riverDesc}
-        </p>
-
-        {/* Video embed */}
-        <div className="relative w-full rounded-2xl overflow-hidden mb-8" style={{ boxShadow: '0 0 60px rgba(245, 158, 11, 0.08)', border: '2px solid rgba(245, 158, 11, 0.15)', paddingBottom: '56.25%' }}>
-          <iframe
-            src="https://www.youtube.com/embed/P04rX4-1TNo"
-            title="Water Margin — Chinese Classic"
-            className="absolute inset-0 w-full h-full"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          />
-        </div>
-
-        {/* Episode list */}
-        <div className="space-y-2">
-          {visibleEpisodes.map((ep) => (
-            <div
-              key={ep.ep}
-              className="flex items-center gap-4 px-5 py-3 rounded-xl transition-colors"
-              style={{ background: 'rgba(245, 158, 11, 0.03)', border: '1px solid rgba(245, 158, 11, 0.08)' }}
-            >
-              <span className="text-amber-500/60 font-mono text-sm w-8 shrink-0">{ep.ep}</span>
-              <span className="text-amber-100/60 text-sm">
-                {(ep.title as any)[locale] || ep.title.en}
-              </span>
-            </div>
-          ))}
-        </div>
-
-        {!showAllEpisodes && riverEpisodes.length > 12 && (
-          <div className="text-center mt-6">
-            <button
-              onClick={() => setShowAllEpisodes(true)}
-              className="px-6 py-2.5 rounded-full text-sm font-medium transition-colors"
-              style={{ background: 'rgba(245, 158, 11, 0.1)', color: '#fbbf24', border: '1px solid rgba(245, 158, 11, 0.2)' }}
-            >
-              {locale === 'ru' ? 'Показать все эпизоды' : 'Show all episodes'} ↓
-            </button>
-          </div>
-        )}
-      </section>
-
-      {/* Golden divider */}
-      <div className="flex items-center justify-center my-8">
-        <div className="golden-divider flex-1" />
-        <span className="px-4 text-2xl">🏯</span>
-        <div className="golden-divider flex-1" />
-      </div>
-
-      {/* Shaolin Films Section */}
-      <section className="mb-4">
-        <h2 className="font-[var(--font-cormorant)] text-3xl font-bold text-center mb-6 text-golden-gradient">
-          {t.zen.sectionShaolin}
-        </h2>
-        <h3 className="font-[var(--font-cormorant)] text-xl text-center text-amber-200/60 mb-6">
-          {t.zen.shaolinTitle}
-        </h3>
-        <p className="text-amber-100/50 text-center text-base leading-relaxed max-w-3xl mx-auto mb-8">
-          {t.zen.shaolinDesc}
-        </p>
-
-        <div className="space-y-4">
-          {shaolinFilms.map((film) => (
-            <div key={film.id} className="golden-card rounded-2xl overflow-hidden">
-              <div className="p-6">
-                <div className="flex items-center gap-3 mb-2">
-                  <span className="text-2xl">🎬</span>
-                  <h3 className="font-[var(--font-cormorant)] text-xl font-bold text-amber-100/80">
-                    {(film.title as any)[locale] || film.title.en}
-                  </h3>
-                  <span className="text-amber-500/50 text-sm ml-auto">{film.year}</span>
-                </div>
-                <p className="text-amber-100/40 text-sm leading-relaxed">
-                  {(film.desc as any)[locale] || film.desc.en}
-                </p>
+          <div className="mt-10 grid md:grid-cols-3 gap-6">
+            {[
+              { emoji: '🧘', title: locale === 'ru' ? 'Медитация лицом к стене' : 'Wall Meditation', desc: locale === 'ru' ? '9 лет неподвижной медитации в монастыре Шаолинь' : '9 years of still meditation at the Shaolin Monastery' },
+              { emoji: '👊', title: locale === 'ru' ? 'Шаолиньское кунг-фу' : 'Shaolin Kung Fu', desc: locale === 'ru' ? 'Физические упражнения, ставшие основой боевых искусств' : 'Physical exercises that became the foundation of martial arts' },
+              { emoji: '☯️', title: locale === 'ru' ? 'Чань (Дзен)' : 'Chan (Zen)', desc: locale === 'ru' ? 'Прямое указание на ум, минуя тексты и ритуалы' : 'Direct pointing to the mind, beyond texts and rituals' },
+            ].map((item, i) => (
+              <div key={i} className="golden-card rounded-2xl p-6 text-center">
+                <span className="text-3xl block mb-3">{item.emoji}</span>
+                <h3 className="font-[var(--font-cormorant)] text-lg font-bold text-amber-100/80 mb-2">{item.title}</h3>
+                <p className="text-amber-200/40 text-sm">{item.desc}</p>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
+        </section>
+
+        {/* Golden divider */}
+        <div className="flex items-center justify-center my-8">
+          <div className="golden-divider flex-1" />
+          <span className="px-4 text-2xl">☸</span>
+          <div className="golden-divider flex-1" />
         </div>
-      </section>
 
-      {/* Golden divider */}
-      <div className="flex items-center justify-center my-8">
-        <div className="golden-divider flex-1" />
-        <span className="px-4 text-2xl">🎬</span>
-        <div className="golden-divider flex-1" />
-      </div>
+        {/* Block 2: Dharmachakra Shorts */}
+        <section className="rounded-3xl p-8 md:p-12 mb-4" style={{ background: 'linear-gradient(180deg, rgba(20,14,8,0.9) 0%, rgba(15,14,10,0.95) 100%)', border: '1px solid rgba(245, 158, 11, 0.08)' }}>
+          <h2 className="font-[var(--font-cormorant)] text-3xl font-bold text-center mb-3 text-golden-gradient">
+            {t.zen.sectionDharmachakra}
+          </h2>
+          <h3 className="font-[var(--font-cormorant)] text-xl text-center text-amber-200/60 mb-6">
+            {t.zen.dharmachakraTitle}
+          </h3>
+          <p className="text-amber-100/50 text-center text-base leading-relaxed max-w-3xl mx-auto mb-8">
+            {t.zen.dharmachakraDesc}
+          </p>
 
-      {/* More Films Section */}
-      <section className="rounded-3xl p-8 md:p-12 mb-4" style={{ background: 'linear-gradient(180deg, rgba(20,14,8,0.9) 0%, rgba(15,14,10,0.95) 100%)', border: '1px solid rgba(245, 158, 11, 0.08)' }}>
-        <h2 className="font-[var(--font-cormorant)] text-3xl font-bold text-center mb-3 text-golden-gradient">
-          {t.zen.sectionFilms}
-        </h2>
-        <h3 className="font-[var(--font-cormorant)] text-xl text-center text-amber-200/60 mb-6">
-          {t.zen.filmsTitle}
-        </h3>
-        <p className="text-amber-100/50 text-center text-base leading-relaxed max-w-3xl mx-auto mb-8">
-          {t.zen.filmsDesc}
-        </p>
-      </section>
+          {/* Dharmachakra Shorts Video */}
+          <div className="relative w-full rounded-2xl overflow-hidden" style={{ boxShadow: '0 0 60px rgba(245, 158, 11, 0.08)', border: '2px solid rgba(245, 158, 11, 0.15)', paddingBottom: '56.25%' }}>
+            <iframe
+              src="https://www.youtube.com/embed/P04rX4-1TNo"
+              title="Dharmachakra — The Wheel of Dharma"
+              className="absolute inset-0 w-full h-full"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          </div>
+        </section>
 
-      {/* Community Link */}
-      <div className="text-center mt-10">
-        <Link
-          href="/community"
-          className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full font-medium text-lg transition-all duration-300 hover:scale-105"
-          style={{
-            background: 'linear-gradient(135deg, #b45309, #92400e)',
-            color: '#fde68a',
-            boxShadow: '0 4px 30px rgba(245, 158, 11, 0.2)',
-            border: '1px solid rgba(245, 158, 11, 0.3)',
-          }}
-        >
-          💬 {t.zen.discussCommunity} →
-        </Link>
-      </div>
+        {/* Golden divider */}
+        <div className="flex items-center justify-center my-8">
+          <div className="golden-divider flex-1" />
+          <span className="px-4 text-2xl">🎬</span>
+          <div className="golden-divider flex-1" />
+        </div>
+
+        {/* Block 3: Bodhidharma Film */}
+        <section className="rounded-3xl p-8 md:p-12 mb-4" style={{ background: 'linear-gradient(180deg, rgba(20,14,8,0.9) 0%, rgba(15,14,10,0.95) 100%)', border: '1px solid rgba(245, 158, 11, 0.08)' }}>
+          <h2 className="font-[var(--font-cormorant)] text-3xl font-bold text-center mb-3 text-golden-gradient">
+            {t.zen.sectionBodhidharmaFilm}
+          </h2>
+          <h3 className="font-[var(--font-cormorant)] text-xl text-center text-amber-200/60 mb-6">
+            {t.zen.bodhidharmaFilmTitle}
+          </h3>
+          <p className="text-amber-100/50 text-center text-base leading-relaxed max-w-3xl mx-auto mb-8">
+            {t.zen.bodhidharmaFilmDesc}
+          </p>
+
+          {/* Bodhidharma Film Video */}
+          <div className="relative w-full rounded-2xl overflow-hidden" style={{ boxShadow: '0 0 60px rgba(245, 158, 11, 0.08)', border: '2px solid rgba(245, 158, 11, 0.15)', paddingBottom: '56.25%' }}>
+            <iframe
+              src="https://www.youtube.com/embed/Bpqg7cSppgU"
+              title="Мастер дзен Бодхидхарма — художественный фильм"
+              className="absolute inset-0 w-full h-full"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          </div>
+        </section>
+
+        {/* Golden divider */}
+        <div className="flex items-center justify-center my-8">
+          <div className="golden-divider flex-1" />
+          <span className="px-4 text-2xl">🏯</span>
+          <div className="golden-divider flex-1" />
+        </div>
+
+        {/* Block 4: Shaolin Films */}
+        <section className="mb-4">
+          <h2 className="font-[var(--font-cormorant)] text-3xl font-bold text-center mb-6 text-golden-gradient">
+            {t.zen.sectionShaolin}
+          </h2>
+          <h3 className="font-[var(--font-cormorant)] text-xl text-center text-amber-200/60 mb-6">
+            {t.zen.shaolinTitle}
+          </h3>
+          <p className="text-amber-100/50 text-center text-base leading-relaxed max-w-3xl mx-auto mb-8">
+            {t.zen.shaolinDesc}
+          </p>
+
+          <div className="space-y-4">
+            {shaolinFilms.map((film) => (
+              <div key={film.id} className="golden-card rounded-2xl overflow-hidden">
+                <div className="p-6">
+                  <div className="flex items-center gap-3 mb-2">
+                    <span className="text-2xl">🎬</span>
+                    <h3 className="font-[var(--font-cormorant)] text-xl font-bold text-amber-100/80">
+                      {(film.title as any)[locale] || film.title.en}
+                    </h3>
+                    <span className="text-amber-500/50 text-sm ml-auto">{film.year}</span>
+                  </div>
+                  <p className="text-amber-100/40 text-sm leading-relaxed">
+                    {(film.desc as any)[locale] || film.desc.en}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Golden divider */}
+        <div className="flex items-center justify-center my-8">
+          <div className="golden-divider flex-1" />
+          <span className="px-4 text-2xl">⚔</span>
+          <div className="golden-divider flex-1" />
+        </div>
+
+        {/* Block 5: Other Films — Water Margin (bottom) */}
+        <section className="rounded-3xl p-8 md:p-12 mb-4" style={{ background: 'linear-gradient(180deg, rgba(20,14,8,0.9) 0%, rgba(15,14,10,0.95) 100%)', border: '1px solid rgba(245, 158, 11, 0.08)' }}>
+          <h2 className="font-[var(--font-cormorant)] text-3xl font-bold text-center mb-3 text-golden-gradient">
+            {t.zen.sectionOtherFilms}
+          </h2>
+          <h3 className="font-[var(--font-cormorant)] text-xl text-center text-amber-200/60 mb-6">
+            {t.zen.otherFilmsTitle}
+          </h3>
+          <p className="text-amber-100/50 text-center text-base leading-relaxed max-w-3xl mx-auto mb-8">
+            {t.zen.otherFilmsDesc}
+          </p>
+
+          {/* Episode list */}
+          <div className="space-y-2">
+            {visibleEpisodes.map((ep) => (
+              <div
+                key={ep.ep}
+                className="flex items-center gap-4 px-5 py-3 rounded-xl transition-colors"
+                style={{ background: 'rgba(245, 158, 11, 0.03)', border: '1px solid rgba(245, 158, 11, 0.08)' }}
+              >
+                <span className="text-amber-500/60 font-mono text-sm w-8 shrink-0">{ep.ep}</span>
+                <span className="text-amber-100/60 text-sm">
+                  {(ep.title as any)[locale] || ep.title.en}
+                </span>
+              </div>
+            ))}
+          </div>
+
+          {!showAllEpisodes && riverEpisodes.length > 12 && (
+            <div className="text-center mt-6">
+              <button
+                onClick={() => setShowAllEpisodes(true)}
+                className="px-6 py-2.5 rounded-full text-sm font-medium transition-colors"
+                style={{ background: 'rgba(245, 158, 11, 0.1)', color: '#fbbf24', border: '1px solid rgba(245, 158, 11, 0.2)' }}
+              >
+                {locale === 'ru' ? 'Показать все эпизоды' : 'Show all episodes'} ↓
+              </button>
+            </div>
+          )}
+        </section>
+
+        {/* Community Link */}
+        <div className="text-center mt-10">
+          <Link
+            href="/community"
+            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full font-medium text-lg transition-all duration-300 hover:scale-105"
+            style={{
+              background: 'linear-gradient(135deg, #b45309, #92400e)',
+              color: '#fde68a',
+              boxShadow: '0 4px 30px rgba(245, 158, 11, 0.2)',
+              border: '1px solid rgba(245, 158, 11, 0.3)',
+            }}
+          >
+            💬 {t.zen.discussCommunity} →
+          </Link>
+        </div>
       </div>
     </div>
   )
