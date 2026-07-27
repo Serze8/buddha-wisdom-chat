@@ -4,9 +4,9 @@ const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://buddha-wisdom-two.v
 
 const pages: Record<string, { title: string; description: string; keywords: string[] }> = {
   '': {
-    title: "Buddha's Wisdom Chat — Silk Road of Wisdom",
-    description: 'An interactive journey along the Silk Road — China, Japan, Kazakhstan. Explore Buddhist teachings, Zen martial arts, and the path to enlightenment through AI.',
-    keywords: ['buddha', 'buddhism', 'silk road', 'zen', 'chan', 'meditation', 'dhamma', 'AI chat', 'buddhist teachings', 'china', 'japan', 'kazakhstan'],
+    title: "Buddha's Wisdom Chat — AI Buddhist Wisdom",
+    description: 'Explore Buddhist teachings through AI-powered conversations. Chat with Buddha, learn the Four Noble Truths, and discover the path to enlightenment.',
+    keywords: ['buddha', 'buddhism', 'meditation', 'dhamma', 'vipassana', 'wisdom', 'AI chat', 'buddhist teachings'],
   },
   about: {
     title: 'About — Buddha\'s Wisdom Chat',

@@ -3,7 +3,7 @@
 import { useLanguage } from '@/contexts/LanguageContext'
 import Link from 'next/link'
 import { MessageCircle, BookOpenCheck, Film, Users, Tv, Image as ImageIcon, HelpCircle, BookOpen, Swords } from 'lucide-react'
-import SilkRoadHero from '@/components/SilkRoadHero'
+import HeroSilkAtlas from '@/components/HeroSilkAtlas'
 import TeacherQuotes from '@/components/ui/TeacherQuotes'
 
 const features = [
@@ -59,8 +59,8 @@ export default function HomePageClient() {
 
   return (
     <div className="min-h-screen">
-      {/* Hero — Silk Road Interactive */}
-      <SilkRoadHero />
+      {/* Hero */}
+      <HeroSilkAtlas />
 
       {/* Quote Strip */}
       <div className="relative overflow-hidden py-8 md:py-10 scroll-reveal" style={{ background: 'linear-gradient(90deg, rgba(120, 53, 15, 0.15), rgba(120, 53, 15, 0.05), rgba(120, 53, 15, 0.15))' }}>
