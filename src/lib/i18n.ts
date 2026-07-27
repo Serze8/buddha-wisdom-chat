@@ -250,7 +250,7 @@ const translations: Record<Locale, TranslationKeys> = {
   },
   ru: {
     nav: {
-      home: 'Главная', chat: 'Чат', characters: 'Герои', episodes: 'Эпизоды',
+      home: 'Главная', chat: 'Чат', characters: 'Герои Будды', episodes: 'Эпизоды',
       teachings: 'Дхарма и учения', zenMartial: 'Дзен и боевые искусства', theses: 'Тезисы', gallery: 'Галерея', quiz: 'Викторина',
       community: 'Сообщество', videos: 'Видео', retreats: 'Ретриты', profile: 'Профиль',
       about: 'О проекте', contact: 'Контакты', admin: 'Админ', donate: 'Поддержать',
