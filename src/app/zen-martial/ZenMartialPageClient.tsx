@@ -107,6 +107,22 @@ export default function ZenMartialPageClient() {
           <h2 className="font-[var(--font-cormorant)] text-3xl font-bold text-center mb-6 text-golden-gradient">
             {t.zen.sectionBodhidharma}
           </h2>
+
+          {/* Bodhidharma image */}
+          <div className="flex justify-center mb-8">
+            <div className="relative rounded-2xl overflow-hidden" style={{ maxWidth: '320px', border: '2px solid rgba(245, 158, 11, 0.15)', boxShadow: '0 0 40px rgba(245, 158, 11, 0.08)' }}>
+              <img
+                src="/images/bodhidharma-yoshitoshi-1887.jpg"
+                alt="Бодхидхарма — гравюра Ёситоси (1887)"
+                className="w-full h-auto"
+                loading="lazy"
+              />
+              <div className="absolute bottom-0 left-0 right-0 px-3 py-2 text-center" style={{ background: 'linear-gradient(transparent, rgba(15,14,10,0.9))' }}>
+                <p className="text-amber-200/40 text-xs">Цукиока Ёситоси, 1887</p>
+              </div>
+            </div>
+          </div>
+
           <p className="text-amber-100/50 text-center text-lg leading-relaxed max-w-3xl mx-auto">
             {t.zen.bodhidharmaDesc}
           </p>
