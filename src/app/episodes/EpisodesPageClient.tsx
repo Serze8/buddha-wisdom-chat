@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { useLanguage } from '@/contexts/LanguageContext'
 import episodesData from './episodesData.json'
+import Image from 'next/image'
 
 interface Episode {
   id: number
@@ -12,6 +13,23 @@ interface Episode {
   videoId: string
   thumbnail: string
 }
+
+interface CastMember {
+  name: string
+  role: { ru: string; en: string }
+  photo: string
+}
+
+const cast: CastMember[] = [
+  { name: 'Kabir Bedi', role: { ru: 'Асита Муни', en: 'Asita Muni' }, photo: '//avatars.mds.yandex.net/get-entity_search/97211/910454755/S122x162Face_2x' },
+  { name: 'Sаmir Dharmadhikari', role: { ru: 'Шуддходана', en: 'Śuddhodana' }, photo: '//avatars.mds.yandex.net/get-entity_search/9710637/1286895334/S122x162Face_2x' },
+  { name: 'Meghan Jadhav', role: { ru: 'Принц Нанда', en: 'Prince Nanda' }, photo: '//avatars.mds.yandex.net/get-entity_search/5734168/551589230/S122x162Face_2x' },
+  { name: 'Kajal Jain', role: { ru: 'Ясодхара', en: 'Yashodhara' }, photo: '//avatars.mds.yandex.net/get-entity_search/1727263/489336402/S122x162Face_2x' },
+  { name: 'Amit Behl', role: { ru: 'Гуру Вачаспати', en: 'Guru Vachaspati' }, photo: '//avatars.mds.yandex.net/get-entity_search/2417109/473765135/S122x162Face_2x' },
+  { name: 'Reshmi Ghosh', role: { ru: 'Прабхавати', en: 'Prabhavati' }, photo: '//avatars.mds.yandex.net/get-entity_search/68218/77443324/S122x162Face_2x' },
+  { name: 'Nijjar Khan', role: { ru: 'Мангала', en: 'Mangala' }, photo: '//avatars.mds.yandex.net/get-entity_search/2331707/478414565/S122x162Face_2x' },
+  { name: 'Hemant Chaudhari', role: { ru: 'Махамантри Удян', en: 'Mahamantri Udyan' }, photo: '//avatars.mds.yandex.net/get-entity_search/5398564/1287096475/S122x162Face_2x' },
+]
 
 const periods = [
   { key: 'all', ru: 'Все', en: 'All', from: 1, to: 55 },
@@ -23,7 +41,7 @@ const periods = [
 const PLAYLIST_URL = 'https://rutube.ru/plst/825387/'
 
 export default function EpisodesPageClient() {
-  const { locale } = useLanguage()
+  const { t, locale } = useLanguage()
   const [search, setSearch] = useState('')
   const [activePeriod, setActivePeriod] = useState('all')
 
@@ -43,9 +61,41 @@ export default function EpisodesPageClient() {
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
-      <h1 className="font-[var(--font-cormorant)] text-4xl md:text-5xl font-bold text-center mb-6 text-golden-gradient">
-        {locale === 'ru' ? 'Сериал «Будда»' : 'Buddha TV Series'} <span className="text-lg font-normal text-amber-500/50">(55)</span>
+      <h1 className="font-[var(--font-cormorant)] text-4xl md:text-5xl font-bold text-center mb-2 text-golden-gradient">
+        {t.episodes.pageTitle}
       </h1>
+
+      {/* Cast Section */}
+      <section className="mb-12 mt-8">
+        <h2 className="font-[var(--font-cormorant)] text-2xl md:text-3xl font-bold text-center mb-8 text-golden-gradient">
+          {t.episodes.castTitle}
+        </h2>
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 md:gap-5">
+          {cast.map((actor, i) => (
+            <div
+              key={actor.name}
+              className="golden-card rounded-2xl p-4 text-center animate-fade-in"
+              style={{ animationDelay: `${i * 80}ms` }}
+            >
+              <div className="relative w-[90px] h-[120px] mx-auto mb-3 rounded-xl overflow-hidden" style={{ border: '2px solid rgba(245, 158, 11, 0.15)' }}>
+                <Image
+                  src={actor.photo}
+                  alt={actor.name}
+                  fill
+                  className="object-cover"
+                  sizes="90px"
+                />
+              </div>
+              <h3 className="font-[var(--font-cormorant)] text-sm font-bold text-amber-100/80 leading-snug">
+                {actor.name}
+              </h3>
+              <p className="text-amber-200/40 text-xs mt-1">
+                {locale === 'ru' ? actor.role.ru : actor.role.en}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
 
       <p className="text-amber-200/40 text-center max-w-3xl mx-auto mb-10 leading-relaxed" style={{ fontFamily: 'var(--font-cormorant)' }}>
         {locale === 'ru'

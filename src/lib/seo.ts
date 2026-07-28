@@ -24,9 +24,9 @@ const pages: Record<string, { title: string; description: string; keywords: stri
     keywords: ['buddha tv series 2013', 'characters', 'siddhartha', 'yashodhara', 'ananda', 'devadatta', 'indian series'],
   },
   episodes: {
-    title: 'Episodes — Buddha TV Series',
-    description: 'Full episode guide for the Buddha TV series. Follow Prince Siddhartha\'s journey from palace to enlightenment.',
-    keywords: ['buddha episodes', 'tv series guide', 'sidharth kumar episodes'],
+    title: 'Сериал «Будда» (55) — TV Series "Buddha" Episodes Guide',
+    description: 'All 55 episodes of the Buddha TV series (2013, India). Episode guide, synopsis, highlights, and links to watch on RuTube. Starring: Kabir Bedi, Sameer Dharmadhikari, Kajal Jain, and more.',
+    keywords: ['buddha tv series', 'buddha episodes', '55 episodes', 'indian series', 'zee tv', 'buddha 2013', 'episode guide', 'cast'],
   },
   teachings: {
     title: 'Buddhist Teachings — Dhamma',

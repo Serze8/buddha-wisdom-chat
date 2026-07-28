@@ -123,6 +123,10 @@ type TranslationKeys = {
     sectionPractices: string
     sectionChakravartin: string
   }
+  episodes: {
+    pageTitle: string
+    castTitle: string
+  }
   zen: {
     title: string
     intro: string
@@ -155,7 +159,7 @@ type TranslationKeys = {
 const translations: Record<Locale, TranslationKeys> = {
   en: {
     nav: {
-      home: 'Home', chat: 'Chat', characters: 'Characters', episodes: 'Episodes',
+      home: 'Home', chat: 'Chat', characters: 'Characters', episodes: 'Series',
       teachings: 'Dharma & Teachings', zenMartial: 'Zen & Martial Arts', theses: 'Theses', gallery: 'Gallery', quiz: 'Quiz',
       community: 'Community', videos: 'Videos', retreats: 'Retreats', profile: 'Profile',
       about: 'About', contact: 'Contact', admin: 'Admin', donate: 'Donate',
@@ -251,10 +255,14 @@ const translations: Record<Locale, TranslationKeys> = {
       episodes: '442 episodes',
       watchOn: 'Watch on Rutube',
     },
+    episodes: {
+      pageTitle: 'TV Series "Buddha" (55)',
+      castTitle: 'Cast',
+    },
   },
   ru: {
     nav: {
-      home: 'Главная', chat: 'Чат', characters: 'Герои Будды', episodes: 'Эпизоды',
+      home: 'Главная', chat: 'Чат', characters: 'Герои Будды', episodes: 'Сериал',
       teachings: 'Дхарма и учения', zenMartial: 'Дзен и боевые искусства', theses: 'Тезисы', gallery: 'Галерея', quiz: 'Викторина',
       community: 'Сообщество', videos: 'Видео', retreats: 'Ретриты', profile: 'Профиль',
       about: 'О проекте', contact: 'Контакты', admin: 'Админ', donate: 'Поддержать',
@@ -350,10 +358,14 @@ const translations: Record<Locale, TranslationKeys> = {
       episodes: '442 серии',
       watchOn: 'Смотреть на Rutube',
     },
+    episodes: {
+      pageTitle: 'Сериал «Будда» (55)',
+      castTitle: 'Актёры',
+    },
   },
   hi: {
     nav: {
-      home: 'होम', chat: 'चैट', characters: 'पात्र', episodes: 'एपिसोड',
+      home: 'होम', chat: 'चैट', characters: 'पात्र', episodes: 'सीरीज़',
       teachings: 'शिक्षाएँ, धर्मचक्र और अभ्यास', zenMartial: 'द्ज़ेन और मार्शल आर्ट्स', theses: 'थीसिस', gallery: 'गैलरी', quiz: 'प्रश्नोत्तरी',
       community: 'समुदाय', videos: 'वीडियो', retreats: 'रिट्रीट', profile: 'प्रोफ़ाइल',
       about: 'परियोजना के बारे में', contact: 'संपर्क', admin: 'एडमिन', donate: 'समर्थन',
@@ -449,10 +461,14 @@ const translations: Record<Locale, TranslationKeys> = {
       episodes: '442 एपिसोड',
       watchOn: 'Rutube पर देखें',
     },
+    episodes: {
+      pageTitle: 'बुद्ध टीवी सीरीज़ (55)',
+      castTitle: 'कलाकार',
+    },
   },
   es: {
     nav: {
-      home: 'Inicio', chat: 'Chat', characters: 'Personajes', episodes: 'Episodios',
+      home: 'Inicio', chat: 'Chat', characters: 'Personajes', episodes: 'Serie',
       teachings: 'Enseñanzas, Dharmachakra y Práctica', zenMartial: 'Zen y Artes Marciales', theses: 'Tesis', gallery: 'Galería', quiz: 'Quiz',
       community: 'Comunidad', videos: 'Videos', retreats: 'Retiros', profile: 'Perfil',
       about: 'Acerca de', contact: 'Contacto', admin: 'Administrador', donate: 'Donar',
@@ -548,10 +564,14 @@ const translations: Record<Locale, TranslationKeys> = {
       episodes: '442 episodios',
       watchOn: 'Ver en Rutube',
     },
+    episodes: {
+      pageTitle: 'Serie "Buddha" (55)',
+      castTitle: 'Reparto',
+    },
   },
   fr: {
     nav: {
-      home: 'Accueil', chat: 'Chat', characters: 'Personnages', episodes: 'Épisodes',
+      home: 'Accueil', chat: 'Chat', characters: 'Personnages', episodes: 'Série',
       teachings: 'Enseignements, Dharmachakra et Pratique', zenMartial: 'Zen et Arts Martiaux', theses: 'Thèses', gallery: 'Galerie', quiz: 'Quiz',
       community: 'Communauté', videos: 'Vidéos', retreats: 'Retraites', profile: 'Profil',
       about: 'À propos', contact: 'Contact', admin: 'Administrateur', donate: 'Donner',
@@ -647,10 +667,14 @@ const translations: Record<Locale, TranslationKeys> = {
       episodes: '442 épisodes',
       watchOn: 'Voir sur Rutube',
     },
+    episodes: {
+      pageTitle: 'Série "Bouddha" (55)',
+      castTitle: 'Distribution',
+    },
   },
   de: {
     nav: {
-      home: 'Startseite', chat: 'Chat', characters: 'Charaktere', episodes: 'Episoden',
+      home: 'Startseite', chat: 'Chat', characters: 'Charaktere', episodes: 'Serie',
       teachings: 'Lehren, Dharmachakra und Praxis', zenMartial: 'Zen und Kampfkünste', theses: 'Thesen', gallery: 'Galerie', quiz: 'Quiz',
       community: 'Gemeinschaft', videos: 'Videos', retreats: 'Rückzüge', profile: 'Profil',
       about: 'Über uns', contact: 'Kontakt', admin: 'Administrator', donate: 'Spenden',
@@ -746,10 +770,14 @@ const translations: Record<Locale, TranslationKeys> = {
       episodes: '442 Episoden',
       watchOn: 'Auf Rutube ansehen',
     },
+    episodes: {
+      pageTitle: 'Serie "Buddha" (55)',
+      castTitle: 'Besetzung',
+    },
   },
   zh: {
     nav: {
-      home: '首页', chat: '聊天', characters: '角色', episodes: '剧集',
+      home: '首页', chat: '聊天', characters: '角色', episodes: '系列',
       teachings: '教义、法轮与修行', zenMartial: '禅与武术', theses: '论文', gallery: '画廊', quiz: '问答',
       community: '社区', videos: '视频', retreats: '修行', profile: '个人资料',
       about: '关于', contact: '联系我们', admin: '管理员', donate: '支持',
@@ -845,10 +873,14 @@ const translations: Record<Locale, TranslationKeys> = {
       episodes: '442集',
       watchOn: '在Rutube观看',
     },
+    episodes: {
+      pageTitle: '佛陀电视剧 (55)',
+      castTitle: '演员表',
+    },
   },
   ja: {
     nav: {
-      home: 'ホーム', chat: 'チャット', characters: 'キャラクター', episodes: 'エピソード',
+      home: 'ホーム', chat: 'チャット', characters: 'キャラクター', episodes: 'シリーズ',
       teachings: 'ダルマチャクラと修行', zenMartial: '禅と武道', theses: '論文', gallery: 'ギャラリー', quiz: 'クイズ',
       community: 'コミュニティ', videos: '動画', retreats: 'リトリート', profile: 'プロフィール',
       about: '概要', contact: 'お問い合わせ', admin: '管理者', donate: '寄付',
@@ -944,10 +976,14 @@ const translations: Record<Locale, TranslationKeys> = {
       episodes: '442話',
       watchOn: 'Rutubeで視聴',
     },
+    episodes: {
+      pageTitle: 'TVシリーズ「ブッダ」(55)',
+      castTitle: 'キャスト',
+    },
   },
   pt: {
     nav: {
-      home: 'Início', chat: 'Chat', characters: 'Personagens', episodes: 'Episódios',
+      home: 'Início', chat: 'Chat', characters: 'Personagens', episodes: 'Série',
       teachings: 'Ensinos, Dharmachakra e Prática', zenMartial: 'Zen e Artes Marciais', theses: 'Teses', gallery: 'Galeria', quiz: 'Quiz',
       community: 'Comunidade', videos: 'Vídeos', retreats: 'Retiros', profile: 'Perfil',
       about: 'Sobre', contact: 'Contato', admin: 'Admin', donate: 'Apoiar',
@@ -1043,10 +1079,14 @@ const translations: Record<Locale, TranslationKeys> = {
       episodes: '442 episódios',
       watchOn: 'Assistir no Rutube',
     },
+    episodes: {
+      pageTitle: 'Série "Buda" (55)',
+      castTitle: 'Elenco',
+    },
   },
   th: {
     nav: {
-      home: 'หน้าแรก', chat: 'แชท', characters: 'ตัวละคร', episodes: 'ตอน',
+      home: 'หน้าแรก', chat: 'แชท', characters: 'ตัวละคร', episodes: 'ซีรีส์',
       teachings: 'ธรรมะ ธัมมจักร และการปฏิบัติ', zenMartial: 'เซนและศิลปะการต่อสู้', theses: 'theses', gallery: 'แกลเลอรี', quiz: 'แบบทดสอบ',
       community: 'ชุมชน', videos: 'วิดีโอ', retreats: 'สถานปฏิบัติธรรม', profile: 'โปรไฟล์',
       about: 'เกี่ยวกับ', contact: 'ติดต่อ', admin: 'แอดมิน', donate: 'สนับสนุน',
@@ -1142,10 +1182,14 @@ const translations: Record<Locale, TranslationKeys> = {
       episodes: '442 ตอน',
       watchOn: 'ดูบน Rutube',
     },
+    episodes: {
+      pageTitle: 'ซีรีส์ "พุทธะ" (55)',
+      castTitle: 'นักแสดง',
+    },
   },
   vi: {
     nav: {
-      home: 'Trang chủ', chat: 'Trò chuyện', characters: 'Nhân vật', episodes: 'Tập phim',
+      home: 'Trang chủ', chat: 'Trò chuyện', characters: 'Nhân vật', episodes: 'Phim',
       teachings: 'Giáo lý, Pháp Luân và Thực hành', zenMartial: 'Thiền và Võ thuật', theses: 'Luận đề', gallery: 'Thư viện ảnh', quiz: 'Trắc nghiệm',
       community: 'Cộng đồng', videos: 'Video', retreats: 'Khóa tu', profile: 'Hồ sơ',
       about: 'Giới thiệu', contact: 'Liên hệ', admin: 'Quản trị', donate: 'Hỗ trợ',
@@ -1241,10 +1285,14 @@ const translations: Record<Locale, TranslationKeys> = {
       episodes: '442 tập',
       watchOn: 'Xem trên Rutube',
     },
+    episodes: {
+      pageTitle: 'Phim "Phật" (55)',
+      castTitle: 'Dàn diễn viên',
+    },
   },
   ko: {
     nav: {
-      home: '홈', chat: '채팅', characters: '인물', episodes: '에피소드',
+      home: '홈', chat: '채팅', characters: '인물', episodes: '시리즈',
       teachings: '가르침, 다르마차크라와 수행', zenMartial: '선과 무술', theses: '논문', gallery: '갤러리', quiz: '퀴즈',
       community: '커뮤니티', videos: '영상', retreats: '수련회', profile: '프로필',
       about: '소개', contact: '문의', admin: '관리자', donate: '후원',
@@ -1340,10 +1388,14 @@ const translations: Record<Locale, TranslationKeys> = {
       episodes: '442화',
       watchOn: 'Rutube에서 시청',
     },
+    episodes: {
+      pageTitle: '불타 TV 시리즈 (55)',
+      castTitle: '출연진',
+    },
   },
   id: {
     nav: {
-      home: 'Beranda', chat: 'Obrolan', characters: 'Karakter', episodes: 'Episode',
+      home: 'Beranda', chat: 'Obrolan', characters: 'Karakter', episodes: 'Serial',
       teachings: 'Ajaran, Dharmachakra & Praktik', zenMartial: 'Zen dan Seni Bela Diri', theses: 'Tesis',
       community: 'Komunitas', videos: 'Video', retreats: 'Retret', profile: 'Profil',
       gallery: 'Galeri', quiz: 'Kuis',
@@ -1440,10 +1492,14 @@ const translations: Record<Locale, TranslationKeys> = {
       episodes: '442 episode',
       watchOn: 'Tonton di Rutube',
     },
+    episodes: {
+      pageTitle: 'Serial TV "Buddha" (55)',
+      castTitle: 'Pemeran',
+    },
   },
   ms: {
     nav: {
-      home: 'Laman Utama', chat: 'Sembang', characters: 'Watak', episodes: 'Episod',
+      home: 'Laman Utama', chat: 'Sembang', characters: 'Watak', episodes: 'Siri',
       teachings: 'Ajaran, Dharmachakra & Amalan', zenMartial: 'Zen dan Seni Mempertahankan Diri', theses: 'Tesis',
       community: 'Komuniti', videos: 'Video', retreats: 'Retreat', profile: 'Profil',
       gallery: 'Galeri', quiz: 'Kuiz',
@@ -1540,10 +1596,14 @@ const translations: Record<Locale, TranslationKeys> = {
       episodes: '442 episod',
       watchOn: 'Tonton di Rutube',
     },
+    episodes: {
+      pageTitle: 'Siri TV "Buddha" (55)',
+      castTitle: 'Pelakon',
+    },
   },
   si: {
     nav: {
-      home: 'මුල් පිටුව', chat: 'කතාබහ', characters: 'චරිත', episodes: 'කොටස්',
+      home: 'මුල් පිටුව', chat: 'කතාබහ', characters: 'චරිත', episodes: 'ශ්‍රේණිය',
       teachings: 'උපදේශ, ධර්මචක්‍ර සහ ප්‍රායෝගික', zenMartial: 'දේශන් සහ සටන් කලා', theses: 'න්‍යායන්', gallery: 'ගැලරිය', quiz: 'ප්‍රශ්නාවලිය',
       community: 'ප්‍රජාව', videos: 'වීඩියෝ', retreats: 'ධ්‍යාන මධ්‍යස්ථාන', profile: 'පැතිකඩ',
       about: 'පිළිබඳව', contact: 'සම්බන්ධ වන්න', admin: 'පරිපාලක', donate: 'සහාය වන්න',
@@ -1639,10 +1699,14 @@ const translations: Record<Locale, TranslationKeys> = {
       episodes: '442 කොටස්',
       watchOn: 'Rutube හි නරඹන්න',
     },
+    episodes: {
+      pageTitle: 'බුද්ධ රූපවාහිනී කතාමාලාව (55)',
+      castTitle: 'රංගන ශිල්පීන්',
+    },
   },
   my: {
     nav: {
-      home: 'ပင်မစာမျက်နှာ', chat: 'စကားပြော', characters: 'ဇာတ်ကောင်', episodes: 'ဇာတ်လမ်း',
+      home: 'ပင်မစာမျက်နှာ', chat: 'စကားပြော', characters: 'ဇာတ်ကောင်', episodes: 'စီးရီး',
       teachings: 'သင်ကြားမှုများ ဓမ္မစကြာနှင့် အားထုတ်မှု', zenMartial: 'ဇင်နှင့် တိုက်ခိုက်ရေး', theses: 'စာတမ်းများ', gallery: 'ပုံတန်း', quiz: 'မေးခွန်း',
       community: 'လူမှုအသိုက်', videos: 'ဗီဒီယို', retreats: 'တရားအားထုတ်ရာ', profile: 'ကိုယ်ရေး',
       about: 'အကြောင်းအရာ', contact: 'ဆက်သွယ်ရန်', admin: 'စီမံခန့်ခွဲသူ', donate: 'ထောက်ပံ့',
@@ -1738,10 +1802,14 @@ const translations: Record<Locale, TranslationKeys> = {
       episodes: '၄၄၂ ဇာတ်လမ်း',
       watchOn: 'Rutube တွင်ကြည့်ရန်',
     },
+    episodes: {
+      pageTitle: 'ဗုဒ္ဓ တီဗီစီးရီး (55)',
+      castTitle: 'သရုပ်ဆောင်များ',
+    },
   },
   ne: {
     nav: {
-      home: 'गृहपृष्ठ', chat: 'च्याट', characters: 'पात्र', episodes: 'एपिसोड',
+      home: 'गृहपृष्ठ', chat: 'च्याट', characters: 'पात्र', episodes: 'श्रृंखला',
       teachings: 'शिक्षाहरू, धर्मचक्र र अभ्यास', zenMartial: 'जेन र मार्शल आर्ट्स', theses: 'थीसिस', gallery: 'ग्यालरी', quiz: 'प्रश्नोत्तरी',
       community: 'समुदाय', videos: 'भिडियो', retreats: 'ध्यान केन्द्र', profile: 'प्रोफाइल',
       about: 'बारेमा', contact: 'सम्पर्क', admin: 'प्रशासक', donate: 'सहयोग',
@@ -1837,10 +1905,14 @@ const translations: Record<Locale, TranslationKeys> = {
       episodes: '४४२ एपिसोड',
       watchOn: 'Rutube मा हेर्नुहोस्',
     },
+    episodes: {
+      pageTitle: 'बुद्ध टिभी श्रृंखला (55)',
+      castTitle: 'कलाकारहरू',
+    },
   },
   bo: {
     nav: {
-      home: 'གཙོ་ངོས།', chat: 'སྐད་ཆ།', characters: 'སྒྲུང་མི།', episodes: 'ལེ་ཚན།',
+      home: 'གཙོ་ངོས།', chat: 'སྐད་ཆ།', characters: 'སྒྲུང་མི།', episodes: 'སྒྲུང་།',
       teachings: 'སྟོན་པ། ཆོས་ཀྱི་འཁོར་ལོ། སྒོམ།', zenMartial: 'བསམ་གཏན་དང་འཐབ་རྩལ།', theses: 'དཔྱད་རྩོམ།', gallery: 'པར་ཁུལ།', quiz: 'དྲི་བ།',
       community: 'ཚོགས་པ།', videos: 'བརྙན་འཕྲིན།', retreats: 'སྒོམ་གནས།', profile: 'ངོ་སྤྲོད།',
       about: 'སྐོར།', contact: 'འབྲེལ་བ།', admin: 'དོ་དམ།', donate: 'རོགས་རམ།',
@@ -1935,6 +2007,10 @@ const translations: Record<Locale, TranslationKeys> = {
       intro: 'རྒྱལ་པོ་ཨ་ཤོ་ཀའི་སྐོར་ལེ་ཚན་ 442 ཡོད་པའི་ཀྲུང་གོའི་ལོ་རྒྱུས་ཟློས་གར (2015)',
       episodes: 'ལེ་ཚན་ 442',
       watchOn: 'རུ་ཐུབ་སུ་བལྟ།',
+    },
+    episodes: {
+      pageTitle: 'སངས་རྒྱས་བརྒྱུད་རིམ། (55)',
+      castTitle: 'རོལ་མོ་བ།',
     },
   },
 }
