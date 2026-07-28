@@ -397,6 +397,33 @@ export default function ZenMartialPageClient() {
           </div>
         </section>
 
+        {/* Golden divider */}
+        <div className="flex items-center justify-center my-8">
+          <div className="golden-divider flex-1" />
+          <span className="px-4 text-2xl">🔔</span>
+          <div className="golden-divider flex-1" />
+        </div>
+
+        {/* Block 6: Zen Spread Interactive */}
+        <section className="mb-4">
+          <h2 className="font-[var(--font-cormorant)] text-3xl font-bold text-center mb-3 text-golden-gradient">
+            {t.zen.zenSpreadTitle}
+          </h2>
+          <p className="text-amber-200/50 text-center text-base leading-relaxed max-w-3xl mx-auto mb-8">
+            {t.zen.zenSpreadDesc}
+          </p>
+
+          <div className="w-full max-w-full rounded-2xl overflow-hidden" style={{ boxShadow: '0 0 60px rgba(245, 158, 11, 0.08)', border: '2px solid rgba(245, 158, 11, 0.15)' }}>
+            <iframe
+              src="/chimes/index.html"
+              title="Zen (Chan) Spread — Interactive Chimes"
+              className="w-full"
+              style={{ height: '700px', border: 'none' }}
+              allow="autoplay"
+            />
+          </div>
+        </section>
+
         {/* Community Link */}
         <div className="text-center mt-10">
           <Link

@@ -141,6 +141,8 @@ type TranslationKeys = {
     otherFilmsTitle: string
     otherFilmsDesc: string
     discussCommunity: string
+    zenSpreadTitle: string
+    zenSpreadDesc: string
   }
   chakravartin: {
     title: string
@@ -240,6 +242,8 @@ const translations: Record<Locale, TranslationKeys> = {
       otherFilmsTitle: 'Water Margin (1998)',
       otherFilmsDesc: 'A 43-episode Chinese historical drama based on one of the Four Great Classical Novels of Chinese literature. The story follows 108 outlaws who gather at Mount Liang. It explores themes of loyalty, honor, justice, and the Buddhist concept of karma.',
       discussCommunity: 'Discuss in Community',
+      zenSpreadTitle: 'The Spread of Zen (Chan)',
+      zenSpreadDesc: 'As a separate branch of Buddhism where Daruma (Bodhidharma) became the first patriarch',
     },
     chakravartin: {
       title: 'Chakravartin — The Universal Monarch',
@@ -337,6 +341,8 @@ const translations: Record<Locale, TranslationKeys> = {
       otherFilmsTitle: 'Речные заводи (1998)',
       otherFilmsDesc: '43-серийный китайский исторический сериал, основанный на одном из четырёх великих классических романов китайской литературы. История о 108 разбойниках, собравшихся на горе Лян. Сериал исследует темы чести, справедливости и буддийского учения о карме.',
       discussCommunity: 'Обсудить в сообществе',
+      zenSpreadTitle: 'Распространение дзен (чань)',
+      zenSpreadDesc: 'Как отдельная ветка буддизма, где Дарума (Бодхидхарма) стал первым патриархом',
     },
     chakravartin: {
       title: 'Чакравартин — Вселенский монарх',
@@ -434,6 +440,8 @@ const translations: Record<Locale, TranslationKeys> = {
       otherFilmsTitle: 'रीचर फैक्ट्री (1998)',
       otherFilmsDesc: '43-एपिसोड का चीनी ऐतिहासिक नाटक, जो चीनी साहित्य के चार महान शास्त्रीय उपन्यासों में से एक पर आधारित है।',
       discussCommunity: 'समुदाय में चर्चा करें',
+      zenSpreadTitle: 'ज़ेन (चैन) का प्रसार',
+      zenSpreadDesc: 'बौद्ध धर्म की एक अलग शाखा जहाँ दारुमा (बोधिधर्म) पहले पितृ बने',
     },
     chakravartin: {
       title: 'चक्रवर्तिन — सार्वभौमिक सम्राट',
@@ -531,6 +539,8 @@ const translations: Record<Locale, TranslationKeys> = {
       otherFilmsTitle: 'Water Margin (1998)',
       otherFilmsDesc: 'Un drama histórico chino de 43 episodios basado en una de las Cuatro Grandes Novelas Clásicas de la literatura china. La historia sigue a 108 forajidos que se reúnen en la Montaña Liang. Explora temas de lealtad, honor, justicia y el concepto budista del karma.',
       discussCommunity: 'Discutir en la Comunidad',
+      zenSpreadTitle: 'La Expansión del Zen (Chan)',
+      zenSpreadDesc: 'Como una rama separada del budismo donde Daruma (Bodhidharma) se convirtió en el primer patriarca',
     },
     chakravartin: {
       title: 'Chakravartin — El Monarca Universal',
@@ -628,6 +638,8 @@ const translations: Record<Locale, TranslationKeys> = {
       otherFilmsTitle: 'Water Margin (1998)',
       otherFilmsDesc: 'Un drame historique chinois de 43 épisodes basé sur l\'un des Quatre Grands Romans Classiques de la littérature chinoise. L\'histoire suit 108 hors-la-loi qui se réunissent au Mont Liang. Il explore les thèmes de la loyauté, de l\'honneur, de la justice et du concept bouddhiste du karma.',
       discussCommunity: 'Discuter dans la Communauté',
+      zenSpreadTitle: 'L\'Expansion du Zen (Chan)',
+      zenSpreadDesc: 'En tant que branche distincte du bouddhisme où Daruma (Bodhidharma) devint le premier patriarche',
     },
     chakravartin: {
       title: 'Chakravartin — Le Monarque Universel',
@@ -725,6 +737,8 @@ const translations: Record<Locale, TranslationKeys> = {
       otherFilmsTitle: 'Water Margin (1998)',
       otherFilmsDesc: 'Ein 43-teiliges chinesisches historisches Drama, basierend auf einem der vier großen klassischen Romane der chinesischen Literatur. Die Geschichte folgt 108 Gesetzlosen, die sich am Liangshan versammeln. Es thematisiert Treue, Ehre, Gerechtigkeit und das buddhistische Karma.',
       discussCommunity: 'In der Gemeinschaft diskutieren',
+      zenSpreadTitle: 'Die Verbreitung von Zen (Chan)',
+      zenSpreadDesc: 'Als eigenständiger Zweig des Buddhismus, in dem Daruma (Bodhidharma) der erste Patriarch wurde',
     },
     chakravartin: {
       title: 'Chakravartin — Der Universelle Monarch',
@@ -822,6 +836,8 @@ const translations: Record<Locale, TranslationKeys> = {
       otherFilmsTitle: '水浒传 (1998)',
       otherFilmsDesc: '43集中国历史剧，改编自中国文学四大古典名著之一。故事讲述了聚集在梁山的108位好汉。探讨了忠诚、荣誉、正义和佛教因果概念。',
       discussCommunity: '在社区中讨论',
+      zenSpreadTitle: '禅宗的传播',
+      zenSpreadDesc: '作为佛教的独立分支，达摩（菩提达摩）成为第一代祖师',
     },
     chakravartin: {
       title: '转轮王 — 普世君主',
@@ -919,6 +935,8 @@ const translations: Record<Locale, TranslationKeys> = {
       otherFilmsTitle: '水滸伝 (1998)',
       otherFilmsDesc: '中国文学の四大古典小説の一つに基づく43話の中国歴史ドラマ。梁山泊に集まる108人の英雄の物語。忠義、名誉、正義、そして仏教の因果応報を描いています。',
       discussCommunity: 'コミュニティで議論',
+      zenSpreadTitle: '禅（Chan）の広がり',
+      zenSpreadDesc: '仏教の独立した分派として、達磨（菩提達磨）が初代祖師となった',
     },
     chakravartin: {
       title: 'チャクラヴァルティン — 普遍の君主',
@@ -1016,6 +1034,8 @@ const translations: Record<Locale, TranslationKeys> = {
       otherFilmsTitle: 'Water Margin (1998)',
       otherFilmsDesc: 'Um drama histórico chinês de 43 episódios baseado em um dos Quatro Grandes Romances Clássicos da literatura chinesa. A história acompanha 108 fora-da-lei que se reúnem na Montanha Liang. Explora temas de lealdade, honra, justiça e o conceito budista de karma.',
       discussCommunity: 'Discutir na Comunidade',
+      zenSpreadTitle: 'A Expansão do Zen (Chan)',
+      zenSpreadDesc: 'Como um ramo separado do budismo onde Daruma (Bodhidharma) se tornou o primeiro patriarca',
     },
     chakravartin: {
       title: 'Chakravartin — O Monarca Universal',
@@ -1113,6 +1133,8 @@ const translations: Record<Locale, TranslationKeys> = {
       otherFilmsTitle: 'Water Margin (1998)',
       otherFilmsDesc: 'ละครประวัติศาสตร์จีน 43 ตอน สร้างจากหนึ่งในสี่นิยายคลาสสิกที่ยิ่งใหญ่ของวรรณกรรมจีน เรื่องราวของโจร 108 คนที่รวมตัวกันที่เขาเหลียง สำรวจเรื่องความจงรักภักดี ศักดิ์ศรี ความยุติธรรม และแนวคิดเรื่องกรรมในพระพุทธศาสนา',
       discussCommunity: 'อภิปรายในชุมชน',
+      zenSpreadTitle: 'การแพร่กระจายของเซน (ฉาน)',
+      zenSpreadDesc: 'ในฐานะสาขาอิสระของพุทธศาสนา ที่ดารูมา (โบดิเดอร์มา) กลายเป็นพระปฐม patriarch',
     },
     chakravartin: {
       title: 'จักรพรรดิ — กษัตริย์สากล',
@@ -1210,6 +1232,8 @@ const translations: Record<Locale, TranslationKeys> = {
       otherFilmsTitle: 'Water Margin (1998)',
       otherFilmsDesc: 'Phim truyền hình lịch sử Trung Hoa 43 tập dựa trên một trong Tứ đại danh tác văn học cổ điển Trung Hoa. Câu chuyện về 108 anh hùng tụ hội tại Lương Sơn. Khám phá các chủ đề trung thành, danh dự, công lý và quan niệm Phật giáo về nghiệp.',
       discussCommunity: 'Thảo luận trong Cộng đồng',
+      zenSpreadTitle: 'Sự lan truyền của Thiền (Chan)',
+      zenSpreadDesc: 'Như một nhánh riêng của Phật giáo nơi Đạt Ma (Bồ Đề Đạt Ma) trở thành tổ sư đầu tiên',
     },
     chakravartin: {
       title: 'Chuyển Luân Vương — Hoàng Đế Phổ Quát',
@@ -1307,6 +1331,8 @@ const translations: Record<Locale, TranslationKeys> = {
       otherFilmsTitle: 'Water Margin (1998)',
       otherFilmsDesc: '중국 문학 4대 고전 중 하나를 기반으로 한 43화 중국 사극. 양산에 모이는 108인의 영웅 이야기. 충성, 명예, 공의, 그리고 불교의 업的概念을 다루고 있습니다.',
       discussCommunity: '커뮤니티에서 토론',
+      zenSpreadTitle: '선(禪)의 전파',
+      zenSpreadDesc: '불교의 독립적인 분파로서 달마(보리달마)가 초대 조 sư가 된 곳',
     },
     chakravartin: {
       title: '차크라바르틴 — 우주적 군주',
@@ -1405,6 +1431,8 @@ const translations: Record<Locale, TranslationKeys> = {
       otherFilmsTitle: 'Water Margin (1998)',
       otherFilmsDesc: 'Drama sejarah Tiongkok 43 episode berdasarkan salah satu dari Empat Novel Klasik Besar Sastra Tiongkok. Kisah 108 orang buangan yang berkumpul di Gunung Liang. Menjelajahi tema kesetiaan, kehormatan, keadilan, dan konsep Buddha tentang karma.',
       discussCommunity: 'Diskusi di Komunitas',
+      zenSpreadTitle: 'Penyebaran Zen (Chan)',
+      zenSpreadDesc: 'Sebagai cabang terpisah agama Buddha di mana Daruma (Bodhidharma) menjadi patriark pertama',
     },
     chakravartin: {
       title: 'Chakravartin — Raja Universal',
@@ -1503,6 +1531,8 @@ const translations: Record<Locale, TranslationKeys> = {
       otherFilmsTitle: 'Water Margin (1998)',
       otherFilmsDesc: 'Drama sejarah China 43 episod berdasarkan salah satu daripada Empat Novel Agung Kesusasteraan China. Kisah 108 orang buangan yang berkumpul di Gunung Liang. Meneroka tema kesetiaan, kehormatan, keadilan, dan konsep Buddha tentang karma.',
       discussCommunity: 'Bincang dalam Komuniti',
+      zenSpreadTitle: 'Penyebaran Zen (Chan)',
+      zenSpreadDesc: 'Sebagai cawangan berasingan agama Buddha di mana Daruma (Bodhidharma) menjadi patriot pertama',
     },
     chakravartin: {
       title: 'Chakravartin — Raja Universal',
@@ -1600,6 +1630,8 @@ const translations: Record<Locale, TranslationKeys> = {
       otherFilmsTitle: 'Water Margin (1998)',
       otherFilmsDesc: 'චීන සාහිත්‍යයේ මහා ක්ලාසික් නවකතා හතරෙන් එකක් මත පදනම් වූ 43 කොටස් චීන ඉතිහාස නාට්‍යයකි. ලියාං කන්තරයේ එකතු වන 108 දෙනෙකුගේ කතාව. විශ්වාසය, ගෞරවය, යුක්තිය සහ බෞද්ධ කර්ම සංකල්පය ගවේෂණය කරයි.',
       discussCommunity: 'ප්‍රජාවේ සාකච්ඡා කරන්න',
+      zenSpreadTitle: 'සෙන් (චෑන්) ව්‍යාප්තිය',
+      zenSpreadDesc: 'බෞද්ධ ආගමේ වෙනම ශාඛාවක් ලෙස දාරුමා (බෝධිධර්ම) පළමු පිත්‍රවරයා වූ ආකාරය',
     },
     chakravartin: {
       title: 'චක්‍රවර්තින් — විශ්ව රජ',
@@ -1697,6 +1729,8 @@ const translations: Record<Locale, TranslationKeys> = {
       otherFilmsTitle: 'Water Margin (1998)',
       otherFilmsDesc: 'တရုတ်စာပေ၏ကြီးကျယ်သော ကျမ်းဂန် ၄ စောင်မှတစ်ခုအပေါ်အခြေခံသည့် ၄၃ ဇာတ်လမ်းရှိသည့် သမိုင်းဝင်ဇာတ်လမ်းတွဲဖြစ်သည်။ လျောင်တောင်တွင် စုဝေးကြသည့် မသမာသူ ၁၀၈ ဦး၏ ပုံပြင်ဖြစ်သည်။ သစာဖောက်ခြင်း၊ ဂုဏ်သိက္ခာ၊ တရားမျှတမှုနှင့် ဗုဒ္ဓဘာသာ၏ ကံအယူအဆကို စူးစမ်းလေ့လာသည်။',
       discussCommunity: 'လူမှုအသိုက်တွင်ဆွေးနွေးရန်',
+      zenSpreadTitle: 'ဇင် (ချမ်) ၏ ဖြန့်ဝေမှု',
+      zenSpreadDesc: 'ဗုဒ္ဓဘာသာ၏ ခွဲခြားသော အကွျတစ်ခုအဖြစ် ဒါရူမာ (ဘိဒိဓမ္မ) ပထမ ပထရိတ်ဖြစ်လာသည့်နေရာ',
     },
     chakravartin: {
       title: 'ချက်ခရဗတိန် — ကမ္ဘာလုံးဆိုင်ရာဘုရင်',
@@ -1794,6 +1828,8 @@ const translations: Record<Locale, TranslationKeys> = {
       otherFilmsTitle: 'Water Margin (1998)',
       otherFilmsDesc: 'चिनियाँ साहित्यका चार महान शास्त्रीय उपन्यासमध्ये एकमा आधारित ४३ एपिसोडको ऐतिहासिक नाटक। लियाङ पहाडमा भेला हुने १०८ अपराधीहरूको कथा। वफादारी, सम्मान, न्याय र बौद्ध कर्मको अवधारणा खोज्छ।',
       discussCommunity: 'समुदायमा छलफल गर्नुहोस्',
+      zenSpreadTitle: 'जेन (च्यान) को प्रसार',
+      zenSpreadDesc: 'बौद्ध धर्मको एक छुट्टै शाखाको रूपमा जहाँ दारुमा (बोधिधर्म) पहिलो पितृ बने',
     },
     chakravartin: {
       title: 'चक्रवर्तिन — सार्वभौमिक सम्राट',
@@ -1891,6 +1927,8 @@ const translations: Record<Locale, TranslationKeys> = {
       otherFilmsTitle: 'Water Margin (1998)',
       otherFilmsDesc: 'ཀྲུང་གོའི་རྩོམ་རིག་གི་དཔེ་རྙིང་ཆེན་མོ་བཞིའི་ཡ་གྱལ་ལ་བརྟེན་པའི་ལོ་རྒྱུས་ཟློས་གར་ཞིག ལེ་ཡང་རི་བོར་འདུས་པའི་མི་ངན་ ༡༠༨ ་ཀྱི་སྐོར། ཁ་དོག་སྲུང་པ་དང་། གཟི་བརྗིད། དྲང་སྙོམས། བོད་ཆོས་ཀྱི་ལས་ཀྱི་འདུ་ཤེས་བཅས་འཚོལ་ཞིབ།',
       discussCommunity: 'ཚོགས་པར་སྐད་ཆ་བྱེད།',
+      zenSpreadTitle: 'རྫོགས་ཆེན་(བྱམས་) ཁྱབ་སྤེལ།',
+      zenSpreadDesc: 'སངས་རྒྱས་ཆོས་ཀྱི་ཡན་ལག་སོ་སོར་བགར་བ་ཞིག་ཏུ་ད་རུ་མ་(བོདྷི་དྷརྨ) ཆོས་ཀྱི་མེས་ཨང་དང་པོར་གྱུར་པ།',
     },
     chakravartin: {
       title: 'འཁོར་ལོ་བསྐོར་བའི་རྒྱལ་པོ།',
