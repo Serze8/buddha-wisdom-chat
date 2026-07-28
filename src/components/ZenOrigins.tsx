@@ -71,6 +71,57 @@ const SPRING = 0.03
 const DAMPING = 0.92
 const MOUSE_RADIUS = 120
 
+// Chime sound frequencies per country (pentatonic-ish)
+const CHIME_FREQS: Record<string, number[]> = {
+  india: [523, 659, 784, 880, 1047],
+  china: [440, 523, 659, 784, 988],
+  japan: [587, 698, 880, 988, 1175],
+  vietnam: [494, 587, 698, 784, 988],
+  korea: [523, 622, 740, 831, 932],
+}
+
+let audioCtx: AudioContext | null = null
+let lastChimeTime = 0
+
+function playChime(countryId: string) {
+  const now = Date.now()
+  if (now - lastChimeTime < 150) return
+  lastChimeTime = now
+
+  if (!audioCtx) {
+    audioCtx = new (window.AudioContext || (window as any).webkitAudioContext)()
+  }
+  if (audioCtx.state === 'suspended') {
+    audioCtx.resume()
+  }
+
+  const freqs = CHIME_FREQS[countryId] || CHIME_FREQS.china
+  const freq = freqs[Math.floor(Math.random() * freqs.length)]
+  const nowSec = audioCtx.currentTime
+
+  const osc = audioCtx.createOscillator()
+  const gain = audioCtx.createGain()
+  const filter = audioCtx.createBiquadFilter()
+
+  osc.type = 'sine'
+  osc.frequency.setValueAtTime(freq, nowSec)
+
+  filter.type = 'lowpass'
+  filter.frequency.setValueAtTime(2000, nowSec)
+  filter.Q.setValueAtTime(1, nowSec)
+
+  gain.gain.setValueAtTime(0, nowSec)
+  gain.gain.linearRampToValueAtTime(0.12, nowSec + 0.01)
+  gain.gain.exponentialRampToValueAtTime(0.001, nowSec + 1.5)
+
+  osc.connect(filter)
+  filter.connect(gain)
+  gain.connect(audioCtx.destination)
+
+  osc.start(nowSec)
+  osc.stop(nowSec + 1.5)
+}
+
 export default function ZenOrigins() {
   const { locale } = useLanguage()
   const canvasRef = useRef<HTMLCanvasElement>(null)
@@ -232,6 +283,7 @@ export default function ZenOrigins() {
 
     // Update and draw symbols
     const symbols = symbolsRef.current
+    let chimeTriggered = false
     for (const s of symbols) {
       const dx = mouse.x - s.x
       const dy = mouse.y - s.y
@@ -242,6 +294,10 @@ export default function ZenOrigins() {
         const angle = Math.atan2(dy, dx)
         s.vx -= Math.cos(angle) * force * 8
         s.vy -= Math.sin(angle) * force * 8
+        if (!chimeTriggered && force > 0.3) {
+          playChime(COUNTRIES[countryRef.current].id)
+          chimeTriggered = true
+        }
       }
 
       s.vx += (s.originX - s.x) * SPRING
