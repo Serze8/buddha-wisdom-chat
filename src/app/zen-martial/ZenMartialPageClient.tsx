@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { useLanguage } from '@/contexts/LanguageContext'
 import Link from 'next/link'
+import ZenOrigins from '@/components/ZenOrigins'
 
 const riverEpisodes = [
   { ep: 1, title: { ru: 'Золотая пуля', en: 'The Golden Bullet' } },
@@ -404,7 +405,7 @@ export default function ZenMartialPageClient() {
           <div className="golden-divider flex-1" />
         </div>
 
-        {/* Block 6: Zen Spread Interactive */}
+        {/* Block 6: Zen Origins Interactive */}
         <section className="mb-4">
           <h2 className="font-[var(--font-cormorant)] text-3xl font-bold text-center mb-3 text-golden-gradient">
             {t.zen.zenSpreadTitle}
@@ -413,15 +414,7 @@ export default function ZenMartialPageClient() {
             {t.zen.zenSpreadDesc}
           </p>
 
-          <div className="w-full max-w-full rounded-2xl overflow-hidden" style={{ boxShadow: '0 0 60px rgba(245, 158, 11, 0.08)', border: '2px solid rgba(245, 158, 11, 0.15)' }}>
-            <iframe
-              src="/chimes/index.html"
-              title="Zen (Chan) Spread — Interactive Chimes"
-              className="w-full"
-              style={{ height: '700px', border: 'none' }}
-              allow="autoplay"
-            />
-          </div>
+          <ZenOrigins />
         </section>
 
         {/* Community Link */}
