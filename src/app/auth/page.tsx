@@ -76,13 +76,13 @@ export default function AuthPage() {
             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">
               {t.auth.email}
             </label>
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-4 py-2.5 rounded-xl border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 text-amber-800 dark:text-amber-300 font-medium focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none transition-all"
-              required
-            />
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="w-full px-4 py-2.5 rounded-xl border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 text-amber-500 dark:text-amber-200 font-semibold focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none transition-all"
+                required
+              />
           </div>
 
           <div>
@@ -94,7 +94,7 @@ export default function AuthPage() {
                 type={showPassword ? 'text' : 'password'}
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full px-4 py-2.5 rounded-xl border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none transition-all pr-12"
+                className="w-full px-4 py-2.5 rounded-xl border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 text-amber-600/60 dark:text-amber-300/40 focus:text-amber-700/80 dark:focus:text-amber-300/60 focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none transition-all pr-12"
                 required
                 minLength={6}
               />
