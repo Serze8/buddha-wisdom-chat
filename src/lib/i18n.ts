@@ -3,7 +3,7 @@ import { Locale } from '@/types'
 type TranslationKeys = {
   nav: {
     home: string
-    chat: string
+    communityChat: string
     characters: string
     episodes: string
     teachings: string
@@ -11,7 +11,6 @@ type TranslationKeys = {
     theses: string
     gallery: string
     quiz: string
-    community: string
     videos: string
     retreats: string
     profile: string
@@ -69,6 +68,10 @@ type TranslationKeys = {
     typing: string
     chooseCharacter: string
     newChat: string
+  }
+  communityChat: {
+    chatTab: string
+    communityTab: string
   }
   about: {
     title: string
@@ -159,9 +162,9 @@ type TranslationKeys = {
 const translations: Record<Locale, TranslationKeys> = {
   en: {
     nav: {
-      home: 'Home', chat: 'Chat', characters: 'Characters', episodes: 'Series',
+      home: 'Home', communityChat: 'Community Chat', characters: 'Characters', episodes: 'Series',
       teachings: 'Dharma & Teachings', zenMartial: 'Zen & Martial Arts', theses: 'Theses', gallery: 'Gallery', quiz: 'Quiz',
-      community: 'Community', videos: 'Videos', retreats: 'Retreats', profile: 'Profile',
+      videos: 'Videos', retreats: 'Retreats', profile: 'Profile',
       about: 'About', contact: 'Contact', admin: 'Admin', donate: 'Donate',
       blockChat: 'Chat', blockLearn: 'From Under the Bodhi Tree', blockFilm: 'Film',
     },
@@ -194,6 +197,10 @@ const translations: Record<Locale, TranslationKeys> = {
       title: 'Chat with Buddha', placeholder: 'Ask the Buddha a question...', send: 'Send',
       listen: 'Listen', stop: 'Stop', autoVoice: 'Auto-voice reply', typing: 'Thinking...',
       chooseCharacter: 'Choose a character', newChat: 'New Chat',
+    },
+    communityChat: {
+      chatTab: 'Chat',
+      communityTab: 'Community',
     },
     about: {
       title: 'About the Project',
@@ -262,9 +269,9 @@ const translations: Record<Locale, TranslationKeys> = {
   },
   ru: {
     nav: {
-      home: 'Главная', chat: 'Чат', characters: 'Герои Будды', episodes: 'Сериал',
+      home: 'Главная', communityChat: 'Чат сообщества', characters: 'Герои Будды', episodes: 'Сериал',
       teachings: 'Дхарма и учения', zenMartial: 'Дзен и боевые искусства', theses: 'Тезисы', gallery: 'Галерея', quiz: 'Викторина',
-      community: 'Сообщество', videos: 'Видео', retreats: 'Ретриты', profile: 'Профиль',
+      videos: 'Видео', retreats: 'Ретриты', profile: 'Профиль',
       about: 'О проекте', contact: 'Контакты', admin: 'Админ', donate: 'Поддержать',
       blockChat: 'Чат', blockLearn: 'Из-под дерева Бодхи', blockFilm: 'Фильм',
     },
@@ -297,6 +304,10 @@ const translations: Record<Locale, TranslationKeys> = {
       title: 'Чат с Буддой', placeholder: 'Задайте вопрос Будде...', send: 'Отправить',
       listen: 'Слушать', stop: 'Стоп', autoVoice: 'Авто-озвучка', typing: 'Думает...',
       chooseCharacter: 'Выберите персонажа', newChat: 'Новый чат',
+    },
+    communityChat: {
+      chatTab: 'Чат',
+      communityTab: 'Сообщество',
     },
     about: {
       title: 'О проекте',
@@ -365,9 +376,9 @@ const translations: Record<Locale, TranslationKeys> = {
   },
   hi: {
     nav: {
-      home: 'होम', chat: 'चैट', characters: 'पात्र', episodes: 'सीरीज़',
+      home: 'होम', communityChat: 'सामुदायिक चैट', characters: 'पात्र', episodes: 'सीरीज़',
       teachings: 'शिक्षाएँ, धर्मचक्र और अभ्यास', zenMartial: 'द्ज़ेन और मार्शल आर्ट्स', theses: 'थीसिस', gallery: 'गैलरी', quiz: 'प्रश्नोत्तरी',
-      community: 'समुदाय', videos: 'वीडियो', retreats: 'रिट्रीट', profile: 'प्रोफ़ाइल',
+      videos: 'वीडियो', retreats: 'रिट्रीट', profile: 'प्रोफ़ाइल',
       about: 'परियोजना के बारे में', contact: 'संपर्क', admin: 'एडमिन', donate: 'समर्थन',
       blockChat: 'चैट', blockLearn: 'बोधि वृक्ष के नीचे', blockFilm: 'फ़िल्म',
     },
@@ -400,6 +411,10 @@ const translations: Record<Locale, TranslationKeys> = {
       title: 'बुद्ध से चैट करें', placeholder: 'बुद्ध से एक प्रश्न पूछें...', send: 'भेजें',
       listen: 'सुनें', stop: 'रोकें', autoVoice: 'ऑटो-वॉयस', typing: 'सोच रहे हैं...',
       chooseCharacter: 'एक पात्र चुनें', newChat: 'नई चैट',
+    },
+    communityChat: {
+      chatTab: 'चैट',
+      communityTab: 'समुदाय',
     },
     about: {
       title: 'परियोजना के बारे में',
@@ -468,9 +483,9 @@ const translations: Record<Locale, TranslationKeys> = {
   },
   es: {
     nav: {
-      home: 'Inicio', chat: 'Chat', characters: 'Personajes', episodes: 'Serie',
+      home: 'Inicio', communityChat: 'Chat comunitario', characters: 'Personajes', episodes: 'Serie',
       teachings: 'Enseñanzas, Dharmachakra y Práctica', zenMartial: 'Zen y Artes Marciales', theses: 'Tesis', gallery: 'Galería', quiz: 'Quiz',
-      community: 'Comunidad', videos: 'Videos', retreats: 'Retiros', profile: 'Perfil',
+      videos: 'Videos', retreats: 'Retiros', profile: 'Perfil',
       about: 'Acerca de', contact: 'Contacto', admin: 'Administrador', donate: 'Donar',
       blockChat: 'Chat', blockLearn: 'Bajo el Árbol Bodhi', blockFilm: 'Película',
     },
@@ -503,6 +518,10 @@ const translations: Record<Locale, TranslationKeys> = {
       title: 'Habla con el Buda', placeholder: 'Haz una pregunta al Buda...', send: 'Enviar',
       listen: 'Escuchar', stop: 'Detener', autoVoice: 'Voz automática', typing: 'Pensando...',
       chooseCharacter: 'Elige un personaje', newChat: 'Nuevo Chat',
+    },
+    communityChat: {
+      chatTab: 'Chat',
+      communityTab: 'Comunidad',
     },
     about: {
       title: 'Acerca de',
@@ -571,9 +590,9 @@ const translations: Record<Locale, TranslationKeys> = {
   },
   fr: {
     nav: {
-      home: 'Accueil', chat: 'Chat', characters: 'Personnages', episodes: 'Série',
+      home: 'Accueil', communityChat: 'Chat communautaire', characters: 'Personnages', episodes: 'Série',
       teachings: 'Enseignements, Dharmachakra et Pratique', zenMartial: 'Zen et Arts Martiaux', theses: 'Thèses', gallery: 'Galerie', quiz: 'Quiz',
-      community: 'Communauté', videos: 'Vidéos', retreats: 'Retraites', profile: 'Profil',
+      videos: 'Vidéos', retreats: 'Retraites', profile: 'Profil',
       about: 'À propos', contact: 'Contact', admin: 'Administrateur', donate: 'Donner',
       blockChat: 'Chat', blockLearn: 'Sous l\'Arbre Bodhi', blockFilm: 'Film',
     },
@@ -606,6 +625,10 @@ const translations: Record<Locale, TranslationKeys> = {
       title: 'Parler avec le Bouddha', placeholder: 'Posez une question au Bouddha...', send: 'Envoyer',
       listen: 'Écouter', stop: 'Arrêter', autoVoice: 'Réponse vocal automatique', typing: 'Réflexion...',
       chooseCharacter: 'Choisissez un personnage', newChat: 'Nouveau Chat',
+    },
+    communityChat: {
+      chatTab: 'Chat',
+      communityTab: 'Communauté',
     },
     about: {
       title: 'À propos',
@@ -674,9 +697,9 @@ const translations: Record<Locale, TranslationKeys> = {
   },
   de: {
     nav: {
-      home: 'Startseite', chat: 'Chat', characters: 'Charaktere', episodes: 'Serie',
+      home: 'Startseite', communityChat: 'Community-Chat', characters: 'Charaktere', episodes: 'Serie',
       teachings: 'Lehren, Dharmachakra und Praxis', zenMartial: 'Zen und Kampfkünste', theses: 'Thesen', gallery: 'Galerie', quiz: 'Quiz',
-      community: 'Gemeinschaft', videos: 'Videos', retreats: 'Rückzüge', profile: 'Profil',
+      videos: 'Videos', retreats: 'Rückzüge', profile: 'Profil',
       about: 'Über uns', contact: 'Kontakt', admin: 'Administrator', donate: 'Spenden',
       blockChat: 'Chat', blockLearn: 'Unter dem Bodhi-Baum', blockFilm: 'Film',
     },
@@ -709,6 +732,10 @@ const translations: Record<Locale, TranslationKeys> = {
       title: 'Mit Buddha chatten', placeholder: 'Stelle Buddha eine Frage...', send: 'Senden',
       listen: 'Hören', stop: 'Stopp', autoVoice: 'Auto-Stimme', typing: 'Nachdenken...',
       chooseCharacter: 'Wähle einen Charakter', newChat: 'Neuer Chat',
+    },
+    communityChat: {
+      chatTab: 'Chat',
+      communityTab: 'Gemeinschaft',
     },
     about: {
       title: 'Über uns',
@@ -777,9 +804,9 @@ const translations: Record<Locale, TranslationKeys> = {
   },
   zh: {
     nav: {
-      home: '首页', chat: '聊天', characters: '角色', episodes: '系列',
+      home: '首页', communityChat: '社区聊天', characters: '角色', episodes: '系列',
       teachings: '教义、法轮与修行', zenMartial: '禅与武术', theses: '论文', gallery: '画廊', quiz: '问答',
-      community: '社区', videos: '视频', retreats: '修行', profile: '个人资料',
+      videos: '视频', retreats: '修行', profile: '个人资料',
       about: '关于', contact: '联系我们', admin: '管理员', donate: '支持',
       blockChat: '聊天', blockLearn: '菩提树下', blockFilm: '电影',
     },
@@ -812,6 +839,10 @@ const translations: Record<Locale, TranslationKeys> = {
       title: '与佛陀聊天', placeholder: '向佛陀提问...', send: '发送',
       listen: '聆听', stop: '停止', autoVoice: '自动语音', typing: '思考中...',
       chooseCharacter: '选择角色', newChat: '新对话',
+    },
+    communityChat: {
+      chatTab: '聊天',
+      communityTab: '社区',
     },
     about: {
       title: '关于',
@@ -880,9 +911,9 @@ const translations: Record<Locale, TranslationKeys> = {
   },
   ja: {
     nav: {
-      home: 'ホーム', chat: 'チャット', characters: 'キャラクター', episodes: 'シリーズ',
+      home: 'ホーム', communityChat: 'コミュニティチャット', characters: 'キャラクター', episodes: 'シリーズ',
       teachings: 'ダルマチャクラと修行', zenMartial: '禅と武道', theses: '論文', gallery: 'ギャラリー', quiz: 'クイズ',
-      community: 'コミュニティ', videos: '動画', retreats: 'リトリート', profile: 'プロフィール',
+      videos: '動画', retreats: 'リトリート', profile: 'プロフィール',
       about: '概要', contact: 'お問い合わせ', admin: '管理者', donate: '寄付',
       blockChat: 'チャット', blockLearn: '菩提樹の下で', blockFilm: '映画',
     },
@@ -915,6 +946,10 @@ const translations: Record<Locale, TranslationKeys> = {
       title: 'ブッダとチャット', placeholder: 'ブッダに質問する...', send: '送信',
       listen: '聞く', stop: '停止', autoVoice: '自動音声', typing: '考え中...',
       chooseCharacter: 'キャラクターを選択', newChat: '新しいチャット',
+    },
+    communityChat: {
+      chatTab: 'チャット',
+      communityTab: 'コミュニティ',
     },
     about: {
       title: '概要',
@@ -983,9 +1018,9 @@ const translations: Record<Locale, TranslationKeys> = {
   },
   pt: {
     nav: {
-      home: 'Início', chat: 'Chat', characters: 'Personagens', episodes: 'Série',
+      home: 'Início', communityChat: 'Chat da comunidade', characters: 'Personagens', episodes: 'Série',
       teachings: 'Ensinos, Dharmachakra e Prática', zenMartial: 'Zen e Artes Marciais', theses: 'Teses', gallery: 'Galeria', quiz: 'Quiz',
-      community: 'Comunidade', videos: 'Vídeos', retreats: 'Retiros', profile: 'Perfil',
+      videos: 'Vídeos', retreats: 'Retiros', profile: 'Perfil',
       about: 'Sobre', contact: 'Contato', admin: 'Admin', donate: 'Apoiar',
       blockChat: 'Chat', blockLearn: 'Sob a Árvore Bodhi', blockFilm: 'Filme',
     },
@@ -1018,6 +1053,10 @@ const translations: Record<Locale, TranslationKeys> = {
       title: 'Converse com o Buda', placeholder: 'Faça uma pergunta ao Buda...', send: 'Enviar',
       listen: 'Ouvir', stop: 'Parar', autoVoice: 'Voz automática', typing: 'Pensando...',
       chooseCharacter: 'Escolha um personagem', newChat: 'Novo Chat',
+    },
+    communityChat: {
+      chatTab: 'Chat',
+      communityTab: 'Comunidade',
     },
     about: {
       title: 'Sobre o Projeto',
@@ -1086,9 +1125,9 @@ const translations: Record<Locale, TranslationKeys> = {
   },
   th: {
     nav: {
-      home: 'หน้าแรก', chat: 'แชท', characters: 'ตัวละคร', episodes: 'ซีรีส์',
+      home: 'หน้าแรก', communityChat: 'แชทชุมชน', characters: 'ตัวละคร', episodes: 'ซีรีส์',
       teachings: 'ธรรมะ ธัมมจักร และการปฏิบัติ', zenMartial: 'เซนและศิลปะการต่อสู้', theses: 'theses', gallery: 'แกลเลอรี', quiz: 'แบบทดสอบ',
-      community: 'ชุมชน', videos: 'วิดีโอ', retreats: 'สถานปฏิบัติธรรม', profile: 'โปรไฟล์',
+      videos: 'วิดีโอ', retreats: 'สถานปฏิบัติธรรม', profile: 'โปรไฟล์',
       about: 'เกี่ยวกับ', contact: 'ติดต่อ', admin: 'แอดมิน', donate: 'สนับสนุน',
       blockChat: 'แชท', blockLearn: 'ใต้ต้นโพธิ์', blockFilm: 'ภาพยนตร์',
     },
@@ -1121,6 +1160,10 @@ const translations: Record<Locale, TranslationKeys> = {
       title: 'แชทกับพระพุทธเจ้า', placeholder: 'ถามคำถามกับพระพุทธเจ้า...', send: 'ส่ง',
       listen: 'ฟัง', stop: 'หยุด', autoVoice: 'เสียงอัตโนมัติ', typing: 'กำลังคิด...',
       chooseCharacter: 'เลือกตัวละคร', newChat: 'แชทใหม่',
+    },
+    communityChat: {
+      chatTab: 'แชท',
+      communityTab: 'ชุมชน',
     },
     about: {
       title: 'เกี่ยวกับโครงการ',
@@ -1189,9 +1232,9 @@ const translations: Record<Locale, TranslationKeys> = {
   },
   vi: {
     nav: {
-      home: 'Trang chủ', chat: 'Trò chuyện', characters: 'Nhân vật', episodes: 'Phim',
+      home: 'Trang chủ', communityChat: 'Trò chuyện cộng đồng', characters: 'Nhân vật', episodes: 'Phim',
       teachings: 'Giáo lý, Pháp Luân và Thực hành', zenMartial: 'Thiền và Võ thuật', theses: 'Luận đề', gallery: 'Thư viện ảnh', quiz: 'Trắc nghiệm',
-      community: 'Cộng đồng', videos: 'Video', retreats: 'Khóa tu', profile: 'Hồ sơ',
+      videos: 'Video', retreats: 'Khóa tu', profile: 'Hồ sơ',
       about: 'Giới thiệu', contact: 'Liên hệ', admin: 'Quản trị', donate: 'Hỗ trợ',
       blockChat: 'Trò chuyện', blockLearn: 'Dưới cây Bồ Đề', blockFilm: 'Phim',
     },
@@ -1224,6 +1267,10 @@ const translations: Record<Locale, TranslationKeys> = {
       title: 'Trò chuyện với Phật', placeholder: 'Đặt câu hỏi với Phật...', send: 'Gửi',
       listen: 'Nghe', stop: 'Dừng', autoVoice: 'Tự động đọc', typing: 'Đang suy nghĩ...',
       chooseCharacter: 'Chọn nhân vật', newChat: 'Cuộc trò chuyện mới',
+    },
+    communityChat: {
+      chatTab: 'Trò chuyện',
+      communityTab: 'Cộng đồng',
     },
     about: {
       title: 'Giới thiệu',
@@ -1292,9 +1339,9 @@ const translations: Record<Locale, TranslationKeys> = {
   },
   ko: {
     nav: {
-      home: '홈', chat: '채팅', characters: '인물', episodes: '시리즈',
+      home: '홈', communityChat: '커뮤니티 채팅', characters: '인물', episodes: '시리즈',
       teachings: '가르침, 다르마차크라와 수행', zenMartial: '선과 무술', theses: '논문', gallery: '갤러리', quiz: '퀴즈',
-      community: '커뮤니티', videos: '영상', retreats: '수련회', profile: '프로필',
+      videos: '영상', retreats: '수련회', profile: '프로필',
       about: '소개', contact: '문의', admin: '관리자', donate: '후원',
       blockChat: '채팅', blockLearn: '보리수 아래서', blockFilm: '영화',
     },
@@ -1327,6 +1374,10 @@ const translations: Record<Locale, TranslationKeys> = {
       title: '붓다와 채팅', placeholder: '붓다에게 질문하세요...', send: '보내기',
       listen: '듣기', stop: '중지', autoVoice: '자동 음성', typing: '생각 중...',
       chooseCharacter: '인물 선택', newChat: '새 채팅',
+    },
+    communityChat: {
+      chatTab: '채팅',
+      communityTab: '커뮤니티',
     },
     about: {
       title: '소개',
@@ -1395,9 +1446,9 @@ const translations: Record<Locale, TranslationKeys> = {
   },
   id: {
     nav: {
-      home: 'Beranda', chat: 'Obrolan', characters: 'Karakter', episodes: 'Serial',
+      home: 'Beranda', communityChat: 'Obrolan komunitas', characters: 'Karakter', episodes: 'Serial',
       teachings: 'Ajaran, Dharmachakra & Praktik', zenMartial: 'Zen dan Seni Bela Diri', theses: 'Tesis',
-      community: 'Komunitas', videos: 'Video', retreats: 'Retret', profile: 'Profil',
+      videos: 'Video', retreats: 'Retret', profile: 'Profil',
       gallery: 'Galeri', quiz: 'Kuis',
       about: 'Tentang', contact: 'Kontak', admin: 'Admin', donate: 'Dukung',
       blockChat: 'Obrolan', blockLearn: 'Di Bawah Pohon Bodhi', blockFilm: 'Film',
@@ -1431,6 +1482,10 @@ const translations: Record<Locale, TranslationKeys> = {
       title: 'Obrolan dengan Buddha', placeholder: 'Ajukan pertanyaan ke Buddha...', send: 'Kirim',
       listen: 'Dengar', stop: 'Berhenti', autoVoice: 'Suara otomatis', typing: 'Berpikir...',
       chooseCharacter: 'Pilih karakter', newChat: 'Obrolan Baru',
+    },
+    communityChat: {
+      chatTab: 'Obrolan',
+      communityTab: 'Komunitas',
     },
     about: {
       title: 'Tentang Proyek',
@@ -1499,9 +1554,9 @@ const translations: Record<Locale, TranslationKeys> = {
   },
   ms: {
     nav: {
-      home: 'Laman Utama', chat: 'Sembang', characters: 'Watak', episodes: 'Siri',
+      home: 'Laman Utama', communityChat: 'Sembang komuniti', characters: 'Watak', episodes: 'Siri',
       teachings: 'Ajaran, Dharmachakra & Amalan', zenMartial: 'Zen dan Seni Mempertahankan Diri', theses: 'Tesis',
-      community: 'Komuniti', videos: 'Video', retreats: 'Retreat', profile: 'Profil',
+      videos: 'Video', retreats: 'Retreat', profile: 'Profil',
       gallery: 'Galeri', quiz: 'Kuiz',
       about: 'Tentang', contact: 'Hubungi', admin: 'Admin', donate: 'Sokong',
       blockChat: 'Sembang', blockLearn: 'Di Bawah Pokok Bodhi', blockFilm: 'Filem',
@@ -1535,6 +1590,10 @@ const translations: Record<Locale, TranslationKeys> = {
       title: 'Sembang dengan Buddha', placeholder: 'Tanya soalan kepada Buddha...', send: 'Hantar',
       listen: 'Dengar', stop: 'Berhenti', autoVoice: 'Suara automatik', typing: 'Berpikir...',
       chooseCharacter: 'Pilih watak', newChat: 'Sembang Baru',
+    },
+    communityChat: {
+      chatTab: 'Sembang',
+      communityTab: 'Komuniti',
     },
     about: {
       title: 'Tentang Proyek',
@@ -1603,9 +1662,9 @@ const translations: Record<Locale, TranslationKeys> = {
   },
   si: {
     nav: {
-      home: 'මුල් පිටුව', chat: 'කතාබහ', characters: 'චරිත', episodes: 'ශ්‍රේණිය',
+      home: 'මුල් පිටුව', communityChat: 'ප්‍රජා කතාබහ', characters: 'චරිත', episodes: 'ශ්‍රේණිය',
       teachings: 'උපදේශ, ධර්මචක්‍ර සහ ප්‍රායෝගික', zenMartial: 'දේශන් සහ සටන් කලා', theses: 'න්‍යායන්', gallery: 'ගැලරිය', quiz: 'ප්‍රශ්නාවලිය',
-      community: 'ප්‍රජාව', videos: 'වීඩියෝ', retreats: 'ධ්‍යාන මධ්‍යස්ථාන', profile: 'පැතිකඩ',
+      videos: 'වීඩියෝ', retreats: 'ධ්‍යාන මධ්‍යස්ථාන', profile: 'පැතිකඩ',
       about: 'පිළිබඳව', contact: 'සම්බන්ධ වන්න', admin: 'පරිපාලක', donate: 'සහාය වන්න',
       blockChat: 'කතාබහ', blockLearn: 'බෝධි වෘක්ෂය යටතේ', blockFilm: 'චිත්‍රපටය',
     },
@@ -1638,6 +1697,10 @@ const translations: Record<Locale, TranslationKeys> = {
       title: 'බුදුන් වහන්සේ සමඟ කතා කරන්න', placeholder: 'බුදුන් වහන්සේට ප්‍රශ්නයක් අසන්න...', send: 'යවන්න',
       listen: 'ඇසුම', stop: 'නවත්වන්න', autoVoice: 'ස්වයංක්‍රීය හඬ', typing: 'සිතමින්...',
       chooseCharacter: 'චරිතයක් තෝරන්න', newChat: 'නව කතාබහක්',
+    },
+    communityChat: {
+      chatTab: 'කතාබහ',
+      communityTab: 'ප්‍රජාව',
     },
     about: {
       title: 'ප්‍රකාශය ගැන',
@@ -1706,9 +1769,9 @@ const translations: Record<Locale, TranslationKeys> = {
   },
   my: {
     nav: {
-      home: 'ပင်မစာမျက်နှာ', chat: 'စကားပြော', characters: 'ဇာတ်ကောင်', episodes: 'စီးရီး',
+      home: 'ပင်မစာမျက်နှာ', communityChat: 'ရပ်ရွာချတ်', characters: 'ဇာတ်ကောင်', episodes: 'စီးရီး',
       teachings: 'သင်ကြားမှုများ ဓမ္မစကြာနှင့် အားထုတ်မှု', zenMartial: 'ဇင်နှင့် တိုက်ခိုက်ရေး', theses: 'စာတမ်းများ', gallery: 'ပုံတန်း', quiz: 'မေးခွန်း',
-      community: 'လူမှုအသိုက်', videos: 'ဗီဒီယို', retreats: 'တရားအားထုတ်ရာ', profile: 'ကိုယ်ရေး',
+      videos: 'ဗီဒီယို', retreats: 'တရားအားထုတ်ရာ', profile: 'ကိုယ်ရေး',
       about: 'အကြောင်းအရာ', contact: 'ဆက်သွယ်ရန်', admin: 'စီမံခန့်ခွဲသူ', donate: 'ထောက်ပံ့',
       blockChat: 'စကားပြော', blockLearn: 'ဘုရားသစ်ပင်အောက်တွင်', blockFilm: 'ရုပ်ရှင်',
     },
@@ -1741,6 +1804,10 @@ const translations: Record<Locale, TranslationKeys> = {
       title: 'ဗုဒ္ဓနှင့် စကားပြောပါ', placeholder: 'ဗုဒ္ဓအား မေးခွန်းတစ်ခုမေးပါ...', send: 'ပို့ဆောင်ရန်',
       listen: 'နားထောင်', stop: 'ရပ်တန့်', autoVoice: 'အလိုအလျောက်အသံ', typing: 'စဉ်းစားနေသည်...',
       chooseCharacter: 'ဇာတ်ကောင်ရွေးပါ', newChat: 'အသစ်စကားပြောပါ',
+    },
+    communityChat: {
+      chatTab: 'ချတ်',
+      communityTab: 'ရပ်ရွာ',
     },
     about: {
       title: 'စီမံကိန်းအကြောင်း',
@@ -1809,9 +1876,9 @@ const translations: Record<Locale, TranslationKeys> = {
   },
   ne: {
     nav: {
-      home: 'गृहपृष्ठ', chat: 'च्याट', characters: 'पात्र', episodes: 'श्रृंखला',
+      home: 'गृहपृष्ठ', communityChat: 'सामुदायिक च्याट', characters: 'पात्र', episodes: 'श्रृंखला',
       teachings: 'शिक्षाहरू, धर्मचक्र र अभ्यास', zenMartial: 'जेन र मार्शल आर्ट्स', theses: 'थीसिस', gallery: 'ग्यालरी', quiz: 'प्रश्नोत्तरी',
-      community: 'समुदाय', videos: 'भिडियो', retreats: 'ध्यान केन्द्र', profile: 'प्रोफाइल',
+      videos: 'भिडियो', retreats: 'ध्यान केन्द्र', profile: 'प्रोफाइल',
       about: 'बारेमा', contact: 'सम्पर्क', admin: 'प्रशासक', donate: 'सहयोग',
       blockChat: 'च्याट', blockLearn: 'बोधिवृक्ष तल', blockFilm: 'चलचित्र',
     },
@@ -1844,6 +1911,10 @@ const translations: Record<Locale, TranslationKeys> = {
       title: 'बुद्धसँग च्याट गर्नुहोस्', placeholder: 'बुद्धलाई प्रश्न सोध्नुहोस्...', send: 'पठाउनुहोस्',
       listen: 'सुन्नुहोस्', stop: 'रोक्नुहोस्', autoVoice: 'स्वचालित आवाज', typing: 'सोच्दै...',
       chooseCharacter: 'पात्र छान्नुहोस्', newChat: 'नयाँ च्याट',
+    },
+    communityChat: {
+      chatTab: 'च्याट',
+      communityTab: 'समुदाय',
     },
     about: {
       title: 'परियोजना बारेमा',
@@ -1912,9 +1983,9 @@ const translations: Record<Locale, TranslationKeys> = {
   },
   bo: {
     nav: {
-      home: 'གཙོ་ངོས།', chat: 'སྐད་ཆ།', characters: 'སྒྲུང་མི།', episodes: 'སྒྲུང་།',
+      home: 'གཙོ་ངོས།', communityChat: 'སྤྱི་ཚོགས་གླེང་མོལ།', characters: 'སྒྲུང་མི།', episodes: 'སྒྲུང་།',
       teachings: 'སྟོན་པ། ཆོས་ཀྱི་འཁོར་ལོ། སྒོམ།', zenMartial: 'བསམ་གཏན་དང་འཐབ་རྩལ།', theses: 'དཔྱད་རྩོམ།', gallery: 'པར་ཁུལ།', quiz: 'དྲི་བ།',
-      community: 'ཚོགས་པ།', videos: 'བརྙན་འཕྲིན།', retreats: 'སྒོམ་གནས།', profile: 'ངོ་སྤྲོད།',
+      videos: 'བརྙན་འཕྲིན།', retreats: 'སྒོམ་གནས།', profile: 'ངོ་སྤྲོད།',
       about: 'སྐོར།', contact: 'འབྲེལ་བ།', admin: 'དོ་དམ།', donate: 'རོགས་རམ།',
       blockChat: 'སྐད་ཆ།', blockLearn: 'བྱང་ཆུབ་ཤིང་འོག', blockFilm: 'གློག་བརྙན།',
     },
@@ -1947,6 +2018,10 @@ const translations: Record<Locale, TranslationKeys> = {
       title: 'བཅོམ་ལྡན་འདས་དང་སྐད་ཆ།', placeholder: 'བཅོམ་ལྡན་འདས་ལ་དྲི་བ་འདྲི།', send: 'སྐྱེལ།',
       listen: 'ཉན།', stop: 'མཚམས་འཇོག', autoVoice: 'རང་འགུལ་སྒྲ།', typing: 'བསམ་བློ་གཏོད་བཞིན་པ།',
       chooseCharacter: 'སྒྲུང་མི་འདེམ།', newChat: 'སྐད་ཆ་གསར་པ།',
+    },
+    communityChat: {
+      chatTab: 'གླེང་མོལ།',
+      communityTab: 'སྤྱི་ཚོགས།',
     },
     about: {
       title: 'ལས་གཞིའི་སྐོར།',

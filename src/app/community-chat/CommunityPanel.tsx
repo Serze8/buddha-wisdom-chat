@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { useLanguage } from '@/contexts/LanguageContext'
 import { createClient } from '@/lib/supabase/client'
-import { Send, Loader2, Heart, MessageCircle } from 'lucide-react'
+import { Loader2, Heart, MessageCircle } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import PromoBanner from '@/components/ui/PromoBanner'
@@ -19,7 +19,7 @@ interface Post {
   profiles?: { display_name: string | null } | null
 }
 
-export default function CommunityPageClient() {
+export default function CommunityPanel() {
   const { t, locale } = useLanguage()
   const [posts, setPosts] = useState<Post[]>([])
   const [newTitle, setNewTitle] = useState('')
@@ -84,11 +84,7 @@ export default function CommunityPageClient() {
   }
 
   return (
-    <div className="max-w-3xl mx-auto px-4 py-12">
-      <h1 className="font-[var(--font-cormorant)] text-4xl font-bold text-amber-900 dark:text-amber-100 text-center mb-10">
-        {t.nav.communityChat}
-      </h1>
-
+    <div>
       {userId && (
         <form onSubmit={handleSubmit} className="bg-white dark:bg-gray-900 rounded-2xl shadow border border-gray-200 dark:border-gray-700 p-6 mb-8 space-y-4">
           <input

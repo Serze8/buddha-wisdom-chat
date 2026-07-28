@@ -18,6 +18,7 @@ const PUBLIC_PAGES = [
   '/videos',
   '/retreats',
   '/community',
+  '/community-chat',
   '/donate',
 ]
 

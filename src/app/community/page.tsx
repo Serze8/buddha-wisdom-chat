@@ -1,8 +1,5 @@
-import { generatePageMetadata } from '@/lib/seo'
-import CommunityPageClient from './CommunityPageClient'
-
-export const metadata = generatePageMetadata('/community')
+import { redirect } from 'next/navigation'
 
 export default function CommunityPage() {
-  return <CommunityPageClient />
+  redirect('/community-chat')
 }

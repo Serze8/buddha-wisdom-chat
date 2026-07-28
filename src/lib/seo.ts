@@ -88,6 +88,11 @@ const pages: Record<string, { title: string; description: string; keywords: stri
     description: 'A curated collection of martial arts films where fighting techniques intertwine with spiritual practices and Buddhist philosophy.',
     keywords: ['martial arts films', 'kung fu movies', 'shaolin', 'buddhist cinema', 'wuxia', 'action films'],
   },
+  'community-chat': {
+    title: 'Community Chat — Buddha\'s Wisdom Chat',
+    description: 'Chat with AI characters from the Buddha TV series and connect with the Buddhist community. Ask questions, share insights, and discuss teachings.',
+    keywords: ['community chat', 'buddhist community', 'AI chat buddha', 'sangha', 'dhamma discussion'],
+  },
   'chakravartin': {
     title: 'Chakravartin — Emperor Ashoka & the Spread of Dharma',
     description: 'The 442-episode Chinese historical drama about Emperor Ashoka who united India under the Dharma and spread Buddhist teachings across Asia.',
