@@ -17,19 +17,20 @@ export async function POST(request: NextRequest) {
     parts: [{ text: m.content }],
   }))
 
-  // Discover available models
-  const modelListUrl = `https://generativelanguage.googleapis.com/v1beta/models?key=${apiKey}`
+  // Discover available models using Bearer auth
   let availableModels: string[] = []
-  try {
-    const mlRes = await fetch(modelListUrl, { headers: { 'Content-Type': 'application/json' } })
-    if (mlRes.ok) {
-      const mlData = await mlRes.json()
-      availableModels = (mlData.models || [])
-        .filter((m: any) => m.supportedMethods?.includes('generateContent'))
-        .map((m: any) => m.name.replace('models/', ''))
-    }
-  } catch {}
-
+  for (const modelUrl of ['https://generativelanguage.googleapis.com/v1beta/models', 'https://generativelanguage.googleapis.com/v1/models']) {
+    try {
+      const mlRes = await fetch(modelUrl, { headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${apiKey}` } })
+      if (mlRes.ok) {
+        const mlData = await mlRes.json()
+        availableModels = (mlData.models || [])
+          .filter((m: any) => m.supportedMethods?.includes('generateContent'))
+          .map((m: any) => m.name.replace('models/', ''))
+        break
+      }
+    } catch {}
+  }
   const preferredModels = availableModels.length > 0
     ? availableModels
     : ['gemini-2.0-flash', 'gemini-2.0-flash-001', 'gemini-1.5-flash', 'gemini-1.5-pro', 'gemini-pro', 'gemini-ultra']
@@ -38,8 +39,6 @@ export async function POST(request: NextRequest) {
   let lastModel = 'none'
   let lastError = ''
   const authModes = [
-    (m: string) => ({ url: `https://generativelanguage.googleapis.com/v1beta/models/${m}:generateContent?key=${apiKey}`, headers: { 'Content-Type': 'application/json' } }),
-    (m: string) => ({ url: `https://generativelanguage.googleapis.com/v1/models/${m}:generateContent?key=${apiKey}`, headers: { 'Content-Type': 'application/json' } }),
     (m: string) => ({ url: `https://generativelanguage.googleapis.com/v1beta/models/${m}:generateContent`, headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${apiKey}` } }),
     (m: string) => ({ url: `https://generativelanguage.googleapis.com/v1/models/${m}:generateContent`, headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${apiKey}` } }),
   ]
