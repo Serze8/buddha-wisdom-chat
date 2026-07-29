@@ -132,7 +132,10 @@ export default function ChatPanel() {
         }),
       })
 
-      if (!res.ok) throw new Error('Chat failed')
+      if (!res.ok) {
+        const errData = await res.json().catch(() => ({}))
+        throw new Error(errData.detail || errData.error || 'Chat failed')
+      }
 
       const reader = res.body?.getReader()
       const decoder = new TextDecoder()
@@ -168,8 +171,9 @@ export default function ChatPanel() {
       if (autoVoice && assistantMsg) {
         speak(assistantMsg, char.id)
       }
-    } catch {
-      setMessages(prev => [...prev, { role: 'assistant', content: '...' }])
+    } catch (err: any) {
+      const errorMsg = err.message || '...'
+      setMessages(prev => [...prev, { role: 'assistant', content: errorMsg }])
     } finally {
       setLoading(false)
     }
