@@ -19,6 +19,8 @@ const PUBLIC_PAGES = [
   '/retreats',
   '/community',
   '/community-chat',
+  '/auth/update-password',
+  '/auth/callback',
   '/donate',
 ]
 

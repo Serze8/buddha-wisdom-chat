@@ -98,6 +98,11 @@ const pages: Record<string, { title: string; description: string; keywords: stri
     description: 'The 442-episode Chinese historical drama about Emperor Ashoka who united India under the Dharma and spread Buddhist teachings across Asia.',
     keywords: ['chakravartin', 'emperor ashoka', 'ashoka', 'buddhist history', 'dharma', 'maurya empire', 'chinese drama'],
   },
+  'auth/update-password': {
+    title: 'Update Password — Buddha\'s Wisdom Chat',
+    description: 'Set a new password for your account.',
+    keywords: ['password reset', 'update password'],
+  },
 }
 
 export function generatePageMetadata(path: string): Metadata {
