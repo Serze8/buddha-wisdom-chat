@@ -103,6 +103,11 @@ const pages: Record<string, { title: string; description: string; keywords: stri
     description: 'Set a new password for your account.',
     keywords: ['password reset', 'update password'],
   },
+  'articles/audio-intuitionist': {
+    title: 'Audioinductionist — Buddha\'s Wisdom Chat',
+    description: 'An article exploring the concept of audioinductionism through the lens of Buddhist practice: listening as practice, dreams as guidance, and dawn as enlightenment.',
+    keywords: ['audioinductionist', 'induction', 'buddhist practice', 'listening', 'dream interpretation', 'dawn', 'enlightenment'],
+  },
 }
 
 export function generatePageMetadata(path: string): Metadata {
