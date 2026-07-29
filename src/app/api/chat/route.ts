@@ -22,12 +22,12 @@ export async function POST(request: NextRequest) {
   let lastModel = 'none'
   let lastError = ''
   const authModes = [
-    (m: string) => ({ url: `https://generativelanguage.googleapis.com/v1/models/${m}:generateContent?key=${apiKey}`, headers: { 'Content-Type': 'application/json' } }),
-    (m: string) => ({ url: `https://generativelanguage.googleapis.com/v1/models/${m}:generateContent`, headers: { 'Content-Type': 'application/json', 'X-Goog-Api-Key': apiKey } }),
     (m: string) => ({ url: `https://generativelanguage.googleapis.com/v1beta/models/${m}:generateContent?key=${apiKey}`, headers: { 'Content-Type': 'application/json' } }),
+    (m: string) => ({ url: `https://generativelanguage.googleapis.com/v1/models/${m}:generateContent?key=${apiKey}`, headers: { 'Content-Type': 'application/json' } }),
     (m: string) => ({ url: `https://generativelanguage.googleapis.com/v1beta/models/${m}:generateContent`, headers: { 'Content-Type': 'application/json', 'X-Goog-Api-Key': apiKey } }),
+    (m: string) => ({ url: `https://generativelanguage.googleapis.com/v1/models/${m}:generateContent`, headers: { 'Content-Type': 'application/json', 'X-Goog-Api-Key': apiKey } }),
   ]
-  outer: for (const model of ['gemini-2.0-flash-001', 'gemini-2.0-flash', 'gemini-1.5-flash-002', 'gemini-1.5-flash']) {
+  outer: for (const model of ['gemini-2.5-flash', 'gemini-2.5-pro', 'gemini-2.0-flash-001', 'gemini-2.0-flash', 'gemini-1.5-flash-002', 'gemini-1.5-flash']) {
     for (const auth of authModes) {
       lastModel = `${auth(model).url}`
       response = await fetch(auth(model).url, {
