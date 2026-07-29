@@ -21,10 +21,10 @@ export async function POST(request: NextRequest) {
   let response
   let lastModel = 'none'
   let lastError = ''
-  for (const [apiVer, model] of [['v1beta', 'gemini-2.0-flash'], ['v1', 'gemini-2.0-flash'], ['v1', 'gemini-1.5-flash']]) {
-    lastModel = `${apiVer}/${model}`
+  for (const model of ['gemini-2.0-flash-001', 'gemini-2.0-flash', 'gemini-2.0-flash-lite', 'gemini-1.5-flash-002', 'gemini-1.5-flash', 'gemini-1.5-pro']) {
+    lastModel = model
     response = await fetch(
-      `https://generativelanguage.googleapis.com/${apiVer}/models/${model}:generateContent?key=${apiKey}`,
+      `https://generativelanguage.googleapis.com/v1/models/${model}:generateContent?key=${apiKey}`,
       {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
