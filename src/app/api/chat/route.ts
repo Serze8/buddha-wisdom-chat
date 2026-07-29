@@ -21,13 +21,18 @@ export async function POST(request: NextRequest) {
   let response
   let lastModel = 'none'
   let lastError = ''
-  for (const model of ['gemini-2.0-flash-001', 'gemini-2.0-flash', 'gemini-2.0-flash-lite', 'gemini-1.5-flash-002', 'gemini-1.5-flash', 'gemini-1.5-pro']) {
-    lastModel = model
-    response = await fetch(
-      `https://generativelanguage.googleapis.com/v1/models/${model}:generateContent?key=${apiKey}`,
-      {
+  const authModes = [
+    (m: string) => ({ url: `https://generativelanguage.googleapis.com/v1/models/${m}:generateContent?key=${apiKey}`, headers: { 'Content-Type': 'application/json' } }),
+    (m: string) => ({ url: `https://generativelanguage.googleapis.com/v1/models/${m}:generateContent`, headers: { 'Content-Type': 'application/json', 'X-Goog-Api-Key': apiKey } }),
+    (m: string) => ({ url: `https://generativelanguage.googleapis.com/v1beta/models/${m}:generateContent?key=${apiKey}`, headers: { 'Content-Type': 'application/json' } }),
+    (m: string) => ({ url: `https://generativelanguage.googleapis.com/v1beta/models/${m}:generateContent`, headers: { 'Content-Type': 'application/json', 'X-Goog-Api-Key': apiKey } }),
+  ]
+  outer: for (const model of ['gemini-2.0-flash-001', 'gemini-2.0-flash', 'gemini-1.5-flash-002', 'gemini-1.5-flash']) {
+    for (const auth of authModes) {
+      lastModel = `${auth(model).url}`
+      response = await fetch(auth(model).url, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: auth(model).headers,
         body: JSON.stringify({
           system_instruction: {
             parts: [{ text: systemPrompt + langInstruction }],
@@ -39,12 +44,10 @@ export async function POST(request: NextRequest) {
             maxOutputTokens: 2048,
           },
         }),
-      }
-    )
-    if (!response.ok) {
+      })
+      if (response.ok) break outer
       lastError = await response.text().catch(() => '') ?? ''
     }
-    if (response.ok) break
   }
 
   if (!response || !response.ok) {
