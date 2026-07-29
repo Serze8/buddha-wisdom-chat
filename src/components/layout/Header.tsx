@@ -5,11 +5,12 @@ import { usePathname } from 'next/navigation'
 import { useLanguage } from '@/contexts/LanguageContext'
 import LanguageSwitcher from './LanguageSwitcher'
 import { cn } from '@/lib/utils'
-import { Menu, X, LogOut, User } from 'lucide-react'
+import { Menu, X, LogOut, User, Shield } from 'lucide-react'
 import Image from 'next/image'
 import { useState } from 'react'
 import { createClient } from '@/lib/supabase/client'
 import { useEffect } from 'react'
+import { isAdmin } from '@/lib/admin'
 
 const navItems = [
   'home', 'communityChat', 'characters', 'episodes', 'teachings', 'zenMartial',
@@ -82,6 +83,12 @@ export default function Header() {
 
           {user ? (
             <div className="flex items-center gap-2">
+              {isAdmin(user.email) && (
+                <Link href="/admin/translations" className="hidden sm:flex items-center gap-1 px-3 py-1.5 rounded-lg bg-amber-600/20 hover:bg-amber-600/30 text-sm text-amber-400 transition-colors">
+                  <Shield className="w-4 h-4" />
+                  Admin
+                </Link>
+              )}
               <Link href="/profile" className="hidden sm:flex items-center gap-1 px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-sm text-amber-100 transition-colors">
                 <User className="w-4 h-4" />
               </Link>
@@ -128,12 +135,23 @@ export default function Header() {
             </Link>
           ))}
           {user && (
-            <button
-              onClick={handleLogout}
-              className="w-full text-left px-3 py-2 rounded-lg text-sm text-red-300 hover:bg-red-900/20 mt-2"
-            >
-              {t.nav.profile} → Logout
-            </button>
+            <>
+              {isAdmin(user.email) && (
+                <Link
+                  href="/admin/translations"
+                  onClick={() => setMobileOpen(false)}
+                  className="block px-3 py-2 rounded-lg text-sm text-amber-400 hover:bg-amber-800/30"
+                >
+                  ⚔️ Admin
+                </Link>
+              )}
+              <button
+                onClick={handleLogout}
+                className="w-full text-left px-3 py-2 rounded-lg text-sm text-red-300 hover:bg-red-900/20 mt-2"
+              >
+                {t.nav.profile} → Logout
+              </button>
+            </>
           )}
         </nav>
       )}
