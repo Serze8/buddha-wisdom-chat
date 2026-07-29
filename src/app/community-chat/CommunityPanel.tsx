@@ -92,14 +92,14 @@ export default function CommunityPanel() {
             value={newTitle}
             onChange={(e) => setNewTitle(e.target.value)}
             placeholder={locale === 'ru' ? 'Заголовок поста...' : 'Post title...'}
-            className="w-full px-4 py-2.5 rounded-xl border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none"
+            className="w-full px-4 py-2.5 rounded-xl border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 text-amber-800 dark:text-amber-200 focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none"
             required
           />
           <textarea
             value={newContent}
             onChange={(e) => setNewContent(e.target.value)}
             placeholder={locale === 'ru' ? 'Расскажите что-нибудь...' : 'Share something...'}
-            className="w-full px-4 py-2.5 rounded-xl border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none resize-none"
+            className="w-full px-4 py-2.5 rounded-xl border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 text-amber-800 dark:text-amber-200 focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none resize-none"
             rows={3}
           />
           <input
@@ -107,7 +107,7 @@ export default function CommunityPanel() {
             value={newMediaUrl}
             onChange={(e) => setNewMediaUrl(e.target.value)}
             placeholder={locale === 'ru' ? 'Ссылка на видео/изображение (необязательно)' : 'Video/image link (optional)'}
-            className="w-full px-4 py-2.5 rounded-xl border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none"
+            className="w-full px-4 py-2.5 rounded-xl border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 text-amber-800 dark:text-amber-200 focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none"
           />
           <button
             type="submit"
@@ -149,13 +149,13 @@ export default function CommunityPanel() {
                 {(post as any).profiles?.display_name?.[0]?.toUpperCase() || '?'}
               </div>
               <div>
-                <p className="font-medium text-gray-900 dark:text-gray-100 text-sm">
+                <p className="font-medium text-amber-800 dark:text-amber-200 text-sm">
                   {(post as any).profiles?.display_name || 'Anonymous'}
                 </p>
                 <p className="text-xs text-gray-500 dark:text-gray-400">{formatDate(post.created_at)}</p>
               </div>
             </div>
-            <h3 className="font-bold text-gray-900 dark:text-gray-100 mb-2">{post.title}</h3>
+            <h3 className="font-bold text-amber-800 dark:text-amber-200 mb-2">{post.title}</h3>
             {post.content && <p className="text-gray-600 dark:text-gray-300 text-sm mb-3">{post.content}</p>}
             {post.media_url && post.media_type === 'image' && (
               <div className="relative h-48 rounded-xl overflow-hidden mb-3">

@@ -205,7 +205,7 @@ export default function ChatPanel() {
               className="group bg-white dark:bg-gray-900 rounded-2xl shadow border border-gray-200 dark:border-gray-700 p-6 hover:shadow-lg hover:border-amber-300 transition-all text-center"
             >
               <span className="text-4xl block mb-3">{c.emoji}</span>
-              <h3 className="font-[var(--font-cormorant)] text-lg font-bold text-gray-900 dark:text-gray-100">
+              <h3 className="font-[var(--font-cormorant)] text-lg font-bold text-amber-800 dark:text-amber-200">
                 {(c.name as any)[locale] || c.name.en}
               </h3>
             </button>
@@ -225,7 +225,7 @@ export default function ChatPanel() {
         </button>
         <span className="text-3xl">{char.emoji}</span>
         <div>
-          <h2 className="font-bold text-gray-900 dark:text-gray-100">
+          <h2 className="font-bold text-amber-800 dark:text-amber-200">
             {(char.name as any)[locale] || char.name.en}
           </h2>
         </div>
@@ -266,17 +266,21 @@ export default function ChatPanel() {
             <div className={`max-w-[80%] rounded-2xl px-4 py-3 ${
               msg.role === 'user'
                 ? 'bg-amber-700 text-white rounded-br-md'
-                : 'bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-900 dark:text-gray-100 rounded-bl-md'
+                : 'bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-amber-800 dark:text-amber-200 rounded-bl-md'
             }`}>
               <p className="whitespace-pre-wrap">{msg.content}</p>
               {msg.role === 'assistant' && (
-                <div className="flex gap-2 mt-2 pt-2 border-t border-gray-100 dark:border-gray-700">
-                  <button
-                    onClick={() => speak(msg.content, char.id)}
-                    className="text-xs text-amber-600 dark:text-amber-400 hover:underline flex items-center gap-1"
-                  >
-                    <Volume2 className="w-3 h-3" /> {t.chat.listen}
-                  </button>
+                <div className="flex items-center gap-2 mt-2 pt-2 border-t border-gray-100 dark:border-gray-700">
+                  {loading && i === messages.length - 1 ? (
+                    <span className="text-xs text-amber-500 animate-pulse">• • •</span>
+                  ) : (
+                    <button
+                      onClick={() => speak(msg.content, char.id)}
+                      className="text-xs text-amber-600 dark:text-amber-400 hover:underline flex items-center gap-1"
+                    >
+                      <Volume2 className="w-3 h-3" /> {t.chat.listen}
+                    </button>
+                  )}
                 </div>
               )}
             </div>
@@ -299,7 +303,7 @@ export default function ChatPanel() {
             value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder={t.chat.placeholder}
-            className="flex-1 px-4 py-2.5 rounded-xl border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 text-gray-900 dark:text-gray-100 focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none"
+            className="flex-1 px-4 py-2.5 rounded-xl border border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800 text-amber-800 dark:text-amber-200 focus:ring-2 focus:ring-amber-500 focus:border-transparent outline-none"
             disabled={loading}
           />
           <button

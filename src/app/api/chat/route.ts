@@ -1,14 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { createClient } from '@/lib/supabase/server'
 
 export async function POST(request: NextRequest) {
-  const supabase = await createClient()
-  const { data: { user } } = await supabase.auth.getUser()
-
-  if (!user) {
-    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
-  }
-
   const { characterId, characterName, systemPrompt, messages, language } = await request.json()
 
   const apiKey = process.env.GOOGLE_AI_API_KEY
@@ -50,12 +42,6 @@ export async function POST(request: NextRequest) {
 
   const data = await response.json()
   const text = data.candidates?.[0]?.content?.parts?.[0]?.text || '...'
-
-  // Save to database
-  await supabase.from('chat_messages').insert([
-    { user_id: user.id, character_id: characterId, content: messages[messages.length - 1]?.content, role: 'user', language },
-    { user_id: user.id, character_id: characterId, content: text, role: 'assistant', language },
-  ])
 
   // Stream response
   const encoder = new TextEncoder()
