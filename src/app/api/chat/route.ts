@@ -40,6 +40,8 @@ export async function POST(request: NextRequest) {
   const authModes = [
     (m: string) => ({ url: `https://generativelanguage.googleapis.com/v1beta/models/${m}:generateContent?key=${apiKey}`, headers: { 'Content-Type': 'application/json' } }),
     (m: string) => ({ url: `https://generativelanguage.googleapis.com/v1/models/${m}:generateContent?key=${apiKey}`, headers: { 'Content-Type': 'application/json' } }),
+    (m: string) => ({ url: `https://generativelanguage.googleapis.com/v1beta/models/${m}:generateContent`, headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${apiKey}` } }),
+    (m: string) => ({ url: `https://generativelanguage.googleapis.com/v1/models/${m}:generateContent`, headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${apiKey}` } }),
   ]
   outer: for (const model of preferredModels) {
     for (const auth of authModes) {
