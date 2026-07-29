@@ -19,7 +19,10 @@ export async function POST(request: NextRequest) {
 
   // Try primary model, fallback to older model
   let response
+  let lastModel = 'none'
+  let lastError = ''
   for (const model of ['gemini-2.0-flash', 'gemini-1.5-flash']) {
+    lastModel = model
     response = await fetch(
       `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`,
       {
@@ -38,15 +41,19 @@ export async function POST(request: NextRequest) {
         }),
       }
     )
+    if (!response.ok) {
+      lastError = await response.text().catch(() => '') ?? ''
+    }
     if (response.ok) break
   }
 
   if (!response || !response.ok) {
     const status = response?.status ?? 502
-    const errorBody = await response?.text().catch(() => '') ?? ''
+    const statusText = response?.statusText ?? 'Unknown'
     return NextResponse.json({
-      error: `AI request failed: ${status}`,
-      detail: errorBody.slice(0, 500),
+      error: `AI request failed: ${status} ${statusText}`,
+      model: lastModel,
+      detail: lastError.slice(0, 500),
     }, { status: 502 })
   }
 
