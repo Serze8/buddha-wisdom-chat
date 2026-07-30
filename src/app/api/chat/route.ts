@@ -37,7 +37,7 @@ export async function POST(request: NextRequest) {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      model: 'deepseek/deepseek-chat:free',
+      model: 'openrouter/free',
       messages: openRouterMessages,
       temperature: 0.8,
       max_tokens: 2048,
