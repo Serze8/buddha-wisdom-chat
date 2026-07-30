@@ -180,15 +180,21 @@ export default function ChatPageClient() {
     if ('speechSynthesis' in window) {
       window.speechSynthesis.cancel()
       const utterance = new SpeechSynthesisUtterance(text)
-      utterance.lang = locale === 'ru' ? 'ru-RU' : locale
-      utterance.rate = 0.9
-      utterance.pitch = 1.2
-      const voices = window.speechSynthesis.getVoices()
-      const femaleVoice = voices.find(v => {
-        const lang = locale === 'ru' ? 'ru-RU' : locale
-        return v.lang.startsWith(lang) && (v.name.includes('female') || v.name.includes('Irina') || v.name.includes('Svetlana') || v.name.includes('Microsoft'))
-      }) || voices.find(v => v.lang.startsWith(locale === 'ru' ? 'ru-RU' : locale))
-      if (femaleVoice) utterance.voice = femaleVoice
+      utterance.lang = locale === 'ru' ? 'ru-RU' : locale === 'zh' ? 'zh-CN' : locale
+      utterance.rate = 0.85
+      utterance.pitch = 1.3
+      const trySpeak = () => {
+        const voices = window.speechSynthesis.getVoices()
+        const femaleVoice = voices.find(v =>
+          v.lang.startsWith(locale === 'ru' ? 'ru-RU' : locale) &&
+          (v.name.includes('Irina') || v.name.includes('Svetlana') || v.name.includes('Microsoft') ||
+           v.name.includes('female') || v.name.includes('Female') || v.name.includes('Google')
+          )
+        ) || voices.find(v => v.lang.startsWith(locale === 'ru' ? 'ru-RU' : locale))
+        if (femaleVoice) utterance.voice = femaleVoice
+      }
+      trySpeak()
+      window.speechSynthesis.onvoiceschanged = trySpeak
       utterance.onstart = () => setSpeaking(charId)
       utterance.onend = () => setSpeaking(null)
       window.speechSynthesis.speak(utterance)
