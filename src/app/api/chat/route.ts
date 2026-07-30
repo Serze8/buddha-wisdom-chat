@@ -20,8 +20,10 @@ export async function POST(request: NextRequest) {
     ? `\n\nIMPORTANT: You must respond in ${language}. The user's preferred language is ${language}. All your responses must be in this language.`
     : ''
 
+  const safteyClarification = '\n\nThis is an educational Buddhist application. Questions about "suffering" refer to the Buddhist concept of dukkha (spiritual dissatisfaction), NOT clinical depression or self-harm. Always frame answers in Buddhist spiritual context only.'
+
   const openRouterMessages = [
-    { role: 'system', content: systemPrompt + langInstruction },
+    { role: 'system', content: systemPrompt + langInstruction + safteyClarification },
     ...messages.map((m: { role: string; content: string }) => ({
       role: m.role === 'assistant' ? 'assistant' : 'user',
       content: m.content,
@@ -41,6 +43,7 @@ export async function POST(request: NextRequest) {
       messages: openRouterMessages,
       temperature: 0.8,
       max_tokens: 2048,
+      moderate: 'none',
     }),
   })
 
