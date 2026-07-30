@@ -1,6 +1,14 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { createClient } from '@/lib/supabase/server'
 
 export async function POST(request: NextRequest) {
+  const supabase = await createClient()
+  const { data: { user } } = await supabase.auth.getUser()
+
+  if (!user) {
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+  }
+
   const { characterId, characterName, systemPrompt, messages, language } = await request.json()
 
   const apiKey = process.env.GOOGLE_AI_API_KEY
@@ -12,77 +20,47 @@ export async function POST(request: NextRequest) {
     ? `\n\nIMPORTANT: You must respond in ${language}. The user's preferred language is ${language}. All your responses must be in this language.`
     : ''
 
-  const contents = messages.map((m: { role: string; content: string }) => ({
-    role: m.role === 'assistant' ? 'model' : 'user',
-    parts: [{ text: m.content }],
-  }))
-
-  // Discover available models using Bearer auth
-  let availableModels: string[] = []
-  for (const modelUrl of ['https://generativelanguage.googleapis.com/v1beta/models', 'https://generativelanguage.googleapis.com/v1/models']) {
-    try {
-      const mlRes = await fetch(modelUrl, { headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${apiKey}` } })
-      if (mlRes.ok) {
-        const mlData = await mlRes.json()
-        availableModels = (mlData.models || [])
-          .filter((m: any) => m.supportedMethods?.includes('generateContent'))
-          .map((m: any) => m.name.replace('models/', ''))
-        break
-      }
-    } catch {}
-  }
-  const preferredModels = availableModels.length > 0
-    ? availableModels
-    : ['gemini-2.0-flash', 'gemini-2.0-flash-001', 'gemini-1.5-flash', 'gemini-1.5-pro', 'gemini-pro', 'gemini-ultra']
-
-  let response
-  let lastModel = 'none'
-  let lastError = ''
-  const authModes = [
-    (m: string) => ({ url: `https://generativelanguage.googleapis.com/v1beta/models/${m}:generateContent`, headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${apiKey}` } }),
-    (m: string) => ({ url: `https://generativelanguage.googleapis.com/v1/models/${m}:generateContent`, headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${apiKey}` } }),
+  const openRouterMessages = [
+    { role: 'system', content: systemPrompt + langInstruction },
+    ...messages.map((m: { role: string; content: string }) => ({
+      role: m.role === 'assistant' ? 'assistant' : 'user',
+      content: m.content,
+    })),
   ]
-  outer: for (const model of preferredModels) {
-    for (const auth of authModes) {
-      lastModel = `${auth(model).url}`
-      response = await fetch(auth(model).url, {
-        method: 'POST',
-        headers: auth(model).headers,
-        body: JSON.stringify({
-          system_instruction: {
-            parts: [{ text: systemPrompt + langInstruction }],
-          },
-          contents,
-          generationConfig: {
-            temperature: 0.8,
-            topP: 0.95,
-            maxOutputTokens: 2048,
-          },
-        }),
-      })
-      if (response.ok) break outer
-      lastError = await response.text().catch(() => '') ?? ''
-    }
-  }
 
-  if (!response || !response.ok) {
-    const status = response?.status ?? 502
-    const statusText = response?.statusText ?? 'Unknown'
-    return NextResponse.json({
-      error: `AI request failed: ${status} ${statusText}`,
-      model: lastModel,
-      detail: lastError.slice(0, 500),
-    }, { status: 502 })
+  const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+    method: 'POST',
+    headers: {
+      'Authorization': `Bearer ${apiKey}`,
+      'HTTP-Referer': 'https://buddha-wisdom-teal.vercel.app',
+      'X-Title': "Buddha's Wisdom Chat",
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      model: 'qwen/qwen-2.5-72b-instruct:free',
+      messages: openRouterMessages,
+      temperature: 0.8,
+      max_tokens: 2048,
+    }),
+  })
+
+  if (!response.ok) {
+    const errBody = await response.text().catch(() => '')
+    return NextResponse.json({ error: `AI request failed: ${response.status} ${response.statusText}`, detail: errBody.slice(0, 500) }, { status: 502 })
   }
 
   const data = await response.json()
-  const text = data.candidates?.[0]?.content?.parts?.[0]?.text?.trim()
+  const text = data.choices?.[0]?.message?.content?.trim()
 
   if (!text) {
     return NextResponse.json({ error: 'Empty response from AI', detail: JSON.stringify(data).slice(0, 500) }, { status: 502 })
   }
 
-  // Stream response word by word
+  await supabase.from('chat_messages').insert([
+    { user_id: user.id, character_id: characterId, content: messages[messages.length - 1]?.content, role: 'user', language },
+    { user_id: user.id, character_id: characterId, content: text, role: 'assistant', language },
+  ])
+
   const encoder = new TextEncoder()
   const stream = new ReadableStream({
     start(controller) {
