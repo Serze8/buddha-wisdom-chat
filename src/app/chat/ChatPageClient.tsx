@@ -269,7 +269,7 @@ export default function ChatPageClient() {
             <div className={`max-w-[80%] rounded-2xl px-4 py-3 ${
               msg.role === 'user'
                 ? 'bg-amber-700 text-white rounded-br-md'
-                : 'bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-900 dark:text-gray-100 rounded-bl-md'
+                : 'bg-white dark:bg-gray-800 border border-amber-300 dark:border-amber-700 text-amber-700 dark:text-yellow-300 rounded-bl-md'
             }`}>
               <p className="whitespace-pre-wrap">{msg.content}</p>
               {msg.role === 'assistant' && (
@@ -288,7 +288,7 @@ export default function ChatPageClient() {
 
         {loading && messages[messages.length - 1]?.role !== 'assistant' && (
           <div className="flex justify-start">
-            <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl rounded-bl-md px-4 py-3">
+              <div className="bg-white dark:bg-gray-800 border border-amber-300 dark:border-amber-700 rounded-2xl rounded-bl-md px-4 py-3">
               <Loader2 className="w-5 h-5 animate-spin text-amber-600" />
             </div>
           </div>
