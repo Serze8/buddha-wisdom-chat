@@ -37,7 +37,7 @@ export async function POST(request: NextRequest) {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      model: 'qwen/qwen-2.5-72b-instruct:free',
+      model: 'deepseek/deepseek-chat:free',
       messages: openRouterMessages,
       temperature: 0.8,
       max_tokens: 2048,
