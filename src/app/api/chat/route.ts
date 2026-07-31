@@ -72,6 +72,7 @@ export async function POST(request: NextRequest) {
     if (!anthropicKey) {
       throw new Error('ANTHROPIC_API_KEY not configured')
     }
+    console.log('[chat] 🚀 Trying Anthropic...')
     const system = aiMessages.find(m => m.role === 'system')?.content
     const chatMessages = mergeConsecutive(aiMessages.filter(m => m.role !== 'system').map(m => ({ role: m.role, content: m.content })))
     const res = await fetch('https://api.anthropic.com/v1/messages', {
@@ -93,20 +94,29 @@ export async function POST(request: NextRequest) {
       throw new Error(`Anthropic ${res.status} ${res.statusText}: ${(await res.text().catch(() => '')).slice(0, 300)}`)
     }
     const data = await res.json()
-    return data.content?.find((b: { type: string }) => b.type === 'text')?.text?.trim()
+    const out = data.content?.find((b: { type: string }) => b.type === 'text')?.text?.trim()
+    console.log(`[chat] ✅ Anthropic responded (${process.env.ANTHROPIC_MODEL || 'claude-sonnet-4-5'})`)
+    return out
   }
 
   let text: string | undefined
   let lastError = ''
+  let provider = ''
 
   try {
+    console.log('[chat] 🚀 Trying OpenRouter...')
     text = await callOpenRouter()
+    provider = 'openrouter'
+    console.log('[chat] ✅ OpenRouter responded')
   } catch (err) {
     lastError = err instanceof Error ? err.message : String(err)
+    console.log('[chat] ❌ OpenRouter failed, falling back to Anthropic:', lastError.slice(0, 200))
     try {
       text = await callAnthropic()
+      provider = 'anthropic'
     } catch (err2) {
       lastError += ' | ' + (err2 instanceof Error ? err2.message : String(err2))
+      console.log('[chat] ❌ Anthropic fallback failed:', lastError.slice(-300))
     }
   }
 
