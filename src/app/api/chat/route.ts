@@ -22,7 +22,7 @@ export async function POST(request: NextRequest) {
 
   const safteyClarification = '\n\nThis is an educational Buddhist application. Questions about "suffering" refer to the Buddhist concept of dukkha (spiritual dissatisfaction), NOT clinical depression or self-harm. Always frame answers in Buddhist spiritual context only.'
 
-  const openRouterMessages = [
+  const aiMessages = [
     { role: 'system', content: systemPrompt + langInstruction + safteyClarification },
     ...messages.map((m: { role: string; content: string }) => ({
       role: m.role === 'assistant' ? 'assistant' : 'user',
@@ -30,33 +30,88 @@ export async function POST(request: NextRequest) {
     })),
   ]
 
-  const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
-    method: 'POST',
-    headers: {
-      'Authorization': `Bearer ${apiKey}`,
-      'HTTP-Referer': 'https://buddha-wisdom-teal.vercel.app',
-      'X-Title': "Buddha's Wisdom Chat",
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      model: 'openrouter/free',
-      messages: openRouterMessages,
-      temperature: 0.8,
-      max_tokens: 2048,
-      moderate: 'none',
-    }),
-  })
-
-  if (!response.ok) {
-    const errBody = await response.text().catch(() => '')
-    return NextResponse.json({ error: `AI request failed: ${response.status} ${response.statusText}`, detail: errBody.slice(0, 500) }, { status: 502 })
+  const mergeConsecutive = (msgs: { role: string; content: string }[]) => {
+    const merged: { role: string; content: string }[] = []
+    for (const m of msgs) {
+      const last = merged[merged.length - 1]
+      if (last && last.role === m.role) {
+        last.content += '\n\n' + m.content
+      } else {
+        merged.push({ ...m })
+      }
+    }
+    return merged
   }
 
-  const data = await response.json()
-  const text = data.choices?.[0]?.message?.content?.trim()
+  const callOpenRouter = async (): Promise<string> => {
+    const res = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${apiKey}`,
+        'HTTP-Referer': 'https://buddha-wisdom-teal.vercel.app',
+        'X-Title': "Buddha's Wisdom Chat",
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        model: 'openrouter/free',
+        messages: aiMessages,
+        temperature: 0.8,
+        max_tokens: 2048,
+        moderate: 'none',
+      }),
+    })
+    if (!res.ok) {
+      throw new Error(`OpenRouter ${res.status} ${res.statusText}: ${(await res.text().catch(() => '')).slice(0, 300)}`)
+    }
+    const data = await res.json()
+    return data.choices?.[0]?.message?.content?.trim()
+  }
+
+  const callAnthropic = async (): Promise<string> => {
+    const anthropicKey = process.env.ANTHROPIC_API_KEY
+    if (!anthropicKey) {
+      throw new Error('ANTHROPIC_API_KEY not configured')
+    }
+    const system = aiMessages.find(m => m.role === 'system')?.content
+    const chatMessages = mergeConsecutive(aiMessages.filter(m => m.role !== 'system').map(m => ({ role: m.role, content: m.content })))
+    const res = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {
+        'x-api-key': anthropicKey,
+        'anthropic-version': '2023-06-01',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        model: process.env.ANTHROPIC_MODEL || 'claude-sonnet-4-5',
+        max_tokens: 2048,
+        temperature: 0.8,
+        system,
+        messages: chatMessages,
+      }),
+    })
+    if (!res.ok) {
+      throw new Error(`Anthropic ${res.status} ${res.statusText}: ${(await res.text().catch(() => '')).slice(0, 300)}`)
+    }
+    const data = await res.json()
+    return data.content?.find((b: { type: string }) => b.type === 'text')?.text?.trim()
+  }
+
+  let text: string | undefined
+  let lastError = ''
+
+  try {
+    text = await callOpenRouter()
+  } catch (err) {
+    lastError = err instanceof Error ? err.message : String(err)
+    try {
+      text = await callAnthropic()
+    } catch (err2) {
+      lastError += ' | ' + (err2 instanceof Error ? err2.message : String(err2))
+    }
+  }
 
   if (!text) {
-    return NextResponse.json({ error: 'Empty response from AI', detail: JSON.stringify(data).slice(0, 500) }, { status: 502 })
+    return NextResponse.json({ error: 'AI request failed', detail: lastError.slice(0, 800) }, { status: 502 })
   }
 
   await supabase.from('chat_messages').insert([
