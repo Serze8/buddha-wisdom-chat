@@ -3,6 +3,7 @@
 import { useLanguage } from '@/contexts/LanguageContext'
 import Link from 'next/link'
 import BreathingPractice from '@/components/BreathingPractice'
+import RitualBreathingPractice from '@/components/RitualBreathingPractice'
 
 function AngerReminder() {
   const { t } = useLanguage()
@@ -58,6 +59,13 @@ export default function PracticePageClient() {
                 ✨ {t.practice.resonantBreathing}
               </p>
               <BreathingPractice />
+            </div>
+
+            <div className="mt-8 pt-6" style={{ borderTop: '1px solid rgba(245, 158, 11, 0.08)' }}>
+              <p className="text-sm font-medium text-amber-400/60 mb-4">
+                🧘 {t.practice.ritualBreathing}
+              </p>
+              <RitualBreathingPractice />
             </div>
           </div>
         </div>
