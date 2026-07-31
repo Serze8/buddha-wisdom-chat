@@ -3,8 +3,6 @@
 import { useRef, useState, useEffect, useCallback } from 'react'
 import { useLanguage } from '@/contexts/LanguageContext'
 
-const CONFIG = { inhale: 4, hold: 6, exhale: 8 }
-
 interface AudioCtx extends AudioContext {
   webkitAudioContext?: typeof AudioContext
 }
@@ -22,6 +20,9 @@ export default function RitualBreathingPractice() {
   const [glowOpacity, setGlowOpacity] = useState(0)
   const [progressWidth, setProgressWidth] = useState('0%')
   const [strikeFlash, setStrikeFlash] = useState(false)
+  const [inhaleDuration, setInhaleDuration] = useState(4.0)
+  const [holdDuration, setHoldDuration] = useState(6.0)
+  const [exhaleDuration, setExhaleDuration] = useState(8.0)
 
   const circleRef = useRef<HTMLDivElement>(null)
   const mandalaRef = useRef<HTMLDivElement>(null)
@@ -60,14 +61,17 @@ export default function RitualBreathingPractice() {
     cyclesLbl: isRu ? 'циклы' : 'cycles',
     footer: isRu ? 'каждый такт — удар палочки дзен' : 'each beat — zen stick strike',
     exhaleOm: isRu ? 'выдох — с звуком ॐ' : 'exhale — with sound ॐ',
+    inhaleSlider: isRu ? 'Вдох (сек)' : 'Inhale (sec)',
+    holdSlider: isRu ? 'Задержка (сек)' : 'Hold (sec)',
+    exhaleSlider: isRu ? 'Выдох (сек)' : 'Exhale (sec)',
     sec: 'с',
   }
 
   const getPhaseConfig = (p: 'inhale' | 'hold' | 'exhale') => {
     switch (p) {
-      case 'inhale': return { duration: CONFIG.inhale, label: labels.inhale, next: 'hold' as const, cls: 'phase-inhale' }
-      case 'hold': return { duration: CONFIG.hold, label: labels.hold, next: 'exhale' as const, cls: 'phase-hold' }
-      case 'exhale': return { duration: CONFIG.exhale, label: labels.exhale, next: 'inhale' as const, cls: 'phase-exhale' }
+      case 'inhale': return { duration: inhaleDuration, label: labels.inhale, next: 'hold' as const, cls: 'phase-inhale' }
+      case 'hold': return { duration: holdDuration, label: labels.hold, next: 'exhale' as const, cls: 'phase-hold' }
+      case 'exhale': return { duration: exhaleDuration, label: labels.exhale, next: 'inhale' as const, cls: 'phase-exhale' }
     }
   }
 
@@ -236,7 +240,7 @@ export default function RitualBreathingPractice() {
     } else {
       stopOm()
     }
-  }, [playZenStrike, startOm, stopOm, isRu])
+  }, [playZenStrike, startOm, stopOm, isRu, inhaleDuration, holdDuration, exhaleDuration])
 
   const updateBreath = useCallback((progress: number) => {
     const s = stateRef.current
@@ -252,7 +256,7 @@ export default function RitualBreathingPractice() {
     const config = getPhaseConfig(s.phase as 'inhale' | 'hold' | 'exhale')
     const remaining = Math.max(0, config.duration - ((performance.now() - s.phaseStartTime) / 1000))
     setPhaseCount(Math.ceil(remaining) + (isRu ? 'с' : 's'))
-  }, [isRu])
+  }, [isRu, inhaleDuration, holdDuration, exhaleDuration])
 
   const advancePhase = useCallback(() => {
     const s = stateRef.current
@@ -340,24 +344,24 @@ export default function RitualBreathingPractice() {
     }
   }, [isRu, isRunning])
 
-  const glowColor = phase === 'inhale' ? 'rgba(160, 200, 180, 0.4)'
-    : phase === 'hold' ? 'rgba(200, 190, 160, 0.35)'
-    : phase === 'exhale' ? 'rgba(200, 160, 140, 0.5)'
+  const glowColor = phase === 'inhale' ? 'rgba(245, 158, 11, 0.35)'
+    : phase === 'hold' ? 'rgba(212, 180, 138, 0.3)'
+    : phase === 'exhale' ? 'rgba(180, 83, 9, 0.4)'
     : 'transparent'
 
-  const circleColor = phase === 'inhale' ? 'rgba(160, 200, 180, 0.25)'
-    : phase === 'hold' ? 'rgba(200, 190, 160, 0.25)'
-    : phase === 'exhale' ? 'rgba(200, 160, 140, 0.25)'
+  const circleColor = phase === 'inhale' ? 'rgba(245, 158, 11, 0.22)'
+    : phase === 'hold' ? 'rgba(212, 180, 138, 0.2)'
+    : phase === 'exhale' ? 'rgba(180, 83, 9, 0.22)'
     : 'rgba(200, 160, 100, 0.12)'
 
-  const phaseColor = phase === 'inhale' ? '#8fc9b8'
-    : phase === 'hold' ? '#d4c9a8'
-    : phase === 'exhale' ? '#d4a88a'
+  const phaseColor = phase === 'inhale' ? '#f5c95c'
+    : phase === 'hold' ? '#e8c896'
+    : phase === 'exhale' ? '#d88b3c'
     : '#d4b48a'
 
-  const ringColor = phase === 'inhale' ? 'rgba(160, 200, 180, 0.08)'
-    : phase === 'hold' ? 'rgba(200, 190, 160, 0.08)'
-    : phase === 'exhale' ? 'rgba(200, 160, 140, 0.08)'
+  const ringColor = phase === 'inhale' ? 'rgba(245, 158, 11, 0.12)'
+    : phase === 'hold' ? 'rgba(212, 180, 138, 0.1)'
+    : phase === 'exhale' ? 'rgba(180, 83, 9, 0.12)'
     : 'rgba(200, 160, 100, 0.08)'
 
   return (
@@ -462,18 +466,73 @@ export default function RitualBreathingPractice() {
       {/* Info bar */}
       <div className="flex justify-center gap-6 md:gap-8 flex-wrap mt-3 mb-4">
         {[
-          [labels.inhaleLbl, CONFIG.inhale],
-          [labels.holdLbl, CONFIG.hold],
-          [labels.exhaleLbl, CONFIG.exhale],
+          [labels.inhaleLbl, inhaleDuration],
+          [labels.holdLbl, holdDuration],
+          [labels.exhaleLbl, exhaleDuration],
           [labels.cyclesLbl, cycleCount],
         ].map(([lbl, val]) => (
           <div key={String(lbl)} className="text-center" style={{ fontFamily: 'var(--font-cormorant)' }}>
             <div className="text-[11px] uppercase tracking-[3px] font-light" style={{ color: 'rgba(200, 170, 120, 0.3)' }}>{lbl}</div>
             <div className="text-[28px] font-light tracking-[2px] tabular-nums" style={{ color: '#d4b48a' }}>
-              {val} <span className="text-[16px]" style={{ color: 'rgba(200, 170, 120, 0.3)' }}>{typeof val === 'number' && lbl !== labels.cyclesLbl ? labels.sec : ''}</span>
+              {typeof val === 'number' ? val.toFixed(1) : val} <span className="text-[16px]" style={{ color: 'rgba(200, 170, 120, 0.3)' }}>{typeof val === 'number' && lbl !== labels.cyclesLbl ? labels.sec : ''}</span>
             </div>
           </div>
         ))}
+      </div>
+
+      {/* Duration sliders */}
+      <div className="w-full max-w-[320px] mx-auto mt-3 mb-4 flex flex-col gap-3">
+        <div className="flex flex-col gap-1">
+          <div className="flex justify-between text-sm font-light opacity-70">
+            <span className="text-amber-200/50">☸ {labels.inhaleSlider}</span>
+            <span className="tabular-nums px-2 rounded-full text-amber-300/60" style={{ background: 'rgba(245, 158, 11, 0.05)' }}>{inhaleDuration.toFixed(1)}</span>
+          </div>
+          <input
+            type="range"
+            min={2}
+            max={8}
+            step={0.2}
+            value={inhaleDuration}
+            disabled={isRunning}
+            onChange={(e) => setInhaleDuration(parseFloat(e.target.value))}
+            className="w-full h-1.5 rounded-full appearance-none cursor-pointer disabled:opacity-30"
+            style={{ background: 'linear-gradient(90deg, rgba(180, 83, 9, 0.3), rgba(245, 158, 11, 0.5))' }}
+          />
+        </div>
+        <div className="flex flex-col gap-1">
+          <div className="flex justify-between text-sm font-light opacity-70">
+            <span className="text-amber-200/50">🕉 {labels.holdSlider}</span>
+            <span className="tabular-nums px-2 rounded-full text-amber-300/60" style={{ background: 'rgba(245, 158, 11, 0.05)' }}>{holdDuration.toFixed(1)}</span>
+          </div>
+          <input
+            type="range"
+            min={2}
+            max={10}
+            step={0.2}
+            value={holdDuration}
+            disabled={isRunning}
+            onChange={(e) => setHoldDuration(parseFloat(e.target.value))}
+            className="w-full h-1.5 rounded-full appearance-none cursor-pointer disabled:opacity-30"
+            style={{ background: 'linear-gradient(90deg, rgba(180, 83, 9, 0.3), rgba(245, 158, 11, 0.5))' }}
+          />
+        </div>
+        <div className="flex flex-col gap-1">
+          <div className="flex justify-between text-sm font-light opacity-70">
+            <span className="text-amber-200/50">ॐ {labels.exhaleSlider}</span>
+            <span className="tabular-nums px-2 rounded-full text-amber-300/60" style={{ background: 'rgba(245, 158, 11, 0.05)' }}>{exhaleDuration.toFixed(1)}</span>
+          </div>
+          <input
+            type="range"
+            min={2}
+            max={12}
+            step={0.2}
+            value={exhaleDuration}
+            disabled={isRunning}
+            onChange={(e) => setExhaleDuration(parseFloat(e.target.value))}
+            className="w-full h-1.5 rounded-full appearance-none cursor-pointer disabled:opacity-30"
+            style={{ background: 'linear-gradient(90deg, rgba(180, 83, 9, 0.3), rgba(245, 158, 11, 0.5))' }}
+          />
+        </div>
       </div>
 
       {/* Progress bar */}
