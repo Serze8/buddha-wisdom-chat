@@ -1,4 +1,4 @@
-import { Locale } from '@/types'
+﻿import { Locale } from '@/types'
 
 type TranslationKeys = {
   nav: {
@@ -116,6 +116,7 @@ type TranslationKeys = {
     compassionTitle: string
     compassionDesc: string
     resonantBreathing: string
+    ritualBreathing: string
     reminderTitle: string
     reminderText: string
   }
@@ -231,6 +232,7 @@ const translations: Record<Locale, TranslationKeys> = {
       compassionTitle: 'Developing Compassion',
       compassionDesc: 'Practice mettā (loving-kindness): sit quietly and repeat phrases of well-wishing — "May I be happy. May I be peaceful. May all beings be happy." Start with yourself, then extend to loved ones, neutral people, difficult people, and finally all beings.',
       resonantBreathing: 'Try Resonant Breathing',
+      ritualBreathing: 'Try Ritual Breathing 4-6-8',
       reminderTitle: 'Anger Reminder',
       reminderText: 'Anger is like a wave: it comes and goes. Stop. Breathe. Observe. Do not act from anger — act from awareness.',
     },
@@ -338,6 +340,7 @@ const translations: Record<Locale, TranslationKeys> = {
       compassionTitle: 'Развитие сострадания',
       compassionDesc: 'Практикуйте метту (любящую доброту): тихо сядьте и повторяйте слова пожеланий — «Пусть я буду счастлив. Пусть я буду в покое. Пусть все существа будут счастливы». Начните с себя, затем расширьте на близких, нейтральных, сложных людей и всех существ.',
       resonantBreathing: 'Попробуйте резонансное дыхание',
+      ritualBreathing: 'Попробуйте дыхание с ритуалом 4-6-8',
       reminderTitle: 'Напоминание в момент гнева',
       reminderText: 'Гнев — как волна: он приходит и уходит. Остановись. Дыши. Наблюдай. Не действуй из гнева — действуй из осознанности.',
     },
@@ -445,6 +448,7 @@ const translations: Record<Locale, TranslationKeys> = {
       compassionTitle: 'करुणा का विकास',
       compassionDesc: 'मेट्टा (प्रेम-करुणा) का अभ्यास करें: शांत बैठें और कल्याण के वाक्य दोहराएं — "मैं सुखी होऊँ। मैं शांत होऊँ। सभी प्राणी सुखी हों।" अपने आप से शुरू करें, फिर प्रियजनों, तटस्थ लोगों, कठिन लोगों और सभी प्राणियों तक विस्तारित करें।',
       resonantBreathing: 'अनुनाद श्वास आज़माएं',
+      ritualBreathing: 'अनुष्ठान श्वास 4-6-8 आज़माएं',
       reminderTitle: 'गुस्से की याद दिलाने वाला',
       reminderText: 'गुस्सा एक लहर की तरह है: यह आता है और जाता है। रुको। साँस लो। देखो। गुस्से से काम मत करो — जागरूकता से काम करो।',
     },
@@ -552,6 +556,7 @@ const translations: Record<Locale, TranslationKeys> = {
       compassionTitle: 'Desarrollar la compasión',
       compassionDesc: 'Practica la mettā (amor bondadoso): siéntate en silencio y repite frases de bienestar — "Que yo sea feliz. Que yo esté en paz. Que todos los seres sean felices." Comienza contigo mismo, luego extiende a seres queridos, personas neutras, personas difíciles y finalmente a todos los seres.',
       resonantBreathing: 'Prueba la Respiración Resonante',
+      ritualBreathing: 'Prueba la Respiración Ritual 4-6-8',
       reminderTitle: 'Recordatorio de Ira',
       reminderText: 'La ira es como una ola: va y viene. Detente. Respira. Observa. No actúes desde la ira — actúa desde la consciencia.',
     },
@@ -659,6 +664,7 @@ const translations: Record<Locale, TranslationKeys> = {
       compassionTitle: 'Développer la compassion',
       compassionDesc: 'Pratiquez la mettā (amour bienveillant) : asseyez-vous silencieusement et répétez des phrases de souhait de bien-être — "Que je sois heureux. Que je sois en paix. Que tous les êtres soient heureux." Commencez par vous-même, puis étendez aux êtres chers, aux personnes neutres, aux personnes difficiles et enfin à tous les êtres.',
       resonantBreathing: 'Essayez la Respiration Résonante',
+      ritualBreathing: 'Essayez la Respiration Rituelle 4-6-8',
       reminderTitle: 'Rappel Colère',
       reminderText: "La colère est comme une vague : elle vient et s'en va. Arrête-toi. Respire. Observe. N'agis pas sous l'effet de la colère — agis avec conscience.",
     },
@@ -766,6 +772,7 @@ const translations: Record<Locale, TranslationKeys> = {
       compassionTitle: 'Mitgefühl entwickeln',
       compassionDesc: 'Üben Sie Mettā (liebende Güte): Sitzen Sie ruhig und wiederholen Sie Wünsche des Wohlergehens — „Möge ich glücklich sein. Möge ich in Frieden sein. Möge aller Wesen glücklich sein." Beginnen Sie mit sich selbst und erweitern Sie es auf Geliebte, neutrale Menschen, schwierige Menschen und schließlich alle Wesen.',
       resonantBreathing: 'Atme resonant',
+      ritualBreathing: 'Probiere Ritualatmung 4-6-8',
       reminderTitle: 'Wut-Erinnerung',
       reminderText: 'Wut ist wie eine Welle: sie kommt und geht. Anhalten. Atmen. Beobachten. Handle nicht aus Wut — handle mit Bewusstsein.',
     },
@@ -873,6 +880,7 @@ const translations: Record<Locale, TranslationKeys> = {
       compassionTitle: '培养慈悲',
       compassionDesc: '修习慈心（mettā）：安静坐下，重复祝福的话语——"愿我快乐。愿我平安。愿一切众生快乐。"从自己开始，然后扩展到亲人、中立的人、困难的人，最后到一切众生。',
       resonantBreathing: '尝试共振呼吸',
+      ritualBreathing: '尝试仪式呼吸 4-6-8',
       reminderTitle: '愤怒提醒',
       reminderText: '愤怒如浪潮：来时来，去时去。停下。呼吸。观察。不要从愤怒出发行动 — 从觉知出发。',
     },
@@ -980,6 +988,7 @@ const translations: Record<Locale, TranslationKeys> = {
       compassionTitle: '慈悲を育てる',
       compassionDesc: 'メッター（慈愛）を実践します：静かに座り、幸福の願いを繰り返します——「私が幸せでありますように。私が平和でありますように。すべての生きとし生けるものが幸せでありますように。」自分から始めて、愛する人、中立の人、難しい人、そしてすべての生きとし生けるものに広げます。',
       resonantBreathing: '共鳴呼吸を試す',
+      ritualBreathing: '儀式呼吸 4-6-8 を試す',
       reminderTitle: '怒りのリマインダー',
       reminderText: '怒りは波のようなもの：来て、去る。止まる。呼吸する。観察する。怒りから行動せず — 確信から行動する。',
     },
@@ -1087,6 +1096,7 @@ const translations: Record<Locale, TranslationKeys> = {
       compassionTitle: 'Desenvolver a compaixão',
       compassionDesc: 'Pratique a mettā (amor bondoso): sente-se silenciosamente e repita frases de bem-estar — "Que eu seja feliz. Que eu esteja em paz. Que todos os seres sejam felizes." Comece com você mesmo, depois estenda a entes queridos, pessoas neutras, pessoas difíceis e finalmente a todos os seres.',
       resonantBreathing: 'Experimente a Respiração Ressonante',
+      ritualBreathing: 'Experimente a Respiração Ritual 4-6-8',
       reminderTitle: 'Lembrete de Raiva',
       reminderText: 'A raiva é como uma onda: vai e vem. Pare. Respire. Observe. Não aja pela raiva — aja pela consciência.',
     },
@@ -1194,6 +1204,7 @@ const translations: Record<Locale, TranslationKeys> = {
       compassionTitle: 'พัฒนาความเมตตา',
       compassionDesc: 'ฝึกเมตตา (mettā): นั่งเงียบๆ และทบทวนคำอวยพร — "ขอให้ข้าพเจ้ามีความสุข ขอให้ข้าพเจ้าสงบ ขอให้สัตว์ทั้งปวงมีความสุข" เริ่มจากตัวเอง แล้วขยายไปยังคนรัก คนทั่วไป คนที่ลำบาก และในที่สุดก็สัตว์ทั้งปวง',
       resonantBreathing: 'ลองฝึกหายใจสั่นพ้อง',
+      ritualBreathing: 'ลองหายใจแบบพิธีกรรม 4-6-8',
       reminderTitle: 'เตือนสติเมื่อโกรธ',
       reminderText: 'ความโกรธเหมือนคลื่น: มาแล้วก็ไป หยุด หายใจ สังเกต อย่าทำจากความโกรธ — ทำจากสติ',
     },
@@ -1301,6 +1312,7 @@ const translations: Record<Locale, TranslationKeys> = {
       compassionTitle: 'Phát triển lòng từ bi',
       compassionDesc: 'Thực hành mettā (tâm từ): ngồi yên tĩnh và lặp lại những lời chúc phúc — "Nguyện tôi được hạnh phúc. Nguyện tôi được bình an. Nguyện tất cả chúng sinh được hạnh phúc." Bắt đầu từ bản thân, sau đó mở rộng đến người thân, người trung tính, người khó khăn và cuối cùng là tất cả chúng sinh.',
       resonantBreathing: 'Thực hành Hơi thở Cộng hưởng',
+      ritualBreathing: 'Thực hành Hơi thở Nghi lễ 4-6-8',
       reminderTitle: 'Nhắc nhở về Giận dữ',
       reminderText: 'Giận dữ như sóng: đến rồi đi. Dừng lại. Thở. Quan sát. Đừng hành động từ giận dữ — hãy hành động từ tỉnh thức.',
     },
@@ -1408,6 +1420,7 @@ const translations: Record<Locale, TranslationKeys> = {
       compassionTitle: '자비 기르기',
       compassionDesc: '메타(사랑의 친절)를 실천합니다: 조용히 앉아 행복의 기원을 반복합니다 — "제가 행복하길 바랍니다. 제가 평화롭길 바랍니다. 모든 중생이 행복하길 바랍니다." 자신부터 시작하여, 사랑하는 사람, 중립적인 사람, 어려운 사람, 그리고 모든 중생에게 확장합니다.',
       resonantBreathing: '공명 호흡 시도',
+      ritualBreathing: '의식 호흡 4-6-8 시도',
       reminderTitle: '분노 상기',
       reminderText: '분노는 파도와 같다: 오고 간다. 멈추라. 호흡하라. 관찰하라. 분노에서 행동하지 말라 — 각성에서 행동하라.',
     },
@@ -1516,6 +1529,7 @@ const translations: Record<Locale, TranslationKeys> = {
       compassionTitle: 'Mengembangkan belas kasih',
       compassionDesc: 'Praktikkan mettā (cinta kasih): duduklah dalam keheningan dan ulangi ungkapan kesejahteraan — "Semoga saya bahagia. Semoga saya damai. Semoga semua makhluk bahagia." Mulailah dari diri sendiri, lalu luaskan kepada orang terkasih, orang netral, orang sulit, dan akhirnya semua makhluk.',
       resonantBreathing: 'Coba Pernafasan Resonan',
+      ritualBreathing: 'Coba Pernafasan Ritual 4-6-8',
       reminderTitle: 'Pengingat Kemarahan',
       reminderText: 'Kemarahan seperti ombak: datang dan pergi. Berhenti. Bernapas. Amati. Jangan bertindak dari kemarahan — bertindaklah dari kesadaran.',
     },
@@ -1624,6 +1638,7 @@ const translations: Record<Locale, TranslationKeys> = {
       compassionTitle: 'Membangunkan belas kasihan',
       compassionDesc: 'Amalkan mettā (kasih sayang): duduk dalam keheningan dan ulang ungkapan kesejahteraan — "Semoga saya gembira. Semoga saya aman. Semoga semua makhluk gembira." Mulakan dengan diri sendiri, kemudian luaskan kepada orang tersayang, orang neutral, orang sukar, dan akhirnya semua makhluk.',
       resonantBreathing: 'Cuba Pernafasan Resonan',
+      ritualBreathing: 'Cuba Pernafasan Ritual 4-6-8',
       reminderTitle: 'Peringatan Kemarahan',
       reminderText: 'Kemarahan seperti ombak: datang dan pergi. Berhenti. Bernafas. Perhati. Jangan bertindak dari kemarahan — bertindaklah dari kesedaran.',
     },
@@ -1731,6 +1746,7 @@ const translations: Record<Locale, TranslationKeys> = {
       compassionTitle: 'කරුණාව වර්ධනය කිරීම',
       compassionDesc: 'මෙත්තා (ප්‍රේම-කරුණාව) පුහුණු කරන්න: නිහඬව හිඳ, සුව පැතුම් යළි යළි කියන්න — "මම සතුටින් සිටින්නම්. මම සාමකාමී වන්නම්. සියලු සත්ත්වයෝ සතුටින් සිටින්නෝය." ඔබේ තමාගෙන් ආරම්භ කරන්න, ඉන්පසු ආදරණීයයන්ට, මධ්‍යස්ථ පුද්ගලයින්ට, අපහසු පුද්ගලයින්ට සහ අවසානයේ සියලු සත්ත්වයන්ට පුළුල් කරන්න.',
       resonantBreathing: 'අනුනාද හුස්ම අත්හදා බලන්න',
+      ritualBreathing: 'චාරිත්‍රික හුස්ම 4-6-8 උත්සාහ කරන්න',
       reminderTitle: 'කෝපය මතක් කිරීම',
       reminderText: 'කෝපය රැළි වැනිය: එය එනවා, යනවා. නතර වන්න. හුස්ම ගන්න. නිරීක්ෂණය කරන්න. කෝපයෙන් ක්‍රියා නොකරන්න — දැනුවත්භාවයෙන් ක්‍රියා කරන්න.',
     },
@@ -1838,6 +1854,7 @@ const translations: Record<Locale, TranslationKeys> = {
       compassionTitle: 'သနားကရုဏာ ဖွံ့ဖြိုးခြင်း',
       compassionDesc: 'မေတ္တာ (ချစ်ခြင်းမေတ္တာ) ကို လေ့ကျင့်ပါ — ငြိမ်သက်စွာ ထိုင်ပြီး ကောင်းကျိုးဆန္ဒများကို ထပ်ခါတလဲလဲ ပြောပါ — "ကျွန်ုပ် ပျော်ရွှင်ပါစေ။ ကျွန်ုပ် ငြိမ်ချမ်းပါစေ။ သတ္တဝါအားလုံး ပျော်ရွှင်ကြပါစေ။" ကိုယ်တိုင်မှ စတင်ပြီး ချစ်ခင်ရသူ၊ ကြားနေပုဂ္ဂိုလ်၊ ခက်ခဲသည့် ပုဂ္ဂိုလ်နှင့် နောက်ဆုံးတွင် သတ္တဝါအားလုံးထံ ချဲ့ကျယ်ပါ။',
       resonantBreathing: 'တုန်ခါမှု အသက်ရှူမှု စမ်းကြည့်ပါ',
+      ritualBreathing: 'ထုံးတမ်းအသက်ရှူခြင်း 4-6-8',
       reminderTitle: 'ဒေါသ သတိပေးချက်',
       reminderText: 'ဒေါသသည် လှိုင်းကဲ့သို့ဖြစ်သည် — လာပြီးသွားသည်။ ရပ်ပါ။ အသက်ရှူပါ။ ကြည့်ပါ။ ဒေါသဖြင့် မလုပ်ပါနဲ့ — သတိဖြင့် လုပ်ပါ။',
     },
@@ -1945,6 +1962,7 @@ const translations: Record<Locale, TranslationKeys> = {
       compassionTitle: 'करुणा विकास गर्ने',
       compassionDesc: 'मेट्ता (प्रेम-करुणा) अभ्यास गर्नुहोस्: शान्त बस्नुहोस् र कल्याणका वाक्यहरू दोहोर्याउनुहोस् — "म सुखी होऊँ। म शान्त होऊँ। सबै प्राणी सुखी होऊन्।" आफ्नो आफूबाट सुरु गर्नुहोस्, त्यसपछि प्रियजन, तटस्थ मानिस, कठिन मानिस र अन्तमा सबै प्राणीमा विस्तार गर्नुहोस्।',
       resonantBreathing: 'अनुनाद श्वास प्रयास गर्नुहोस्',
+      ritualBreathing: 'अनुष्ठान श्वास 4-6-8 प्रयास गर्नुहोस्',
       reminderTitle: 'रिस याद गराउने',
       reminderText: 'रिस ढुंगाको लहर जस्तो हो: आउँछ र जान्छ। रोक्नुहोस्। श्वास फेर्नुहोस्। हेर्नुहोस्। रिसबाट काम नगर्नुहोस् — सचेतनाबाट काम गर्नुहोस्।',
     },
@@ -2052,6 +2070,7 @@ const translations: Record<Locale, TranslationKeys> = {
       compassionTitle: 'སྙིང་རྗེ་འཕེལ་བ།',
       compassionDesc: 'མི་མཐུན་པའི་བྱམས་བརྩེ་ལ་སྦྱོང་། ཞི་བཞིན་བཞུགས་ལ་བདེ་བའི་སྨོན་འདུན་ཡང་ཡང་བརྗོད། "ང་བདེ་བར་གྱུར་ཅིག ང་ཞི་བདེར་གྱུར་ཅིག སེམས་ཅན་ཐམས་ཅད་བདེ་བར་གྱུར་ཅིག" རང་ལས་འགོ་བརྩམས་ནས་གཉེན་ཉེ། ལྷོད་ཀྱི་མི། དཀའ་མོའི་མི། མཐར་ཐམས་ཅད་སེམས་ཅན་དུ་རྒྱས་པར་གྱུར་ཅིག',
       resonantBreathing: 'རྗེས་འཐེན་དབུགས་འབྱིན་ཚོད་ལྟ།',
+      ritualBreathing: 'ཆོ་ག་དབུགས་འབྱིན་4-6-8 ཚོད་ལྟ།',
       reminderTitle: 'ཁྲོ་བའི་དྲན་སྐུལ།',
       reminderText: 'ཁྲོ་བ་རླབས་ལྟ་བུ་ཡིན། འོང་བ་དང་འགྲོ། ལྷོད་ལ་ཕབ། དབུགས་འབྱིན། ལྟ། ཁྲོ་བ་ལས་མ་སྤྱད། ཤེས་རབ་ལས་སྤྱད།',
     },

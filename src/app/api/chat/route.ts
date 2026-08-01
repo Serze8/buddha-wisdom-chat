@@ -1,6 +1,14 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { createClient } from '@/lib/supabase/server'
 
 export async function POST(request: NextRequest) {
+  const supabase = await createClient()
+  const { data: { user } } = await supabase.auth.getUser()
+
+  if (!user) {
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+  }
+
   const { characterId, characterName, systemPrompt, messages, language } = await request.json()
 
   const apiKey = process.env.GOOGLE_AI_API_KEY
@@ -12,77 +20,115 @@ export async function POST(request: NextRequest) {
     ? `\n\nIMPORTANT: You must respond in ${language}. The user's preferred language is ${language}. All your responses must be in this language.`
     : ''
 
-  const contents = messages.map((m: { role: string; content: string }) => ({
-    role: m.role === 'assistant' ? 'model' : 'user',
-    parts: [{ text: m.content }],
-  }))
+  const safteyClarification = '\n\nThis is an educational Buddhist application. Questions about "suffering" refer to the Buddhist concept of dukkha (spiritual dissatisfaction), NOT clinical depression or self-harm. Always frame answers in Buddhist spiritual context only.'
 
-  // Discover available models using Bearer auth
-  let availableModels: string[] = []
-  for (const modelUrl of ['https://generativelanguage.googleapis.com/v1beta/models', 'https://generativelanguage.googleapis.com/v1/models']) {
-    try {
-      const mlRes = await fetch(modelUrl, { headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${apiKey}` } })
-      if (mlRes.ok) {
-        const mlData = await mlRes.json()
-        availableModels = (mlData.models || [])
-          .filter((m: any) => m.supportedMethods?.includes('generateContent'))
-          .map((m: any) => m.name.replace('models/', ''))
-        break
-      }
-    } catch {}
-  }
-  const preferredModels = availableModels.length > 0
-    ? availableModels
-    : ['gemini-2.0-flash', 'gemini-2.0-flash-001', 'gemini-1.5-flash', 'gemini-1.5-pro', 'gemini-pro', 'gemini-ultra']
-
-  let response
-  let lastModel = 'none'
-  let lastError = ''
-  const authModes = [
-    (m: string) => ({ url: `https://generativelanguage.googleapis.com/v1beta/models/${m}:generateContent`, headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${apiKey}` } }),
-    (m: string) => ({ url: `https://generativelanguage.googleapis.com/v1/models/${m}:generateContent`, headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${apiKey}` } }),
+  const aiMessages = [
+    { role: 'system', content: systemPrompt + langInstruction + safteyClarification },
+    ...messages.map((m: { role: string; content: string }) => ({
+      role: m.role === 'assistant' ? 'assistant' : 'user',
+      content: m.content,
+    })),
   ]
-  outer: for (const model of preferredModels) {
-    for (const auth of authModes) {
-      lastModel = `${auth(model).url}`
-      response = await fetch(auth(model).url, {
-        method: 'POST',
-        headers: auth(model).headers,
-        body: JSON.stringify({
-          system_instruction: {
-            parts: [{ text: systemPrompt + langInstruction }],
-          },
-          contents,
-          generationConfig: {
-            temperature: 0.8,
-            topP: 0.95,
-            maxOutputTokens: 2048,
-          },
-        }),
-      })
-      if (response.ok) break outer
-      lastError = await response.text().catch(() => '') ?? ''
+
+  const mergeConsecutive = (msgs: { role: string; content: string }[]) => {
+    const merged: { role: string; content: string }[] = []
+    for (const m of msgs) {
+      const last = merged[merged.length - 1]
+      if (last && last.role === m.role) {
+        last.content += '\n\n' + m.content
+      } else {
+        merged.push({ ...m })
+      }
+    }
+    return merged
+  }
+
+  const callOpenRouter = async (): Promise<string> => {
+    const res = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${apiKey}`,
+        'HTTP-Referer': 'https://buddha-wisdom-teal.vercel.app',
+        'X-Title': "Buddha's Wisdom Chat",
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        model: 'openrouter/free',
+        messages: aiMessages,
+        temperature: 0.8,
+        max_tokens: 2048,
+        moderate: 'none',
+      }),
+    })
+    if (!res.ok) {
+      throw new Error(`OpenRouter ${res.status} ${res.statusText}: ${(await res.text().catch(() => '')).slice(0, 300)}`)
+    }
+    const data = await res.json()
+    return data.choices?.[0]?.message?.content?.trim()
+  }
+
+  const callAnthropic = async (): Promise<string> => {
+    const anthropicKey = process.env.ANTHROPIC_API_KEY
+    if (!anthropicKey) {
+      throw new Error('ANTHROPIC_API_KEY not configured')
+    }
+    console.log('[chat] 🚀 Trying Anthropic...')
+    const system = aiMessages.find(m => m.role === 'system')?.content
+    const chatMessages = mergeConsecutive(aiMessages.filter(m => m.role !== 'system').map(m => ({ role: m.role, content: m.content })))
+    const res = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {
+        'x-api-key': anthropicKey,
+        'anthropic-version': '2023-06-01',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        model: process.env.ANTHROPIC_MODEL || 'claude-sonnet-4-5',
+        max_tokens: 2048,
+        temperature: 0.8,
+        system,
+        messages: chatMessages,
+      }),
+    })
+    if (!res.ok) {
+      throw new Error(`Anthropic ${res.status} ${res.statusText}: ${(await res.text().catch(() => '')).slice(0, 300)}`)
+    }
+    const data = await res.json()
+    const out = data.content?.find((b: { type: string }) => b.type === 'text')?.text?.trim()
+    console.log(`[chat] ✅ Anthropic responded (${process.env.ANTHROPIC_MODEL || 'claude-sonnet-4-5'})`)
+    return out
+  }
+
+  let text: string | undefined
+  let lastError = ''
+  let provider = ''
+
+  try {
+    console.log('[chat] 🚀 Trying OpenRouter...')
+    text = await callOpenRouter()
+    provider = 'openrouter'
+    console.log('[chat] ✅ OpenRouter responded')
+  } catch (err) {
+    lastError = err instanceof Error ? err.message : String(err)
+    console.log('[chat] ❌ OpenRouter failed, falling back to Anthropic:', lastError.slice(0, 200))
+    try {
+      text = await callAnthropic()
+      provider = 'anthropic'
+    } catch (err2) {
+      lastError += ' | ' + (err2 instanceof Error ? err2.message : String(err2))
+      console.log('[chat] ❌ Anthropic fallback failed:', lastError.slice(-300))
     }
   }
 
-  if (!response || !response.ok) {
-    const status = response?.status ?? 502
-    const statusText = response?.statusText ?? 'Unknown'
-    return NextResponse.json({
-      error: `AI request failed: ${status} ${statusText}`,
-      model: lastModel,
-      detail: lastError.slice(0, 500),
-    }, { status: 502 })
-  }
-
-  const data = await response.json()
-  const text = data.candidates?.[0]?.content?.parts?.[0]?.text?.trim()
-
   if (!text) {
-    return NextResponse.json({ error: 'Empty response from AI', detail: JSON.stringify(data).slice(0, 500) }, { status: 502 })
+    return NextResponse.json({ error: 'AI request failed', detail: lastError.slice(0, 800) }, { status: 502 })
   }
 
-  // Stream response word by word
+  await supabase.from('chat_messages').insert([
+    { user_id: user.id, character_id: characterId, content: messages[messages.length - 1]?.content, role: 'user', language },
+    { user_id: user.id, character_id: characterId, content: text, role: 'assistant', language },
+  ])
+
   const encoder = new TextEncoder()
   const stream = new ReadableStream({
     start(controller) {

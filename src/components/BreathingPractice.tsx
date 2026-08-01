@@ -35,13 +35,19 @@ export default function BreathingPractice() {
   const [statusText, setStatusText] = useState('')
   const [scale, setScale] = useState(1)
   const [glowClass, setGlowClass] = useState('')
+  const [strikeFlash, setStrikeFlash] = useState(false)
 
   const audioCtxRef = useRef<AudioContext | null>(null)
-  const oscillatorsRef = useRef<{ osc1: OscillatorNode; osc2: OscillatorNode; osc3: OscillatorNode; gain: GainNode } | null>(null)
+  const omOscillatorsRef = useRef<OscillatorNode[]>([])
+  const omGainRef = useRef<GainNode | null>(null)
+  const omFilterRef = useRef<BiquadFilterNode | null>(null)
+  const isOmPlayingRef = useRef(false)
   const rafRef = useRef<number>(0)
   const phaseRef = useRef<'inhale' | 'exhale'>('inhale')
   const phaseStartRef = useRef(0)
   const runningRef = useRef(false)
+  const strikeTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const flashRef = useRef<HTMLDivElement>(null)
 
   const initAudio = useCallback(() => {
     if (!audioCtxRef.current) {
@@ -52,67 +58,145 @@ export default function BreathingPractice() {
     }
   }, [])
 
+  const playZenStrike = useCallback(() => {
+    try {
+      if (!audioCtxRef.current) {
+        audioCtxRef.current = new (window.AudioContext || (window as any).webkitAudioContext)()
+      }
+      const ctx = audioCtxRef.current
+      const now = ctx.currentTime
+
+      setStrikeFlash(true)
+      clearTimeout(strikeTimeoutRef.current!)
+      strikeTimeoutRef.current = setTimeout(() => setStrikeFlash(false), 80)
+
+      const osc1 = ctx.createOscillator()
+      const gain1 = ctx.createGain()
+      osc1.type = 'sine'
+      osc1.frequency.setValueAtTime(880, now)
+      osc1.frequency.exponentialRampToValueAtTime(720, now + 0.15)
+      gain1.gain.setValueAtTime(0.08, now)
+      gain1.gain.exponentialRampToValueAtTime(0.001, now + 0.4)
+      osc1.connect(gain1)
+      gain1.connect(ctx.destination)
+      osc1.start(now)
+      osc1.stop(now + 0.4)
+
+      const osc2 = ctx.createOscillator()
+      const gain2 = ctx.createGain()
+      osc2.type = 'sine'
+      osc2.frequency.setValueAtTime(1320, now)
+      osc2.frequency.exponentialRampToValueAtTime(1080, now + 0.1)
+      gain2.gain.setValueAtTime(0.035, now)
+      gain2.gain.exponentialRampToValueAtTime(0.001, now + 0.25)
+      osc2.connect(gain2)
+      gain2.connect(ctx.destination)
+      osc2.start(now)
+      osc2.stop(now + 0.25)
+
+      const bufferSize = ctx.sampleRate * 0.05
+      const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate)
+      const data = buffer.getChannelData(0)
+      for (let i = 0; i < bufferSize; i++) {
+        data[i] = (Math.random() * 2 - 1) * Math.exp(-i / (bufferSize * 0.15))
+      }
+      const noise = ctx.createBufferSource()
+      noise.buffer = buffer
+      const gainN = ctx.createGain()
+      gainN.gain.setValueAtTime(0.015, now)
+      gainN.gain.exponentialRampToValueAtTime(0.001, now + 0.1)
+      noise.connect(gainN)
+      gainN.connect(ctx.destination)
+      noise.start(now)
+      noise.stop(now + 0.1)
+    } catch {}
+  }, [])
+
   const startAumSound = useCallback(() => {
     const ctx = audioCtxRef.current
-    if (!ctx || oscillatorsRef.current) return
+    if (!ctx || isOmPlayingRef.current) return
+    const now = ctx.currentTime
 
-    const osc1 = ctx.createOscillator()
-    const osc2 = ctx.createOscillator()
-    const osc3 = ctx.createOscillator()
-    const gain = ctx.createGain()
+    const masterGain = ctx.createGain()
+    masterGain.gain.setValueAtTime(0.035, now)
+    masterGain.gain.linearRampToValueAtTime(0.065, now + 0.5)
+    masterGain.connect(ctx.destination)
+
     const filter = ctx.createBiquadFilter()
-
-    osc1.type = 'sine'
-    osc1.frequency.value = 110
-
-    osc2.type = 'sine'
-    osc2.frequency.value = 220
-
-    osc3.type = 'sine'
-    osc3.frequency.value = 165
-
-    gain.gain.value = 0.35
-
     filter.type = 'lowpass'
-    filter.frequency.value = 800
-    filter.Q.value = 0.5
+    filter.frequency.setValueAtTime(350, now)
+    filter.frequency.linearRampToValueAtTime(450, now + 1.5)
+    filter.Q.setValueAtTime(1.2, now)
+    filter.connect(masterGain)
 
-    osc1.connect(gain)
-    osc2.connect(gain)
-    osc3.connect(gain)
-    gain.connect(filter)
-    filter.connect(ctx.destination)
+    const oscs: OscillatorNode[] = []
+    const freqs: [number, number, number][] = [[108, 112, 0.6], [216, 224, 0.3], [324, 336, 0.15]]
+    for (const [f1, f2, vol] of freqs) {
+      const o = ctx.createOscillator()
+      o.type = 'sawtooth'
+      o.frequency.setValueAtTime(f1, now)
+      o.frequency.linearRampToValueAtTime(f2, now + 1)
+      const g = ctx.createGain()
+      g.gain.setValueAtTime(vol, now)
+      o.connect(g)
+      g.connect(filter)
+      o.start(now)
+      oscs.push(o)
+    }
 
-    osc1.start()
-    osc2.start()
-    osc3.start()
+    const osc4 = ctx.createOscillator()
+    osc4.type = 'sine'
+    osc4.frequency.setValueAtTime(440, now)
+    osc4.frequency.linearRampToValueAtTime(460, now + 1)
+    const g4 = ctx.createGain()
+    g4.gain.setValueAtTime(0.04, now)
+    osc4.connect(g4)
+    g4.connect(filter)
+    osc4.start(now)
+    oscs.push(osc4)
 
-    oscillatorsRef.current = { osc1, osc2, osc3, gain }
+    const vibrato = ctx.createOscillator()
+    vibrato.frequency.setValueAtTime(4.5, now)
+    const vGain = ctx.createGain()
+    vGain.gain.setValueAtTime(2.5, now)
+    vibrato.connect(vGain)
+    vGain.connect(oscs[0].frequency)
+    vGain.connect(oscs[1].frequency)
+    vGain.connect(oscs[2].frequency)
+    vibrato.start(now)
+    oscs.push(vibrato)
+
+    omOscillatorsRef.current = oscs
+    omGainRef.current = masterGain
+    omFilterRef.current = filter
+    isOmPlayingRef.current = true
   }, [])
 
   const stopAumSound = useCallback((immediate = false) => {
-    const refs = oscillatorsRef.current
-    if (!refs) return
+    try {
+      if (!isOmPlayingRef.current) return
+      const now = audioCtxRef.current ? audioCtxRef.current.currentTime : 0
 
-    if (immediate) {
-      try {
-        refs.osc1.stop()
-        refs.osc2.stop()
-        refs.osc3.stop()
-      } catch {}
-      oscillatorsRef.current = null
-      return
-    }
+      if (omGainRef.current) {
+        if (immediate) {
+          omGainRef.current.gain.setValueAtTime(0.001, now)
+        } else {
+          omGainRef.current.gain.linearRampToValueAtTime(0.001, now + 0.3)
+        }
+        setTimeout(() => {
+          try {
+            omOscillatorsRef.current.forEach(osc => { try { osc.stop() } catch {} })
+            if (omGainRef.current) { try { omGainRef.current.disconnect() } catch {} }
+            if (omFilterRef.current) { try { omFilterRef.current.disconnect() } catch {} }
+          } catch {}
+        }, immediate ? 30 : 350)
+      }
 
-    refs.gain.gain.setTargetAtTime(0.001, audioCtxRef.current!.currentTime, 0.15)
-    setTimeout(() => {
-      try {
-        refs.osc1.stop()
-        refs.osc2.stop()
-        refs.osc3.stop()
-      } catch {}
-      oscillatorsRef.current = null
-    }, 300)
+      omOscillatorsRef.current = []
+      omGainRef.current = null
+      omFilterRef.current = null
+      isOmPlayingRef.current = false
+    } catch {}
   }, [])
 
   const tick = useCallback(() => {
@@ -135,6 +219,7 @@ export default function BreathingPractice() {
       phaseRef.current = next
       setPhase(next)
       phaseStartRef.current = performance.now()
+      playZenStrike()
 
       if (next === 'inhale') {
         setGlowClass('inhale')
@@ -150,7 +235,7 @@ export default function BreathingPractice() {
     }
 
     rafRef.current = requestAnimationFrame(tick)
-  }, [inhaleDuration, exhaleDuration, labels, initAudio, startAumSound, stopAumSound])
+  }, [inhaleDuration, exhaleDuration, labels, initAudio, startAumSound, stopAumSound, playZenStrike])
 
   const startPractice = useCallback(() => {
     initAudio()
@@ -161,8 +246,9 @@ export default function BreathingPractice() {
     setPhase('inhale')
     setGlowClass('inhale')
     setStatusText(`${labels.inhale} · ${inhaleDuration.toFixed(1)}s`)
+    playZenStrike()
     rafRef.current = requestAnimationFrame(tick)
-  }, [initAudio, tick, inhaleDuration, labels])
+  }, [initAudio, tick, inhaleDuration, labels, playZenStrike])
 
   const stopPractice = useCallback(() => {
     runningRef.current = false
@@ -184,6 +270,7 @@ export default function BreathingPractice() {
     setStatusText(labels.ready)
     return () => {
       cancelAnimationFrame(rafRef.current)
+      clearTimeout(strikeTimeoutRef.current!)
       stopAumSound(true)
     }
   }, [labels, stopAumSound])
@@ -192,6 +279,14 @@ export default function BreathingPractice() {
 
   return (
     <div className="flex flex-col items-center gap-5">
+      <div
+        ref={flashRef}
+        className="fixed inset-0 pointer-events-none z-50 transition-opacity duration-75"
+        style={{
+          opacity: strikeFlash ? 1 : 0,
+          background: 'radial-gradient(ellipse at 50% 50%, rgba(245, 180, 90, 0.05), transparent 70%)',
+        }}
+      />
       <div
         className="relative w-52 h-52 md:w-56 md:h-56 rounded-full flex flex-col items-center justify-center cursor-pointer select-none"
         style={{
@@ -307,7 +402,7 @@ export default function BreathingPractice() {
       </p>
 
       <p className="text-center text-[10px] opacity-20" style={{ color: 'rgba(253, 230, 138, 0.3)' }}>
-        ♡ {locale === 'ru' ? 'на выдохе звучит Аум' : 'Aum sounds on exhale'}
+        ♡ {locale === 'ru' ? 'каждый такт — удар палочки дзен · на выдохе звучит Аум' : 'each beat — zen stick strike · Aum sounds on exhale'}
       </p>
     </div>
   )
