@@ -163,17 +163,41 @@ type TranslationKeys = {
     subtitle: string
     next: string
     skip: string
+    continue: string
+    begin: string
     interestCalm: string
     interestDifficult: string
     interestLearn: string
     interestIdeas: string
     interestExplore: string
+    dailyQuotesTitle: string
+    dailyQuotesSubtitle: string
+    enableDailyQuotes: string
+    understandTitle: string
+    understandSubtitle: string
+    practiceTitle: string
+    practiceSubtitle: string
+    quoteOfDay: string
+    understandWhat: string
+    hideExplanation: string
   }
 }
 
 const translations: Record<Locale, TranslationKeys> = {
   en: {
     onboarding: {
+      continue: 'Continue',
+      begin: 'Begin',
+      dailyQuotesTitle: 'Learn Buddhism through short daily reflections.',
+      dailyQuotesSubtitle: 'One quote. One reflection. Each day.',
+      enableDailyQuotes: 'Enable daily quotes',
+      understandTitle: 'Understand what Buddhist quotes actually mean.',
+      understandSubtitle: 'Simple, everyday explanations that help each quote make sense.',
+      practiceTitle: 'Simple Buddhist practices',
+      practiceSubtitle: 'for calming the mind and returning to the present moment.',
+      quoteOfDay: 'Quote of the Day',
+      understandWhat: 'What does this mean?',
+      hideExplanation: 'Hide explanation',
       title: 'What brings you here today?',
       subtitle: 'Explore Buddhist wisdom in simple, practical ways.',
       next: 'Next',
@@ -293,6 +317,18 @@ const translations: Record<Locale, TranslationKeys> = {
   },
   ru: {
     onboarding: {
+      continue: 'Продолжить',
+      begin: 'Начать',
+      dailyQuotesTitle: 'Изучайте буддизм через короткие ежедневные размышления.',
+      dailyQuotesSubtitle: 'Одна цитата. Одно размышление. Каждый день.',
+      enableDailyQuotes: 'Включить ежедневные цитаты',
+      understandTitle: 'Поймите, что на самом деле означают буддийские цитаты.',
+      understandSubtitle: 'Простые объяснения на каждый день, которые помогают понять смысл каждой цитаты.',
+      practiceTitle: 'Простые буддийские практики',
+      practiceSubtitle: 'для успокоения ума и возвращения в настоящий момент.',
+      quoteOfDay: 'Цитата дня',
+      understandWhat: 'Что это значит?',
+      hideExplanation: 'Скрыть объяснение',
       title: 'Зачем вы пришли сегодня?',
       subtitle: 'Изучайте буддийскую мудрость просто и практично.',
       next: 'Далее',
@@ -412,6 +448,18 @@ const translations: Record<Locale, TranslationKeys> = {
   },
   hi: {
     onboarding: {
+      continue: 'जारी रखें',
+      begin: 'शुरू करें',
+      dailyQuotesTitle: 'छोटे दैनिक विचारों से बौद्ध धर्म सीखें।',
+      dailyQuotesSubtitle: 'एक उद्धरण। एक विचार। हर दिन।',
+      enableDailyQuotes: 'दैनिक उद्धरण सक्षम करें',
+      understandTitle: 'समझें कि बौद्ध उद्धरणों का वास्तव में क्या अर्थ है।',
+      understandSubtitle: 'सरल, रोज़मर्रा की व्याख्याएँ जो हर उद्धरण को समझने योग्य बनाती हैं।',
+      practiceTitle: 'सरल बौद्ध अभ्यास',
+      practiceSubtitle: 'मन को शांत करने और वर्तमान क्षण में लौटने के लिए।',
+      quoteOfDay: 'आज का उद्धरण',
+      understandWhat: 'इसका क्या अर्थ है?',
+      hideExplanation: 'व्याख्या छिपाएं',
       title: 'आज आप यहाँ क्यों आए हैं?',
       subtitle: 'बौद्ध ज्ञान को सरल और व्यावहारिक तरीके से जानें।',
       next: 'आगे',
@@ -531,6 +579,18 @@ const translations: Record<Locale, TranslationKeys> = {
   },
   es: {
     onboarding: {
+      continue: 'Continuar',
+      begin: 'Comenzar',
+      dailyQuotesTitle: 'Aprende budismo a través de breves reflexiones diarias.',
+      dailyQuotesSubtitle: 'Una cita. Una reflexión. Cada día.',
+      enableDailyQuotes: 'Activar citas diarias',
+      understandTitle: 'Comprende lo que las citas budistas realmente significan.',
+      understandSubtitle: 'Explicaciones simples y cotidianas que hacen que cada cita tenga sentido.',
+      practiceTitle: 'Prácticas budistas sencillas',
+      practiceSubtitle: 'para calmar la mente y volver al momento presente.',
+      quoteOfDay: 'Cita del día',
+      understandWhat: '¿Qué significa esto?',
+      hideExplanation: 'Ocultar explicación',
       title: '¿Qué te trae por aquí hoy?',
       subtitle: 'Explora la sabiduría budista de forma sencilla y práctica.',
       next: 'Siguiente',
@@ -650,6 +710,18 @@ const translations: Record<Locale, TranslationKeys> = {
   },
   fr: {
     onboarding: {
+      continue: 'Continuer',
+      begin: 'Commencer',
+      dailyQuotesTitle: 'Apprenez le bouddhisme grâce à de courtes réflexions quotidiennes.',
+      dailyQuotesSubtitle: 'Une citation. Une réflexion. Chaque jour.',
+      enableDailyQuotes: 'Activer les citations quotidiennes',
+      understandTitle: 'Comprenez ce que les citations bouddhistes signifient vraiment.',
+      understandSubtitle: 'Des explications simples et quotidiennes qui donnent du sens à chaque citation.',
+      practiceTitle: 'Pratiques bouddhistes simples',
+      practiceSubtitle: "pour apaiser l'esprit et revenir au moment présent.",
+      quoteOfDay: 'Citation du jour',
+      understandWhat: "Qu'est-ce que cela signifie ?",
+      hideExplanation: "Masquer l'explication",
       title: "Qu'est-ce qui vous amène aujourd'hui ?",
       subtitle: 'Explorez la sagesse bouddhiste de manière simple et pratique.',
       next: 'Suivant',
@@ -769,6 +841,18 @@ const translations: Record<Locale, TranslationKeys> = {
   },
   de: {
     onboarding: {
+      continue: 'Weiter',
+      begin: 'Beginnen',
+      dailyQuotesTitle: 'Lerne Buddhismus durch kurze tägliche Reflexionen.',
+      dailyQuotesSubtitle: 'Ein Zitat. Eine Reflexion. Jeden Tag.',
+      enableDailyQuotes: 'Tägliche Zitate aktivieren',
+      understandTitle: 'Verstehe, was buddhistische Zitate wirklich bedeuten.',
+      understandSubtitle: 'Einfache Alltagserklärungen, die jedes Zitat verständlich machen.',
+      practiceTitle: 'Einfache buddhistische Übungen',
+      practiceSubtitle: 'um den Geist zu beruhigen und in den gegenwärtigen Moment zurückzukehren.',
+      quoteOfDay: 'Zitat des Tages',
+      understandWhat: 'Was bedeutet das?',
+      hideExplanation: 'Erklärung ausblenden',
       title: 'Was führt Sie heute hierher?',
       subtitle: 'Entdecke buddhistische Weisheit einfach und praktisch.',
       next: 'Weiter',
@@ -888,6 +972,18 @@ const translations: Record<Locale, TranslationKeys> = {
   },
   zh: {
     onboarding: {
+      continue: '继续',
+      begin: '开始',
+      dailyQuotesTitle: '通过简短的每日反思来学习佛教。',
+      dailyQuotesSubtitle: '一句引语。一次反思。每一天。',
+      enableDailyQuotes: '启用每日引语',
+      understandTitle: '理解佛教引语的真正含义。',
+      understandSubtitle: '简单、日常的解释，让每句引语都变得有意义。',
+      practiceTitle: '简单的佛教修行',
+      practiceSubtitle: '用于平静心灵、回归当下。',
+      quoteOfDay: '今日引语',
+      understandWhat: '这意味着什么？',
+      hideExplanation: '隐藏解释',
       title: '今天是什么让你来到这里？',
       subtitle: '以简单实用的方式探索佛教智慧。',
       next: '下一步',
@@ -1007,6 +1103,18 @@ const translations: Record<Locale, TranslationKeys> = {
   },
   ja: {
     onboarding: {
+      continue: '続ける',
+      begin: '始める',
+      dailyQuotesTitle: '短い毎日の省察を通して仏教を学びましょう。',
+      dailyQuotesSubtitle: '一つの言葉。一つの省察。毎日。',
+      enableDailyQuotes: '毎日の言葉を有効にする',
+      understandTitle: '仏教の言葉が本当に何を意味するのかを理解しましょう。',
+      understandSubtitle: 'シンプルで日常的な説明が、それぞれの言葉の意味を明確にします。',
+      practiceTitle: 'シンプルな仏教の実践',
+      practiceSubtitle: '心を落ち着かせ、今この瞬間に戻るために。',
+      quoteOfDay: '今日の言葉',
+      understandWhat: 'これは何を意味するの？',
+      hideExplanation: '説明を隠す',
       title: '今日は何のためにここへ？',
       subtitle: '仏教の知恵をシンプルに実践的に学びましょう。',
       next: '次へ',
@@ -1126,6 +1234,18 @@ const translations: Record<Locale, TranslationKeys> = {
   },
   pt: {
     onboarding: {
+      continue: 'Continuar',
+      begin: 'Começar',
+      dailyQuotesTitle: 'Aprenda budismo por meio de breves reflexões diárias.',
+      dailyQuotesSubtitle: 'Uma citação. Uma reflexão. Todos os dias.',
+      enableDailyQuotes: 'Ativar citações diárias',
+      understandTitle: 'Entenda o que as citações budistas realmente significam.',
+      understandSubtitle: 'Explicações simples e cotidianas que dão sentido a cada citação.',
+      practiceTitle: 'Práticas budistas simples',
+      practiceSubtitle: 'para acalmar a mente e voltar ao momento presente.',
+      quoteOfDay: 'Citação do dia',
+      understandWhat: 'O que isso significa?',
+      hideExplanation: 'Ocultar explicação',
       title: 'O que traz você aqui hoje?',
       subtitle: 'Explore a sabedoria budista de forma simples e prática.',
       next: 'Próximo',
@@ -1245,6 +1365,18 @@ const translations: Record<Locale, TranslationKeys> = {
   },
   th: {
     onboarding: {
+      continue: 'ต่อไป',
+      begin: 'เริ่มต้น',
+      dailyQuotesTitle: 'เรียนรู้พุทธศาสนาผ่านบทสะท้อนสั้น ๆ ในทุกวัน',
+      dailyQuotesSubtitle: 'หนึ่งคำคม หนึ่งบทสะท้อน ทุกวัน',
+      enableDailyQuotes: 'เปิดใช้งานคำคมประจำวัน',
+      understandTitle: 'เข้าใจความหมายที่แท้จริงของคำคมพุทธศาสนา',
+      understandSubtitle: 'คำอธิบายง่าย ๆ ในชีวิตประจำวันที่ทำให้คำคมแต่ละข้อเข้าใจง่าย',
+      practiceTitle: 'การปฏิบัติแบบพุทธที่เรียบง่าย',
+      practiceSubtitle: 'เพื่อสงบจิตใจและกลับสู่ปัจจุบันขณะ',
+      quoteOfDay: 'คำคมประจำวัน',
+      understandWhat: 'หมายความว่าอย่างไร?',
+      hideExplanation: 'ซ่อนคำอธิบาย',
       title: 'วันนี้คุณมาที่นี่ด้วยจุดประสงค์อะไร?',
       subtitle: 'สำรวจปัญญาแห่งพุทธศาสนาอย่างง่ายและปฏิบัติได้จริง',
       next: 'ถัดไป',
@@ -1364,6 +1496,18 @@ const translations: Record<Locale, TranslationKeys> = {
   },
   vi: {
     onboarding: {
+      continue: 'Tiếp tục',
+      begin: 'Bắt đầu',
+      dailyQuotesTitle: 'Học Phật giáo qua những suy ngẫm ngắn hằng ngày.',
+      dailyQuotesSubtitle: 'Một câu trích. Một suy ngẫm. Mỗi ngày.',
+      enableDailyQuotes: 'Bật câu trích hằng ngày',
+      understandTitle: 'Hiểu ý nghĩa thực sự của các câu trích Phật giáo.',
+      understandSubtitle: 'Những giải thích đơn giản hằng ngày giúp mỗi câu trích có ý nghĩa.',
+      practiceTitle: 'Thực hành Phật giáo đơn giản',
+      practiceSubtitle: 'để làm dịu tâm trí và trở về với hiện tại.',
+      quoteOfDay: 'Câu trích trong ngày',
+      understandWhat: 'Điều này nghĩa là gì?',
+      hideExplanation: 'Ẩn giải thích',
       title: 'Hôm nay bạn đến đây vì điều gì?',
       subtitle: 'Khám phá trí tuệ Phật giáo một cách đơn giản và thực tế.',
       next: 'Tiếp theo',
@@ -1483,6 +1627,18 @@ const translations: Record<Locale, TranslationKeys> = {
   },
   ko: {
     onboarding: {
+      continue: '계속',
+      begin: '시작',
+      dailyQuotesTitle: '짧은 매일의 성찰로 불교를 배우세요.',
+      dailyQuotesSubtitle: '하나의 명언. 하나의 성찰. 매일.',
+      enableDailyQuotes: '매일 명언 활성화',
+      understandTitle: '불교 명언이 실제로 무엇을 의미하는지 이해하세요.',
+      understandSubtitle: '각 명언이 의미 있게 해 주는 간단한 일상적 설명.',
+      practiceTitle: '간단한 불교 수행',
+      practiceSubtitle: '마음을 차분히 하고 현재 순간으로 돌아가기 위하여.',
+      quoteOfDay: '오늘의 명언',
+      understandWhat: '이것은 무슨 뜻인가요?',
+      hideExplanation: '설명 숨기기',
       title: '오늘 무엇 때문에 여기에 오셨나요?',
       subtitle: '불교의 지혜를 간단하고 실용적으로 탐구하세요.',
       next: '다음',
@@ -1602,6 +1758,18 @@ const translations: Record<Locale, TranslationKeys> = {
   },
   id: {
     onboarding: {
+      continue: 'Lanjutkan',
+      begin: 'Mulai',
+      dailyQuotesTitle: 'Pelajari Buddhisme melalui refleksi singkat harian.',
+      dailyQuotesSubtitle: 'Satu kutipan. Satu refleksi. Setiap hari.',
+      enableDailyQuotes: 'Aktifkan kutipan harian',
+      understandTitle: 'Pahami arti sebenarnya dari kutipan Buddhis.',
+      understandSubtitle: 'Penjelasan sederhana sehari-hari yang membuat setiap kutipan bermakna.',
+      practiceTitle: 'Praktik Buddhis sederhana',
+      practiceSubtitle: 'untuk menenangkan pikiran dan kembali ke saat ini.',
+      quoteOfDay: 'Kutipan hari ini',
+      understandWhat: 'Apa artinya ini?',
+      hideExplanation: 'Sembunyikan penjelasan',
       title: 'Apa yang membawa Anda ke sini hari ini?',
       subtitle: 'Jelajahi kebijaksanaan Buddha secara sederhana dan praktis.',
       next: 'Lanjut',
@@ -1722,6 +1890,18 @@ const translations: Record<Locale, TranslationKeys> = {
   },
   ms: {
     onboarding: {
+      continue: 'Teruskan',
+      begin: 'Mula',
+      dailyQuotesTitle: 'Pelajari agama Buddha melalui renungan harian yang ringkas.',
+      dailyQuotesSubtitle: 'Satu petikan. Satu renungan. Setiap hari.',
+      enableDailyQuotes: 'Aktifkan petikan harian',
+      understandTitle: 'Fahami maksud sebenar petikan Buddha.',
+      understandSubtitle: 'Penjelasan harian yang mudah dan setiap petikan menjadi bermakna.',
+      practiceTitle: 'Amalan Buddha yang mudah',
+      practiceSubtitle: 'untuk menenangkan minda dan kembali ke masa kini.',
+      quoteOfDay: 'Petikan hari ini',
+      understandWhat: 'Apa maksudnya?',
+      hideExplanation: 'Sembunyikan penjelasan',
       title: 'Apa yang membawa anda ke sini hari ini?',
       subtitle: 'Terokai kebijaksanaan Buddha dengan cara yang mudah dan praktikal.',
       next: 'Seterusnya',
@@ -1842,6 +2022,18 @@ const translations: Record<Locale, TranslationKeys> = {
   },
   si: {
     onboarding: {
+      continue: 'ඉදිරියට',
+      begin: 'ආරම්භ කරන්න',
+      dailyQuotesTitle: 'කෙටි දෛනික සිතුවිලි තුළින් බුදු දහම ඉගෙන ගන්න.',
+      dailyQuotesSubtitle: 'එක් උපුටා දැක්වීමක්. එක් සිතුවිල්ලක්. සෑම දිනකම.',
+      enableDailyQuotes: 'දෛනික උපුටා දැක්වීම් සක්රීය කරන්න',
+      understandTitle: 'බෞද්ධ උපුටා දැක්වීම්වල සැබෑ අර්ථය තේරුම් ගන්න.',
+      understandSubtitle: 'සරල, එදිනෙදා පැහැදිලි කිරීම් සෑම උපුටා දැක්වීමක්ම තේරුම් ගැනීමට උපකාරී වේ.',
+      practiceTitle: 'සරල බෞද්ධ පිළිවෙත්',
+      practiceSubtitle: 'සිත සන්සුන් කිරීමට සහ වර්තමාන මොහොතට නැවත පැමිණීමට.',
+      quoteOfDay: 'අද දවසේ උපුටා දැක්වීම',
+      understandWhat: 'මෙහි තේරුම කුමක්ද?',
+      hideExplanation: 'පැහැදිලි කිරීම සඟවන්න',
       title: 'අද ඔබව මෙහි ගෙනාවේ කුමක්ද?',
       subtitle: 'බෞද්ධ ප්රඥාව සරල හා ප්රායෝගික ලෙස ගවේෂණය කරන්න.',
       next: 'ඊළඟ',
@@ -1961,6 +2153,18 @@ const translations: Record<Locale, TranslationKeys> = {
   },
   my: {
     onboarding: {
+      continue: 'ဆက်လုပ်ရန်',
+      begin: 'စတင်ရန်',
+      dailyQuotesTitle: 'နေ့စဉ် အတွေးအမြင်တိုများဖြင့် ဗုဒ္ဓဘာသာကို လေ့လာပါ။',
+      dailyQuotesSubtitle: 'ကိုးကားချက် တစ်ခု။ အတွေးတစ်ခု။ နေ့တိုင်း။',
+      enableDailyQuotes: 'နေ့စဉ် ကိုးကားချက်များ ဖွင့်ရန်',
+      understandTitle: 'ဗုဒ္ဓဘာသာ ကိုးကားချက်များ၏ အဓိပ္ပာယ်အမှန်ကို နားလည်ပါ။',
+      understandSubtitle: 'ရိုးရှင်းသော နေ့စဉ် ရှင်းလင်းချက်များက ကိုးကားချက်တိုင်းကို အဓိပ္ပာယ်ရှိစေသည်။',
+      practiceTitle: 'ရိုးရှင်းသော ဗုဒ္ဓဘာသာ အလေ့အကျင့်များ',
+      practiceSubtitle: 'စိတ်ကို အေးချမ်းစေပြီး ပစ္စုပ္ပန်ခဏသို့ ပြန်ရောက်စေရန်။',
+      quoteOfDay: 'ယနေ့ ကိုးကားချက်',
+      understandWhat: 'ဒါက ဘာကိုဆိုလိုပါသလဲ?',
+      hideExplanation: 'ရှင်းလင်းချက် ဝှက်ရန်',
       title: 'ဒီနေ့ ဘာကြောင့် ဒီကို လာခဲ့ပါသလဲ',
       subtitle: 'ဗုဒ္ဓဘာသာ ဉာဏ်ပညာကို ရိုးရှင်းပြီး လက်တွေ့ကျစွာ လေ့လာပါ',
       next: 'ရှေ့ဆက်',
@@ -2080,6 +2284,18 @@ const translations: Record<Locale, TranslationKeys> = {
   },
   ne: {
     onboarding: {
+      continue: 'जारी राख्नुहोस्',
+      begin: 'सुरु गर्नुहोस्',
+      dailyQuotesTitle: 'छोटो दैनिक चिन्तन मार्फत बुद्ध धर्म सिक्नुहोस्।',
+      dailyQuotesSubtitle: 'एउटा उद्धरण। एउटा चिन्तन। हरेक दिन।',
+      enableDailyQuotes: 'दैनिक उद्धरणहरू सक्षम गर्नुहोस्',
+      understandTitle: 'बौद्ध उद्धरणहरूको वास्तविक अर्थ बुझ्नुहोस्।',
+      understandSubtitle: 'सरल, दैनिक व्याख्याहरू जसले हरेक उद्धरणको अर्थ बुझाउँछन्।',
+      practiceTitle: 'सरल बौद्ध अभ्यासहरू',
+      practiceSubtitle: 'मनलाई शान्त पार्न र वर्तमान क्षणमा फर्कन।',
+      quoteOfDay: 'आजको उद्धरण',
+      understandWhat: 'यसको अर्थ के हो?',
+      hideExplanation: 'व्याख्या लुकाउनुहोस्',
       title: 'आज तपाईं यहाँ किन आउनुभयो?',
       subtitle: 'बौद्ध ज्ञानलाई सरल र व्यावहारिक तरिकाले अन्वेषण गर्नुहोस्।',
       next: 'अर्को',
@@ -2199,6 +2415,18 @@ const translations: Record<Locale, TranslationKeys> = {
   },
   bo: {
     onboarding: {
+      continue: 'མུ་མཐུད་རྒྱག་པ།',
+      begin: 'འགོ་ཚུགས་པ།',
+      dailyQuotesTitle: 'ཉིན་རེའི་སྒོམ་ཚུལ་ཐུང་ངུ་བརྒྱུད་ནས་སངས་རྒྱས་ཆོས་ལུགས་སློབ་དགོས།',
+      dailyQuotesSubtitle: 'བཀའ་དྲིན་ཚིག་གཅིག་དང་། བསམ་ཚུལ་གཅིག་རེ་བཞིན་ཉིན་རེར།',
+      enableDailyQuotes: 'ཉིན་རེའི་བཀའ་དྲིན་ཚིག་ཤུགས་རྒྱག་པ།',
+      understandTitle: 'སངས་རྒྱས་ཆོས་ལུགས་ཀྱི་བཀའ་དྲིན་ཚིག་གི་དོན་དངོས་ཡིན་པ་རྟོགས་དགོས།',
+      understandSubtitle: 'གཏིང་ཟབ་མིན་པའི་ཉིན་རེའི་བཤད་པས་བཀའ་དྲིན་ཚིག་རེ་རེ་གོ་སླ་བར་བྱེད།',
+      practiceTitle: 'སངས་རྒྱས་ཆོས་ལུགས་ཀྱི་སྒོམ་ཚུལ་སྟབས་བདེ།',
+      practiceSubtitle: 'སེམས་ཞི་བ་དང་ད་ལྟའི་དུས་སྐབས་སུ་ཕྱིར་ལོག་བྱེད་པའི་ཆེད་དུ།',
+      quoteOfDay: 'དེ་རིང་གི་བཀའ་དྲིན་ཚིག',
+      understandWhat: 'འདིའི་དོན་གང་ཡིན།',
+      hideExplanation: 'བཤད་པ་སྦས་པ།',
       title: 'དེ་རིང་ཁྱེད་རང་གང་གི་སླད་དུ་འདིར་ཡོང་དགོས།',
       subtitle: 'སངས་རྒྱས་ཆོས་ལུགས་ཀྱི་གཟི་བརྗིད་རིག་པ་ལ་རྒྱུན་སྤྱོད་སྟབས་བདེ་ལྟར་འཚོལ་དགོས།',
       next: 'རྗེས་མ།',

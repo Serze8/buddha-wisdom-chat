@@ -1,11 +1,13 @@
 'use client'
 
+import { useState } from 'react'
 import { useLanguage } from '@/contexts/LanguageContext'
 import Link from 'next/link'
 import Image from 'next/image'
-import { MessageCircle, BookOpenCheck, Film, Users, Tv, Image as ImageIcon, BookOpen, Swords, Flower2, ArrowRight } from 'lucide-react'
+import { MessageCircle, BookOpenCheck, Film, Users, Tv, Image as ImageIcon, BookOpen, Swords, Flower2, ArrowRight, Sparkles } from 'lucide-react'
 import HeroSilkAtlas from '@/components/HeroSilkAtlas'
 import TeacherQuotes from '@/components/ui/TeacherQuotes'
+import { getDailyQuote } from '@/lib/quotes'
 
 const features = [
   { key: 'chat', icon: MessageCircle, href: '/chat' },
@@ -35,34 +37,11 @@ const thesisToday = {
   },
 }
 
-const quotes: Record<string, { text: string; author: string }[]> = {
-  en: [
-    { text: 'The mind is everything. What you think you become.', author: 'Buddha' },
-    { text: 'Peace comes from within. Do not seek it without.', author: 'Buddha' },
-    { text: 'In the end, only three things matter: how much you loved, how gently you lived, and how gracefully you let go.', author: 'Buddha' },
-    { text: 'Hatred does not cease by hatred, but only by love.', author: 'Dhammapada 1:5' },
-    { text: 'All that we are is the result of what we have thought.', author: 'Dhammapada 1:1' },
-    { text: 'Better than a thousand hollow words is one word that brings peace.', author: 'Dhammapada 1:100' },
-    { text: 'The fool who knows he is a fool is wise, but the fool who thinks he is wise is a real fool.', author: 'Dhammapada 6:63' },
-    { text: 'Health is the greatest gift, contentment the greatest wealth.', author: 'Dhammapada 4:204' },
-  ],
-  ru: [
-    { text: 'Ум — это всё. То, что ты думаешь, тем ты и становишься.', author: 'Будда' },
-    { text: 'Мир исходит изнутри. Не ищи его снаружи.', author: 'Будда' },
-    { text: 'В конце концов, важны только три вещи: как сильно ты любил, как мягко ты жил и как благородно ты отпустил.', author: 'Будда' },
-    { text: 'Ненависть не прекращается ненавистью, а лишь любовью.', author: 'Дхаммапада 1:5' },
-    { text: 'Всё, чем мы являемся, — это результат того, о чём мы думали.', author: 'Дхаммапада 1:1' },
-    { text: 'Лучше одно слово, приносящее покой, чем тысяча пустых слов.', author: 'Дхаммапада 1:100' },
-    { text: 'Глупец, знающий, что он глупец, мудр. А глупец, считающий себя мудрым — настоящий глупец.', author: 'Дхаммапада 6:63' },
-    { text: 'Здоровье — величайший дар, довольство — величайшее богатство.', author: 'Дхаммапада 4:204' },
-  ],
-}
-
 export default function HomePageClient() {
   const { locale, t } = useLanguage()
+  const [showExplanation, setShowExplanation] = useState(false)
   const thesis = thesisToday[locale as keyof typeof thesisToday] || thesisToday.en
-  const dayQuotes = quotes[locale] || quotes.en
-  const quote = dayQuotes[new Date().getDate() % dayQuotes.length]
+  const quote = getDailyQuote(new Date(), locale)
 
   return (
     <div className="min-h-screen">
@@ -89,16 +68,35 @@ export default function HomePageClient() {
         </div>
       </section>
 
-      {/* Quote Strip */}
-      <div className="relative overflow-hidden py-8 md:py-10 scroll-reveal" style={{ background: 'linear-gradient(90deg, rgba(120, 53, 15, 0.15), rgba(120, 53, 15, 0.05), rgba(120, 53, 15, 0.15))' }}>
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center relative">
-          <span className="quote-mark" style={{ left: '10%' }}>&ldquo;</span>
-          <p className="font-[var(--font-cormorant)] text-xl md:text-2xl italic text-golden-gradient leading-relaxed relative z-10 pl-6">
-            {quote.text}
+      {/* Quote of the Day */}
+      <section className="max-w-4xl mx-auto px-4 sm:px-6 py-10 md:py-12">
+        <div className="golden-card rounded-2xl p-6 md:p-8 relative overflow-hidden scroll-reveal" style={{ boxShadow: '0 8px 40px rgba(0, 0, 0, 0.4)' }}>
+          <div className="flex items-center justify-between mb-4">
+            <span className="text-amber-500/60 text-xs tracking-widest uppercase font-medium">
+              {t.onboarding.quoteOfDay}
+            </span>
+            <span className="text-amber-600/40 text-xs" style={{ fontFamily: 'var(--font-cormorant)' }}>
+              {new Date().toLocaleDateString(locale === 'ru' ? 'ru-RU' : 'en-US', { month: 'long', day: 'numeric' })}
+            </span>
+          </div>
+          <p className="font-[var(--font-cormorant)] text-xl md:text-2xl italic text-golden-gradient leading-relaxed">
+            «{quote.quote}»
           </p>
-          <p className="text-amber-600/60 text-sm mt-3" style={{ fontFamily: 'var(--font-cormorant)' }}>— {quote.author}</p>
+          <p className="text-amber-600/60 text-sm mt-2" style={{ fontFamily: 'var(--font-cormorant)' }}>— {quote.source}</p>
+          <button
+            onClick={() => setShowExplanation(!showExplanation)}
+            className="mt-4 inline-flex items-center gap-2 text-amber-400/80 hover:text-amber-400 text-sm font-medium transition-colors"
+          >
+            <Sparkles className="w-4 h-4" />
+            {showExplanation ? t.onboarding.hideExplanation : t.onboarding.understandWhat}
+          </button>
+          {showExplanation && (
+            <div className="mt-3 rounded-xl p-4 border border-amber-500/15" style={{ background: 'rgba(245, 158, 11, 0.06)' }}>
+              <p className="text-amber-200/60 text-sm leading-relaxed">{quote.explanation}</p>
+            </div>
+          )}
         </div>
-      </div>
+      </section>
 
       {/* Thesis of the Day */}
       <section className="max-w-4xl mx-auto px-4 sm:px-6 py-14 md:py-20">
