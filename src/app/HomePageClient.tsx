@@ -2,18 +2,24 @@
 
 import { useLanguage } from '@/contexts/LanguageContext'
 import Link from 'next/link'
-import { MessageCircle, BookOpenCheck, Film, Users, Tv, Image as ImageIcon, HelpCircle, BookOpen, Swords } from 'lucide-react'
+import { MessageCircle, BookOpenCheck, Film, Users, Tv, Image as ImageIcon, BookOpen, Swords, Flower2, ArrowRight } from 'lucide-react'
 import HeroSilkAtlas from '@/components/HeroSilkAtlas'
 import TeacherQuotes from '@/components/ui/TeacherQuotes'
 
 const features = [
   { key: 'chat', icon: MessageCircle, href: '/chat' },
+  { key: 'practice', icon: Flower2, href: '/teachings/practice' },
   { key: 'characters', icon: Users, href: '/characters' },
   { key: 'episodes', icon: Tv, href: '/episodes' },
   { key: 'teachings', icon: BookOpen, href: '/teachings' },
   { key: 'gallery', icon: ImageIcon, href: '/gallery' },
-  { key: 'quiz', icon: HelpCircle, href: '/quiz' },
 ]
+
+const featureLabel = (t: any, key: string) => {
+  if (key === 'chat') return t.nav.blockChat || 'Chat'
+  if (key === 'practice') return t.teachings?.sectionPractices || 'Practice'
+  return (t.nav as any)[key] || key
+}
 
 const thesisToday = {
   en: {
@@ -61,6 +67,26 @@ export default function HomePageClient() {
     <div className="min-h-screen">
       {/* Hero */}
       <HeroSilkAtlas />
+
+      {/* Quick Actions — app-style */}
+      <section className="max-w-6xl mx-auto px-4 sm:px-6 -mt-10 md:-mt-14 relative z-10">
+        <div className="grid grid-cols-2 gap-3 md:gap-4">
+          <Link
+            href="/chat"
+            className="group flex items-center justify-center gap-2 rounded-2xl bg-amber-600 hover:bg-amber-500 text-white font-medium py-4 md:py-5 text-sm md:text-base transition-all shadow-lg shadow-amber-900/40 active:scale-[0.98]"
+          >
+            <MessageCircle className="w-5 h-5" />
+            {t.nav.blockChat || 'Chat'}
+          </Link>
+          <Link
+            href="/teachings/practice"
+            className="group flex items-center justify-center gap-2 rounded-2xl bg-white/5 hover:bg-white/10 text-amber-200 font-medium py-4 md:py-5 text-sm md:text-base border border-amber-800/40 transition-all active:scale-[0.98]"
+          >
+            <Flower2 className="w-5 h-5 text-amber-400" />
+            {t.teachings?.sectionPractices || 'Practice'}
+          </Link>
+        </div>
+      </section>
 
       {/* Quote Strip */}
       <div className="relative overflow-hidden py-8 md:py-10 scroll-reveal" style={{ background: 'linear-gradient(90deg, rgba(120, 53, 15, 0.15), rgba(120, 53, 15, 0.05), rgba(120, 53, 15, 0.15))' }}>
@@ -175,14 +201,15 @@ export default function HomePageClient() {
             <Link
               key={key}
               href={href}
-              className="group golden-card rounded-2xl flex flex-col items-center gap-3 p-6"
+              className="group golden-card rounded-2xl flex flex-col items-center gap-3 p-6 md:p-8 active:scale-[0.98] transition-transform"
             >
               <div className="p-3 rounded-xl transition-transform duration-300 group-hover:scale-110" style={{ background: 'rgba(245, 158, 11, 0.08)', border: '1px solid rgba(245, 158, 11, 0.15)' }}>
-                <Icon className="w-6 h-6 text-amber-400/70 group-hover:text-amber-400 transition-colors" />
+                <Icon className="w-7 h-7 md:w-6 md:h-6 text-amber-400/70 group-hover:text-amber-400 transition-colors" />
               </div>
-              <span className="font-medium text-amber-200/60 group-hover:text-amber-200 transition-colors text-sm">
-                {(t.nav as any)[key] || key}
+              <span className="font-medium text-amber-200/60 group-hover:text-amber-200 transition-colors text-sm text-center">
+                {featureLabel(t, key)}
               </span>
+              <ArrowRight className="w-4 h-4 text-amber-400/40 group-hover:text-amber-400 group-hover:translate-x-1 transition-all" />
             </Link>
           ))}
         </div>
