@@ -14,6 +14,8 @@ const PUBLIC_PAGES = [
   '/characters',
   '/episodes',
   '/gallery',
+  '/journey',
+  '/knowledge',
   '/quiz',
   '/videos',
   '/retreats',

@@ -48,6 +48,16 @@ const pages: Record<string, { title: string; description: string; keywords: stri
     description: 'Take our Buddhist quiz to discover which teaching resonates with your personality and spiritual journey.',
     keywords: ['buddhist quiz', 'spiritual test', 'which buddhist path'],
   },
+  journey: {
+    title: 'Foundations — 14-Day Buddhist Course',
+    description: 'A guided 14-day course through the foundations of Buddhism: from the Buddha\'s life and the Four Noble Truths to meditation, metta, and your own practice.',
+    keywords: ['buddhist course', 'foundations of buddhism', '14 day course', 'four noble truths', 'eightfold path', 'learn buddhism'],
+  },
+  knowledge: {
+    title: 'Knowledge — Teachings, Series & Characters',
+    description: 'Explore Buddhist teachings, the Buddha TV series episode guide, characters, quiz, theses, gallery and videos in one place.',
+    keywords: ['buddhist knowledge', 'teachings', 'buddha series', 'characters', 'dhamma', 'theses'],
+  },
   videos: {
     title: 'Videos — Buddha Series & Meditation',
     description: 'Watch episodes of the Buddha series and guided meditation videos from our community.',

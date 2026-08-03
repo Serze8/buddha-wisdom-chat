@@ -21,6 +21,9 @@ type TranslationKeys = {
     blockChat: string
     blockLearn: string
     blockFilm: string
+    journey: string
+    knowledge: string
+    settings: string
   }
   home: {
     heroTitle: string
@@ -181,6 +184,21 @@ type TranslationKeys = {
     understandWhat: string
     hideExplanation: string
   }
+  journey: {
+    title: string
+    subtitle: string
+    dayOf: string
+    start: string
+    continue: string
+    completed: string
+    inProgress: string
+    notStarted: string
+    reset: string
+  }
+  knowledge: {
+    title: string
+    subtitle: string
+  }
 }
 
 const translations: Record<Locale, TranslationKeys> = {
@@ -208,12 +226,28 @@ const translations: Record<Locale, TranslationKeys> = {
       interestIdeas: 'Understand Buddhist ideas',
       interestExplore: 'Just exploring',
     },
+    journey: {
+      title: 'Foundations',
+      subtitle: 'A 14-day course from the Buddha\'s life to your own practice.',
+      dayOf: 'Day {day} of {total}',
+      start: 'Start',
+      continue: 'Continue',
+      completed: 'Completed',
+      inProgress: 'In progress',
+      notStarted: 'Not started',
+      reset: 'Reset',
+    },
+    knowledge: {
+      title: 'Knowledge',
+      subtitle: 'Explore teachings, the series, characters and practices.',
+    },
     nav: {
       home: 'Home', communityChat: 'Community Chat', characters: 'Characters', episodes: 'Series',
       teachings: 'Dharma & Teachings', zenMartial: 'Zen & Martial Arts', theses: 'Theses', gallery: 'Gallery', quiz: 'Quiz',
       videos: 'Videos', retreats: 'Retreats', profile: 'Profile',
       about: 'About', contact: 'Contact', admin: 'Admin', donate: 'Donate',
       blockChat: 'Chat', blockLearn: 'From Under the Bodhi Tree', blockFilm: 'Film',
+      journey: 'Journey', knowledge: 'Knowledge', settings: 'Settings',
     },
     home: {
       heroTitle: "Buddha's Wisdom Chat",
@@ -339,12 +373,28 @@ const translations: Record<Locale, TranslationKeys> = {
       interestIdeas: 'Понять буддийские идеи',
       interestExplore: 'Просто осматриваюсь',
     },
+    journey: {
+      title: 'Основы',
+      subtitle: '14-дневный курс от жизни Будды до вашей собственной практики.',
+      dayOf: 'День {day} из {total}',
+      start: 'Начать',
+      continue: 'Продолжить',
+      completed: 'Пройдено',
+      inProgress: 'В процессе',
+      notStarted: 'Не начато',
+      reset: 'Сбросить',
+    },
+    knowledge: {
+      title: 'Знания',
+      subtitle: 'Учения, сериал, герои и практики.',
+    },
     nav: {
       home: 'Главная', communityChat: 'Чат сообщества', characters: 'Герои Будды', episodes: 'Сериал',
       teachings: 'Дхарма и учения', zenMartial: 'Дзен и боевые искусства', theses: 'Тезисы', gallery: 'Галерея', quiz: 'Викторина',
       videos: 'Видео', retreats: 'Ретриты', profile: 'Профиль',
       about: 'О проекте', contact: 'Контакты', admin: 'Админ', donate: 'Поддержать',
       blockChat: 'Чат', blockLearn: 'Из-под дерева Бодхи', blockFilm: 'Фильм',
+      journey: 'Путь', knowledge: 'Знания', settings: 'Настройки',
     },
     home: {
       heroTitle: 'Мудрость Будды',
@@ -470,12 +520,28 @@ const translations: Record<Locale, TranslationKeys> = {
       interestIdeas: 'बौद्ध विचारों को समझें',
       interestExplore: 'बस देख रहा हूँ',
     },
+    journey: {
+      title: 'आधारभूत',
+      subtitle: 'बुद्ध के जीवन से आपके अपने अभ्यास तक का 14-दिवसीय पाठ्यक्रम।',
+      dayOf: 'दिन {day} / {total}',
+      start: 'शुरू करें',
+      continue: 'जारी रखें',
+      completed: 'पूर्ण',
+      inProgress: 'चालू',
+      notStarted: 'आरंभ नहीं',
+      reset: 'रीसेट',
+    },
+    knowledge: {
+      title: 'ज्ञान',
+      subtitle: 'शिक्षाएँ, श्रृंखला, पात्र और अभ्यास देखें।',
+    },
     nav: {
       home: 'होम', communityChat: 'सामुदायिक चैट', characters: 'पात्र', episodes: 'सीरीज़',
       teachings: 'शिक्षाएँ, धर्मचक्र और अभ्यास', zenMartial: 'द्ज़ेन और मार्शल आर्ट्स', theses: 'थीसिस', gallery: 'गैलरी', quiz: 'प्रश्नोत्तरी',
       videos: 'वीडियो', retreats: 'रिट्रीट', profile: 'प्रोफ़ाइल',
       about: 'परियोजना के बारे में', contact: 'संपर्क', admin: 'एडमिन', donate: 'समर्थन',
       blockChat: 'चैट', blockLearn: 'बोधि वृक्ष के नीचे', blockFilm: 'फ़िल्म',
+      journey: 'यात्रा', knowledge: 'ज्ञान', settings: 'सेटिंग्स',
     },
     home: {
       heroTitle: 'बुद्ध की ज्ञान चैट',
@@ -601,12 +667,28 @@ const translations: Record<Locale, TranslationKeys> = {
       interestIdeas: 'Comprender las ideas budistas',
       interestExplore: 'Solo explorando',
     },
+    journey: {
+      title: 'Fundamentos',
+      subtitle: 'Un curso de 14 días desde la vida del Buda hasta tu propia práctica.',
+      dayOf: 'Día {day} de {total}',
+      start: 'Comenzar',
+      continue: 'Continuar',
+      completed: 'Completado',
+      inProgress: 'En progreso',
+      notStarted: 'No iniciado',
+      reset: 'Reiniciar',
+    },
+    knowledge: {
+      title: 'Conocimiento',
+      subtitle: 'Explora enseñanzas, la serie, personajes y prácticas.',
+    },
     nav: {
       home: 'Inicio', communityChat: 'Chat comunitario', characters: 'Personajes', episodes: 'Serie',
       teachings: 'Enseñanzas, Dharmachakra y Práctica', zenMartial: 'Zen y Artes Marciales', theses: 'Tesis', gallery: 'Galería', quiz: 'Quiz',
       videos: 'Videos', retreats: 'Retiros', profile: 'Perfil',
       about: 'Acerca de', contact: 'Contacto', admin: 'Administrador', donate: 'Donar',
       blockChat: 'Chat', blockLearn: 'Bajo el Árbol Bodhi', blockFilm: 'Película',
+      journey: 'Camino', knowledge: 'Conocimiento', settings: 'Ajustes',
     },
     home: {
       heroTitle: 'Chat de la Sabiduría del Buda',
@@ -732,12 +814,28 @@ const translations: Record<Locale, TranslationKeys> = {
       interestIdeas: 'Comprendre les idées bouddhistes',
       interestExplore: 'Je découvre simplement',
     },
+    journey: {
+      title: 'Fondements',
+      subtitle: 'Un cours de 14 jours de la vie du Bouddha à votre propre pratique.',
+      dayOf: 'Jour {day} sur {total}',
+      start: 'Commencer',
+      continue: 'Continuer',
+      completed: 'Terminé',
+      inProgress: 'En cours',
+      notStarted: 'Non commencé',
+      reset: 'Réinitialiser',
+    },
+    knowledge: {
+      title: 'Connaissances',
+      subtitle: 'Explorez les enseignements, la série, les personnages et les pratiques.',
+    },
     nav: {
       home: 'Accueil', communityChat: 'Chat communautaire', characters: 'Personnages', episodes: 'Série',
       teachings: 'Enseignements, Dharmachakra et Pratique', zenMartial: 'Zen et Arts Martiaux', theses: 'Thèses', gallery: 'Galerie', quiz: 'Quiz',
       videos: 'Vidéos', retreats: 'Retraites', profile: 'Profil',
       about: 'À propos', contact: 'Contact', admin: 'Administrateur', donate: 'Donner',
       blockChat: 'Chat', blockLearn: 'Sous l\'Arbre Bodhi', blockFilm: 'Film',
+      journey: 'Chemin', knowledge: 'Savoir', settings: 'Paramètres',
     },
     home: {
       heroTitle: 'Chat de la Sagesse du Bouddha',
@@ -863,12 +961,28 @@ const translations: Record<Locale, TranslationKeys> = {
       interestIdeas: 'Buddhistische Ideen verstehen',
       interestExplore: 'Nur stöbern',
     },
+    journey: {
+      title: 'Grundlagen',
+      subtitle: 'Ein 14-tägiger Kurs vom Leben Buddhas bis zu deiner eigenen Praxis.',
+      dayOf: 'Tag {day} von {total}',
+      start: 'Beginnen',
+      continue: 'Weiter',
+      completed: 'Abgeschlossen',
+      inProgress: 'In Bearbeitung',
+      notStarted: 'Nicht begonnen',
+      reset: 'Zurücksetzen',
+    },
+    knowledge: {
+      title: 'Wissen',
+      subtitle: 'Lehren, Serie, Figuren und Praktiken entdecken.',
+    },
     nav: {
       home: 'Startseite', communityChat: 'Community-Chat', characters: 'Charaktere', episodes: 'Serie',
       teachings: 'Lehren, Dharmachakra und Praxis', zenMartial: 'Zen und Kampfkünste', theses: 'Thesen', gallery: 'Galerie', quiz: 'Quiz',
       videos: 'Videos', retreats: 'Rückzüge', profile: 'Profil',
       about: 'Über uns', contact: 'Kontakt', admin: 'Administrator', donate: 'Spenden',
       blockChat: 'Chat', blockLearn: 'Unter dem Bodhi-Baum', blockFilm: 'Film',
+      journey: 'Pfad', knowledge: 'Wissen', settings: 'Einstellungen',
     },
     home: {
       heroTitle: 'Buddhas Weisheits-Chat',
@@ -994,12 +1108,28 @@ const translations: Record<Locale, TranslationKeys> = {
       interestIdeas: '理解佛教思想',
       interestExplore: '随便看看',
     },
+    journey: {
+      title: '基础',
+      subtitle: '从佛陀的一生到你自己的修行，为期14天的课程。',
+      dayOf: '第 {day} 天 / 共 {total} 天',
+      start: '开始',
+      continue: '继续',
+      completed: '已完成',
+      inProgress: '进行中',
+      notStarted: '未开始',
+      reset: '重置',
+    },
+    knowledge: {
+      title: '知识',
+      subtitle: '探索教义、剧集、人物与修行。',
+    },
     nav: {
       home: '首页', communityChat: '社区聊天', characters: '角色', episodes: '系列',
       teachings: '教义、法轮与修行', zenMartial: '禅与武术', theses: '论文', gallery: '画廊', quiz: '问答',
       videos: '视频', retreats: '修行', profile: '个人资料',
       about: '关于', contact: '联系我们', admin: '管理员', donate: '支持',
       blockChat: '聊天', blockLearn: '菩提树下', blockFilm: '电影',
+      journey: '旅程', knowledge: '知识', settings: '设置',
     },
     home: {
       heroTitle: '佛陀智慧聊天',
@@ -1125,12 +1255,28 @@ const translations: Record<Locale, TranslationKeys> = {
       interestIdeas: '仏教の考えを理解する',
       interestExplore: 'ただ見ているだけ',
     },
+    journey: {
+      title: '基礎',
+      subtitle: '仏陀の生涯からあなた自身の実践までを学ぶ14日間のコース。',
+      dayOf: '第 {day} 日 / 全 {total} 日',
+      start: '始める',
+      continue: '続ける',
+      completed: '完了',
+      inProgress: '進行中',
+      notStarted: '未開始',
+      reset: 'リセット',
+    },
+    knowledge: {
+      title: '知識',
+      subtitle: '教え、ドラマ、登場人物、実践を探求します。',
+    },
     nav: {
       home: 'ホーム', communityChat: 'コミュニティチャット', characters: 'キャラクター', episodes: 'シリーズ',
       teachings: 'ダルマチャクラと修行', zenMartial: '禅と武道', theses: '論文', gallery: 'ギャラリー', quiz: 'クイズ',
       videos: '動画', retreats: 'リトリート', profile: 'プロフィール',
       about: '概要', contact: 'お問い合わせ', admin: '管理者', donate: '寄付',
       blockChat: 'チャット', blockLearn: '菩提樹の下で', blockFilm: '映画',
+      journey: '道', knowledge: '知識', settings: '設定',
     },
     home: {
       heroTitle: 'ブッダの知恵チャット',
@@ -1256,12 +1402,28 @@ const translations: Record<Locale, TranslationKeys> = {
       interestIdeas: 'Entender as ideias budistas',
       interestExplore: 'Apenas explorando',
     },
+    journey: {
+      title: 'Fundamentos',
+      subtitle: 'Um curso de 14 dias, da vida do Buda à sua própria prática.',
+      dayOf: 'Dia {day} de {total}',
+      start: 'Começar',
+      continue: 'Continuar',
+      completed: 'Concluído',
+      inProgress: 'Em andamento',
+      notStarted: 'Não iniciado',
+      reset: 'Redefinir',
+    },
+    knowledge: {
+      title: 'Conhecimento',
+      subtitle: 'Explore ensinamentos, a série, personagens e práticas.',
+    },
     nav: {
       home: 'Início', communityChat: 'Chat da comunidade', characters: 'Personagens', episodes: 'Série',
       teachings: 'Ensinos, Dharmachakra e Prática', zenMartial: 'Zen e Artes Marciais', theses: 'Teses', gallery: 'Galeria', quiz: 'Quiz',
       videos: 'Vídeos', retreats: 'Retiros', profile: 'Perfil',
       about: 'Sobre', contact: 'Contato', admin: 'Admin', donate: 'Apoiar',
       blockChat: 'Chat', blockLearn: 'Sob a Árvore Bodhi', blockFilm: 'Filme',
+      journey: 'Caminho', knowledge: 'Conhecimento', settings: 'Configurações',
     },
     home: {
       heroTitle: 'Chat da Sabedoria do Buda',
@@ -1387,12 +1549,28 @@ const translations: Record<Locale, TranslationKeys> = {
       interestIdeas: 'เข้าใจแนวคิดพุทธศาสนา',
       interestExplore: 'แค่สำรวจ',
     },
+    journey: {
+      title: 'พื้นฐาน',
+      subtitle: 'หลักสูตร 14 วัน จากชีวิตของพระพุทธเจ้า สู่การปฏิบัติของคุณเอง',
+      dayOf: 'วันที่ {day} จาก {total}',
+      start: 'เริ่มต้น',
+      continue: 'ดำเนินต่อ',
+      completed: 'สำเร็จ',
+      inProgress: 'กำลังดำเนินการ',
+      notStarted: 'ยังไม่เริ่ม',
+      reset: 'รีเซ็ต',
+    },
+    knowledge: {
+      title: 'ความรู้',
+      subtitle: 'สำรวจคำสอน ซีรีส์ ตัวละคร และการปฏิบัติ',
+    },
     nav: {
       home: 'หน้าแรก', communityChat: 'แชทชุมชน', characters: 'ตัวละคร', episodes: 'ซีรีส์',
       teachings: 'ธรรมะ ธัมมจักร และการปฏิบัติ', zenMartial: 'เซนและศิลปะการต่อสู้', theses: 'theses', gallery: 'แกลเลอรี', quiz: 'แบบทดสอบ',
       videos: 'วิดีโอ', retreats: 'สถานปฏิบัติธรรม', profile: 'โปรไฟล์',
       about: 'เกี่ยวกับ', contact: 'ติดต่อ', admin: 'แอดมิน', donate: 'สนับสนุน',
       blockChat: 'แชท', blockLearn: 'ใต้ต้นโพธิ์', blockFilm: 'ภาพยนตร์',
+      journey: 'เส้นทาง', knowledge: 'ความรู้', settings: 'การตั้งค่า',
     },
     home: {
       heroTitle: 'แชทแห่งปัญญาพระพุทธเจ้า',
@@ -1518,12 +1696,28 @@ const translations: Record<Locale, TranslationKeys> = {
       interestIdeas: 'Hiểu các ý tưởng Phật giáo',
       interestExplore: 'Chỉ đang khám phá',
     },
+    journey: {
+      title: 'Nền tảng',
+      subtitle: 'Khóa học 14 ngày từ cuộc đời Đức Phật đến thực hành của riêng bạn.',
+      dayOf: 'Ngày {day} / {total}',
+      start: 'Bắt đầu',
+      continue: 'Tiếp tục',
+      completed: 'Hoàn thành',
+      inProgress: 'Đang thực hiện',
+      notStarted: 'Chưa bắt đầu',
+      reset: 'Đặt lại',
+    },
+    knowledge: {
+      title: 'Kiến thức',
+      subtitle: 'Khám phá giáo lý, bộ phim, nhân vật và thực hành.',
+    },
     nav: {
       home: 'Trang chủ', communityChat: 'Trò chuyện cộng đồng', characters: 'Nhân vật', episodes: 'Phim',
       teachings: 'Giáo lý, Pháp Luân và Thực hành', zenMartial: 'Thiền và Võ thuật', theses: 'Luận đề', gallery: 'Thư viện ảnh', quiz: 'Trắc nghiệm',
       videos: 'Video', retreats: 'Khóa tu', profile: 'Hồ sơ',
       about: 'Giới thiệu', contact: 'Liên hệ', admin: 'Quản trị', donate: 'Hỗ trợ',
       blockChat: 'Trò chuyện', blockLearn: 'Dưới cây Bồ Đề', blockFilm: 'Phim',
+      journey: 'Hành trình', knowledge: 'Kiến thức', settings: 'Cài đặt',
     },
     home: {
       heroTitle: 'Trò chuyện Trí tuệ Phật',
@@ -1649,12 +1843,28 @@ const translations: Record<Locale, TranslationKeys> = {
       interestIdeas: '불교 사상 이해하기',
       interestExplore: '그냥 둘러보는 중',
     },
+    journey: {
+      title: '기초',
+      subtitle: '부처님의 삶에서 당신의 수행까지 이어지는 14일 코스입니다.',
+      dayOf: 'Day {day} / 총 {total}일',
+      start: '시작',
+      continue: '계속',
+      completed: '완료',
+      inProgress: '진행 중',
+      notStarted: '시작 전',
+      reset: '초기화',
+    },
+    knowledge: {
+      title: '지식',
+      subtitle: '가르침, 드라마, 인물과 수행을 살펴보세요.',
+    },
     nav: {
       home: '홈', communityChat: '커뮤니티 채팅', characters: '인물', episodes: '시리즈',
       teachings: '가르침, 다르마차크라와 수행', zenMartial: '선과 무술', theses: '논문', gallery: '갤러리', quiz: '퀴즈',
       videos: '영상', retreats: '수련회', profile: '프로필',
       about: '소개', contact: '문의', admin: '관리자', donate: '후원',
       blockChat: '채팅', blockLearn: '보리수 아래서', blockFilm: '영화',
+      journey: '여정', knowledge: '지식', settings: '설정',
     },
     home: {
       heroTitle: '붓다의 지혜 채팅',
@@ -1780,6 +1990,21 @@ const translations: Record<Locale, TranslationKeys> = {
       interestIdeas: 'Memahami gagasan Buddhis',
       interestExplore: 'Hanya menjelajah',
     },
+    journey: {
+      title: 'Dasar',
+      subtitle: 'Kursus 14 hari dari kehidupan Buddha hingga praktik Anda sendiri.',
+      dayOf: 'Hari {day} dari {total}',
+      start: 'Mulai',
+      continue: 'Lanjutkan',
+      completed: 'Selesai',
+      inProgress: 'Sedang berjalan',
+      notStarted: 'Belum dimulai',
+      reset: 'Setel ulang',
+    },
+    knowledge: {
+      title: 'Pengetahuan',
+      subtitle: 'Jelajahi ajaran, serial, tokoh, dan praktik.',
+    },
     nav: {
       home: 'Beranda', communityChat: 'Obrolan komunitas', characters: 'Karakter', episodes: 'Serial',
       teachings: 'Ajaran, Dharmachakra & Praktik', zenMartial: 'Zen dan Seni Bela Diri', theses: 'Tesis',
@@ -1787,6 +2012,7 @@ const translations: Record<Locale, TranslationKeys> = {
       gallery: 'Galeri', quiz: 'Kuis',
       about: 'Tentang', contact: 'Kontak', admin: 'Admin', donate: 'Dukung',
       blockChat: 'Obrolan', blockLearn: 'Di Bawah Pohon Bodhi', blockFilm: 'Film',
+      journey: 'Perjalanan', knowledge: 'Pengetahuan', settings: 'Pengaturan',
     },
     home: {
       heroTitle: 'Obrolan Kebijaksanaan Buddha',
@@ -1912,6 +2138,21 @@ const translations: Record<Locale, TranslationKeys> = {
       interestIdeas: 'Memahami idea Buddha',
       interestExplore: 'Hanya meneroka',
     },
+    journey: {
+      title: 'Asas',
+      subtitle: 'Kursus 14 hari daripada kehidupan Buddha kepada amalan anda sendiri.',
+      dayOf: 'Hari {day} daripada {total}',
+      start: 'Mula',
+      continue: 'Teruskan',
+      completed: 'Selesai',
+      inProgress: 'Sedang berjalan',
+      notStarted: 'Belum dimulakan',
+      reset: 'Set semula',
+    },
+    knowledge: {
+      title: 'Ilmu',
+      subtitle: 'Terokai ajaran, siri, watak dan amalan.',
+    },
     nav: {
       home: 'Laman Utama', communityChat: 'Sembang komuniti', characters: 'Watak', episodes: 'Siri',
       teachings: 'Ajaran, Dharmachakra & Amalan', zenMartial: 'Zen dan Seni Mempertahankan Diri', theses: 'Tesis',
@@ -1919,6 +2160,7 @@ const translations: Record<Locale, TranslationKeys> = {
       gallery: 'Galeri', quiz: 'Kuiz',
       about: 'Tentang', contact: 'Hubungi', admin: 'Admin', donate: 'Sokong',
       blockChat: 'Sembang', blockLearn: 'Di Bawah Pokok Bodhi', blockFilm: 'Filem',
+      journey: 'Perjalanan', knowledge: 'Ilmu', settings: 'Tetapan',
     },
     home: {
       heroTitle: 'Sembang Kebijaksanaan Buddha',
@@ -2044,12 +2286,28 @@ const translations: Record<Locale, TranslationKeys> = {
       interestIdeas: 'බෞද්ධ අදහස් තේරුම් ගන්න',
       interestExplore: 'බලමින් ඉන්නවා',
     },
+    journey: {
+      title: 'මූලික කරුණු',
+      subtitle: 'බුදුන් වහන්සේගේ ජීවිතයේ සිට ඔබේම ප්‍රායෝගික දක්වා දින 14 ක පාඨමාලාවකි.',
+      dayOf: 'දිනය {day} / {total}',
+      start: 'ආරම්භ කරන්න',
+      continue: 'ඉදිරියට',
+      completed: 'සම්පූර්ණයි',
+      inProgress: 'සිදු වෙමින්',
+      notStarted: 'ආරම්භ නැත',
+      reset: 'නැවත සකසන්න',
+    },
+    knowledge: {
+      title: 'දැනුම',
+      subtitle: 'ඉගැන්වීම්, කතාමාලාව, චරිත සහ ප්‍රායෝගික ගවේෂණය කරන්න.',
+    },
     nav: {
       home: 'මුල් පිටුව', communityChat: 'ප්‍රජා කතාබහ', characters: 'චරිත', episodes: 'ශ්‍රේණිය',
       teachings: 'උපදේශ, ධර්මචක්‍ර සහ ප්‍රායෝගික', zenMartial: 'දේශන් සහ සටන් කලා', theses: 'න්‍යායන්', gallery: 'ගැලරිය', quiz: 'ප්‍රශ්නාවලිය',
       videos: 'වීඩියෝ', retreats: 'ධ්‍යාන මධ්‍යස්ථාන', profile: 'පැතිකඩ',
       about: 'පිළිබඳව', contact: 'සම්බන්ධ වන්න', admin: 'පරිපාලක', donate: 'සහාය වන්න',
       blockChat: 'කතාබහ', blockLearn: 'බෝධි වෘක්ෂය යටතේ', blockFilm: 'චිත්‍රපටය',
+      journey: 'ගමන', knowledge: 'දැනුම', settings: 'සැකසුම්',
     },
     home: {
       heroTitle: 'බුද්ධ ප්‍රඥා කතාබහ',
@@ -2175,12 +2433,28 @@ const translations: Record<Locale, TranslationKeys> = {
       interestIdeas: 'ဗုဒ္ဓဘာသာ အယူအဆများကို နားလည်ပါ',
       interestExplore: 'ကြည့်ရှုနေသည်',
     },
+    journey: {
+      title: 'အခြေခံ',
+      subtitle: 'ဗုဒ္ဓမြတ်စွာဘုရား၏ဘဝမှ သင့်ကိုယ်ပိုင်အကျင့်အထိ ၁၄ ရက်သင်တန်း။',
+      dayOf: 'နေ့ {day} / {total}',
+      start: 'စတင်ပါ',
+      continue: 'ဆက်လုပ်ပါ',
+      completed: 'ပြီးပြီ',
+      inProgress: 'လုပ်ဆောင်နေသည်',
+      notStarted: 'မစတင်ရသေး',
+      reset: 'ပြန်လည်သတ်မှတ်',
+    },
+    knowledge: {
+      title: 'အသိပညာ',
+      subtitle: 'သင်ကြားမှုများ၊ ဇာတ်လမ်းတွဲ၊ ဇာတ်ကောင်များနှင့် အားထုတ်မှုများကို စူးစမ်းပါ။',
+    },
     nav: {
       home: 'ပင်မစာမျက်နှာ', communityChat: 'ရပ်ရွာချတ်', characters: 'ဇာတ်ကောင်', episodes: 'စီးရီး',
       teachings: 'သင်ကြားမှုများ ဓမ္မစကြာနှင့် အားထုတ်မှု', zenMartial: 'ဇင်နှင့် တိုက်ခိုက်ရေး', theses: 'စာတမ်းများ', gallery: 'ပုံတန်း', quiz: 'မေးခွန်း',
       videos: 'ဗီဒီယို', retreats: 'တရားအားထုတ်ရာ', profile: 'ကိုယ်ရေး',
       about: 'အကြောင်းအရာ', contact: 'ဆက်သွယ်ရန်', admin: 'စီမံခန့်ခွဲသူ', donate: 'ထောက်ပံ့',
       blockChat: 'စကားပြော', blockLearn: 'ဘုရားသစ်ပင်အောက်တွင်', blockFilm: 'ရုပ်ရှင်',
+      journey: 'ခရီး', knowledge: 'အသိပညာ', settings: 'ဆက်တင်',
     },
     home: {
       heroTitle: 'ဗုဒ္ဓ၏ပညာစကားပြော',
@@ -2306,12 +2580,28 @@ const translations: Record<Locale, TranslationKeys> = {
       interestIdeas: 'बौद्ध विचार बुझ्नुहोस्',
       interestExplore: 'हेर्दै छु',
     },
+    journey: {
+      title: 'आधारभूत',
+      subtitle: 'बुद्धको जीवनदेखि तपाईंको आफ्नै अभ्याससम्मको १४-दिने पाठ्यक्रम।',
+      dayOf: 'दिन {day} / {total}',
+      start: 'सुरु गर्नुहोस्',
+      continue: 'जारी राख्नुहोस्',
+      completed: 'सम्पन्न',
+      inProgress: 'जारी',
+      notStarted: 'सुरु भएको छैन',
+      reset: 'रिसेट',
+    },
+    knowledge: {
+      title: 'ज्ञान',
+      subtitle: 'शिक्षा, शृङ्खला, पात्रहरू र अभ्यासहरू अन्वेषण गर्नुहोस्।',
+    },
     nav: {
       home: 'गृहपृष्ठ', communityChat: 'सामुदायिक च्याट', characters: 'पात्र', episodes: 'श्रृंखला',
       teachings: 'शिक्षाहरू, धर्मचक्र र अभ्यास', zenMartial: 'जेन र मार्शल आर्ट्स', theses: 'थीसिस', gallery: 'ग्यालरी', quiz: 'प्रश्नोत्तरी',
       videos: 'भिडियो', retreats: 'ध्यान केन्द्र', profile: 'प्रोफाइल',
       about: 'बारेमा', contact: 'सम्पर्क', admin: 'प्रशासक', donate: 'सहयोग',
       blockChat: 'च्याट', blockLearn: 'बोधिवृक्ष तल', blockFilm: 'चलचित्र',
+      journey: 'यात्रा', knowledge: 'ज्ञान', settings: 'सेटिङहरू',
     },
     home: {
       heroTitle: 'बुद्धको प्रज्ञा च्याट',
@@ -2437,12 +2727,28 @@ const translations: Record<Locale, TranslationKeys> = {
       interestIdeas: 'སངས་རྒྱས་ཆོས་ལུགས་ཀྱི་བསམ་བློ་གོ་བ་ལེན་པ།',
       interestExplore: 'ལྟ་ཞིབ་བྱེད་བཞིན་པ།',
     },
+    journey: {
+      title: 'གཞི་རྩ།',
+      subtitle: 'སངས་རྒྱས་ཀྱི་མི་ཚེ་ནས་རང་གི་སྒོམ་ལེན་བར་ཉིན་བཅུ་བཞིའི་སློབ་ཚན།',
+      dayOf: 'ཉིན་ {day} / {total}',
+      start: 'འགོ་ཚུགས།',
+      continue: 'མུ་མཐུད།',
+      completed: 'རྫོགས།',
+      inProgress: 'བྱེད་བཞིན་པ།',
+      notStarted: 'མ་ཚུགས།',
+      reset: 'ཡང་བསྐྱར་འཇོག',
+    },
+    knowledge: {
+      title: 'ཤེས་བྱ།',
+      subtitle: 'སྟོན་པ། བརྙན་ཐུང་། མི་སྣ། སྒོམ་ལེན་བཅས་འཚོལ་ཞིབ་བྱེད།',
+    },
     nav: {
       home: 'གཙོ་ངོས།', communityChat: 'སྤྱི་ཚོགས་གླེང་མོལ།', characters: 'སྒྲུང་མི།', episodes: 'སྒྲུང་།',
       teachings: 'སྟོན་པ། ཆོས་ཀྱི་འཁོར་ལོ། སྒོམ།', zenMartial: 'བསམ་གཏན་དང་འཐབ་རྩལ།', theses: 'དཔྱད་རྩོམ།', gallery: 'པར་ཁུལ།', quiz: 'དྲི་བ།',
       videos: 'བརྙན་འཕྲིན།', retreats: 'སྒོམ་གནས།', profile: 'ངོ་སྤྲོད།',
       about: 'སྐོར།', contact: 'འབྲེལ་བ།', admin: 'དོ་དམ།', donate: 'རོགས་རམ།',
       blockChat: 'སྐད་ཆ།', blockLearn: 'བྱང་ཆུབ་ཤིང་འོག', blockFilm: 'གློག་བརྙན།',
+      journey: 'ལམ།', knowledge: 'ཤེས་བྱ།', settings: 'བཀོལ་སྤྱོད།',
     },
     home: {
       heroTitle: 'བཅོམ་ལྡན་འདས་ཀྱི་ཤེས་རབ་སྐད་ཆ།',

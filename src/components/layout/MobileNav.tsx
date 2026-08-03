@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useLanguage } from '@/contexts/LanguageContext'
-import { Home, MessageCircle, Users, Tv, Flower2 } from 'lucide-react'
+import { Home, Flower2, Compass, BookOpen, Settings } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 export default function MobileNav() {
@@ -12,10 +12,10 @@ export default function MobileNav() {
 
   const items = [
     { key: 'home', label: t.nav.home, href: '/', icon: Home },
-    { key: 'chat', label: t.nav.blockChat || 'Chat', href: '/chat', icon: MessageCircle },
-    { key: 'characters', label: t.nav.characters, href: '/characters', icon: Users },
-    { key: 'episodes', label: t.nav.episodes, href: '/episodes', icon: Tv },
     { key: 'practice', label: t.teachings.sectionPractices || 'Practice', href: '/teachings/practice', icon: Flower2 },
+    { key: 'journey', label: t.nav.journey, href: '/journey', icon: Compass },
+    { key: 'knowledge', label: t.nav.knowledge, href: '/knowledge', icon: BookOpen },
+    { key: 'settings', label: t.nav.settings, href: '/profile', icon: Settings },
   ]
 
   const isActive = (href: string) => href === '/' ? pathname === '/' : pathname.startsWith(href)
