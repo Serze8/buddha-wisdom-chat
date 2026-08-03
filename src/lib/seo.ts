@@ -53,6 +53,11 @@ const pages: Record<string, { title: string; description: string; keywords: stri
     description: 'A guided 14-day course through the foundations of Buddhism: from the Buddha\'s life and the Four Noble Truths to meditation, metta, and your own practice.',
     keywords: ['buddhist course', 'foundations of buddhism', '14 day course', 'four noble truths', 'eightfold path', 'learn buddhism'],
   },
+  glossary: {
+    title: 'Glossary — Buddhist Terms in 18 Languages',
+    description: 'Canonical Buddhist terms explained: Dharma, Dharmachakra, Samsara, Nirvana, Sunyata, Karma, Sangha, and more — with the same name in every language.',
+    keywords: ['buddhist glossary', 'dharma', 'dharmachakra', 'buddhist terms', 'sanskrit', 'pali'],
+  },
   knowledge: {
     title: 'Knowledge — Teachings, Series & Characters',
     description: 'Explore Buddhist teachings, the Buddha TV series episode guide, characters, quiz, theses, gallery and videos in one place.',
@@ -118,6 +123,85 @@ const pages: Record<string, { title: string; description: string; keywords: stri
     description: 'An article exploring the concept of audioinductionism through the lens of Buddhist practice: listening as practice, dreams as guidance, and dawn as enlightenment.',
     keywords: ['audioinductionist', 'induction', 'buddhist practice', 'listening', 'dream interpretation', 'dawn', 'enlightenment'],
   },
+}
+
+export function generateJsonLd(path: string): object {
+  const slug = path.replace(/^\//, '')
+  const page = pages[slug] || pages['']
+  const url = `${baseUrl}${path}`
+  const siteUrl = baseUrl
+
+  if (path === '/') {
+    return {
+      '@context': 'https://schema.org',
+      '@type': 'WebSite',
+      name: page.title,
+      url: `${siteUrl}/`,
+      description: page.description,
+      inLanguage: 'en',
+      potentialAction: {
+        '@type': 'SearchAction',
+        target: `${siteUrl}/search?q={search_term_string}`,
+        'query-input': 'required name=search_term_string',
+      },
+    }
+  }
+
+  if (path === '/journey') {
+    return {
+      '@context': 'https://schema.org',
+      '@type': 'Course',
+      name: page.title,
+      description: page.description,
+      url,
+      inLanguage: 'en',
+      provider: {
+        '@type': 'Organization',
+        name: "Buddha's Wisdom Chat",
+        url: siteUrl,
+      },
+      hasCourseInstance: {
+        '@type': 'CourseInstance',
+        courseMode: 'online',
+        courseWorkload: 'PT14D',
+        name: 'Foundations — 14 days',
+      },
+    }
+  }
+
+  if (path === '/teachings' || path === '/theses' || path === '/glossary' || path === '/knowledge' || path === '/about') {
+    return {
+      '@context': 'https://schema.org',
+      '@type': 'Article',
+      mainEntityOfPage: {
+        '@type': 'WebPage',
+        '@id': url,
+      },
+      headline: page.title,
+      description: page.description,
+      url,
+      inLanguage: 'en',
+      author: {
+        '@type': 'Organization',
+        name: "Buddha's Wisdom Chat",
+        url: siteUrl,
+      },
+      publisher: {
+        '@type': 'Organization',
+        name: "Buddha's Wisdom Chat",
+        url: siteUrl,
+      },
+    }
+  }
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: page.title,
+    description: page.description,
+    url,
+    inLanguage: 'en',
+  }
 }
 
 export function generatePageMetadata(path: string): Metadata {

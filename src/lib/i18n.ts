@@ -199,6 +199,13 @@ type TranslationKeys = {
     title: string
     subtitle: string
   }
+  glossary: {
+    title: string
+    subtitle: string
+    categoryCore: string
+    categoryPractice: string
+    categoryPhilosophy: string
+  }
 }
 
 const translations: Record<Locale, TranslationKeys> = {
@@ -240,6 +247,13 @@ const translations: Record<Locale, TranslationKeys> = {
     knowledge: {
       title: 'Knowledge',
       subtitle: 'Explore teachings, the series, characters and practices.',
+    },
+    glossary: {
+      title: 'Glossary',
+      subtitle: 'Canonical Buddhist terms in one place: one name for every teaching, in every language.',
+      categoryCore: 'Core Teachings',
+      categoryPractice: 'Practice',
+      categoryPhilosophy: 'Philosophy',
     },
     nav: {
       home: 'Home', communityChat: 'Community Chat', characters: 'Characters', episodes: 'Series',
@@ -388,6 +402,13 @@ const translations: Record<Locale, TranslationKeys> = {
       title: 'Знания',
       subtitle: 'Учения, сериал, герои и практики.',
     },
+    glossary: {
+      title: 'Словарь терминов',
+      subtitle: 'Канонические буддийские термины в одном месте: единое имя для каждого учения на любом языке.',
+      categoryCore: 'Основные учения',
+      categoryPractice: 'Практика',
+      categoryPhilosophy: 'Философия',
+    },
     nav: {
       home: 'Главная', communityChat: 'Чат сообщества', characters: 'Герои Будды', episodes: 'Сериал',
       teachings: 'Дхарма и учения', zenMartial: 'Дзен и боевые искусства', theses: 'Тезисы', gallery: 'Галерея', quiz: 'Викторина',
@@ -534,6 +555,13 @@ const translations: Record<Locale, TranslationKeys> = {
     knowledge: {
       title: 'ज्ञान',
       subtitle: 'शिक्षाएँ, श्रृंखला, पात्र और अभ्यास देखें।',
+    },
+    glossary: {
+      title: 'शब्दावली',
+      subtitle: 'सभी बौद्ध शब्द एक ही स्थान पर: हर शिक्षा के लिए एक ही नाम, हर भाषा में।',
+      categoryCore: 'मुख्य शिक्षाएँ',
+      categoryPractice: 'अभ्यास',
+      categoryPhilosophy: 'दर्शन',
     },
     nav: {
       home: 'होम', communityChat: 'सामुदायिक चैट', characters: 'पात्र', episodes: 'सीरीज़',
@@ -682,6 +710,13 @@ const translations: Record<Locale, TranslationKeys> = {
       title: 'Conocimiento',
       subtitle: 'Explora enseñanzas, la serie, personajes y prácticas.',
     },
+    glossary: {
+      title: 'Glosario',
+      subtitle: 'Términos budistas canónicos en un solo lugar: un mismo nombre para cada enseñanza, en cada idioma.',
+      categoryCore: 'Enseñanzas fundamentales',
+      categoryPractice: 'Práctica',
+      categoryPhilosophy: 'Filosofía',
+    },
     nav: {
       home: 'Inicio', communityChat: 'Chat comunitario', characters: 'Personajes', episodes: 'Serie',
       teachings: 'Enseñanzas, Dharmachakra y Práctica', zenMartial: 'Zen y Artes Marciales', theses: 'Tesis', gallery: 'Galería', quiz: 'Quiz',
@@ -828,6 +863,13 @@ const translations: Record<Locale, TranslationKeys> = {
     knowledge: {
       title: 'Connaissances',
       subtitle: 'Explorez les enseignements, la série, les personnages et les pratiques.',
+    },
+    glossary: {
+      title: 'Glossaire',
+      subtitle: 'Termes bouddhistes canoniques en un seul endroit : un même nom pour chaque enseignement, dans chaque langue.',
+      categoryCore: 'Enseignements fondamentaux',
+      categoryPractice: 'Pratique',
+      categoryPhilosophy: 'Philosophie',
     },
     nav: {
       home: 'Accueil', communityChat: 'Chat communautaire', characters: 'Personnages', episodes: 'Série',
@@ -976,6 +1018,13 @@ const translations: Record<Locale, TranslationKeys> = {
       title: 'Wissen',
       subtitle: 'Lehren, Serie, Figuren und Praktiken entdecken.',
     },
+    glossary: {
+      title: 'Glossar',
+      subtitle: 'Kanonische buddhistische Begriffe an einem Ort: ein Name für jede Lehre, in jeder Sprache.',
+      categoryCore: 'Grundlegende Lehren',
+      categoryPractice: 'Praxis',
+      categoryPhilosophy: 'Philosophie',
+    },
     nav: {
       home: 'Startseite', communityChat: 'Community-Chat', characters: 'Charaktere', episodes: 'Serie',
       teachings: 'Lehren, Dharmachakra und Praxis', zenMartial: 'Zen und Kampfkünste', theses: 'Thesen', gallery: 'Galerie', quiz: 'Quiz',
@@ -1122,6 +1171,13 @@ const translations: Record<Locale, TranslationKeys> = {
     knowledge: {
       title: '知识',
       subtitle: '探索教义、剧集、人物与修行。',
+    },
+    glossary: {
+      title: '术语表',
+      subtitle: '所有佛教标准术语尽在一处：每种教义在任何语言中都有统一名称。',
+      categoryCore: '核心教义',
+      categoryPractice: '修行',
+      categoryPhilosophy: '哲学',
     },
     nav: {
       home: '首页', communityChat: '社区聊天', characters: '角色', episodes: '系列',
@@ -1270,6 +1326,13 @@ const translations: Record<Locale, TranslationKeys> = {
       title: '知識',
       subtitle: '教え、ドラマ、登場人物、実践を探求します。',
     },
+    glossary: {
+      title: '用語集',
+      subtitle: '仏教の標準用語を一箇所に：すべての教えに、すべての言語で共通の名前を。',
+      categoryCore: '基本の教え',
+      categoryPractice: '修行',
+      categoryPhilosophy: '哲学',
+    },
     nav: {
       home: 'ホーム', communityChat: 'コミュニティチャット', characters: 'キャラクター', episodes: 'シリーズ',
       teachings: 'ダルマチャクラと修行', zenMartial: '禅と武道', theses: '論文', gallery: 'ギャラリー', quiz: 'クイズ',
@@ -1416,6 +1479,13 @@ const translations: Record<Locale, TranslationKeys> = {
     knowledge: {
       title: 'Conhecimento',
       subtitle: 'Explore ensinamentos, a série, personagens e práticas.',
+    },
+    glossary: {
+      title: 'Glossário',
+      subtitle: 'Termos budistas canônicos em um só lugar: um nome para cada ensinamento, em todos os idiomas.',
+      categoryCore: 'Ensinamentos fundamentais',
+      categoryPractice: 'Prática',
+      categoryPhilosophy: 'Filosofia',
     },
     nav: {
       home: 'Início', communityChat: 'Chat da comunidade', characters: 'Personagens', episodes: 'Série',
@@ -1564,6 +1634,13 @@ const translations: Record<Locale, TranslationKeys> = {
       title: 'ความรู้',
       subtitle: 'สำรวจคำสอน ซีรีส์ ตัวละคร และการปฏิบัติ',
     },
+    glossary: {
+      title: 'อภิธานศัพท์',
+      subtitle: 'คำศัพท์พุทธศาสนามาตรฐานในที่เดียว: หนึ่งชื่อสำหรับทุกคำสอน ในทุกภาษา',
+      categoryCore: 'คำสอนหลัก',
+      categoryPractice: 'การปฏิบัติ',
+      categoryPhilosophy: 'ปรัชญา',
+    },
     nav: {
       home: 'หน้าแรก', communityChat: 'แชทชุมชน', characters: 'ตัวละคร', episodes: 'ซีรีส์',
       teachings: 'ธรรมะ ธัมมจักร และการปฏิบัติ', zenMartial: 'เซนและศิลปะการต่อสู้', theses: 'theses', gallery: 'แกลเลอรี', quiz: 'แบบทดสอบ',
@@ -1710,6 +1787,13 @@ const translations: Record<Locale, TranslationKeys> = {
     knowledge: {
       title: 'Kiến thức',
       subtitle: 'Khám phá giáo lý, bộ phim, nhân vật và thực hành.',
+    },
+    glossary: {
+      title: 'Bảng thuật ngữ',
+      subtitle: 'Thuật ngữ Phật giáo chuẩn ở một nơi: một tên gọi cho mỗi giáo lý, trong mọi ngôn ngữ.',
+      categoryCore: 'Giáo lý cốt lõi',
+      categoryPractice: 'Thực hành',
+      categoryPhilosophy: 'Triết học',
     },
     nav: {
       home: 'Trang chủ', communityChat: 'Trò chuyện cộng đồng', characters: 'Nhân vật', episodes: 'Phim',
@@ -1858,6 +1942,13 @@ const translations: Record<Locale, TranslationKeys> = {
       title: '지식',
       subtitle: '가르침, 드라마, 인물과 수행을 살펴보세요.',
     },
+    glossary: {
+      title: '용어집',
+      subtitle: '모든 불교 표준 용어를 한곳에: 모든 가르침에, 모든 언어에서 같은 이름을.',
+      categoryCore: '핵심 가르침',
+      categoryPractice: '수행',
+      categoryPhilosophy: '철학',
+    },
     nav: {
       home: '홈', communityChat: '커뮤니티 채팅', characters: '인물', episodes: '시리즈',
       teachings: '가르침, 다르마차크라와 수행', zenMartial: '선과 무술', theses: '논문', gallery: '갤러리', quiz: '퀴즈',
@@ -2004,6 +2095,13 @@ const translations: Record<Locale, TranslationKeys> = {
     knowledge: {
       title: 'Pengetahuan',
       subtitle: 'Jelajahi ajaran, serial, tokoh, dan praktik.',
+    },
+    glossary: {
+      title: 'Glosarium',
+      subtitle: 'Istilah Buddhis kanonik dalam satu tempat: satu nama untuk setiap ajaran, dalam semua bahasa.',
+      categoryCore: 'Ajaran inti',
+      categoryPractice: 'Praktik',
+      categoryPhilosophy: 'Filsafat',
     },
     nav: {
       home: 'Beranda', communityChat: 'Obrolan komunitas', characters: 'Karakter', episodes: 'Serial',
@@ -2153,6 +2251,13 @@ const translations: Record<Locale, TranslationKeys> = {
       title: 'Ilmu',
       subtitle: 'Terokai ajaran, siri, watak dan amalan.',
     },
+    glossary: {
+      title: 'Glosari',
+      subtitle: 'Istilah Buddha kanun di satu tempat: satu nama untuk setiap ajaran, dalam semua bahasa.',
+      categoryCore: 'Ajaran teras',
+      categoryPractice: 'Amalan',
+      categoryPhilosophy: 'Falsafah',
+    },
     nav: {
       home: 'Laman Utama', communityChat: 'Sembang komuniti', characters: 'Watak', episodes: 'Siri',
       teachings: 'Ajaran, Dharmachakra & Amalan', zenMartial: 'Zen dan Seni Mempertahankan Diri', theses: 'Tesis',
@@ -2301,6 +2406,13 @@ const translations: Record<Locale, TranslationKeys> = {
       title: 'දැනුම',
       subtitle: 'ඉගැන්වීම්, කතාමාලාව, චරිත සහ ප්‍රායෝගික ගවේෂණය කරන්න.',
     },
+    glossary: {
+      title: 'ශබ්දකෝෂය',
+      subtitle: 'සියලු බෞද්ධ පද එක් තැනක: සෑම ඉගැන්වීමකටම එකම නම, සෑම භාෂාවකින්ම.',
+      categoryCore: 'මූලික ඉගැන්වීම්',
+      categoryPractice: 'ප්‍රායෝගික',
+      categoryPhilosophy: 'දර්ශනය',
+    },
     nav: {
       home: 'මුල් පිටුව', communityChat: 'ප්‍රජා කතාබහ', characters: 'චරිත', episodes: 'ශ්‍රේණිය',
       teachings: 'උපදේශ, ධර්මචක්‍ර සහ ප්‍රායෝගික', zenMartial: 'දේශන් සහ සටන් කලා', theses: 'න්‍යායන්', gallery: 'ගැලරිය', quiz: 'ප්‍රශ්නාවලිය',
@@ -2447,6 +2559,13 @@ const translations: Record<Locale, TranslationKeys> = {
     knowledge: {
       title: 'အသိပညာ',
       subtitle: 'သင်ကြားမှုများ၊ ဇာတ်လမ်းတွဲ၊ ဇာတ်ကောင်များနှင့် အားထုတ်မှုများကို စူးစမ်းပါ။',
+    },
+    glossary: {
+      title: 'အဘိဓာန်',
+      subtitle: 'ဗုဒ္ဓအသုံးအနှုန်းများအားလုံး တစ်နေရာတည်း: တိုင်းပြည်တိုင်း၌ တူညီသောအမည်။',
+      categoryCore: 'အခြေခံသင်ကြားမှုများ',
+      categoryPractice: 'အားထုတ်မှု',
+      categoryPhilosophy: 'ဒဿန',
     },
     nav: {
       home: 'ပင်မစာမျက်နှာ', communityChat: 'ရပ်ရွာချတ်', characters: 'ဇာတ်ကောင်', episodes: 'စီးရီး',
@@ -2595,6 +2714,13 @@ const translations: Record<Locale, TranslationKeys> = {
       title: 'ज्ञान',
       subtitle: 'शिक्षा, शृङ्खला, पात्रहरू र अभ्यासहरू अन्वेषण गर्नुहोस्।',
     },
+    glossary: {
+      title: 'शब्दावली',
+      subtitle: 'सबै बौद्ध शब्द एकै ठाउँमा: हरेक शिक्षाको लागि एउटै नाम, हरेक भाषामा।',
+      categoryCore: 'मुख्य शिक्षाहरू',
+      categoryPractice: 'अभ्यास',
+      categoryPhilosophy: 'दर्शन',
+    },
     nav: {
       home: 'गृहपृष्ठ', communityChat: 'सामुदायिक च्याट', characters: 'पात्र', episodes: 'श्रृंखला',
       teachings: 'शिक्षाहरू, धर्मचक्र र अभ्यास', zenMartial: 'जेन र मार्शल आर्ट्स', theses: 'थीसिस', gallery: 'ग्यालरी', quiz: 'प्रश्नोत्तरी',
@@ -2741,6 +2867,13 @@ const translations: Record<Locale, TranslationKeys> = {
     knowledge: {
       title: 'ཤེས་བྱ།',
       subtitle: 'སྟོན་པ། བརྙན་ཐུང་། མི་སྣ། སྒོམ་ལེན་བཅས་འཚོལ་ཞིབ་བྱེད།',
+    },
+    glossary: {
+      title: 'ཚིག་མཛོད།',
+      subtitle: 'སངས་རྒྱས་ཀྱི་ཐ་སྙད་གཙོ་བོ་གཅིག་ཏུ། སྐད་ཡིག་ཀུན་ནང་བསྟན་པ་རེ་རེར་མིང་གཅིག།',
+      categoryCore: 'གཞི་རྩའི་བསྟན་པ།',
+      categoryPractice: 'སྒོམ་ལེན།',
+      categoryPhilosophy: 'ལྟ་བ།',
     },
     nav: {
       home: 'གཙོ་ངོས།', communityChat: 'སྤྱི་ཚོགས་གླེང་མོལ།', characters: 'སྒྲུང་མི།', episodes: 'སྒྲུང་།',

@@ -1,8 +1,14 @@
-import { generatePageMetadata } from '@/lib/seo'
+import { generatePageMetadata, generateJsonLd } from '@/lib/seo'
+import JsonLd from '@/components/JsonLd'
 import ThesesPageClient from './ThesesPageClient'
 
 export const metadata = generatePageMetadata('/theses')
 
 export default function ThesesPage() {
-  return <ThesesPageClient />
+  return (
+    <>
+      <JsonLd data={generateJsonLd('/theses')} />
+      <ThesesPageClient />
+    </>
+  )
 }
