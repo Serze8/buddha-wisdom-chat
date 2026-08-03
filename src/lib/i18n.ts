@@ -158,10 +158,32 @@ type TranslationKeys = {
     episodes: string
     watchOn: string
   }
+  onboarding: {
+    title: string
+    subtitle: string
+    next: string
+    skip: string
+    interestCalm: string
+    interestDifficult: string
+    interestLearn: string
+    interestIdeas: string
+    interestExplore: string
+  }
 }
 
 const translations: Record<Locale, TranslationKeys> = {
   en: {
+    onboarding: {
+      title: 'What brings you here today?',
+      subtitle: 'Explore Buddhist wisdom in simple, practical ways.',
+      next: 'Next',
+      skip: 'Skip',
+      interestCalm: 'Find calm and clarity',
+      interestDifficult: 'Move through a difficult time',
+      interestLearn: 'Learn Buddhism',
+      interestIdeas: 'Understand Buddhist ideas',
+      interestExplore: 'Just exploring',
+    },
     nav: {
       home: 'Home', communityChat: 'Community Chat', characters: 'Characters', episodes: 'Series',
       teachings: 'Dharma & Teachings', zenMartial: 'Zen & Martial Arts', theses: 'Theses', gallery: 'Gallery', quiz: 'Quiz',
@@ -270,6 +292,17 @@ const translations: Record<Locale, TranslationKeys> = {
     },
   },
   ru: {
+    onboarding: {
+      title: 'Зачем вы пришли сегодня?',
+      subtitle: 'Изучайте буддийскую мудрость просто и практично.',
+      next: 'Далее',
+      skip: 'Пропустить',
+      interestCalm: 'Обрести покой и ясность',
+      interestDifficult: 'Пережить трудное время',
+      interestLearn: 'Изучить буддизм',
+      interestIdeas: 'Понять буддийские идеи',
+      interestExplore: 'Просто осматриваюсь',
+    },
     nav: {
       home: 'Главная', communityChat: 'Чат сообщества', characters: 'Герои Будды', episodes: 'Сериал',
       teachings: 'Дхарма и учения', zenMartial: 'Дзен и боевые искусства', theses: 'Тезисы', gallery: 'Галерея', quiz: 'Викторина',
@@ -378,6 +411,17 @@ const translations: Record<Locale, TranslationKeys> = {
     },
   },
   hi: {
+    onboarding: {
+      title: 'आज आप यहाँ क्यों आए हैं?',
+      subtitle: 'बौद्ध ज्ञान को सरल और व्यावहारिक तरीके से जानें।',
+      next: 'आगे',
+      skip: 'छोड़ें',
+      interestCalm: 'शांति और स्पष्टता पाएं',
+      interestDifficult: 'कठिन समय से उबरें',
+      interestLearn: 'बौद्ध धर्म सीखें',
+      interestIdeas: 'बौद्ध विचारों को समझें',
+      interestExplore: 'बस देख रहा हूँ',
+    },
     nav: {
       home: 'होम', communityChat: 'सामुदायिक चैट', characters: 'पात्र', episodes: 'सीरीज़',
       teachings: 'शिक्षाएँ, धर्मचक्र और अभ्यास', zenMartial: 'द्ज़ेन और मार्शल आर्ट्स', theses: 'थीसिस', gallery: 'गैलरी', quiz: 'प्रश्नोत्तरी',
@@ -486,6 +530,17 @@ const translations: Record<Locale, TranslationKeys> = {
     },
   },
   es: {
+    onboarding: {
+      title: '¿Qué te trae por aquí hoy?',
+      subtitle: 'Explora la sabiduría budista de forma sencilla y práctica.',
+      next: 'Siguiente',
+      skip: 'Saltar',
+      interestCalm: 'Encontrar calma y claridad',
+      interestDifficult: 'Superar un momento difícil',
+      interestLearn: 'Aprender budismo',
+      interestIdeas: 'Comprender las ideas budistas',
+      interestExplore: 'Solo explorando',
+    },
     nav: {
       home: 'Inicio', communityChat: 'Chat comunitario', characters: 'Personajes', episodes: 'Serie',
       teachings: 'Enseñanzas, Dharmachakra y Práctica', zenMartial: 'Zen y Artes Marciales', theses: 'Tesis', gallery: 'Galería', quiz: 'Quiz',
@@ -594,6 +649,17 @@ const translations: Record<Locale, TranslationKeys> = {
     },
   },
   fr: {
+    onboarding: {
+      title: "Qu'est-ce qui vous amène aujourd'hui ?",
+      subtitle: 'Explorez la sagesse bouddhiste de manière simple et pratique.',
+      next: 'Suivant',
+      skip: 'Passer',
+      interestCalm: 'Trouver le calme et la clarté',
+      interestDifficult: 'Traverser une période difficile',
+      interestLearn: 'Apprendre le bouddhisme',
+      interestIdeas: 'Comprendre les idées bouddhistes',
+      interestExplore: 'Je découvre simplement',
+    },
     nav: {
       home: 'Accueil', communityChat: 'Chat communautaire', characters: 'Personnages', episodes: 'Série',
       teachings: 'Enseignements, Dharmachakra et Pratique', zenMartial: 'Zen et Arts Martiaux', theses: 'Thèses', gallery: 'Galerie', quiz: 'Quiz',
@@ -702,6 +768,17 @@ const translations: Record<Locale, TranslationKeys> = {
     },
   },
   de: {
+    onboarding: {
+      title: 'Was führt Sie heute hierher?',
+      subtitle: 'Entdecke buddhistische Weisheit einfach und praktisch.',
+      next: 'Weiter',
+      skip: 'Überspringen',
+      interestCalm: 'Ruhe und Klarheit finden',
+      interestDifficult: 'Eine schwere Zeit durchstehen',
+      interestLearn: 'Buddhismus lernen',
+      interestIdeas: 'Buddhistische Ideen verstehen',
+      interestExplore: 'Nur stöbern',
+    },
     nav: {
       home: 'Startseite', communityChat: 'Community-Chat', characters: 'Charaktere', episodes: 'Serie',
       teachings: 'Lehren, Dharmachakra und Praxis', zenMartial: 'Zen und Kampfkünste', theses: 'Thesen', gallery: 'Galerie', quiz: 'Quiz',
@@ -810,6 +887,17 @@ const translations: Record<Locale, TranslationKeys> = {
     },
   },
   zh: {
+    onboarding: {
+      title: '今天是什么让你来到这里？',
+      subtitle: '以简单实用的方式探索佛教智慧。',
+      next: '下一步',
+      skip: '跳过',
+      interestCalm: '寻找平静与清晰',
+      interestDifficult: '度过艰难时期',
+      interestLearn: '学习佛教',
+      interestIdeas: '理解佛教思想',
+      interestExplore: '随便看看',
+    },
     nav: {
       home: '首页', communityChat: '社区聊天', characters: '角色', episodes: '系列',
       teachings: '教义、法轮与修行', zenMartial: '禅与武术', theses: '论文', gallery: '画廊', quiz: '问答',
@@ -918,6 +1006,17 @@ const translations: Record<Locale, TranslationKeys> = {
     },
   },
   ja: {
+    onboarding: {
+      title: '今日は何のためにここへ？',
+      subtitle: '仏教の知恵をシンプルに実践的に学びましょう。',
+      next: '次へ',
+      skip: 'スキップ',
+      interestCalm: '心の平穏と明晰さを見つける',
+      interestDifficult: '困難な時期を乗り越える',
+      interestLearn: '仏教を学ぶ',
+      interestIdeas: '仏教の考えを理解する',
+      interestExplore: 'ただ見ているだけ',
+    },
     nav: {
       home: 'ホーム', communityChat: 'コミュニティチャット', characters: 'キャラクター', episodes: 'シリーズ',
       teachings: 'ダルマチャクラと修行', zenMartial: '禅と武道', theses: '論文', gallery: 'ギャラリー', quiz: 'クイズ',
@@ -1026,6 +1125,17 @@ const translations: Record<Locale, TranslationKeys> = {
     },
   },
   pt: {
+    onboarding: {
+      title: 'O que traz você aqui hoje?',
+      subtitle: 'Explore a sabedoria budista de forma simples e prática.',
+      next: 'Próximo',
+      skip: 'Pular',
+      interestCalm: 'Encontrar calma e clareza',
+      interestDifficult: 'Superar um momento difícil',
+      interestLearn: 'Aprender budismo',
+      interestIdeas: 'Entender as ideias budistas',
+      interestExplore: 'Apenas explorando',
+    },
     nav: {
       home: 'Início', communityChat: 'Chat da comunidade', characters: 'Personagens', episodes: 'Série',
       teachings: 'Ensinos, Dharmachakra e Prática', zenMartial: 'Zen e Artes Marciais', theses: 'Teses', gallery: 'Galeria', quiz: 'Quiz',
@@ -1134,6 +1244,17 @@ const translations: Record<Locale, TranslationKeys> = {
     },
   },
   th: {
+    onboarding: {
+      title: 'วันนี้คุณมาที่นี่ด้วยจุดประสงค์อะไร?',
+      subtitle: 'สำรวจปัญญาแห่งพุทธศาสนาอย่างง่ายและปฏิบัติได้จริง',
+      next: 'ถัดไป',
+      skip: 'ข้าม',
+      interestCalm: 'หาความสงบและความชัดเจน',
+      interestDifficult: 'ผ่านช่วงเวลาที่ยากลำบาก',
+      interestLearn: 'เรียนรู้พุทธศาสนา',
+      interestIdeas: 'เข้าใจแนวคิดพุทธศาสนา',
+      interestExplore: 'แค่สำรวจ',
+    },
     nav: {
       home: 'หน้าแรก', communityChat: 'แชทชุมชน', characters: 'ตัวละคร', episodes: 'ซีรีส์',
       teachings: 'ธรรมะ ธัมมจักร และการปฏิบัติ', zenMartial: 'เซนและศิลปะการต่อสู้', theses: 'theses', gallery: 'แกลเลอรี', quiz: 'แบบทดสอบ',
@@ -1242,6 +1363,17 @@ const translations: Record<Locale, TranslationKeys> = {
     },
   },
   vi: {
+    onboarding: {
+      title: 'Hôm nay bạn đến đây vì điều gì?',
+      subtitle: 'Khám phá trí tuệ Phật giáo một cách đơn giản và thực tế.',
+      next: 'Tiếp theo',
+      skip: 'Bỏ qua',
+      interestCalm: 'Tìm sự bình yên và rõ ràng',
+      interestDifficult: 'Vượt qua giai đoạn khó khăn',
+      interestLearn: 'Học Phật giáo',
+      interestIdeas: 'Hiểu các ý tưởng Phật giáo',
+      interestExplore: 'Chỉ đang khám phá',
+    },
     nav: {
       home: 'Trang chủ', communityChat: 'Trò chuyện cộng đồng', characters: 'Nhân vật', episodes: 'Phim',
       teachings: 'Giáo lý, Pháp Luân và Thực hành', zenMartial: 'Thiền và Võ thuật', theses: 'Luận đề', gallery: 'Thư viện ảnh', quiz: 'Trắc nghiệm',
@@ -1350,6 +1482,17 @@ const translations: Record<Locale, TranslationKeys> = {
     },
   },
   ko: {
+    onboarding: {
+      title: '오늘 무엇 때문에 여기에 오셨나요?',
+      subtitle: '불교의 지혜를 간단하고 실용적으로 탐구하세요.',
+      next: '다음',
+      skip: '건너뛰기',
+      interestCalm: '평온과 명확함 찾기',
+      interestDifficult: '어려운 시기를 견디기',
+      interestLearn: '불교 배우기',
+      interestIdeas: '불교 사상 이해하기',
+      interestExplore: '그냥 둘러보는 중',
+    },
     nav: {
       home: '홈', communityChat: '커뮤니티 채팅', characters: '인물', episodes: '시리즈',
       teachings: '가르침, 다르마차크라와 수행', zenMartial: '선과 무술', theses: '논문', gallery: '갤러리', quiz: '퀴즈',
@@ -1458,6 +1601,17 @@ const translations: Record<Locale, TranslationKeys> = {
     },
   },
   id: {
+    onboarding: {
+      title: 'Apa yang membawa Anda ke sini hari ini?',
+      subtitle: 'Jelajahi kebijaksanaan Buddha secara sederhana dan praktis.',
+      next: 'Lanjut',
+      skip: 'Lewati',
+      interestCalm: 'Menemukan ketenangan dan kejernihan',
+      interestDifficult: 'Melewati masa sulit',
+      interestLearn: 'Belajar Buddhisme',
+      interestIdeas: 'Memahami gagasan Buddhis',
+      interestExplore: 'Hanya menjelajah',
+    },
     nav: {
       home: 'Beranda', communityChat: 'Obrolan komunitas', characters: 'Karakter', episodes: 'Serial',
       teachings: 'Ajaran, Dharmachakra & Praktik', zenMartial: 'Zen dan Seni Bela Diri', theses: 'Tesis',
@@ -1567,6 +1721,17 @@ const translations: Record<Locale, TranslationKeys> = {
     },
   },
   ms: {
+    onboarding: {
+      title: 'Apa yang membawa anda ke sini hari ini?',
+      subtitle: 'Terokai kebijaksanaan Buddha dengan cara yang mudah dan praktikal.',
+      next: 'Seterusnya',
+      skip: 'Langkau',
+      interestCalm: 'Mencari ketenangan dan kejelasan',
+      interestDifficult: 'Melalui masa sukar',
+      interestLearn: 'Belajar agama Buddha',
+      interestIdeas: 'Memahami idea Buddha',
+      interestExplore: 'Hanya meneroka',
+    },
     nav: {
       home: 'Laman Utama', communityChat: 'Sembang komuniti', characters: 'Watak', episodes: 'Siri',
       teachings: 'Ajaran, Dharmachakra & Amalan', zenMartial: 'Zen dan Seni Mempertahankan Diri', theses: 'Tesis',
@@ -1676,6 +1841,17 @@ const translations: Record<Locale, TranslationKeys> = {
     },
   },
   si: {
+    onboarding: {
+      title: 'අද ඔබව මෙහි ගෙනාවේ කුමක්ද?',
+      subtitle: 'බෞද්ධ ප්රඥාව සරල හා ප්රායෝගික ලෙස ගවේෂණය කරන්න.',
+      next: 'ඊළඟ',
+      skip: 'මඟ හරින්න',
+      interestCalm: 'සන්සුන් බව සහ පැහැදිලි බව සොයන්න',
+      interestDifficult: 'අමාරු කාලයක් ජය ගන්න',
+      interestLearn: 'බුදු දහම ඉගෙන ගන්න',
+      interestIdeas: 'බෞද්ධ අදහස් තේරුම් ගන්න',
+      interestExplore: 'බලමින් ඉන්නවා',
+    },
     nav: {
       home: 'මුල් පිටුව', communityChat: 'ප්‍රජා කතාබහ', characters: 'චරිත', episodes: 'ශ්‍රේණිය',
       teachings: 'උපදේශ, ධර්මචක්‍ර සහ ප්‍රායෝගික', zenMartial: 'දේශන් සහ සටන් කලා', theses: 'න්‍යායන්', gallery: 'ගැලරිය', quiz: 'ප්‍රශ්නාවලිය',
@@ -1784,6 +1960,17 @@ const translations: Record<Locale, TranslationKeys> = {
     },
   },
   my: {
+    onboarding: {
+      title: 'ဒီနေ့ ဘာကြောင့် ဒီကို လာခဲ့ပါသလဲ',
+      subtitle: 'ဗုဒ္ဓဘာသာ ဉာဏ်ပညာကို ရိုးရှင်းပြီး လက်တွေ့ကျစွာ လေ့လာပါ',
+      next: 'ရှေ့ဆက်',
+      skip: 'ကျော်မည်',
+      interestCalm: 'ငြိမ်သက်မှုနှင့် ကြည်လင်မှုကို ရှာဖွေပါ',
+      interestDifficult: 'ခက်ခဲသော အချိန်ကို ဖြတ်ကျော်ပါ',
+      interestLearn: 'ဗုဒ္ဓဘာသာ လေ့လာပါ',
+      interestIdeas: 'ဗုဒ္ဓဘာသာ အယူအဆများကို နားလည်ပါ',
+      interestExplore: 'ကြည့်ရှုနေသည်',
+    },
     nav: {
       home: 'ပင်မစာမျက်နှာ', communityChat: 'ရပ်ရွာချတ်', characters: 'ဇာတ်ကောင်', episodes: 'စီးရီး',
       teachings: 'သင်ကြားမှုများ ဓမ္မစကြာနှင့် အားထုတ်မှု', zenMartial: 'ဇင်နှင့် တိုက်ခိုက်ရေး', theses: 'စာတမ်းများ', gallery: 'ပုံတန်း', quiz: 'မေးခွန်း',
@@ -1892,6 +2079,17 @@ const translations: Record<Locale, TranslationKeys> = {
     },
   },
   ne: {
+    onboarding: {
+      title: 'आज तपाईं यहाँ किन आउनुभयो?',
+      subtitle: 'बौद्ध ज्ञानलाई सरल र व्यावहारिक तरिकाले अन्वेषण गर्नुहोस्।',
+      next: 'अर्को',
+      skip: 'छोड्नुहोस्',
+      interestCalm: 'शान्ति र स्पष्टता खोज्नुहोस्',
+      interestDifficult: 'कठिन समय पार गर्नुहोस्',
+      interestLearn: 'बुद्ध धर्म सिक्नुहोस्',
+      interestIdeas: 'बौद्ध विचार बुझ्नुहोस्',
+      interestExplore: 'हेर्दै छु',
+    },
     nav: {
       home: 'गृहपृष्ठ', communityChat: 'सामुदायिक च्याट', characters: 'पात्र', episodes: 'श्रृंखला',
       teachings: 'शिक्षाहरू, धर्मचक्र र अभ्यास', zenMartial: 'जेन र मार्शल आर्ट्स', theses: 'थीसिस', gallery: 'ग्यालरी', quiz: 'प्रश्नोत्तरी',
@@ -2000,6 +2198,17 @@ const translations: Record<Locale, TranslationKeys> = {
     },
   },
   bo: {
+    onboarding: {
+      title: 'དེ་རིང་ཁྱེད་རང་གང་གི་སླད་དུ་འདིར་ཡོང་དགོས།',
+      subtitle: 'སངས་རྒྱས་ཆོས་ལུགས་ཀྱི་གཟི་བརྗིད་རིག་པ་ལ་རྒྱུན་སྤྱོད་སྟབས་བདེ་ལྟར་འཚོལ་དགོས།',
+      next: 'རྗེས་མ།',
+      skip: 'མཆོངས་ཐོན།',
+      interestCalm: 'ཞི་བདེ་དང་གསལ་བ་འཚོལ་བ།',
+      interestDifficult: 'དཀའ་ངལ་གྱི་དུས་སྐབས་ལས་འདས་པ།',
+      interestLearn: 'སངས་རྒྱས་ཆོས་ལུགས་སློབ་པ།',
+      interestIdeas: 'སངས་རྒྱས་ཆོས་ལུགས་ཀྱི་བསམ་བློ་གོ་བ་ལེན་པ།',
+      interestExplore: 'ལྟ་ཞིབ་བྱེད་བཞིན་པ།',
+    },
     nav: {
       home: 'གཙོ་ངོས།', communityChat: 'སྤྱི་ཚོགས་གླེང་མོལ།', characters: 'སྒྲུང་མི།', episodes: 'སྒྲུང་།',
       teachings: 'སྟོན་པ། ཆོས་ཀྱི་འཁོར་ལོ། སྒོམ།', zenMartial: 'བསམ་གཏན་དང་འཐབ་རྩལ།', theses: 'དཔྱད་རྩོམ།', gallery: 'པར་ཁུལ།', quiz: 'དྲི་བ།',

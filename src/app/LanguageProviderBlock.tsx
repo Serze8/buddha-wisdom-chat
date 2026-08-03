@@ -5,6 +5,7 @@ import Header from '@/components/layout/Header'
 import MobileNav from '@/components/layout/MobileNav'
 import Footer from '@/components/layout/Footer'
 import ScrollButtons from '@/components/ui/ScrollButtons'
+import Onboarding from '@/components/Onboarding'
 
 export default function LanguageProviderBlock({ children, initialLocale }: { children: React.ReactNode; initialLocale?: string }) {
   return (
@@ -14,6 +15,7 @@ export default function LanguageProviderBlock({ children, initialLocale }: { chi
       <Footer />
       <ScrollButtons />
       <MobileNav />
+      <Onboarding />
     </LanguageProvider>
   )
 }
