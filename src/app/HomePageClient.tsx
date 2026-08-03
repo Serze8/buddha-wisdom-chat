@@ -2,6 +2,7 @@
 
 import { useLanguage } from '@/contexts/LanguageContext'
 import Link from 'next/link'
+import Image from 'next/image'
 import { MessageCircle, BookOpenCheck, Film, Users, Tv, Image as ImageIcon, BookOpen, Swords, Flower2, ArrowRight } from 'lucide-react'
 import HeroSilkAtlas from '@/components/HeroSilkAtlas'
 import TeacherQuotes from '@/components/ui/TeacherQuotes'
@@ -129,20 +130,26 @@ export default function HomePageClient() {
           {/* Block 1: Путь Будды */}
           <Link
             href="/episodes"
-            className="group golden-card rounded-2xl overflow-hidden"
+            className="group golden-card rounded-2xl overflow-hidden flex flex-col"
           >
-            <div className="h-1" style={{ background: 'linear-gradient(90deg, #b45309, #f59e0b, #b45309)' }} />
-            <div className="p-8">
-              <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300" style={{ background: 'rgba(245, 158, 11, 0.1)', border: '1px solid rgba(245, 158, 11, 0.2)' }}>
-                <span className="text-3xl">🪷</span>
-              </div>
+            <div className="relative h-40 md:h-48 overflow-hidden">
+              <Image
+                src="/images/characters/buddha.webp"
+                alt={t.home.blockPathTitle}
+                fill
+                sizes="(max-width: 768px) 100vw, 33vw"
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, rgba(245,158,11,0.15), rgba(15,14,10,0.4))' }} />
+            </div>
+            <div className="p-8 flex flex-col flex-1">
               <h3 className="font-[var(--font-cormorant)] text-2xl font-bold text-amber-100 mb-3">
                 {t.home.blockPathTitle}
               </h3>
               <p className="text-amber-200/40 text-sm leading-relaxed mb-6">
                 {t.home.blockPathDesc}
               </p>
-              <span className="inline-flex items-center gap-1 text-amber-400/70 font-medium text-sm group-hover:text-amber-400 group-hover:gap-2 transition-all">
+              <span className="inline-flex items-center gap-1 text-amber-400/70 font-medium text-sm group-hover:text-amber-400 group-hover:gap-2 transition-all mt-auto">
                 {t.home.readMore} →
               </span>
             </div>
@@ -151,20 +158,26 @@ export default function HomePageClient() {
           {/* Block 2: Учение о Дхарме */}
           <Link
             href="/teachings"
-            className="group golden-card rounded-2xl overflow-hidden"
+            className="group golden-card rounded-2xl overflow-hidden flex flex-col"
           >
-            <div className="h-1" style={{ background: 'linear-gradient(90deg, #92400e, #d97706, #92400e)' }} />
-            <div className="p-8">
-              <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300" style={{ background: 'rgba(245, 158, 11, 0.1)', border: '1px solid rgba(245, 158, 11, 0.2)' }}>
-                <span className="text-3xl">🌀</span>
-              </div>
+            <div className="relative h-40 md:h-48 overflow-hidden">
+              <Image
+                src="/images/bodhidharma-yoshitoshi-1887.jpg"
+                alt={t.home.blockDharmaTitle}
+                fill
+                sizes="(max-width: 768px) 100vw, 33vw"
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, rgba(245,158,11,0.15), rgba(15,14,10,0.4))' }} />
+            </div>
+            <div className="p-8 flex flex-col flex-1">
               <h3 className="font-[var(--font-cormorant)] text-2xl font-bold text-amber-100 mb-3">
                 {t.home.blockDharmaTitle}
               </h3>
               <p className="text-amber-200/40 text-sm leading-relaxed mb-6">
                 {t.home.blockDharmaDesc}
               </p>
-              <span className="inline-flex items-center gap-1 text-amber-400/70 font-medium text-sm group-hover:text-amber-400 group-hover:gap-2 transition-all">
+              <span className="inline-flex items-center gap-1 text-amber-400/70 font-medium text-sm group-hover:text-amber-400 group-hover:gap-2 transition-all mt-auto">
                 {t.home.readMore} →
               </span>
             </div>
@@ -173,20 +186,27 @@ export default function HomePageClient() {
           {/* Block 3: Возникновение Дзен */}
           <Link
             href="/zen-martial"
-            className="group golden-card rounded-2xl overflow-hidden"
+            className="group golden-card rounded-2xl overflow-hidden flex flex-col"
           >
-            <div className="h-1" style={{ background: 'linear-gradient(90deg, #78350f, #b45309, #78350f)' }} />
-            <div className="p-8">
-              <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300" style={{ background: 'rgba(245, 158, 11, 0.1)', border: '1px solid rgba(245, 158, 11, 0.2)' }}>
-                <span className="text-3xl">🥋</span>
-              </div>
+            <div className="relative h-40 md:h-48 overflow-hidden">
+              <Image
+                src="/images/zen-bg.gif"
+                alt={t.home.blockZenTitle}
+                fill
+                unoptimized
+                sizes="(max-width: 768px) 100vw, 33vw"
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, rgba(245,158,11,0.15), rgba(15,14,10,0.4))' }} />
+            </div>
+            <div className="p-8 flex flex-col flex-1">
               <h3 className="font-[var(--font-cormorant)] text-2xl font-bold text-amber-100 mb-3">
                 {t.home.blockZenTitle}
               </h3>
               <p className="text-amber-200/40 text-sm leading-relaxed mb-6">
                 {t.home.blockZenDesc}
               </p>
-              <span className="inline-flex items-center gap-1 text-amber-400/70 font-medium text-sm group-hover:text-amber-400 group-hover:gap-2 transition-all">
+              <span className="inline-flex items-center gap-1 text-amber-400/70 font-medium text-sm group-hover:text-amber-400 group-hover:gap-2 transition-all mt-auto">
                 {t.home.readMore} →
               </span>
             </div>
@@ -196,6 +216,9 @@ export default function HomePageClient() {
 
       {/* Quick Links */}
       <section className="max-w-6xl mx-auto px-4 sm:px-6 pb-20 md:pb-28">
+        <h2 className="font-[var(--font-cormorant)] text-2xl md:text-3xl font-bold text-golden-gradient text-center mb-8">
+          {t.home.featuresTitle}
+        </h2>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 stagger-children scroll-reveal">
           {features.map(({ key, icon: Icon, href }) => (
             <Link
