@@ -44,18 +44,14 @@ export async function POST(request: NextRequest) {
   }
 
   const callGemini = async (): Promise<string> => {
+    const generalKeys = [
+      process.env.GEMINI_API_KEY,
+      ...Array.from({ length: 20 }, (_, i) => (process.env as Record<string, string | undefined>)[`GEMINI_API_KEY_${i + 1}`]),
+    ].filter(Boolean) as string[]
+
     const pool = characterId === 'buddha' && process.env.GEMINI_API_KEY_BUDDHA
-      ? [
-          process.env.GEMINI_API_KEY_BUDDHA,
-          process.env.GEMINI_API_KEY,
-          process.env.GEMINI_API_KEY_2,
-          process.env.GEMINI_API_KEY_3,
-        ].filter(Boolean)
-      : [
-          process.env.GEMINI_API_KEY,
-          process.env.GEMINI_API_KEY_2,
-          process.env.GEMINI_API_KEY_3,
-        ].filter(Boolean)
+      ? [process.env.GEMINI_API_KEY_BUDDHA, ...generalKeys]
+      : generalKeys
 
     if (pool.length === 0) {
       throw new Error('GEMINI_API_KEY not configured')
