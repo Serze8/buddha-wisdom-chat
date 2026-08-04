@@ -44,9 +44,12 @@ export async function POST(request: NextRequest) {
   }
 
   const callGemini = async (): Promise<string> => {
-    const geminiKey = process.env.GEMINI_API_KEY_BUDDHA
+    const geminiKey =
+      characterId === 'buddha' && process.env.GEMINI_API_KEY_BUDDHA
+        ? process.env.GEMINI_API_KEY_BUDDHA
+        : process.env.GEMINI_API_KEY
     if (!geminiKey) {
-      throw new Error('GEMINI_API_KEY_BUDDHA not configured')
+      throw new Error('GEMINI_API_KEY not configured')
     }
     const model = process.env.GEMINI_MODEL || 'gemini-3-flash-preview'
     const system = aiMessages.find(m => m.role === 'system')?.content
@@ -135,27 +138,32 @@ export async function POST(request: NextRequest) {
   let lastError = ''
   let provider = ''
 
-  try {
-    if (characterId === 'buddha' && process.env.GEMINI_API_KEY_BUDDHA) {
-      console.log('[chat] 🚀 Trying Gemini (Buddha)...')
-      text = await callGemini()
-      provider = 'gemini'
-      console.log('[chat] ✅ Gemini responded')
-    } else {
-      console.log('[chat] 🚀 Trying OpenRouter...')
-      text = await callOpenRouter()
-      provider = 'openrouter'
-      console.log('[chat] ✅ OpenRouter responded')
-    }
-  } catch (err) {
-    lastError = err instanceof Error ? err.message : String(err)
-    console.log('[chat] ❌ primary failed, falling back to Anthropic:', lastError.slice(0, 200))
+  const useGemini =
+    process.env.GEMINI_API_KEY || (characterId === 'buddha' && process.env.GEMINI_API_KEY_BUDDHA)
+
+  const providers: { name: string; call: () => Promise<string> }[] = []
+  if (useGemini) {
+    providers.push({
+      name: characterId === 'buddha' ? 'Gemini (Buddha key)' : 'Gemini',
+      call: callGemini,
+    })
+  }
+  providers.push(
+    { name: 'OpenRouter', call: callOpenRouter },
+    { name: 'Anthropic', call: callAnthropic }
+  )
+
+  for (const p of providers) {
     try {
-      text = await callAnthropic()
-      provider = 'anthropic'
-    } catch (err2) {
-      lastError += ' | ' + (err2 instanceof Error ? err2.message : String(err2))
-      console.log('[chat] ❌ Anthropic fallback failed:', lastError.slice(-300))
+      console.log(`[chat] 🚀 Trying ${p.name}...`)
+      text = await p.call()
+      provider = p.name
+      console.log(`[chat] ✅ ${p.name} responded`)
+      break
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : String(err)
+      lastError = lastError ? `${lastError} | ${msg}` : msg
+      console.log(`[chat] ❌ ${p.name} failed:`, msg.slice(0, 200))
     }
   }
 
