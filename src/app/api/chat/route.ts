@@ -44,13 +44,23 @@ export async function POST(request: NextRequest) {
   }
 
   const callGemini = async (): Promise<string> => {
-    const geminiKey =
-      characterId === 'buddha' && process.env.GEMINI_API_KEY_BUDDHA
-        ? process.env.GEMINI_API_KEY_BUDDHA
-        : process.env.GEMINI_API_KEY
-    if (!geminiKey) {
+    const pool = characterId === 'buddha' && process.env.GEMINI_API_KEY_BUDDHA
+      ? [
+          process.env.GEMINI_API_KEY_BUDDHA,
+          process.env.GEMINI_API_KEY,
+          process.env.GEMINI_API_KEY_2,
+          process.env.GEMINI_API_KEY_3,
+        ].filter(Boolean)
+      : [
+          process.env.GEMINI_API_KEY,
+          process.env.GEMINI_API_KEY_2,
+          process.env.GEMINI_API_KEY_3,
+        ].filter(Boolean)
+
+    if (pool.length === 0) {
       throw new Error('GEMINI_API_KEY not configured')
     }
+
     const model = process.env.GEMINI_MODEL || 'gemini-3-flash-preview'
     const system = aiMessages.find(m => m.role === 'system')?.content
     const chatMessages = mergeConsecutive(
@@ -59,23 +69,35 @@ export async function POST(request: NextRequest) {
         content: m.content,
       }))
     )
-    const res = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${geminiKey}`,
-      {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          systemInstruction: { parts: [{ text: system }] },
-          contents: chatMessages.map(m => ({ role: m.role, parts: [{ text: m.content }] })),
-          generationConfig: { temperature: 0.8, maxOutputTokens: 2048 },
-        }),
+
+    let lastError = ''
+    for (const geminiKey of pool) {
+      try {
+        const res = await fetch(
+          `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${geminiKey}`,
+          {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              systemInstruction: { parts: [{ text: system }] },
+              contents: chatMessages.map(m => ({ role: m.role, parts: [{ text: m.content }] })),
+              generationConfig: { temperature: 0.8, maxOutputTokens: 2048 },
+            }),
+          }
+        )
+        if (!res.ok) {
+          lastError = `Gemini ${res.status} ${res.statusText}: ${(await res.text().catch(() => '')).slice(0, 300)}`
+          console.log(`[chat] ⚠️ Gemini key failed (${res.status}), rotating to next key...`)
+          continue
+        }
+        const data = await res.json()
+        return data.candidates?.[0]?.content?.parts?.[0]?.text?.trim()
+      } catch (err) {
+        lastError = err instanceof Error ? err.message : String(err)
+        console.log('[chat] ⚠️ Gemini key error, rotating to next key...')
       }
-    )
-    if (!res.ok) {
-      throw new Error(`Gemini ${res.status} ${res.statusText}: ${(await res.text().catch(() => '')).slice(0, 300)}`)
     }
-    const data = await res.json()
-    return data.candidates?.[0]?.content?.parts?.[0]?.text?.trim()
+    throw new Error(lastError || 'All Gemini keys failed')
   }
 
   const callOpenRouter = async (): Promise<string> => {
