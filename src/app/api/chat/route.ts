@@ -106,7 +106,7 @@ export async function POST(request: NextRequest) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        model: 'openrouter/free',
+        model: 'anthropic/claude-sonnet-4.5',
         messages: aiMessages,
         temperature: 0.8,
         max_tokens: 2048,
