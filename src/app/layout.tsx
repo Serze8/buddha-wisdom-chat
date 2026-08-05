@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { Cormorant_Garamond, Inter } from 'next/font/google'
 import { cookies } from 'next/headers'
 import { Analytics } from '@vercel/analytics/react'
@@ -6,6 +6,7 @@ import { SpeedInsights } from '@vercel/speed-insights/next'
 import './globals.css'
 import LanguageProviderBlock from './LanguageProviderBlock'
 import ScrollReveal from '@/components/ScrollReveal'
+import PwaRegister from '@/components/PwaRegister'
 
 const cormorant = Cormorant_Garamond({
   variable: '--font-cormorant',
@@ -19,7 +20,7 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://buddha-wisdom-two.vercel.app'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://buddha-wisdom-teal.vercel.app'),
   title: {
     default: "Buddha's Wisdom Chat — AI Buddhist Wisdom",
     template: "%s | Buddha's Wisdom Chat",
@@ -52,6 +53,29 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+  manifest: '/manifest.json',
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: 'black-translucent',
+    title: "Buddha's Wisdom Chat",
+  },
+  formatDetection: {
+    telephone: false,
+  },
+  icons: {
+    icon: [
+      { url: '/icons/icon-192.png', sizes: '192x192', type: 'image/png' },
+      { url: '/icons/icon-512.png', sizes: '512x512', type: 'image/png' },
+    ],
+    apple: [{ url: '/icons/apple-touch-icon.png', sizes: '180x180' }],
+  },
+}
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  viewportFit: 'cover',
+  themeColor: '#0F0E0A',
 }
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
@@ -63,6 +87,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       <body className="min-h-full flex flex-col font-[var(--font-inter)]" style={{ background: '#0F0E0A', color: '#e8dcc8' }}>
         <LanguageProviderBlock initialLocale={lang}>{children}</LanguageProviderBlock>
         <ScrollReveal />
+        <PwaRegister />
         <Analytics />
         <SpeedInsights />
       </body>

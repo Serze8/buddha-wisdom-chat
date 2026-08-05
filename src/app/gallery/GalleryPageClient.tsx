@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Image from 'next/image'
 import { useLanguage } from '@/contexts/LanguageContext'
 import { X, ChevronLeft, ChevronRight } from 'lucide-react'
 import PromoBanner from '@/components/ui/PromoBanner'
@@ -64,8 +65,14 @@ export default function GalleryPageClient() {
             onClick={() => openLightbox(i)}
           >
             <div className="relative rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-all">
-              <div className="aspect-square bg-gradient-to-br from-amber-100 to-amber-200 dark:from-amber-900/30 dark:to-amber-800/30 flex items-center justify-center">
-                <span className="text-6xl opacity-40">🪷</span>
+              <div className="relative aspect-square bg-gradient-to-br from-amber-100 to-amber-200 dark:from-amber-900/30 dark:to-amber-800/30">
+                <Image
+                  src={img.src}
+                  alt={(img.title as any)[locale] || img.title.en}
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="object-cover"
+                />
               </div>
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors flex items-end">
                 <div className="p-4 text-white opacity-0 group-hover:opacity-100 transition-opacity">
@@ -89,8 +96,14 @@ export default function GalleryPageClient() {
             <ChevronRight className="w-10 h-10" />
           </button>
           <div className="max-w-4xl max-h-[80vh] mx-4" onClick={(e) => e.stopPropagation()}>
-            <div className="aspect-square bg-gradient-to-br from-amber-100 to-amber-200 dark:from-amber-900/30 dark:to-amber-800/30 rounded-2xl flex items-center justify-center min-w-[300px]">
-              <span className="text-8xl opacity-40">🪷</span>
+            <div className="relative aspect-square bg-gradient-to-br from-amber-100 to-amber-200 dark:from-amber-900/30 dark:to-amber-800/30 rounded-2xl overflow-hidden min-w-[300px]">
+              <Image
+                src={currentImage.src}
+                alt={(currentImage.title as any)[locale] || currentImage.title.en}
+                fill
+                sizes="(max-width: 900px) 90vw, 800px"
+                className="object-contain"
+              />
             </div>
             <p className="text-white text-center mt-4 font-[var(--font-cormorant)] text-xl">
               {(currentImage.title as any)[locale] || currentImage.title.en}

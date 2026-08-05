@@ -14,6 +14,9 @@ const PUBLIC_PAGES = [
   '/characters',
   '/episodes',
   '/gallery',
+  '/journey',
+  '/knowledge',
+  '/glossary',
   '/quiz',
   '/videos',
   '/retreats',
@@ -54,7 +57,7 @@ export async function updateSession(request: NextRequest) {
 
   const pathname = request.nextUrl.pathname
   const isAuthPage = pathname.startsWith('/auth')
-  const isPublicPage = PUBLIC_PAGES.includes(pathname) || pathname.startsWith('/chimes') || pathname.startsWith('/articles/') || pathname.startsWith('/api/chat')
+  const isPublicPage = PUBLIC_PAGES.includes(pathname) || pathname.startsWith('/chimes') || pathname.startsWith('/articles/') || pathname.startsWith('/api/chat') || pathname.startsWith('/api/push')
 
   if (!user && !isAuthPage && !isPublicPage) {
     const url = request.nextUrl.clone()

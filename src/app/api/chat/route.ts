@@ -43,6 +43,59 @@ export async function POST(request: NextRequest) {
     return merged
   }
 
+  const callGemini = async (): Promise<string> => {
+    const generalKeys = [
+      process.env.GEMINI_API_KEY,
+      ...Array.from({ length: 20 }, (_, i) => (process.env as Record<string, string | undefined>)[`GEMINI_API_KEY_${i + 1}`]),
+    ].filter(Boolean) as string[]
+
+    const pool = characterId === 'buddha' && process.env.GEMINI_API_KEY_BUDDHA
+      ? [process.env.GEMINI_API_KEY_BUDDHA, ...generalKeys]
+      : generalKeys
+
+    if (pool.length === 0) {
+      throw new Error('GEMINI_API_KEY not configured')
+    }
+
+    const model = process.env.GEMINI_MODEL || 'gemini-3-flash-preview'
+    const system = aiMessages.find(m => m.role === 'system')?.content
+    const chatMessages = mergeConsecutive(
+      aiMessages.filter(m => m.role !== 'system').map(m => ({
+        role: m.role === 'assistant' ? 'model' : 'user',
+        content: m.content,
+      }))
+    )
+
+    let lastError = ''
+    for (const geminiKey of pool) {
+      try {
+        const res = await fetch(
+          `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${geminiKey}`,
+          {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              systemInstruction: { parts: [{ text: system }] },
+              contents: chatMessages.map(m => ({ role: m.role, parts: [{ text: m.content }] })),
+              generationConfig: { temperature: 0.8, maxOutputTokens: 2048 },
+            }),
+          }
+        )
+        if (!res.ok) {
+          lastError = `Gemini ${res.status} ${res.statusText}: ${(await res.text().catch(() => '')).slice(0, 300)}`
+          console.log(`[chat] ⚠️ Gemini key failed (${res.status}), rotating to next key...`)
+          continue
+        }
+        const data = await res.json()
+        return data.candidates?.[0]?.content?.parts?.[0]?.text?.trim()
+      } catch (err) {
+        lastError = err instanceof Error ? err.message : String(err)
+        console.log('[chat] ⚠️ Gemini key error, rotating to next key...')
+      }
+    }
+    throw new Error(lastError || 'All Gemini keys failed')
+  }
+
   const callOpenRouter = async (): Promise<string> => {
     const res = await fetch('https://openrouter.ai/api/v1/chat/completions', {
       method: 'POST',
@@ -103,20 +156,32 @@ export async function POST(request: NextRequest) {
   let lastError = ''
   let provider = ''
 
-  try {
-    console.log('[chat] 🚀 Trying OpenRouter...')
-    text = await callOpenRouter()
-    provider = 'openrouter'
-    console.log('[chat] ✅ OpenRouter responded')
-  } catch (err) {
-    lastError = err instanceof Error ? err.message : String(err)
-    console.log('[chat] ❌ OpenRouter failed, falling back to Anthropic:', lastError.slice(0, 200))
+  const useGemini =
+    process.env.GEMINI_API_KEY || (characterId === 'buddha' && process.env.GEMINI_API_KEY_BUDDHA)
+
+  const providers: { name: string; call: () => Promise<string> }[] = []
+  if (useGemini) {
+    providers.push({
+      name: characterId === 'buddha' ? 'Gemini (Buddha key)' : 'Gemini',
+      call: callGemini,
+    })
+  }
+  providers.push(
+    { name: 'OpenRouter', call: callOpenRouter },
+    { name: 'Anthropic', call: callAnthropic }
+  )
+
+  for (const p of providers) {
     try {
-      text = await callAnthropic()
-      provider = 'anthropic'
-    } catch (err2) {
-      lastError += ' | ' + (err2 instanceof Error ? err2.message : String(err2))
-      console.log('[chat] ❌ Anthropic fallback failed:', lastError.slice(-300))
+      console.log(`[chat] 🚀 Trying ${p.name}...`)
+      text = await p.call()
+      provider = p.name
+      console.log(`[chat] ✅ ${p.name} responded`)
+      break
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : String(err)
+      lastError = lastError ? `${lastError} | ${msg}` : msg
+      console.log(`[chat] ❌ ${p.name} failed:`, msg.slice(0, 200))
     }
   }
 

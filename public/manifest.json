@@ -1,0 +1,46 @@
+{
+  "name": "Buddha's Wisdom Chat",
+  "short_name": "Buddha Chat",
+  "description": "AI-powered Buddhist wisdom: chat with the Buddha, explore teachings, meditation practices and community.",
+  "id": "/",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#0F0E0A",
+  "theme_color": "#0F0E0A",
+  "lang": "en",
+  "categories": ["education", "lifestyle", "books"],
+  "icons": [
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Chat with Buddha",
+      "url": "/chat",
+      "description": "Start an AI conversation with Buddha"
+    },
+    {
+      "name": "Breathing Practices",
+      "url": "/teachings/practice",
+      "description": "Guided breathing meditation"
+    }
+  ]
+}

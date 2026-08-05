@@ -1,19 +1,28 @@
 'use client'
 
+import { useState } from 'react'
 import { useLanguage } from '@/contexts/LanguageContext'
 import Link from 'next/link'
-import { MessageCircle, BookOpenCheck, Film, Users, Tv, Image as ImageIcon, HelpCircle, BookOpen, Swords } from 'lucide-react'
+import Image from 'next/image'
+import { MessageCircle, BookOpenCheck, Film, Users, Tv, Image as ImageIcon, BookOpen, Swords, Flower2, ArrowRight, Sparkles } from 'lucide-react'
 import HeroSilkAtlas from '@/components/HeroSilkAtlas'
 import TeacherQuotes from '@/components/ui/TeacherQuotes'
+import { getDailyQuote } from '@/lib/quotes'
 
 const features = [
   { key: 'chat', icon: MessageCircle, href: '/chat' },
+  { key: 'practice', icon: Flower2, href: '/teachings/practice' },
   { key: 'characters', icon: Users, href: '/characters' },
   { key: 'episodes', icon: Tv, href: '/episodes' },
   { key: 'teachings', icon: BookOpen, href: '/teachings' },
   { key: 'gallery', icon: ImageIcon, href: '/gallery' },
-  { key: 'quiz', icon: HelpCircle, href: '/quiz' },
 ]
+
+const featureLabel = (t: any, key: string) => {
+  if (key === 'chat') return t.nav.blockChat || 'Chat'
+  if (key === 'practice') return t.teachings?.sectionPractices || 'Practice'
+  return (t.nav as any)[key] || key
+}
 
 const thesisToday = {
   en: {
@@ -28,50 +37,66 @@ const thesisToday = {
   },
 }
 
-const quotes: Record<string, { text: string; author: string }[]> = {
-  en: [
-    { text: 'The mind is everything. What you think you become.', author: 'Buddha' },
-    { text: 'Peace comes from within. Do not seek it without.', author: 'Buddha' },
-    { text: 'In the end, only three things matter: how much you loved, how gently you lived, and how gracefully you let go.', author: 'Buddha' },
-    { text: 'Hatred does not cease by hatred, but only by love.', author: 'Dhammapada 1:5' },
-    { text: 'All that we are is the result of what we have thought.', author: 'Dhammapada 1:1' },
-    { text: 'Better than a thousand hollow words is one word that brings peace.', author: 'Dhammapada 1:100' },
-    { text: 'The fool who knows he is a fool is wise, but the fool who thinks he is wise is a real fool.', author: 'Dhammapada 6:63' },
-    { text: 'Health is the greatest gift, contentment the greatest wealth.', author: 'Dhammapada 4:204' },
-  ],
-  ru: [
-    { text: 'Ум — это всё. То, что ты думаешь, тем ты и становишься.', author: 'Будда' },
-    { text: 'Мир исходит изнутри. Не ищи его снаружи.', author: 'Будда' },
-    { text: 'В конце концов, важны только три вещи: как сильно ты любил, как мягко ты жил и как благородно ты отпустил.', author: 'Будда' },
-    { text: 'Ненависть не прекращается ненавистью, а лишь любовью.', author: 'Дхаммапада 1:5' },
-    { text: 'Всё, чем мы являемся, — это результат того, о чём мы думали.', author: 'Дхаммапада 1:1' },
-    { text: 'Лучше одно слово, приносящее покой, чем тысяча пустых слов.', author: 'Дхаммапада 1:100' },
-    { text: 'Глупец, знающий, что он глупец, мудр. А глупец, считающий себя мудрым — настоящий глупец.', author: 'Дхаммапада 6:63' },
-    { text: 'Здоровье — величайший дар, довольство — величайшее богатство.', author: 'Дхаммапада 4:204' },
-  ],
-}
-
 export default function HomePageClient() {
   const { locale, t } = useLanguage()
+  const [showExplanation, setShowExplanation] = useState(false)
   const thesis = thesisToday[locale as keyof typeof thesisToday] || thesisToday.en
-  const dayQuotes = quotes[locale] || quotes.en
-  const quote = dayQuotes[new Date().getDate() % dayQuotes.length]
+  const quote = getDailyQuote(new Date(), locale)
 
   return (
     <div className="min-h-screen">
       {/* Hero */}
       <HeroSilkAtlas />
 
-      {/* Quote Strip */}
-      <div className="relative overflow-hidden py-8 md:py-10 scroll-reveal" style={{ background: 'linear-gradient(90deg, rgba(120, 53, 15, 0.15), rgba(120, 53, 15, 0.05), rgba(120, 53, 15, 0.15))' }}>
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center relative">
-          <span className="quote-mark" style={{ left: '10%' }}>&ldquo;</span>
-          <p className="font-[var(--font-cormorant)] text-xl md:text-2xl italic text-golden-gradient leading-relaxed relative z-10 pl-6">
-            {quote.text}
-          </p>
-          <p className="text-amber-600/60 text-sm mt-3" style={{ fontFamily: 'var(--font-cormorant)' }}>— {quote.author}</p>
+      {/* Quick Actions — app-style */}
+      <section className="max-w-6xl mx-auto px-4 sm:px-6 -mt-10 md:-mt-14 relative z-10">
+        <div className="grid grid-cols-2 gap-3 md:gap-4">
+          <Link
+            href="/chat"
+            className="group flex items-center justify-center gap-2 rounded-2xl bg-amber-600 hover:bg-amber-500 text-white font-medium py-4 md:py-5 text-sm md:text-base transition-all shadow-lg shadow-amber-900/40 active:scale-[0.98]"
+          >
+            <MessageCircle className="w-5 h-5" />
+            {t.nav.blockChat || 'Chat'}
+          </Link>
+          <Link
+            href="/teachings/practice"
+            className="group flex items-center justify-center gap-2 rounded-2xl bg-white/5 hover:bg-white/10 text-amber-200 font-medium py-4 md:py-5 text-sm md:text-base border border-amber-800/40 transition-all active:scale-[0.98]"
+          >
+            <Flower2 className="w-5 h-5 text-amber-400" />
+            {t.teachings?.sectionPractices || 'Practice'}
+          </Link>
         </div>
-      </div>
+      </section>
+
+      {/* Quote of the Day */}
+      <section className="max-w-4xl mx-auto px-4 sm:px-6 py-10 md:py-12">
+        <div className="golden-card rounded-2xl p-6 md:p-8 relative overflow-hidden scroll-reveal" style={{ boxShadow: '0 8px 40px rgba(0, 0, 0, 0.4)' }}>
+          <div className="flex items-center justify-between mb-4">
+            <span className="text-amber-500/60 text-xs tracking-widest uppercase font-medium">
+              {t.onboarding.quoteOfDay}
+            </span>
+            <span className="text-amber-600/40 text-xs" style={{ fontFamily: 'var(--font-cormorant)' }}>
+              {new Date().toLocaleDateString(locale === 'ru' ? 'ru-RU' : 'en-US', { month: 'long', day: 'numeric' })}
+            </span>
+          </div>
+          <p className="font-[var(--font-cormorant)] text-xl md:text-2xl italic text-golden-gradient leading-relaxed">
+            «{quote.quote}»
+          </p>
+          <p className="text-amber-600/60 text-sm mt-2" style={{ fontFamily: 'var(--font-cormorant)' }}>— {quote.source}</p>
+          <button
+            onClick={() => setShowExplanation(!showExplanation)}
+            className="mt-4 inline-flex items-center gap-2 text-amber-400/80 hover:text-amber-400 text-sm font-medium transition-colors"
+          >
+            <Sparkles className="w-4 h-4" />
+            {showExplanation ? t.onboarding.hideExplanation : t.onboarding.understandWhat}
+          </button>
+          {showExplanation && (
+            <div className="mt-3 rounded-xl p-4 border border-amber-500/15" style={{ background: 'rgba(245, 158, 11, 0.06)' }}>
+              <p className="text-amber-200/60 text-sm leading-relaxed">{quote.explanation}</p>
+            </div>
+          )}
+        </div>
+      </section>
 
       {/* Thesis of the Day */}
       <section className="max-w-4xl mx-auto px-4 sm:px-6 py-14 md:py-20">
@@ -103,20 +128,26 @@ export default function HomePageClient() {
           {/* Block 1: Путь Будды */}
           <Link
             href="/episodes"
-            className="group golden-card rounded-2xl overflow-hidden"
+            className="group golden-card rounded-2xl overflow-hidden flex flex-col"
           >
-            <div className="h-1" style={{ background: 'linear-gradient(90deg, #b45309, #f59e0b, #b45309)' }} />
-            <div className="p-8">
-              <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300" style={{ background: 'rgba(245, 158, 11, 0.1)', border: '1px solid rgba(245, 158, 11, 0.2)' }}>
-                <span className="text-3xl">🪷</span>
-              </div>
+            <div className="relative h-40 md:h-48 overflow-hidden">
+              <Image
+                src="/images/characters/buddha.webp"
+                alt={t.home.blockPathTitle}
+                fill
+                sizes="(max-width: 768px) 100vw, 33vw"
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, rgba(245,158,11,0.15), rgba(15,14,10,0.4))' }} />
+            </div>
+            <div className="p-8 flex flex-col flex-1">
               <h3 className="font-[var(--font-cormorant)] text-2xl font-bold text-amber-100 mb-3">
                 {t.home.blockPathTitle}
               </h3>
               <p className="text-amber-200/40 text-sm leading-relaxed mb-6">
                 {t.home.blockPathDesc}
               </p>
-              <span className="inline-flex items-center gap-1 text-amber-400/70 font-medium text-sm group-hover:text-amber-400 group-hover:gap-2 transition-all">
+              <span className="inline-flex items-center gap-1 text-amber-400/70 font-medium text-sm group-hover:text-amber-400 group-hover:gap-2 transition-all mt-auto">
                 {t.home.readMore} →
               </span>
             </div>
@@ -125,20 +156,26 @@ export default function HomePageClient() {
           {/* Block 2: Учение о Дхарме */}
           <Link
             href="/teachings"
-            className="group golden-card rounded-2xl overflow-hidden"
+            className="group golden-card rounded-2xl overflow-hidden flex flex-col"
           >
-            <div className="h-1" style={{ background: 'linear-gradient(90deg, #92400e, #d97706, #92400e)' }} />
-            <div className="p-8">
-              <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300" style={{ background: 'rgba(245, 158, 11, 0.1)', border: '1px solid rgba(245, 158, 11, 0.2)' }}>
-                <span className="text-3xl">🌀</span>
-              </div>
+            <div className="relative h-40 md:h-48 overflow-hidden">
+              <Image
+                src="/images/bodhidharma-yoshitoshi-1887.jpg"
+                alt={t.home.blockDharmaTitle}
+                fill
+                sizes="(max-width: 768px) 100vw, 33vw"
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, rgba(245,158,11,0.15), rgba(15,14,10,0.4))' }} />
+            </div>
+            <div className="p-8 flex flex-col flex-1">
               <h3 className="font-[var(--font-cormorant)] text-2xl font-bold text-amber-100 mb-3">
                 {t.home.blockDharmaTitle}
               </h3>
               <p className="text-amber-200/40 text-sm leading-relaxed mb-6">
                 {t.home.blockDharmaDesc}
               </p>
-              <span className="inline-flex items-center gap-1 text-amber-400/70 font-medium text-sm group-hover:text-amber-400 group-hover:gap-2 transition-all">
+              <span className="inline-flex items-center gap-1 text-amber-400/70 font-medium text-sm group-hover:text-amber-400 group-hover:gap-2 transition-all mt-auto">
                 {t.home.readMore} →
               </span>
             </div>
@@ -147,20 +184,27 @@ export default function HomePageClient() {
           {/* Block 3: Возникновение Дзен */}
           <Link
             href="/zen-martial"
-            className="group golden-card rounded-2xl overflow-hidden"
+            className="group golden-card rounded-2xl overflow-hidden flex flex-col"
           >
-            <div className="h-1" style={{ background: 'linear-gradient(90deg, #78350f, #b45309, #78350f)' }} />
-            <div className="p-8">
-              <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300" style={{ background: 'rgba(245, 158, 11, 0.1)', border: '1px solid rgba(245, 158, 11, 0.2)' }}>
-                <span className="text-3xl">🥋</span>
-              </div>
+            <div className="relative h-40 md:h-48 overflow-hidden">
+              <Image
+                src="/images/zen-bg.gif"
+                alt={t.home.blockZenTitle}
+                fill
+                unoptimized
+                sizes="(max-width: 768px) 100vw, 33vw"
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, rgba(245,158,11,0.15), rgba(15,14,10,0.4))' }} />
+            </div>
+            <div className="p-8 flex flex-col flex-1">
               <h3 className="font-[var(--font-cormorant)] text-2xl font-bold text-amber-100 mb-3">
                 {t.home.blockZenTitle}
               </h3>
               <p className="text-amber-200/40 text-sm leading-relaxed mb-6">
                 {t.home.blockZenDesc}
               </p>
-              <span className="inline-flex items-center gap-1 text-amber-400/70 font-medium text-sm group-hover:text-amber-400 group-hover:gap-2 transition-all">
+              <span className="inline-flex items-center gap-1 text-amber-400/70 font-medium text-sm group-hover:text-amber-400 group-hover:gap-2 transition-all mt-auto">
                 {t.home.readMore} →
               </span>
             </div>
@@ -170,19 +214,23 @@ export default function HomePageClient() {
 
       {/* Quick Links */}
       <section className="max-w-6xl mx-auto px-4 sm:px-6 pb-20 md:pb-28">
+        <h2 className="font-[var(--font-cormorant)] text-2xl md:text-3xl font-bold text-golden-gradient text-center mb-8">
+          {t.home.featuresTitle}
+        </h2>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 stagger-children scroll-reveal">
           {features.map(({ key, icon: Icon, href }) => (
             <Link
               key={key}
               href={href}
-              className="group golden-card rounded-2xl flex flex-col items-center gap-3 p-6"
+              className="group golden-card rounded-2xl flex flex-col items-center gap-3 p-6 md:p-8 active:scale-[0.98] transition-transform"
             >
               <div className="p-3 rounded-xl transition-transform duration-300 group-hover:scale-110" style={{ background: 'rgba(245, 158, 11, 0.08)', border: '1px solid rgba(245, 158, 11, 0.15)' }}>
-                <Icon className="w-6 h-6 text-amber-400/70 group-hover:text-amber-400 transition-colors" />
+                <Icon className="w-7 h-7 md:w-6 md:h-6 text-amber-400/70 group-hover:text-amber-400 transition-colors" />
               </div>
-              <span className="font-medium text-amber-200/60 group-hover:text-amber-200 transition-colors text-sm">
-                {(t.nav as any)[key] || key}
+              <span className="font-medium text-amber-200/60 group-hover:text-amber-200 transition-colors text-sm text-center">
+                {featureLabel(t, key)}
               </span>
+              <ArrowRight className="w-4 h-4 text-amber-400/40 group-hover:text-amber-400 group-hover:translate-x-1 transition-all" />
             </Link>
           ))}
         </div>
