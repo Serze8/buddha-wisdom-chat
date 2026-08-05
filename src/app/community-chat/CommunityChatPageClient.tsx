@@ -5,7 +5,11 @@ import { useLanguage } from '@/contexts/LanguageContext'
 import ChatPanel from './ChatPanel'
 import CommunityPanel from './CommunityPanel'
 
-export default function CommunityChatPageClient() {
+interface CommunityChatPageClientProps {
+  initialCharacterId?: string | null
+}
+
+export default function CommunityChatPageClient({ initialCharacterId = null }: CommunityChatPageClientProps) {
   const { t, locale } = useLanguage()
   const [tab, setTab] = useState<'chat' | 'community'>('chat')
 
@@ -39,7 +43,7 @@ export default function CommunityChatPageClient() {
           </button>
         </div>
 
-        {tab === 'chat' ? <ChatPanel /> : <CommunityPanel />}
+        {tab === 'chat' ? <ChatPanel initialCharacterId={initialCharacterId} /> : <CommunityPanel />}
       </div>
     </div>
   )

@@ -3,6 +3,11 @@ import CommunityChatPageClient from './CommunityChatPageClient'
 
 export const metadata = generatePageMetadata('/community-chat')
 
-export default function CommunityChatPage() {
-  return <CommunityChatPageClient />
+interface PageProps {
+  searchParams: Promise<{ character?: string }>
+}
+
+export default async function CommunityChatPage({ searchParams }: PageProps) {
+  const { character } = await searchParams
+  return <CommunityChatPageClient initialCharacterId={character || null} />
 }
