@@ -101,7 +101,7 @@ export async function POST(request: NextRequest) {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${apiKey}`,
-        'HTTP-Referer': 'https://buddha-wisdom-teal.vercel.app',
+        'HTTP-Referer': 'https://wisdom-buddha-and-chat.vercel.app',
         'X-Title': "Buddha's Wisdom Chat",
         'Content-Type': 'application/json',
       },

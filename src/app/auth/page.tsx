@@ -20,6 +20,8 @@ export default function AuthPage() {
   const [resetSent, setResetSent] = useState(false)
   const [showReset, setShowReset] = useState(false)
 
+  const POST_LOGIN_REDIRECT = '/teachings/practice'
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setLoading(true)
@@ -39,7 +41,7 @@ export default function AuthPage() {
         })
         if (error) throw error
       }
-      router.push('/')
+      router.push(POST_LOGIN_REDIRECT)
       router.refresh()
     } catch (err: any) {
       setError(err.message || t.auth.error)

@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next'
 import { createClient } from '@/lib/supabase/server'
 
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://buddha-wisdom.chat'
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://wisdom-buddha-and-chat.vercel.app'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const locales = ['en', 'ru', 'hi', 'es', 'fr', 'de', 'zh', 'ja']

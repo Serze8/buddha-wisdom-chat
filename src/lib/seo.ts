@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 
-const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://buddha-wisdom-two.vercel.app'
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://wisdom-buddha-and-chat.vercel.app'
 
 const pages: Record<string, { title: string; description: string; keywords: string[] }> = {
   '': {

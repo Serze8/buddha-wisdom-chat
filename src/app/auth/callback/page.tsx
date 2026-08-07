@@ -12,7 +12,7 @@ export default function AuthCallbackPage() {
   useEffect(() => {
     supabase.auth.getSession().then(({ data: { session } }) => {
       if (session) {
-        router.push('/')
+        router.push('/teachings/practice')
         router.refresh()
       }
     })

@@ -20,7 +20,7 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://buddha-wisdom-teal.vercel.app'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://wisdom-buddha-and-chat.vercel.app'),
   title: {
     default: "Buddha's Wisdom Chat — AI Buddhist Wisdom",
     template: "%s | Buddha's Wisdom Chat",

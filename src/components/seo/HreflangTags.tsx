@@ -1,5 +1,5 @@
 export default function HreflangTags({ pathname }: { pathname: string }) {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://buddha-wisdom.chat'
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://wisdom-buddha-and-chat.vercel.app'
   const locales = ['en', 'ru', 'hi', 'es', 'fr', 'de', 'zh', 'ja']
 
   return (
