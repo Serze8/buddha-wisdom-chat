@@ -1,7 +1,7 @@
 'use client'
 
 import { useLanguage } from '@/contexts/LanguageContext'
-import { characters } from '@/lib/characters'
+import { characters, defaultCharacter } from '@/lib/characters'
 import { useState, useRef, useEffect } from 'react'
 import { Send, Mic, MicOff, Volume2, VolumeX, Loader2, ArrowLeft } from 'lucide-react'
 
@@ -11,7 +11,11 @@ interface ChatPanelProps {
 
 export default function ChatPanel({ initialCharacterId = null }: ChatPanelProps) {
   const { t, locale } = useLanguage()
-  const [selectedChar, setSelectedChar] = useState<string | null>(initialCharacterId)
+  const [selectedChar, setSelectedChar] = useState<string | null>(() => {
+    if (initialCharacterId && characters.some(c => c.id === initialCharacterId)) return initialCharacterId
+    if (initialCharacterId) return defaultCharacter.id
+    return null
+  })
   const [messages, setMessages] = useState<{ role: string; content: string }[]>([])
   const [input, setInput] = useState('')
   const [loading, setLoading] = useState(false)
