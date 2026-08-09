@@ -69,6 +69,10 @@ export default function AuthPage() {
   }
 
   const handleOAuth = async (provider: string) => {
+    if (provider === 'mailru') {
+      window.location.href = '/api/auth/mailru'
+      return
+    }
     setLoading(true)
     try {
       await supabase.auth.signInWithOAuth({
