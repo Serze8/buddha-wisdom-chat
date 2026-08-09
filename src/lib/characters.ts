@@ -99,6 +99,7 @@ export const characters: SerialCharacter[] = [
     },
     color: 'bg-purple-600',
     emoji: '👑',
+    avatar: '/images/characters/maya.jpg',
     bio: {
       en: 'Queen Maya, mother of Siddhartha. She dreamed of a white elephant before his birth and passed away seven days after, watching over her son from beyond.',
       ru: 'Царица Майя, мать Сиддхартхи. Перед его рождением она увидела сон о белом слоне, а через семь дней после рождения сына ушла, наблюдая за ним свыше.',
@@ -155,6 +156,7 @@ export const characters: SerialCharacter[] = [
     },
     color: 'bg-stone-600',
     emoji: '🐎',
+    avatar: '/images/characters/channa.jpg',
     bio: {
       en: 'Channa, the loyal charioteer who carried Siddhartha beyond the palace gates on the night he left everything behind.',
       ru: 'Чанна, верный колесничий, увёзший Сиддхартху за ворота дворца в ночь, когда тот оставил всё позади.',
