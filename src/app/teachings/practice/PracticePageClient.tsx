@@ -4,6 +4,7 @@ import { useLanguage } from '@/contexts/LanguageContext'
 import Link from 'next/link'
 import BreathingPractice from '@/components/BreathingPractice'
 import RitualBreathingPractice from '@/components/RitualBreathingPractice'
+import InterestsQuestionnaire from '@/components/InterestsQuestionnaire'
 
 function AngerReminder() {
   const { t } = useLanguage()
@@ -37,6 +38,9 @@ export default function PracticePageClient() {
       </p>
 
       <div className="space-y-8">
+        {/* === QUESTIONNAIRE === */}
+        <InterestsQuestionnaire />
+
         {/* === MEDITATION + BREATHING === */}
         <div className="golden-card rounded-2xl p-6 md:p-8 relative noise-overlay">
           <div className="relative z-10">

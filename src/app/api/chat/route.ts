@@ -3,7 +3,7 @@ import { createClient } from '@/lib/supabase/server'
 
 export async function POST(request: NextRequest) {
   const supabase = await createClient()
-  const { data: { user } } = await supabase.auth.getUser()
+  const { data: { user }, error } = await supabase.auth.getUser()
 
   if (!user) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
@@ -96,6 +96,37 @@ export async function POST(request: NextRequest) {
     throw new Error(lastError || 'All Gemini keys failed')
   }
 
+  const callYandexGPT = async (): Promise<string> => {
+    const yandexKey = process.env.YANDEX_API_KEY
+    const folderId = process.env.YANDEX_FOLDER_ID
+    if (!yandexKey || !folderId) {
+      throw new Error('YANDEX_API_KEY / YANDEX_FOLDER_ID not configured')
+    }
+    const system = aiMessages.find(m => m.role === 'system')?.content
+    const chatMessages = mergeConsecutive(aiMessages.filter(m => m.role !== 'system'))
+    const res = await fetch(process.env.YANDEX_API_URL || 'https://ai.api.cloud.yandex.net/foundationModels/v1/completion', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Api-Key ${yandexKey}`,
+        'x-folder-id': folderId,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        modelUri: `gpt://${folderId}/${process.env.YANDEX_MODEL || 'yandexgpt-lite'}`,
+        completionOptions: { temperature: 0.8, maxTokens: 2048 },
+        messages: [
+          { role: 'system', text: system },
+          ...chatMessages.map(m => ({ role: m.role, text: m.content })),
+        ],
+      }),
+    })
+    if (!res.ok) {
+      throw new Error(`YandexGPT ${res.status} ${res.statusText}: ${(await res.text().catch(() => '')).slice(0, 300)}`)
+    }
+    const data = await res.json()
+    return data.result?.alternatives?.[0]?.message?.text?.trim()
+  }
+
   const callOpenRouter = async (): Promise<string> => {
     const res = await fetch('https://openrouter.ai/api/v1/chat/completions', {
       method: 'POST',
@@ -165,6 +196,9 @@ export async function POST(request: NextRequest) {
       name: characterId === 'buddha' ? 'Gemini (Buddha key)' : 'Gemini',
       call: callGemini,
     })
+  }
+  if (process.env.YANDEX_API_KEY && process.env.YANDEX_FOLDER_ID) {
+    providers.push({ name: 'YandexGPT', call: callYandexGPT })
   }
   providers.push(
     { name: 'OpenRouter', call: callOpenRouter },

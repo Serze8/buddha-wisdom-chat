@@ -269,7 +269,7 @@ export default function AuthPage() {
 
             <button
               type="button"
-              onClick={() => handleOAuth('yandex')}
+              onClick={() => handleOAuth('custom:yandex')}
               disabled={loading}
               className="w-full py-2.5 rounded-xl border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-200 font-medium text-sm transition-colors flex items-center justify-center gap-2 disabled:opacity-50"
             >
