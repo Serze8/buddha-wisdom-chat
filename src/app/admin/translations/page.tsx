@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import DesignToolsQuickAccess from '@/components/admin/DesignToolsQuickAccess'
 
 const MOCK_ARTICLES = [
   { id: '1', slug: 'four-noble-truths', section: 'theses', title: 'The Four Noble Truths' },
@@ -46,24 +47,28 @@ export default function AdminTranslationsPage() {
       <main className="flex-1 px-6 py-8">
         <div className="mx-auto max-w-7xl">
           <div className="grid gap-6 md:grid-cols-[300px_1fr]">
-            <div className="rounded-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 p-4">
-              <h2 className="mb-3 font-semibold text-gray-800 dark:text-gray-200">Articles</h2>
-              <div className="space-y-1">
-                {MOCK_ARTICLES.map((article) => (
-                  <button
-                    key={article.id}
-                    onClick={() => setSelectedArticle(article.id)}
-                    className={`w-full rounded-lg px-3 py-2 text-left text-sm transition-colors ${
-                      selectedArticle === article.id
-                        ? 'bg-amber-100 dark:bg-amber-900/30 text-amber-900 dark:text-amber-100'
-                        : 'text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800'
-                    }`}
-                  >
-                    <span className="text-xs text-gray-400">[{article.section}]</span>{' '}
-                    {article.title}
-                  </button>
-                ))}
+            <div className="space-y-6">
+              <div className="rounded-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 p-4">
+                <h2 className="mb-3 font-semibold text-gray-800 dark:text-gray-200">Articles</h2>
+                <div className="space-y-1">
+                  {MOCK_ARTICLES.map((article) => (
+                    <button
+                      key={article.id}
+                      onClick={() => setSelectedArticle(article.id)}
+                      className={`w-full rounded-lg px-3 py-2 text-left text-sm transition-colors ${
+                        selectedArticle === article.id
+                          ? 'bg-amber-100 dark:bg-amber-900/30 text-amber-900 dark:text-amber-100'
+                          : 'text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800'
+                      }`}
+                    >
+                      <span className="text-xs text-gray-400">[{article.section}]</span>{' '}
+                      {article.title}
+                    </button>
+                  ))}
+                </div>
               </div>
+
+              <DesignToolsQuickAccess />
             </div>
 
             <div className="rounded-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 p-6">
