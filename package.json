@@ -6,7 +6,8 @@
     "dev": "next dev --webpack",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "bot": "node telegram-bot.js"
   },
   "dependencies": {
     "@ai-sdk/google": "^3.0.91",
@@ -17,8 +18,10 @@
     "ai": "^6.0.225",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "dotenv": "^17.4.2",
     "lucide-react": "^0.511.0",
     "next": "16.2.10",
+    "node-telegram-bot-api": "^1.2.0",
     "react": "19.2.4",
     "react-dom": "19.2.4",
     "tailwind-merge": "^3.3.0",
