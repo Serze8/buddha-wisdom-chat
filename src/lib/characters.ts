@@ -175,6 +175,7 @@ export const characters: SerialCharacter[] = [
     },
     color: 'bg-lime-800',
     emoji: '🌿',
+    avatar: '/images/characters/angulimala.jpg',
     bio: {
       en: 'Angulimala, the fearsome bandit transformed by a single phrase of the Buddha: "I have stopped. You are the one who has not stopped yet."',
       ru: 'Ангулимала, грозный разбойник, преображённый одной фразой Будды: «Я остановился. Это ты ещё не остановился».',
