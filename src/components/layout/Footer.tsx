@@ -9,6 +9,7 @@ export default function Footer() {
   const links = [
     { href: '/about', label: locale === 'ru' ? 'О проекте' : 'About' },
     { href: '/teachings', label: locale === 'ru' ? 'Учения' : 'Teachings' },
+    { href: '/design-tools', label: locale === 'ru' ? 'Дизайн-инструменты' : 'Design tools' },
     { href: '/contact', label: locale === 'ru' ? 'Контакт' : 'Contact' },
     { href: '/donate', label: locale === 'ru' ? 'Поддержать' : 'Donate' },
   ]
