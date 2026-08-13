@@ -355,12 +355,22 @@ export default function TeachingsPageClient() {
         <div className="mb-10">
           <div className="relative w-full rounded-2xl overflow-hidden" style={{ boxShadow: '0 0 60px rgba(245, 158, 11, 0.08)', border: '2px solid rgba(245, 158, 11, 0.15)', paddingBottom: '56.25%' }}>
             <iframe
-              src="https://www.youtube.com/embed/P6Binwp6t0k"
+              src={`https://www.youtube.com/embed/${locale === 'ru' ? 'eRGRuzWCLkA' : 'y8vvs_MA4ts'}`}
               title="Dharmachakra — The Wheel of Dharma"
               className="absolute inset-0 w-full h-full"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
             />
+          </div>
+          <div className="text-center mt-3">
+            <a
+              href="https://youtu.be/y8vvs_MA4ts"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm text-amber-600 dark:text-amber-400 hover:underline"
+            >
+              {locale === 'ru' ? 'Ссылка на английскую версию' : 'Link to English version'}
+            </a>
           </div>
         </div>
 

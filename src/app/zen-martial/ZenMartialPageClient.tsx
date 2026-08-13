@@ -153,37 +153,6 @@ export default function ZenMartialPageClient() {
           <div className="golden-divider flex-1" />
         </div>
 
-        {/* Block 2: Dharmachakra Shorts */}
-        <section className="rounded-3xl p-8 md:p-12 mb-4" style={{ background: 'linear-gradient(180deg, rgba(20,14,8,0.9) 0%, rgba(15,14,10,0.95) 100%)', border: '1px solid rgba(245, 158, 11, 0.08)' }}>
-          <h2 className="font-[var(--font-cormorant)] text-3xl font-bold text-center mb-3 text-golden-gradient">
-            {t.zen.sectionDharmachakra}
-          </h2>
-          <h3 className="font-[var(--font-cormorant)] text-xl text-center text-amber-200/60 mb-6">
-            {t.zen.dharmachakraTitle}
-          </h3>
-          <p className="text-amber-100/50 text-center text-base leading-relaxed max-w-3xl mx-auto mb-8">
-            {t.zen.dharmachakraDesc}
-          </p>
-
-          {/* Dharmachakra Shorts Video */}
-          <div className="relative w-full rounded-2xl overflow-hidden" style={{ boxShadow: '0 0 60px rgba(245, 158, 11, 0.08)', border: '2px solid rgba(245, 158, 11, 0.15)', paddingBottom: '56.25%' }}>
-            <iframe
-              src="https://www.youtube.com/embed/P04rX4-1TNo"
-              title="Dharmachakra — The Wheel of Dharma"
-              className="absolute inset-0 w-full h-full"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            />
-          </div>
-        </section>
-
-        {/* Golden divider */}
-        <div className="flex items-center justify-center my-8">
-          <div className="golden-divider flex-1" />
-          <span className="px-4 text-2xl">🎬</span>
-          <div className="golden-divider flex-1" />
-        </div>
-
         {/* Block 3: Bodhidharma Film */}
         <section className="rounded-3xl p-8 md:p-12 mb-4" style={{ background: 'linear-gradient(180deg, rgba(20,14,8,0.9) 0%, rgba(15,14,10,0.95) 100%)', border: '1px solid rgba(245, 158, 11, 0.08)' }}>
           <h2 className="font-[var(--font-cormorant)] text-3xl font-bold text-center mb-3 text-golden-gradient">
