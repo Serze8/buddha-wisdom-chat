@@ -13,7 +13,7 @@ import { useEffect } from 'react'
 import { isAdmin } from '@/lib/admin'
 
 const navItems = [
-  'home', 'communityChat', 'characters', 'episodes', 'teachings', 'zenMartial',
+  'home', 'communityChat', 'characters', 'episodes', 'teachings', 'zenMartial', 'chakravartin',
   'retreats', 'about', 'contact', 'donate', 'profile',
 ] as const
 
@@ -24,6 +24,7 @@ const navHrefs: Record<string, string> = {
   episodes: '/episodes',
   teachings: '/teachings',
   zenMartial: '/zen-martial',
+  chakravartin: '/chakravartin',
   retreats: '/retreats',
   about: '/about',
   contact: '/contact',

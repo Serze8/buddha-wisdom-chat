@@ -151,6 +151,52 @@ export async function POST(request: NextRequest) {
     return data.choices?.[0]?.message?.content?.trim()
   }
 
+  const callQwen = async (): Promise<string> => {
+    const qwenKeys = [
+      process.env.QWEN_API_KEY,
+      process.env.QWEN_API_KEY2,
+      ...Array.from({ length: 20 }, (_, i) => (process.env as Record<string, string | undefined>)[`QWEN_API_KEY_${i + 3}`]),
+    ].filter(Boolean) as string[]
+
+    if (qwenKeys.length === 0) {
+      throw new Error('QWEN_API_KEY not configured')
+    }
+    console.log('[chat] 🚀 Trying Qwen...')
+    const model = process.env.QWEN_MODEL || 'qwen3.7-plus'
+    let lastError = ''
+    for (const qwenKey of qwenKeys) {
+      try {
+        const res = await fetch('https://dashscope-intl.aliyuncs.com/compatible-mode/v1/chat/completions', {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${qwenKey}`,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            model,
+            messages: aiMessages,
+            temperature: 0.8,
+            max_tokens: 2048,
+            enable_thinking: false,
+          }),
+        })
+        if (!res.ok) {
+          lastError = `Qwen ${res.status} ${res.statusText}: ${(await res.text().catch(() => '')).slice(0, 300)}`
+          console.log(`[chat] ⚠️ Qwen key failed (${res.status}), rotating to next key...`)
+          continue
+        }
+        const data = await res.json()
+        const out = data.choices?.[0]?.message?.content?.trim()
+        console.log('[chat] ✅ Qwen responded')
+        return out
+      } catch (err) {
+        lastError = err instanceof Error ? err.message : String(err)
+        console.log('[chat] ⚠️ Qwen key error, rotating to next key...')
+      }
+    }
+    throw new Error(lastError || 'All Qwen keys failed')
+  }
+
   const callAnthropic = async (): Promise<string> => {
     const anthropicKey = process.env.ANTHROPIC_API_KEY
     if (!anthropicKey) {
@@ -199,6 +245,9 @@ export async function POST(request: NextRequest) {
   }
   if (process.env.YANDEX_API_KEY && process.env.YANDEX_FOLDER_ID) {
     providers.push({ name: 'YandexGPT', call: callYandexGPT })
+  }
+  if (process.env.QWEN_API_KEY) {
+    providers.push({ name: 'Qwen', call: callQwen })
   }
   providers.push(
     { name: 'OpenRouter', call: callOpenRouter },

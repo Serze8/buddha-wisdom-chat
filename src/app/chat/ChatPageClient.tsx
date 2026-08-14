@@ -3,6 +3,7 @@
 import { useLanguage } from '@/contexts/LanguageContext'
 import { createClient } from '@/lib/supabase/client'
 import { characters } from '@/lib/characters'
+import { speak, stopSpeaking } from '@/lib/speech'
 import { useState, useRef, useEffect } from 'react'
 import { Send, Mic, MicOff, Volume2, VolumeX, Loader2, ArrowLeft } from 'lucide-react'
 import Link from 'next/link'
@@ -81,7 +82,7 @@ export default function ChatPageClient() {
       }
 
       if (autoVoice && assistantMsg) {
-        speak(assistantMsg, char.id)
+        speakVoice(assistantMsg, char.id)
       }
     } catch {
       setMessages(prev => [...prev, { role: 'assistant', content: '...' }])
@@ -90,21 +91,18 @@ export default function ChatPageClient() {
     }
   }
 
-  const speak = (text: string, charId: string) => {
-    if ('speechSynthesis' in window) {
-      window.speechSynthesis.cancel()
-      const utterance = new SpeechSynthesisUtterance(text)
-      utterance.lang = locale === 'ru' ? 'ru-RU' : locale === 'zh' ? 'zh-CN' : locale
-      utterance.rate = 0.85
-      utterance.pitch = 1.3
-      utterance.onstart = () => setSpeaking(charId)
-      utterance.onend = () => setSpeaking(null)
-      window.speechSynthesis.speak(utterance)
-    }
+  const speakVoice = (text: string, charId: string) => {
+    speak(text, locale, {
+      rate: 0.85,
+      pitch: 1.3,
+      onStart: () => setSpeaking(charId),
+      onEnd: () => setSpeaking(null),
+      onError: () => setSpeaking(null),
+    })
   }
 
-  const stopSpeaking = () => {
-    window.speechSynthesis?.cancel()
+  const stopVoice = () => {
+    stopSpeaking()
     setSpeaking(null)
   }
 
@@ -142,7 +140,7 @@ export default function ChatPageClient() {
   return (
     <div className="flex flex-col h-[calc(100vh-4rem)]">
       <div className="flex items-center gap-3 px-4 py-3 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700">
-        <button onClick={() => { setSelectedChar(null); setMessages([]); stopSpeaking() }} className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg">
+        <button onClick={() => { setSelectedChar(null); setMessages([]); stopVoice() }} className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg">
           <ArrowLeft className="w-5 h-5" />
         </button>
         {char.avatar ? (
@@ -199,7 +197,7 @@ export default function ChatPageClient() {
               {msg.role === 'assistant' && (
                 <div className="flex gap-2 mt-2 pt-2 border-t border-gray-100 dark:border-gray-700">
                   <button
-                    onClick={() => speak(msg.content, char.id)}
+                      onClick={() => speakVoice(msg.content, char.id)}
                     className="text-xs text-amber-600 dark:text-amber-400 hover:underline flex items-center gap-1"
                   >
                     <Volume2 className="w-3 h-3" /> {t.chat.listen}

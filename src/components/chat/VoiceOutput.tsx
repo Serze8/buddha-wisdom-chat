@@ -2,6 +2,7 @@
 
 import { useState, useCallback } from 'react'
 import { Volume2, VolumeX, Loader2 } from 'lucide-react'
+import { speak, stopSpeaking, isSpeechSupported } from '@/lib/speech'
 
 interface VoiceOutputProps {
   text: string
@@ -9,39 +10,27 @@ interface VoiceOutputProps {
   className?: string
 }
 
-const langMap: Record<string, string> = {
-  en: 'en-US', ru: 'ru-RU', hi: 'hi-IN', es: 'es-ES',
-  fr: 'fr-FR', de: 'de-DE', zh: 'zh-CN', ja: 'ja-JP',
-}
-
 export default function VoiceOutput({ text, language = 'en', className }: VoiceOutputProps) {
   const [speaking, setSpeaking] = useState(false)
 
-  const speak = useCallback(() => {
-    if (!('speechSynthesis' in window)) return
-
-    window.speechSynthesis.cancel()
-
-    const utterance = new SpeechSynthesisUtterance(text)
-    utterance.lang = langMap[language] || 'en-US'
-    utterance.rate = 0.9
-    utterance.pitch = 1.0
-
-    utterance.onstart = () => setSpeaking(true)
-    utterance.onend = () => setSpeaking(false)
-    utterance.onerror = () => setSpeaking(false)
-
-    window.speechSynthesis.speak(utterance)
+  const speakNow = useCallback(() => {
+    speak(text, language, {
+      onStart: () => setSpeaking(true),
+      onEnd: () => setSpeaking(false),
+      onError: () => setSpeaking(false),
+    })
   }, [text, language])
 
   const stop = useCallback(() => {
-    window.speechSynthesis?.cancel()
+    stopSpeaking()
     setSpeaking(false)
   }, [])
 
+  if (!isSpeechSupported()) return null
+
   return (
     <button
-      onClick={speaking ? stop : speak}
+      onClick={speaking ? stop : speakNow}
       className={className || 'text-xs text-amber-600 dark:text-amber-400 hover:underline flex items-center gap-1'}
     >
       {speaking ? (

@@ -8,6 +8,7 @@ type TranslationKeys = {
     episodes: string
     teachings: string
     zenMartial: string
+    chakravartin: string
     theses: string
     gallery: string
     quiz: string
@@ -257,7 +258,7 @@ const translations: Record<Locale, TranslationKeys> = {
     },
     nav: {
       home: 'Home', communityChat: 'Community Chat', characters: 'Characters', episodes: 'Series',
-      teachings: 'Dharma & Teachings', zenMartial: 'Zen & Martial Arts', theses: 'Theses', gallery: 'Gallery', quiz: 'Quiz',
+      teachings: 'Dharma & Teachings', zenMartial: 'Zen & Martial Arts', chakravartin: 'Chakravartin', theses: 'Theses', gallery: 'Gallery', quiz: 'Quiz',
       videos: 'Videos', retreats: 'Retreats', profile: 'Profile',
       about: 'About', contact: 'Contact', admin: 'Admin', donate: 'Donate',
       blockChat: 'Chat', blockLearn: 'From Under the Bodhi Tree', blockFilm: 'Film',
@@ -411,7 +412,7 @@ const translations: Record<Locale, TranslationKeys> = {
     },
     nav: {
       home: 'Главная', communityChat: 'Чат сообщества', characters: 'Герои Будды', episodes: 'Сериал',
-      teachings: 'Дхарма и учения', zenMartial: 'Дзен и боевые искусства', theses: 'Тезисы', gallery: 'Галерея', quiz: 'Викторина',
+      teachings: 'Дхарма и учения', zenMartial: 'Дзен и боевые искусства', chakravartin: 'Чакравартин', theses: 'Тезисы', gallery: 'Галерея', quiz: 'Викторина',
       videos: 'Видео', retreats: 'Ретриты', profile: 'Профиль',
       about: 'О проекте', contact: 'Контакты', admin: 'Админ', donate: 'Поддержать',
       blockChat: 'Чат', blockLearn: 'Из-под дерева Бодхи', blockFilm: 'Фильм',
@@ -565,7 +566,7 @@ const translations: Record<Locale, TranslationKeys> = {
     },
     nav: {
       home: 'होम', communityChat: 'सामुदायिक चैट', characters: 'पात्र', episodes: 'सीरीज़',
-      teachings: 'शिक्षाएँ, धर्मचक्र और अभ्यास', zenMartial: 'द्ज़ेन और मार्शल आर्ट्स', theses: 'थीसिस', gallery: 'गैलरी', quiz: 'प्रश्नोत्तरी',
+      teachings: 'शिक्षाएँ, धर्मचक्र और अभ्यास', zenMartial: 'द्ज़ेन और मार्शल आर्ट्स', chakravartin: 'चक्रवर्तिन', theses: 'थीसिस', gallery: 'गैलरी', quiz: 'प्रश्नोत्तरी',
       videos: 'वीडियो', retreats: 'रिट्रीट', profile: 'प्रोफ़ाइल',
       about: 'परियोजना के बारे में', contact: 'संपर्क', admin: 'एडमिन', donate: 'समर्थन',
       blockChat: 'चैट', blockLearn: 'बोधि वृक्ष के नीचे', blockFilm: 'फ़िल्म',
@@ -719,7 +720,7 @@ const translations: Record<Locale, TranslationKeys> = {
     },
     nav: {
       home: 'Inicio', communityChat: 'Chat comunitario', characters: 'Personajes', episodes: 'Serie',
-      teachings: 'Enseñanzas, Dharmachakra y Práctica', zenMartial: 'Zen y Artes Marciales', theses: 'Tesis', gallery: 'Galería', quiz: 'Quiz',
+      teachings: 'Enseñanzas, Dharmachakra y Práctica', zenMartial: 'Zen y Artes Marciales', chakravartin: 'Chakravartin', theses: 'Tesis', gallery: 'Galería', quiz: 'Quiz',
       videos: 'Videos', retreats: 'Retiros', profile: 'Perfil',
       about: 'Acerca de', contact: 'Contacto', admin: 'Administrador', donate: 'Donar',
       blockChat: 'Chat', blockLearn: 'Bajo el Árbol Bodhi', blockFilm: 'Película',
@@ -873,7 +874,7 @@ const translations: Record<Locale, TranslationKeys> = {
     },
     nav: {
       home: 'Accueil', communityChat: 'Chat communautaire', characters: 'Personnages', episodes: 'Série',
-      teachings: 'Enseignements, Dharmachakra et Pratique', zenMartial: 'Zen et Arts Martiaux', theses: 'Thèses', gallery: 'Galerie', quiz: 'Quiz',
+      teachings: 'Enseignements, Dharmachakra et Pratique', zenMartial: 'Zen et Arts Martiaux', chakravartin: 'Chakravartin', theses: 'Thèses', gallery: 'Galerie', quiz: 'Quiz',
       videos: 'Vidéos', retreats: 'Retraites', profile: 'Profil',
       about: 'À propos', contact: 'Contact', admin: 'Administrateur', donate: 'Donner',
       blockChat: 'Chat', blockLearn: 'Sous l\'Arbre Bodhi', blockFilm: 'Film',
@@ -1027,7 +1028,7 @@ const translations: Record<Locale, TranslationKeys> = {
     },
     nav: {
       home: 'Startseite', communityChat: 'Community-Chat', characters: 'Charaktere', episodes: 'Serie',
-      teachings: 'Lehren, Dharmachakra und Praxis', zenMartial: 'Zen und Kampfkünste', theses: 'Thesen', gallery: 'Galerie', quiz: 'Quiz',
+      teachings: 'Lehren, Dharmachakra und Praxis', zenMartial: 'Zen und Kampfkünste', chakravartin: 'Chakravartin', theses: 'Thesen', gallery: 'Galerie', quiz: 'Quiz',
       videos: 'Videos', retreats: 'Rückzüge', profile: 'Profil',
       about: 'Über uns', contact: 'Kontakt', admin: 'Administrator', donate: 'Spenden',
       blockChat: 'Chat', blockLearn: 'Unter dem Bodhi-Baum', blockFilm: 'Film',
@@ -1181,7 +1182,7 @@ const translations: Record<Locale, TranslationKeys> = {
     },
     nav: {
       home: '首页', communityChat: '社区聊天', characters: '角色', episodes: '系列',
-      teachings: '教义、法轮与修行', zenMartial: '禅与武术', theses: '论文', gallery: '画廊', quiz: '问答',
+      teachings: '教义、法轮与修行', zenMartial: '禅与武术', chakravartin: '转轮王', theses: '论文', gallery: '画廊', quiz: '问答',
       videos: '视频', retreats: '修行', profile: '个人资料',
       about: '关于', contact: '联系我们', admin: '管理员', donate: '支持',
       blockChat: '聊天', blockLearn: '菩提树下', blockFilm: '电影',
@@ -1335,7 +1336,7 @@ const translations: Record<Locale, TranslationKeys> = {
     },
     nav: {
       home: 'ホーム', communityChat: 'コミュニティチャット', characters: 'キャラクター', episodes: 'シリーズ',
-      teachings: 'ダルマチャクラと修行', zenMartial: '禅と武道', theses: '論文', gallery: 'ギャラリー', quiz: 'クイズ',
+      teachings: 'ダルマチャクラと修行', zenMartial: '禅と武道', chakravartin: 'チャクラヴァルティン', theses: '論文', gallery: 'ギャラリー', quiz: 'クイズ',
       videos: '動画', retreats: 'リトリート', profile: 'プロフィール',
       about: '概要', contact: 'お問い合わせ', admin: '管理者', donate: '寄付',
       blockChat: 'チャット', blockLearn: '菩提樹の下で', blockFilm: '映画',
@@ -1489,7 +1490,7 @@ const translations: Record<Locale, TranslationKeys> = {
     },
     nav: {
       home: 'Início', communityChat: 'Chat da comunidade', characters: 'Personagens', episodes: 'Série',
-      teachings: 'Ensinos, Dharmachakra e Prática', zenMartial: 'Zen e Artes Marciais', theses: 'Teses', gallery: 'Galeria', quiz: 'Quiz',
+      teachings: 'Ensinos, Dharmachakra e Prática', zenMartial: 'Zen e Artes Marciais', chakravartin: 'Chakravartin', theses: 'Teses', gallery: 'Galeria', quiz: 'Quiz',
       videos: 'Vídeos', retreats: 'Retiros', profile: 'Perfil',
       about: 'Sobre', contact: 'Contato', admin: 'Admin', donate: 'Apoiar',
       blockChat: 'Chat', blockLearn: 'Sob a Árvore Bodhi', blockFilm: 'Filme',
@@ -1643,7 +1644,7 @@ const translations: Record<Locale, TranslationKeys> = {
     },
     nav: {
       home: 'หน้าแรก', communityChat: 'แชทชุมชน', characters: 'ตัวละคร', episodes: 'ซีรีส์',
-      teachings: 'ธรรมะ ธัมมจักร และการปฏิบัติ', zenMartial: 'เซนและศิลปะการต่อสู้', theses: 'theses', gallery: 'แกลเลอรี', quiz: 'แบบทดสอบ',
+      teachings: 'ธรรมะ ธัมมจักร และการปฏิบัติ', zenMartial: 'เซนและศิลปะการต่อสู้', chakravartin: 'จักรพรรดิ', theses: 'theses', gallery: 'แกลเลอรี', quiz: 'แบบทดสอบ',
       videos: 'วิดีโอ', retreats: 'สถานปฏิบัติธรรม', profile: 'โปรไฟล์',
       about: 'เกี่ยวกับ', contact: 'ติดต่อ', admin: 'แอดมิน', donate: 'สนับสนุน',
       blockChat: 'แชท', blockLearn: 'ใต้ต้นโพธิ์', blockFilm: 'ภาพยนตร์',
@@ -1797,7 +1798,7 @@ const translations: Record<Locale, TranslationKeys> = {
     },
     nav: {
       home: 'Trang chủ', communityChat: 'Trò chuyện cộng đồng', characters: 'Nhân vật', episodes: 'Phim',
-      teachings: 'Giáo lý, Pháp Luân và Thực hành', zenMartial: 'Thiền và Võ thuật', theses: 'Luận đề', gallery: 'Thư viện ảnh', quiz: 'Trắc nghiệm',
+      teachings: 'Giáo lý, Pháp Luân và Thực hành', zenMartial: 'Thiền và Võ thuật', chakravartin: 'Chuyển Luân Vương', theses: 'Luận đề', gallery: 'Thư viện ảnh', quiz: 'Trắc nghiệm',
       videos: 'Video', retreats: 'Khóa tu', profile: 'Hồ sơ',
       about: 'Giới thiệu', contact: 'Liên hệ', admin: 'Quản trị', donate: 'Hỗ trợ',
       blockChat: 'Trò chuyện', blockLearn: 'Dưới cây Bồ Đề', blockFilm: 'Phim',
@@ -1951,7 +1952,7 @@ const translations: Record<Locale, TranslationKeys> = {
     },
     nav: {
       home: '홈', communityChat: '커뮤니티 채팅', characters: '인물', episodes: '시리즈',
-      teachings: '가르침, 다르마차크라와 수행', zenMartial: '선과 무술', theses: '논문', gallery: '갤러리', quiz: '퀴즈',
+      teachings: '가르침, 다르마차크라와 수행', zenMartial: '선과 무술', chakravartin: '차크라바르틴', theses: '논문', gallery: '갤러리', quiz: '퀴즈',
       videos: '영상', retreats: '수련회', profile: '프로필',
       about: '소개', contact: '문의', admin: '관리자', donate: '후원',
       blockChat: '채팅', blockLearn: '보리수 아래서', blockFilm: '영화',
@@ -2105,7 +2106,7 @@ const translations: Record<Locale, TranslationKeys> = {
     },
     nav: {
       home: 'Beranda', communityChat: 'Obrolan komunitas', characters: 'Karakter', episodes: 'Serial',
-      teachings: 'Ajaran, Dharmachakra & Praktik', zenMartial: 'Zen dan Seni Bela Diri', theses: 'Tesis',
+      teachings: 'Ajaran, Dharmachakra & Praktik', zenMartial: 'Zen dan Seni Bela Diri', chakravartin: 'Chakravartin', theses: 'Tesis',
       videos: 'Video', retreats: 'Retret', profile: 'Profil',
       gallery: 'Galeri', quiz: 'Kuis',
       about: 'Tentang', contact: 'Kontak', admin: 'Admin', donate: 'Dukung',
@@ -2260,7 +2261,7 @@ const translations: Record<Locale, TranslationKeys> = {
     },
     nav: {
       home: 'Laman Utama', communityChat: 'Sembang komuniti', characters: 'Watak', episodes: 'Siri',
-      teachings: 'Ajaran, Dharmachakra & Amalan', zenMartial: 'Zen dan Seni Mempertahankan Diri', theses: 'Tesis',
+      teachings: 'Ajaran, Dharmachakra & Amalan', zenMartial: 'Zen dan Seni Mempertahankan Diri', chakravartin: 'Chakravartin', theses: 'Tesis',
       videos: 'Video', retreats: 'Retreat', profile: 'Profil',
       gallery: 'Galeri', quiz: 'Kuiz',
       about: 'Tentang', contact: 'Hubungi', admin: 'Admin', donate: 'Sokong',
@@ -2415,7 +2416,7 @@ const translations: Record<Locale, TranslationKeys> = {
     },
     nav: {
       home: 'මුල් පිටුව', communityChat: 'ප්‍රජා කතාබහ', characters: 'චරිත', episodes: 'ශ්‍රේණිය',
-      teachings: 'උපදේශ, ධර්මචක්‍ර සහ ප්‍රායෝගික', zenMartial: 'දේශන් සහ සටන් කලා', theses: 'න්‍යායන්', gallery: 'ගැලරිය', quiz: 'ප්‍රශ්නාවලිය',
+      teachings: 'උපදේශ, ධර්මචක්‍ර සහ ප්‍රායෝගික', zenMartial: 'දේශන් සහ සටන් කලා', chakravartin: 'චක්‍රවර්තින්', theses: 'න්‍යායන්', gallery: 'ගැලරිය', quiz: 'ප්‍රශ්නාවලිය',
       videos: 'වීඩියෝ', retreats: 'ධ්‍යාන මධ්‍යස්ථාන', profile: 'පැතිකඩ',
       about: 'පිළිබඳව', contact: 'සම්බන්ධ වන්න', admin: 'පරිපාලක', donate: 'සහාය වන්න',
       blockChat: 'කතාබහ', blockLearn: 'බෝධි වෘක්ෂය යටතේ', blockFilm: 'චිත්‍රපටය',
@@ -2569,7 +2570,7 @@ const translations: Record<Locale, TranslationKeys> = {
     },
     nav: {
       home: 'ပင်မစာမျက်နှာ', communityChat: 'ရပ်ရွာချတ်', characters: 'ဇာတ်ကောင်', episodes: 'စီးရီး',
-      teachings: 'သင်ကြားမှုများ ဓမ္မစကြာနှင့် အားထုတ်မှု', zenMartial: 'ဇင်နှင့် တိုက်ခိုက်ရေး', theses: 'စာတမ်းများ', gallery: 'ပုံတန်း', quiz: 'မေးခွန်း',
+      teachings: 'သင်ကြားမှုများ ဓမ္မစကြာနှင့် အားထုတ်မှု', zenMartial: 'ဇင်နှင့် တိုက်ခိုက်ရေး', chakravartin: 'ချက်ခရဗတိန်', theses: 'စာတမ်းများ', gallery: 'ပုံတန်း', quiz: 'မေးခွန်း',
       videos: 'ဗီဒီယို', retreats: 'တရားအားထုတ်ရာ', profile: 'ကိုယ်ရေး',
       about: 'အကြောင်းအရာ', contact: 'ဆက်သွယ်ရန်', admin: 'စီမံခန့်ခွဲသူ', donate: 'ထောက်ပံ့',
       blockChat: 'စကားပြော', blockLearn: 'ဘုရားသစ်ပင်အောက်တွင်', blockFilm: 'ရုပ်ရှင်',
@@ -2723,7 +2724,7 @@ const translations: Record<Locale, TranslationKeys> = {
     },
     nav: {
       home: 'गृहपृष्ठ', communityChat: 'सामुदायिक च्याट', characters: 'पात्र', episodes: 'श्रृंखला',
-      teachings: 'शिक्षाहरू, धर्मचक्र र अभ्यास', zenMartial: 'जेन र मार्शल आर्ट्स', theses: 'थीसिस', gallery: 'ग्यालरी', quiz: 'प्रश्नोत्तरी',
+      teachings: 'शिक्षाहरू, धर्मचक्र र अभ्यास', zenMartial: 'जेन र मार्शल आर्ट्स', chakravartin: 'चक्रवर्तिन', theses: 'थीसिस', gallery: 'ग्यालरी', quiz: 'प्रश्नोत्तरी',
       videos: 'भिडियो', retreats: 'ध्यान केन्द्र', profile: 'प्रोफाइल',
       about: 'बारेमा', contact: 'सम्पर्क', admin: 'प्रशासक', donate: 'सहयोग',
       blockChat: 'च्याट', blockLearn: 'बोधिवृक्ष तल', blockFilm: 'चलचित्र',
@@ -2877,7 +2878,7 @@ const translations: Record<Locale, TranslationKeys> = {
     },
     nav: {
       home: 'གཙོ་ངོས།', communityChat: 'སྤྱི་ཚོགས་གླེང་མོལ།', characters: 'སྒྲུང་མི།', episodes: 'སྒྲུང་།',
-      teachings: 'སྟོན་པ། ཆོས་ཀྱི་འཁོར་ལོ། སྒོམ།', zenMartial: 'བསམ་གཏན་དང་འཐབ་རྩལ།', theses: 'དཔྱད་རྩོམ།', gallery: 'པར་ཁུལ།', quiz: 'དྲི་བ།',
+      teachings: 'སྟོན་པ། ཆོས་ཀྱི་འཁོར་ལོ། སྒོམ།', zenMartial: 'བསམ་གཏན་དང་འཐབ་རྩལ།', chakravartin: 'འཁོར་ལོས་རྒྱལ་པོ།', theses: 'དཔྱད་རྩོམ།', gallery: 'པར་ཁུལ།', quiz: 'དྲི་བ།',
       videos: 'བརྙན་འཕྲིན།', retreats: 'སྒོམ་གནས།', profile: 'ངོ་སྤྲོད།',
       about: 'སྐོར།', contact: 'འབྲེལ་བ།', admin: 'དོ་དམ།', donate: 'རོགས་རམ།',
       blockChat: 'སྐད་ཆ།', blockLearn: 'བྱང་ཆུབ་ཤིང་འོག', blockFilm: 'གློག་བརྙན།',
