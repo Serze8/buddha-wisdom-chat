@@ -17,10 +17,10 @@ export default function ChakravartinPageClient() {
   ]
 
   const keyPoints = [
-    { emoji: '🏛️', title: locale === 'ru' ? 'Империя Маурьев' : 'Maurya Empire', desc: locale === 'ru' ? 'Ашока объединил почти всю Индию под одним знаменем' : 'Ashoka united almost all of India under one banner' },
-    { emoji: '☸️', title: locale === 'ru' ? 'Принятие Дхармы' : 'Embracing the Dharma', desc: locale === 'ru' ? 'После кровавой битвы при Калинге Ашока отказался от насилия' : 'After the bloody Battle of Kalinga, Ashoka renounced violence' },
-    { emoji: '🪨', title: locale === 'ru' ? 'Колонны Ашоки' : 'Ashoka Pillars', desc: locale === 'ru' ? 'Каменные колонны с указами, разбросанные по всей Индии' : 'Stone pillars with edicts scattered across India' },
-    { emoji: '🌏', title: locale === 'ru' ? 'Распространение буддизма' : 'Spreading Buddhism', desc: locale === 'ru' ? 'Ашока отправлял миссионеров в Шри-Ланку, Цейлон, Центральную Азию' : 'Ashoka sent missionaries to Sri Lanka, Ceylon, Central Asia' },
+    { glyph: '꧁•✤•꧂', title: locale === 'ru' ? 'Империя Маурьев' : 'Maurya Empire', desc: locale === 'ru' ? 'Ашока объединил почти всю Индию под одним знаменем' : 'Ashoka united almost all of India under one banner' },
+    { glyph: 'ॐ', title: locale === 'ru' ? 'Принятие Дхармы' : 'Embracing the Dharma', desc: locale === 'ru' ? 'После кровавой битвы при Калинге Ашока отказался от насилия' : 'After the bloody Battle of Kalinga, Ashoka renounced violence' },
+    { glyph: '✦', title: locale === 'ru' ? 'Колонны Ашоки' : 'Ashoka Pillars', desc: locale === 'ru' ? 'Каменные колонны с указами, разбросанные по всей Индии' : 'Stone pillars with edicts scattered across India' },
+    { glyph: '✧', title: locale === 'ru' ? 'Распространение буддизма' : 'Spreading Buddhism', desc: locale === 'ru' ? 'Ашока отправлял миссионеров в Шри-Ланку, Цейлон, Центральную Азию' : 'Ashoka sent missionaries to Sri Lanka, Ceylon, Central Asia' },
   ]
 
   const characters = [
@@ -93,7 +93,7 @@ export default function ChakravartinPageClient() {
     <div className="max-w-4xl mx-auto px-4 py-12">
       {/* Hero */}
       <div className="text-center mb-16">
-        <span className="text-5xl block mb-4">👑</span>
+        <span className="text-5xl block mb-4 text-golden-gradient">꧁•✤•꧂</span>
         <h1 className="font-[var(--font-cormorant)] text-4xl md:text-5xl font-bold text-golden-gradient mb-4">
           {t.chakravartin.title}
         </h1>
@@ -129,7 +129,7 @@ export default function ChakravartinPageClient() {
           {keyPoints.map((point, i) => (
             <div key={i} className="golden-card rounded-2xl p-6">
               <div className="flex items-start gap-3">
-                <span className="text-2xl shrink-0">{point.emoji}</span>
+                <span className="text-2xl shrink-0">{point.glyph}</span>
                 <div>
                   <h3 className="font-[var(--font-cormorant)] text-lg font-bold text-amber-100/80 mb-1">{point.title}</h3>
                   <p className="text-amber-200/40 text-sm leading-relaxed">{point.desc}</p>
@@ -238,14 +238,14 @@ export default function ChakravartinPageClient() {
             border: '1px solid rgba(245, 158, 11, 0.3)',
           }}
         >
-          ☸️ {locale === 'ru' ? 'Изучить Дхарму' : 'Study the Dharma'} →
+          ॐ {locale === 'ru' ? 'Изучить Дхарму' : 'Study the Dharma'} →
         </Link>
         <div>
           <Link
             href="/community"
             className="inline-flex items-center gap-1 text-amber-400/70 font-medium text-sm hover:text-amber-400 transition-colors"
           >
-            💬 {locale === 'ru' ? 'Обсудить в сообществе' : 'Discuss in Community'} →
+            ✧ {locale === 'ru' ? 'Обсудить в сообществе' : 'Discuss in Community'} →
           </Link>
         </div>
       </div>
