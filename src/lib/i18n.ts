@@ -354,7 +354,7 @@ const translations: Record<Locale, TranslationKeys> = {
     },
     chakravartin: {
       title: 'Chakravartin — The Universal Monarch',
-      intro: 'A 442-episode Chinese historical drama (2015) about Emperor Ashoka, who united India under the banner of Dharma and spread Buddhist teachings across Asia.',
+      intro: 'A 442-episode Indian historical drama (2015) about Emperor Ashoka, who united India under the banner of Dharma and spread Buddhist teachings across Asia.',
       episodes: '442 episodes',
       watchOn: 'Watch on Rutube',
     },
@@ -508,7 +508,7 @@ const translations: Record<Locale, TranslationKeys> = {
     },
     chakravartin: {
       title: 'Чакравартин — Вселенский монарх',
-      intro: '442-серийный китайский исторический сериал (2015) об императоре Ашоке, объединившем Индию под знаменем Дхармы и распространившем буддийские учения по всей Азии.',
+      intro: '442-серийный индийский исторический сериал (2015) об императоре Ашоке, объединившем Индию под знаменем Дхармы и распространившем буддийские учения по всей Азии.',
       episodes: '442 серии',
       watchOn: 'Смотреть на Rutube',
     },
@@ -662,7 +662,7 @@ const translations: Record<Locale, TranslationKeys> = {
     },
     chakravartin: {
       title: 'चक्रवर्तिन — सार्वभौमिक सम्राट',
-      intro: '2015 का 442-एपिसोड का चीनी ऐतिहासिक नाटक, जो सम्राट अशोक की कहानी है।',
+      intro: '2015 का 442-एपिसोड का भारतीय ऐतिहासिक नाटक, जो सम्राट अशोक की कहानी है।',
       episodes: '442 एपिसोड',
       watchOn: 'Rutube पर देखें',
     },
@@ -816,7 +816,7 @@ const translations: Record<Locale, TranslationKeys> = {
     },
     chakravartin: {
       title: 'Chakravartin — El Monarca Universal',
-      intro: 'Un drama histórico chino de 442 episodios (2015) sobre el Emperador Ashoka.',
+      intro: 'Un drama histórico indio de 442 episodios (2015) sobre el Emperador Ashoka.',
       episodes: '442 episodios',
       watchOn: 'Ver en Rutube',
     },
@@ -970,7 +970,7 @@ const translations: Record<Locale, TranslationKeys> = {
     },
     chakravartin: {
       title: 'Chakravartin — Le Monarque Universel',
-      intro: 'Un drame historique chinois de 442 épisodes (2015) sur l\'Empereur Ashoka.',
+      intro: 'Un drame historique indien de 442 épisodes (2015) sur l\'Empereur Ashoka.',
       episodes: '442 épisodes',
       watchOn: 'Voir sur Rutube',
     },
@@ -1124,7 +1124,7 @@ const translations: Record<Locale, TranslationKeys> = {
     },
     chakravartin: {
       title: 'Chakravartin — Der Universelle Monarch',
-      intro: 'Eine 442 Episoden umfassende chinesische historische Drama-Serie (2015) über Kaiser Ashoka.',
+      intro: 'Eine 442 Episoden umfassende indische historische Drama-Serie (2015) über Kaiser Ashoka.',
       episodes: '442 Episoden',
       watchOn: 'Auf Rutube ansehen',
     },
@@ -1278,7 +1278,7 @@ const translations: Record<Locale, TranslationKeys> = {
     },
     chakravartin: {
       title: '转轮王 — 普世君主',
-      intro: '442集中国历史剧（2015），讲述阿育王统一印度、传播佛教的故事。',
+      intro: '442集印度历史剧（2015），讲述阿育王统一印度、传播佛教的故事。',
       episodes: '442集',
       watchOn: '在Rutube观看',
     },
@@ -1432,7 +1432,7 @@ const translations: Record<Locale, TranslationKeys> = {
     },
     chakravartin: {
       title: 'チャクラヴァルティン — 普遍の君主',
-      intro: '442話の中国歴史ドラマ（2015年）。アショーカ王の物語。',
+      intro: '442話のインド歴史ドラマ（2015年）。アショーカ王の物語。',
       episodes: '442話',
       watchOn: 'Rutubeで視聴',
     },
@@ -1586,7 +1586,7 @@ const translations: Record<Locale, TranslationKeys> = {
     },
     chakravartin: {
       title: 'Chakravartin — O Monarca Universal',
-      intro: 'Um drama histórico chinês de 442 episódios (2015) sobre o Imperador Ashoka.',
+      intro: 'Um drama histórico indiano de 442 episódios (2015) sobre o Imperador Ashoka.',
       episodes: '442 episódios',
       watchOn: 'Assistir no Rutube',
     },
@@ -1740,7 +1740,7 @@ const translations: Record<Locale, TranslationKeys> = {
     },
     chakravartin: {
       title: 'จักรพรรดิ — กษัตริย์สากล',
-      intro: 'ละครประวัติศาสตร์จีน 442 ตอน (2015) เกี่ยวกับพระเจ้าอโศก',
+      intro: 'ละครประวัติศาสตร์อินเดีย 442 ตอน (2015) เกี่ยวกับพระเจ้าอโศก',
       episodes: '442 ตอน',
       watchOn: 'ดูบน Rutube',
     },
@@ -1894,7 +1894,7 @@ const translations: Record<Locale, TranslationKeys> = {
     },
     chakravartin: {
       title: 'Chuyển Luân Vương — Hoàng Đế Phổ Quát',
-      intro: 'Phim truyền hình lịch sử Trung Hoa 442 tập (2015) về Hoàng đế Ashoka.',
+      intro: 'Phim truyền hình lịch sử Ấn Độ 442 tập (2015) về Hoàng đế Ashoka.',
       episodes: '442 tập',
       watchOn: 'Xem trên Rutube',
     },
@@ -2048,7 +2048,7 @@ const translations: Record<Locale, TranslationKeys> = {
     },
     chakravartin: {
       title: '차크라바르틴 — 우주적 군주',
-      intro: '442화 중국 사극 (2015). 아소카 황제의 이야기.',
+      intro: '442화 인도 사극 (2015). 아소카 황제의 이야기.',
       episodes: '442화',
       watchOn: 'Rutube에서 시청',
     },
@@ -2203,7 +2203,7 @@ const translations: Record<Locale, TranslationKeys> = {
     },
     chakravartin: {
       title: 'Chakravartin — Raja Universal',
-      intro: 'Drama sejarah Tiongkok 442 episode (2015) tentang Kaisar Ashoka.',
+      intro: 'Drama sejarah India 442 episode (2015) tentang Kaisar Ashoka.',
       episodes: '442 episode',
       watchOn: 'Tonton di Rutube',
     },
@@ -2358,7 +2358,7 @@ const translations: Record<Locale, TranslationKeys> = {
     },
     chakravartin: {
       title: 'Chakravartin — Raja Universal',
-      intro: 'Drama sejarah China 442 episod (2015) tentang Maharaja Ashoka.',
+      intro: 'Drama sejarah India 442 episod (2015) tentang Maharaja Ashoka.',
       episodes: '442 episod',
       watchOn: 'Tonton di Rutube',
     },
@@ -2512,7 +2512,7 @@ const translations: Record<Locale, TranslationKeys> = {
     },
     chakravartin: {
       title: 'චක්‍රවර්තින් — විශ්ව රජ',
-      intro: 'අශෝක අධිරාජයා ගැන 442 කොටස් චීන ඉතිහාස නාට්‍යයකි (2015).',
+      intro: 'අශෝක අධිරාජයා ගැන 442 කොටස් ඉන්දියානු ඉතිහාස නාට්‍යයකි (2015).',
       episodes: '442 කොටස්',
       watchOn: 'Rutube හි නරඹන්න',
     },
@@ -2974,7 +2974,7 @@ const translations: Record<Locale, TranslationKeys> = {
     },
     chakravartin: {
       title: 'འཁོར་ལོ་བསྐོར་བའི་རྒྱལ་པོ།',
-      intro: 'རྒྱལ་པོ་ཨ་ཤོ་ཀའི་སྐོར་ལེ་ཚན་ 442 ཡོད་པའི་ཀྲུང་གོའི་ལོ་རྒྱུས་ཟློས་གར (2015)',
+      intro: 'རྒྱལ་པོ་ཨ་ཤོ་ཀའི་སྐོར་ལེ་ཚན་ 442 ཡོད་པའི་རྒྱ་གར་གྱི་ལོ་རྒྱུས་ཟློས་གར (2015)',
       episodes: 'ལེ་ཚན་ 442',
       watchOn: 'རུ་ཐུབ་སུ་བལྟ།',
     },

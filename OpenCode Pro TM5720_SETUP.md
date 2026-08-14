@@ -13,7 +13,7 @@
 
 ### ✅ Что уже готово
 
-- Node.js `20.18.1`, npm `10.8.2`
+- Node.js `20.18.1` (можно обновить до `24 LTS` — Next.js 16 требует минимум 20.9), npm `10.8.2`
 - `node_modules` установлены
 - `.env.local` настроен:
   - `NEXT_PUBLIC_SUPABASE_URL` + `NEXT_PUBLIC_SUPABASE_ANON_KEY` (Supabase)
@@ -66,5 +66,5 @@ npm run dev
 
 | Ресурс | URL |
 |--------|-----|
-| Продакшен | `https://buddha-wisdom-two.vercel.app` |
+| Продакшен | `https://wisdom-buddha-and-chat.vercel.app` |
 | OpenRouter Keys | `https://openrouter.ai/settings/keys` |

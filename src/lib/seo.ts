@@ -110,8 +110,8 @@ const pages: Record<string, { title: string; description: string; keywords: stri
   },
   'chakravartin': {
     title: 'Chakravartin — Emperor Ashoka & the Spread of Dharma',
-    description: 'The 442-episode Chinese historical drama about Emperor Ashoka who united India under the Dharma and spread Buddhist teachings across Asia.',
-    keywords: ['chakravartin', 'emperor ashoka', 'ashoka', 'buddhist history', 'dharma', 'maurya empire', 'chinese drama'],
+    description: 'The 442-episode Indian historical drama about Emperor Ashoka who united India under the Dharma and spread Buddhist teachings across Asia.',
+    keywords: ['chakravartin', 'emperor ashoka', 'ashoka', 'buddhist history', 'dharma', 'maurya empire', 'indian drama'],
   },
   'auth/update-password': {
     title: 'Update Password — Buddha\'s Wisdom Chat',

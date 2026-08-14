@@ -5,6 +5,7 @@ import Link from 'next/link'
 import BreathingPractice from '@/components/BreathingPractice'
 import RitualBreathingPractice from '@/components/RitualBreathingPractice'
 import InterestsQuestionnaire from '@/components/InterestsQuestionnaire'
+import MusicGenerator from '@/components/MusicGenerator'
 
 function AngerReminder() {
   const { t } = useLanguage()
@@ -71,6 +72,13 @@ export default function PracticePageClient() {
               </p>
               <RitualBreathingPractice />
             </div>
+          </div>
+        </div>
+
+        {/* === MUSIC GENERATOR === */}
+        <div className="golden-card rounded-2xl p-6 md:p-8 relative noise-overlay">
+          <div className="relative z-10">
+            <MusicGenerator />
           </div>
         </div>
 

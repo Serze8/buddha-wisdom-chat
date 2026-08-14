@@ -49,3 +49,6 @@ next-env.d.ts
 .vercel
 .env*
 bot.log
+
+# local machine-specific notes (TravelMate 5720 flash copy)
+OpenCode Pro TM5720_FLASH_COPY.md
