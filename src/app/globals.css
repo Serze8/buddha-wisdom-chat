@@ -1,0 +1,481 @@
+@import "tailwindcss";
+
+html {
+  overflow-x: clip;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+@theme {
+  /* ——— Реальная тёплая amber-палитра (пергамент/золото) ——— */
+  --color-amber-50: #fffbeb;
+  --color-amber-100: #fef3c7;
+  --color-amber-200: #fde68a;
+  --color-amber-300: #fcd34d;
+  --color-amber-400: #fbbf24;
+  --color-amber-500: #f59e0b;
+  --color-amber-600: #d97706;
+  --color-amber-700: #b45309;
+  --color-amber-800: #92400e;
+  --color-amber-900: #78350f;
+  --color-amber-950: #451a03;
+  /* blue-* → тёплая золотисто-оранжевая */
+  --color-blue-50: #fffbeb;
+  --color-blue-100: #fef3c7;
+  --color-blue-200: #fde68a;
+  --color-blue-300: #fcd34d;
+  --color-blue-400: #fbbf24;
+  --color-blue-500: #f59e0b;
+  --color-blue-600: #d97706;
+  --color-blue-700: #b45309;
+  --color-blue-800: #92400e;
+  --color-blue-900: #78350f;
+  --color-blue-950: #451a03;
+  /* sky-* / cyan-* → тёплый янтарь */
+  --color-sky-50: #fffbeb;
+  --color-sky-100: #fef3c7;
+  --color-sky-200: #fde68a;
+  --color-sky-300: #fcd34d;
+  --color-sky-400: #fbbf24;
+  --color-sky-500: #f59e0b;
+  --color-sky-600: #d97706;
+  --color-sky-700: #b45309;
+  --color-sky-800: #92400e;
+  --color-sky-900: #78350f;
+  --color-sky-950: #451a03;
+  --color-cyan-50: #fffbeb;
+  --color-cyan-100: #fef3c7;
+  --color-cyan-200: #fde68a;
+  --color-cyan-300: #fcd34d;
+  --color-cyan-400: #fbbf24;
+  --color-cyan-500: #f59e0b;
+  --color-cyan-600: #d97706;
+  --color-cyan-700: #b45309;
+  --color-cyan-800: #92400e;
+  --color-cyan-900: #78350f;
+  --color-cyan-950: #451a03;
+  /* teal-* → тёплый янтарь */
+  --color-teal-50: #fffbeb;
+  --color-teal-100: #fef3c7;
+  --color-teal-200: #fde68a;
+  --color-teal-300: #fcd34d;
+  --color-teal-400: #fbbf24;
+  --color-teal-500: #f59e0b;
+  --color-teal-600: #d97706;
+  --color-teal-700: #b45309;
+  --color-teal-800: #92400e;
+  --color-teal-900: #78350f;
+  --color-teal-950: #451a03;
+  /* emerald-* → тёплый оливковый */
+  --color-emerald-50: #f7f4ec;
+  --color-emerald-100: #ece5d2;
+  --color-emerald-200: #dccfb0;
+  --color-emerald-300: #c6b389;
+  --color-emerald-400: #a9935d;
+  --color-emerald-500: #8a713f;
+  --color-emerald-600: #6a5630;
+  --color-emerald-700: #514126;
+  --color-emerald-800: #3c301f;
+  --color-emerald-900: #2b2318;
+  --color-emerald-950: #161109;
+  /* indigo-* → тёплая терракота */
+  --color-indigo-50: #fdf6f0;
+  --color-indigo-100: #fae9dd;
+  --color-indigo-200: #f4d3bc;
+  --color-indigo-300: #ecb68e;
+  --color-indigo-400: #e2905b;
+  --color-indigo-500: #d46a33;
+  --color-indigo-600: #b64c1d;
+  --color-indigo-700: #8f3a16;
+  --color-indigo-800: #6e2d13;
+  --color-indigo-900: #542213;
+  --color-indigo-950: #2f1109;
+  /* violet-* / purple-* / fuchsia-* → тёплый розовый (rose) */
+  --color-violet-50: #fff1f2;
+  --color-violet-100: #ffe4e6;
+  --color-violet-200: #fecdd3;
+  --color-violet-300: #fda4af;
+  --color-violet-400: #fb7185;
+  --color-violet-500: #f43f5e;
+  --color-violet-600: #e11d48;
+  --color-violet-700: #be123c;
+  --color-violet-800: #9f1239;
+  --color-violet-900: #881337;
+  --color-violet-950: #4c0519;
+  --color-purple-50: #fff1f2;
+  --color-purple-100: #ffe4e6;
+  --color-purple-200: #fecdd3;
+  --color-purple-300: #fda4af;
+  --color-purple-400: #fb7185;
+  --color-purple-500: #f43f5e;
+  --color-purple-600: #e11d48;
+  --color-purple-700: #be123c;
+  --color-purple-800: #9f1239;
+  --color-purple-900: #881337;
+  --color-purple-950: #4c0519;
+  --color-fuchsia-50: #fff1f2;
+  --color-fuchsia-100: #ffe4e6;
+  --color-fuchsia-200: #fecdd3;
+  --color-fuchsia-300: #fda4af;
+  --color-fuchsia-400: #fb7185;
+  --color-fuchsia-500: #f43f5e;
+  --color-fuchsia-600: #e11d48;
+  --color-fuchsia-700: #be123c;
+  --color-fuchsia-800: #9f1239;
+  --color-fuchsia-900: #881337;
+  --color-fuchsia-950: #4c0519;
+  /* slate-* → тёплый нейтральный (stone) */
+  --color-slate-50: #fafaf9;
+  --color-slate-100: #f5f5f4;
+  --color-slate-200: #e7e5e4;
+  --color-slate-300: #d6d3d1;
+  --color-slate-400: #a8a29e;
+  --color-slate-500: #78716c;
+  --color-slate-600: #57534e;
+  --color-slate-700: #44403c;
+  --color-slate-800: #292524;
+  --color-slate-900: #1c1917;
+  --color-slate-950: #0c0a09;
+  --color-primary: #d97706;
+  --color-primary-foreground: #ffffff;
+  --color-card: #fffaf0;
+  --font-cormorant: 'Plus Jakarta Sans', sans-serif;
+  --font-inter: 'Plus Jakarta Sans', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+/* Пергамент body — тёплая земная основа с лёгкой текстурой */
+body {
+  font-family: var(--font-jakarta, var(--font-inter));
+  background-color: #faf6ed;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 700 700' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='pg'%3E%3CfeTurbulence type='turbulence' baseFrequency='0.23' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23pg)' opacity='0.08'/%3E%3C/svg%3E");
+  color: #451a03;
+}
+
+::selection {
+  background: rgba(217, 119, 6, 0.22);
+}
+
+ya-tr-span {
+  display: none !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-jakarta, var(--font-cormorant));
+}
+
+/* Деванагари-монограммы и санскрит — тёплый, стабильный рендер на всех платформах */
+.devanagari {
+  font-family: 'Noto Sans Devanagari', 'Mangal', 'Kohinoor Devanagari', 'Plus Jakarta Sans', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  /* Мягкое свечение, чтобы верхние края букв не сливались с фоном */
+  text-shadow: 0 0 2px rgba(120, 53, 15, 0.75), 0 0 5px rgba(120, 53, 15, 0.5);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1e8d8;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #fcd34d, #d97706);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #fbbf24, #b45309);
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Range slider styling */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 5px;
+  border-radius: 10px;
+  outline: none;
+  background: #e8dfcc;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #f59e0b, #b45309);
+  border: 2px solid #fef3c7;
+  box-shadow: 0 0 12px rgba(217, 119, 6, 0.4);
+  cursor: pointer;
+  transition: transform 0.15s;
+}
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+  box-shadow: 0 0 20px rgba(217, 119, 6, 0.6);
+}
+input[type="range"]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #f59e0b, #b45309);
+  border: 2px solid #fef3c7;
+  box-shadow: 0 0 12px rgba(217, 119, 6, 0.4);
+  cursor: pointer;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(217, 119, 6, 0.15); }
+  50% { box-shadow: 0 0 40px rgba(217, 119, 6, 0.3); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes breatheGlow {
+  0%, 100% { box-shadow: 0 0 30px rgba(217, 119, 6, 0.2), inset 0 0 20px rgba(217, 119, 6, 0.05); }
+  50% { box-shadow: 0 0 60px rgba(217, 119, 6, 0.4), inset 0 0 30px rgba(217, 119, 6, 0.1); }
+}
+
+@keyframes borderGlow {
+  0%, 100% { border-color: rgba(217, 119, 6, 0.2); }
+  50% { border-color: rgba(217, 119, 6, 0.5); }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.7s ease-out both;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out both;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.6s ease-out both;
+}
+
+.animate-glow-pulse {
+  animation: glowPulse 3s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, transparent 0%, rgba(217, 119, 6, 0.1) 50%, transparent 100%);
+  background-size: 200% 100%;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-breathe-glow {
+  animation: breatheGlow 4s ease-in-out infinite;
+}
+
+.animate-border-glow {
+  animation: borderGlow 2s ease-in-out infinite;
+}
+
+/* Stagger children animation */
+.stagger-children > * {
+  animation: fadeInUp 0.6s ease-out both;
+}
+.stagger-children > *:nth-child(1) { animation-delay: 0ms; }
+.stagger-children > *:nth-child(2) { animation-delay: 80ms; }
+.stagger-children > *:nth-child(3) { animation-delay: 160ms; }
+.stagger-children > *:nth-child(4) { animation-delay: 240ms; }
+.stagger-children > *:nth-child(5) { animation-delay: 320ms; }
+.stagger-children > *:nth-child(6) { animation-delay: 400ms; }
+.stagger-children > *:nth-child(7) { animation-delay: 480ms; }
+.stagger-children > *:nth-child(8) { animation-delay: 560ms; }
+
+/* ——— Пергаментная карточка «старой бумаги» ——— */
+.golden-card {
+  --parchment-paper: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-color: #fffaf0;
+  background-image:
+    var(--parchment-paper),
+    linear-gradient(180deg, #ecdcc0 0%, #f6eddc 38%, #fffaf0 100%);
+  background-size: 180px 180px, cover;
+  background-blend-mode: overlay, normal;
+  border: 1px solid #e6d8b8;
+  box-shadow: 0 1px 3px rgba(69, 26, 3, 0.06), 0 4px 18px rgba(180, 83, 9, 0.08);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.golden-card:hover {
+  border-color: #e8b64c;
+  box-shadow: 0 20px 40px -12px hsl(38 92% 50% / 0.22), 0 0 80px rgba(217, 119, 6, 0.06);
+  transform: translateY(-4px);
+}
+
+/* ——— Монограмма-кружок учителя (янтарь + крем) ——— */
+.monogram-circle {
+  background:
+    radial-gradient(circle at 35% 30%, rgba(255, 244, 214, 0.85) 0%, rgba(255, 255, 255, 0) 60%),
+    linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #b45309 100%);
+}
+
+/* Кольцо-обводка вокруг монограммы — мягкое, тёплое */
+.teacher-ring {
+  box-shadow:
+    0 0 0 3px hsl(45 30% 95%),
+    0 0 0 5px hsl(32 78% 38% / 0.35),
+    0 8px 20px -6px hsl(32 50% 25% / 0.25);
+}
+
+/* Тёплый градиент заголовков — золото/янтарь/терракота */
+.text-golden-gradient {
+  background: linear-gradient(135deg, #92400e 0%, #d97706 40%, #e8a317 70%, #b45309 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Section divider */
+.golden-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #d4b48a, transparent);
+}
+
+/* Button shine effect */
+.btn-glow {
+  position: relative;
+  overflow: hidden;
+}
+.btn-glow::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 244, 214, 0.6) 50%, transparent 100%);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+.btn-glow:hover::before {
+  transform: translateX(100%);
+}
+
+/* Decorative quotation mark */
+.quote-mark {
+  font-family: 'Georgia', serif;
+  font-size: 5rem;
+  line-height: 1;
+  color: rgba(217, 119, 6, 0.16);
+  position: absolute;
+  top: -0.5rem;
+  left: 0.5rem;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Scroll reveal */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.scroll-reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+.scroll-reveal-delay-1 { transition-delay: 0.1s; }
+.scroll-reveal-delay-2 { transition-delay: 0.2s; }
+.scroll-reveal-delay-3 { transition-delay: 0.3s; }
+.scroll-reveal-delay-4 { transition-delay: 0.4s; }
+
+/* Noise texture overlay */
+.noise-overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Тёмная тема — тёплые «земляные» тона (пергамент в ночи) */
+.dark {
+  --color-gray-900: #1c0f06;
+  --color-gray-800: #2b1a0e;
+  --color-gray-700: #3d2713;
+  --color-gray-600: #53361b;
+  --color-gray-500: #6b4a26;
+  --color-amber-400: #fbbf24;
+}
+
+.dark body {
+  background: #1c0f06;
+  color: #f5e9d0;
+}
+
+.dark .bg-gray-900 { background-color: #1c0f06 !important; }
+.dark .bg-gray-800 { background-color: #2b1a0e !important; }
+.dark .bg-gray-700 { background-color: #3d2713 !important; }
+.dark .bg-gray-50 { background-color: #1c0f06 !important; }
+.dark .border-gray-700 { border-color: rgba(83, 54, 27, 0.4) !important; }
+.dark .border-gray-600 { border-color: rgba(83, 54, 27, 0.3) !important; }
+.dark .text-gray-100 { color: #f5e9d0 !important; }
+.dark .text-gray-200 { color: rgba(245, 233, 208, 0.8) !important; }
+.dark .text-gray-300 { color: rgba(245, 233, 208, 0.6) !important; }
+.dark .text-gray-400 { color: rgba(245, 233, 208, 0.4) !important; }
+.dark .hover\:bg-gray-800:hover { background-color: #2b1a0e !important; }
+.dark .hover\:bg-gray-700:hover { background-color: #3d2713 !important; }
+.dark .hover\:bg-gray-600\/60:hover { background-color: rgba(61, 39, 19, 0.6) !important; }
+.dark .hover\:border-amber-300:hover { border-color: rgba(252, 211, 77, 0.5) !important; }
+.dark .hover\:border-amber-700:hover { border-color: rgba(252, 211, 77, 0.5) !important; }
+.dark .bg-amber-900\/20 { background-color: rgba(120, 53, 15, 0.2) !important; }
+.dark .bg-amber-900\/30 { background-color: rgba(120, 53, 15, 0.3) !important; }
+.dark .bg-amber-900\/40 { background-color: rgba(120, 53, 15, 0.4) !important; }
+.dark .bg-amber-800\/30 { background-color: rgba(146, 64, 14, 0.3) !important; }
+.dark .border-amber-800\/30 { border-color: rgba(146, 64, 14, 0.4) !important; }
+.dark .border-amber-700\/30 { border-color: rgba(180, 83, 9, 0.4) !important; }
+.dark .border-amber-200 { border-color: rgba(253, 230, 138, 0.3) !important; }
+.dark .text-amber-100 { color: rgba(254, 243, 199, 0.8) !important; }
+.dark .text-amber-200 { color: rgba(253, 230, 138, 0.7) !important; }
+.dark .text-amber-300 { color: rgba(252, 211, 77, 0.8) !important; }
+.dark .text-amber-400 { color: rgba(251, 191, 36, 0.9) !important; }
+.dark .text-orange-200 { color: rgba(254, 240, 199, 0.9) !important; }
+.dark .text-orange-300 { color: rgba(252, 211, 77, 0.85) !important; }
+.dark .hover\:bg-amber-900\/20:hover { background-color: rgba(120, 53, 15, 0.3) !important; }
+.dark .hover\:from-purple-400:hover { --tw-gradient-from: #d4a373 !important; }
+.dark .hover\:to-indigo-400:hover { --tw-gradient-to: #b28a52 !important; }
+.dark .hotfix { color: #f5e9d0; }
+.dark .shadow-xl { box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4) !important; }
+.dark .shadow-2xl { box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5) !important; }
+.dark .shadow-lg { box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35) !important; }
+.dark .bg-white\/5 { background-color: rgba(217, 119, 6, 0.05) !important; }
+.dark .ring-amber-500 { --tw-ring-color: rgba(217, 119, 6, 0.5) !important; }

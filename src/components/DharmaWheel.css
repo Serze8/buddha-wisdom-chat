@@ -1,0 +1,31 @@
+.dharma-spin-slow {
+  animation: dharma-spin 12s linear infinite;
+  transform-origin: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dharma-spin {
+    animation: none;
+  }
+}
+
+@keyframes dharma-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes petal-breathe {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 0.9; transform: scale(1.03); }
+}
+
+.petal-breathe {
+  animation: petal-breathe 6s ease-in-out infinite;
+  transform-origin: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .petal-breathe {
+    animation: none;
+  }
+}
