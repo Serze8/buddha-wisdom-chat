@@ -11,6 +11,8 @@ const eslintConfig = defineConfig([
     // dedicated type-refactor pass.
     rules: {
       "@typescript-eslint/no-explicit-any": "warn",
+      "react-hooks/set-state-in-effect": "warn",
+      "react-hooks/immutability": "warn",
     },
   },
   // Override default ignores of eslint-config-next.
